@@ -15,6 +15,9 @@
     "suspicious": "error"
   },
   "rules": {
+    // Not on by default, and it is the one hooks mistake that silently
+    // corrupts state ordering.
+    "react-hooks/rules-of-hooks": "error",
     // The automatic JSX runtime is on, so React does not need to be in scope.
     "react/react-in-jsx-scope": "off",
     // Side-effect imports are how stylesheets get loaded.
