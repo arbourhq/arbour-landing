@@ -61,7 +61,7 @@ export function HeroMock({ category }: { category: Category }) {
   return (
     <div className="relative overflow-hidden rounded-t-lg border-2 border-b-0 border-acid bg-app px-4 pt-5 pb-8 text-app-ink sm:px-6">
       <div className="mb-6 flex items-center justify-between gap-4">
-        <Wordmark className="text-[17px] text-bottle" />
+        <Wordmark className="text-[17px]" />
         <div className="flex items-center gap-3.5">
           <span className="label-mono hidden text-app-muted sm:inline">
             The Tannery · Red Hill

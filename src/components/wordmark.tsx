@@ -15,8 +15,7 @@
  * a Bottle mark. Never on a photograph, never outlined, never with a crossbar.
  */
 
-// oxlint-disable jsx-a11y/prefer-tag-over-role -- half the mark is live text,
-// so it cannot be an <img>.
+import Image from "next/image";
 
 export function ArbourA({ className }: { className?: string }) {
   return (
@@ -38,16 +37,29 @@ export function ArbourA({ className }: { className?: string }) {
   );
 }
 
+/**
+ * The full wordmark is the supplied Acid artwork, not live type, so it is
+ * always the same drawing at every size. The PNG is trimmed to the cap height,
+ * so the mark is set at 0.72em (Bricolage cap height) of whatever font-size the
+ * caller passes. Sizing therefore still works the way it always has: give it a
+ * text-[nn] class and the mark scales with it.
+ *
+ * The artwork is Acid, which fixes the colour: it belongs on Bottle. A caller
+ * cannot recolour it with a text-* class.
+ */
 export function Wordmark({ className }: { className?: string }) {
   return (
-    // The A is drawn, not typed, so the mark needs its own accessible name.
     <span
-      role="img"
-      aria-label="Arbour"
-      className={`inline-flex items-baseline font-display font-extrabold leading-none tracking-[0.04em] ${className ?? ""}`}
+      className={`inline-flex items-baseline leading-none ${className ?? ""}`}
     >
-      <ArbourA className="mr-[0.04em] h-[0.66em] w-auto self-baseline" />
-      <span aria-hidden="true">RBOUR</span>
+      <Image
+        src="/arbour-wordmark-acid.png"
+        alt="Arbour"
+        width={2400}
+        height={411}
+        priority
+        className="h-[0.72em] w-auto"
+      />
     </span>
   );
 }
