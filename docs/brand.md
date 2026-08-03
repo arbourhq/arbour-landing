@@ -110,7 +110,7 @@ Rules:
 
 FIXED, do not redesign: an open "A" with NO CROSSBAR (it reads as a triangular wedding arbour) followed by "RBOUR" in Bricolage Grotesque 800, all caps, `+0.04em` tracking.
 
-The A is drawn as a single stroked path, rounded caps and joins:
+The A is drawn as a single stroked path with rounded caps, and a FLAT TOP:
 
 ```html
 <svg viewBox="333 372 528 494" style="height:.66em;width:auto">
@@ -118,6 +118,14 @@ The A is drawn as a single stroked path, rounded caps and joins:
     stroke="currentColor" stroke-width="122"
     stroke-linecap="round" stroke-linejoin="round"></path>
 </svg>
+```
+
+The apex is flat, not domed. Only the two feet are round. The flat comes from the viewBox: it starts at `y=372` and the apex vertex is at `y=383`, so the top edge of the viewport cuts the join off 11 units above the vertex, leaving a flat 124.65 units wide. The join style is irrelevant because the whole join sits above the cut.
+
+THE VIEWBOX IS LOAD-BEARING. Do not raise its top edge, and do not re-frame the path into a bigger box without reproducing the cut, or the mark grows a rounded dome it has never had. Anything that re-frames the A (an app icon, a favicon, a social avatar) must clip at `y=372` in path coordinates:
+
+```html
+<clipPath id="a-flat-top"><rect x="260" y="372" width="620" height="560"/></clipPath>
 ```
 
 Set the SVG height to `0.66em` of the type size with about `0.04em` of right margin, aligned on the baseline of RBOUR.

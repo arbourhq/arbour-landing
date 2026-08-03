@@ -5,6 +5,12 @@
  * followed by RBOUR in Bricolage Grotesque 800, all caps, +0.04em tracking.
  * The A sits at 0.66em on the baseline with about 0.04em of right margin.
  *
+ * The apex is FLAT, and the viewBox is what makes it flat: it starts at y=372
+ * while the apex vertex is at y=383, so the top edge of the viewport cuts the
+ * join off 11 units above the vertex. Only the feet are round. Do not raise
+ * the top of the viewBox, and do not re-frame this path into a larger box
+ * without clipping at y=372, or the A grows a dome it has never had.
+ *
  * Valid grounds: Acid with a Bottle mark, Bottle with an Acid mark, Cream with
  * a Bottle mark. Never on a photograph, never outlined, never with a crossbar.
  */
