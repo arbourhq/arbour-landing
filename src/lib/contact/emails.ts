@@ -2,7 +2,19 @@
  * The contact form produces two emails: the one that lands in our inbox, and
  * the receipt the sender gets. Same rules as the waitlist emails, no em dashes,
  * no emoji, and no promise of a response time we cannot keep.
+ *
+ * The receipt comes from Arbour, not from Ben and Alex personally. A person
+ * still answers the reply, but the sender is the company.
  */
+import { SITE } from "@/content/site";
+
+/**
+ * Absolute because email clients have no origin to resolve against. Acid on
+ * transparent, so it only ever sits on the Bottle panel.
+ */
+const WORDMARK = `${SITE.url}/arbour-wordmark-acid.png`;
+const WORDMARK_W = 168;
+const WORDMARK_H = 29; // source is 2400x411
 
 const CREAM = "#FFFBEF";
 const BOTTLE = "#0B4030";
@@ -46,14 +58,14 @@ export function receiptText({ topic, message }: ContactMessage) {
     "",
     `Down as: ${topic}.`,
     "",
-    "One of the two of us reads this, so the reply comes from a person rather than a queue. If it is a Saturday, expect it to be a slow one, we are probably at a wedding.",
+    "A person reads every one of these, so the reply is not a queue. If it is a Saturday, expect a slow one, there is a wedding on.",
     "",
     "Your message, for your records:",
     "",
     message,
     "",
-    "Ben and Alex",
-    "Arbour, the OS that weddings run on",
+    "Arbour",
+    "The OS that weddings run on",
   ].join("\n");
 }
 
@@ -70,9 +82,8 @@ export function receiptHtml({ topic, message }: ContactMessage) {
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
 
         <tr><td style="background:${BOTTLE};padding:36px 32px;">
-          <div style="color:${ACID};font-size:26px;font-weight:800;letter-spacing:0.04em;line-height:1;">
-            &#9651;RBOUR
-          </div>
+          <img src="${WORDMARK}" width="${WORDMARK_W}" height="${WORDMARK_H}" alt="Arbour"
+            style="display:block;border:0;outline:none;text-decoration:none;width:${WORDMARK_W}px;height:${WORDMARK_H}px;color:${ACID};font-size:26px;font-weight:800;letter-spacing:0.04em;">
           <div style="color:${ACID};font-size:36px;font-weight:800;letter-spacing:-0.03em;line-height:1.05;margin-top:28px;">
             Got it.
           </div>
@@ -86,8 +97,8 @@ export function receiptHtml({ topic, message }: ContactMessage) {
 
         <tr><td style="background:${CREAM};padding:32px;box-shadow:inset 0 0 0 1px rgba(15,42,30,0.2);">
           <p style="margin:0 0 18px;font-size:16px;line-height:1.55;">
-            One of the two of us reads this, so the reply comes from a person rather than a
-            queue. If it is a Saturday, expect it to be a slow one, we are probably at a wedding.
+            A person reads every one of these, so the reply is not a queue. If it is a Saturday,
+            expect a slow one, there is a wedding on.
           </p>
           <p style="margin:0 0 10px;font-family:${MONO};font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${INK};opacity:0.55;">
             What you sent
@@ -96,7 +107,7 @@ export function receiptHtml({ topic, message }: ContactMessage) {
         </td></tr>
 
         <tr><td style="background:${BOTTLE};padding:24px 32px;">
-          <p style="margin:0;color:${CREAM};font-size:15px;line-height:1.5;">Ben and Alex</p>
+          <p style="margin:0;color:${CREAM};font-size:15px;line-height:1.5;">Arbour</p>
           <p style="margin:8px 0 0;font-family:${MONO};font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${ACID};">
             The OS that weddings run on
           </p>

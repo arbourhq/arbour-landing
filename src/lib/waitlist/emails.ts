@@ -4,7 +4,19 @@
  *
  * Email clients cannot be trusted to load Bricolage or Instrument Sans, so the
  * stack falls back to system faces. Colour and shape carry the brand instead.
+ *
+ * These come from Arbour, not from Ben and Alex personally. A person still
+ * answers a reply, but the sender is the company.
  */
+import { SITE } from "@/content/site";
+
+/**
+ * Absolute because email clients have no origin to resolve against. Acid on
+ * transparent, so it only ever sits on the Bottle panel.
+ */
+const WORDMARK = `${SITE.url}/arbour-wordmark-acid.png`;
+const WORDMARK_W = 168;
+const WORDMARK_H = 29; // source is 2400x411
 
 const CREAM = "#FFFBEF";
 const BOTTLE = "#0B4030";
@@ -37,10 +49,10 @@ export function confirmationText(category: string) {
     "",
     "What happens now: nothing, for a while. We are building. When the first release is good enough to run a real season on, the waitlist hears first, in the order people joined. One email, not a drip sequence.",
     "",
-    "If you are a venue or a group and you want to talk about the House plan, reply to this. It will not be a sales call, it will be one of the two of us.",
+    "Venues and groups wanting to talk about the House plan can reply to this. It is not a sales call, and a person answers it.",
     "",
-    "Ben and Alex",
-    "Arbour, the OS that weddings run on",
+    "Arbour",
+    "The OS that weddings run on",
   ].join("\n");
 }
 
@@ -56,9 +68,8 @@ export function confirmationHtml(category: string) {
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;">
 
         <tr><td style="background:${BOTTLE};padding:36px 32px;">
-          <div style="color:${ACID};font-size:26px;font-weight:800;letter-spacing:0.04em;line-height:1;">
-            &#9651;RBOUR
-          </div>
+          <img src="${WORDMARK}" width="${WORDMARK_W}" height="${WORDMARK_H}" alt="Arbour"
+            style="display:block;border:0;outline:none;text-decoration:none;width:${WORDMARK_W}px;height:${WORDMARK_H}px;color:${ACID};font-size:26px;font-weight:800;letter-spacing:0.04em;">
           <div style="color:${ACID};font-size:36px;font-weight:800;letter-spacing:-0.03em;line-height:1.05;margin-top:28px;">
             You are on the list.
           </div>
@@ -81,13 +92,13 @@ export function confirmationHtml(category: string) {
             joined. One email, not a drip sequence.
           </p>
           <p style="margin:0;font-size:16px;line-height:1.55;">
-            If you are a venue or a group and you want to talk about the House plan, reply to
-            this. It will not be a sales call, it will be one of the two of us.
+            Venues and groups wanting to talk about the House plan can reply to this. It is not
+            a sales call, and a person answers it.
           </p>
         </td></tr>
 
         <tr><td style="background:${BOTTLE};padding:24px 32px;">
-          <p style="margin:0;color:${CREAM};font-size:15px;line-height:1.5;">Ben and Alex</p>
+          <p style="margin:0;color:${CREAM};font-size:15px;line-height:1.5;">Arbour</p>
           <p style="margin:8px 0 0;font-family:${MONO};font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${ACID};">
             The OS that weddings run on
           </p>
