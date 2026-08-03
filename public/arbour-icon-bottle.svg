@@ -1,0 +1,33 @@
+<!--
+  Arbour app icon, colours flipped. Bottle ground, Acid A.
+
+  The A is FIXED. Geometry is the wordmark path verbatim, with three things
+  layered on top:
+
+  1. The apex is FLAT, not rounded. The mark is a mitred V cut off by a
+     horizontal line 11 units above the vertex (0.089 of the stroke width),
+     measured off the master wordmark artwork in arbour-wordmark-acid.png.
+     Round joins and round caps are only correct at the two feet.
+  2. The viewBox is the wordmark's own box scaled by 12 (64 x 12 = 768), and
+     the inner translate centres the A horizontally and drops it 7 units below
+     the geometric centre so an upward triangle sits optically level.
+  3. The outer group scales the whole mark down about the centre of the box to
+     sit it back off the edges.
+
+  Square corners, no gradient, no shadow.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" width="768" height="768">
+  <defs>
+    <clipPath id="arbour-a-flat-top">
+      <rect x="260" y="372" width="620" height="560"/>
+    </clipPath>
+  </defs>
+  <rect width="768" height="768" fill="#0B4030"/>
+  <g transform="translate(384 384) scale(.88) translate(-384 -384)">
+    <g transform="translate(-213 -228)">
+      <path d="M394 805 L595 383 L796 805" fill="none" stroke="#C6FF3D"
+        stroke-width="122" stroke-linecap="round" stroke-linejoin="miter"
+        clip-path="url(#arbour-a-flat-top)"/>
+    </g>
+  </g>
+</svg>
