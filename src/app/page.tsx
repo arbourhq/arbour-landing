@@ -1,13 +1,44 @@
+import { CategoryProvider } from "@/components/category-context";
+import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
+import { SiteNav } from "@/components/site-nav";
+import { SiteFooter } from "@/components/site-footer";
+import { Marquee } from "@/components/marquee";
+import { Hero } from "@/components/home/hero";
+import { Problem } from "@/components/home/problem";
+import { Product } from "@/components/home/product";
+import { Building } from "@/components/home/building";
+import { Sales } from "@/components/home/sales";
+import { Pricing } from "@/components/home/pricing";
+import { Faq } from "@/components/home/faq";
+import { FinalCta } from "@/components/home/final-cta";
+
+const MARQUEE_ITEMS = [
+  "Run sheets",
+  "Deposit chasing",
+  "Seating plans",
+  "Vendor briefs",
+  "Final headcounts",
+  "Timeline builder",
+];
+
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-4 px-6 text-center">
-      <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-        Arbour
-      </h1>
-      <p className="max-w-md text-balance text-lg text-foreground/60">
-        The CRM for wedding professionals.
-      </p>
-      <p className="text-sm text-foreground/40">Landing page coming soon.</p>
-    </main>
+    <WaitlistProvider>
+      <CategoryProvider>
+        <SiteNav />
+        <main>
+          <Hero />
+          <Marquee items={MARQUEE_ITEMS} className="bg-bottle text-acid" />
+          <Problem />
+          <Product />
+          <Building />
+          <Sales />
+          <Pricing />
+          <Faq />
+          <FinalCta />
+        </main>
+        <SiteFooter />
+      </CategoryProvider>
+    </WaitlistProvider>
   );
 }

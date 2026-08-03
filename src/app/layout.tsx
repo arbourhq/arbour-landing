@@ -1,21 +1,52 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import {
+  Bricolage_Grotesque,
+  Instrument_Sans,
+  Martian_Mono,
+} from "next/font/google";
+import { SITE } from "@/content/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Bricolage is only ever set at 800. Instrument Sans carries 400/600.
+// Martian Mono is uppercase labels only, never body copy.
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
+  variable: "--font-bricolage",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const instrument = Instrument_Sans({
   subsets: ["latin"],
+  variable: "--font-instrument",
+  display: "swap",
+});
+
+const martian = Martian_Mono({
+  subsets: ["latin"],
+  variable: "--font-martian",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Arbour — The CRM for wedding professionals",
-  description:
-    "Arbour is the CRM built for wedding professionals — manage leads, clients, and bookings in one place.",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: `Arbour · ${SITE.tagline}`,
+    template: "%s · Arbour",
+  },
+  description: SITE.description,
+  openGraph: {
+    title: `Arbour · ${SITE.tagline}`,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: "Arbour",
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Arbour · ${SITE.tagline}`,
+    description: SITE.description,
+  },
 };
 
 export default function RootLayout({
@@ -25,10 +56,10 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="en-AU"
+      className={`${bricolage.variable} ${instrument.variable} ${martian.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

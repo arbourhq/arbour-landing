@@ -1,26 +1,323 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   Arbour tokens. Source of truth is docs/brand.md.
+   Acid sells Arbour, Sprout runs it: Sprout may only appear inside a product
+   mock on this site, never as a marketing surface.
+   --------------------------------------------------------------------------- */
+@theme {
+  --color-bottle: #0b4030;
+  --color-bottle-deep: #083023;
+  --color-bottle-ink: #052117;
+  --color-acid: #c6ff3d;
+  --color-sprout: #9fe870;
+  --color-coral: #ff4438;
+  --color-cornflower: #4e6df5;
+  --color-lilac: #b9a7ff;
+  --color-cream: #fffbef;
+  --color-ink: #0f2a1e;
+
+  --color-cream-sunken: #f6f0dc;
+  --color-cream-inset: #ede5c9;
+  --color-bottle-wash: #e9f1eb;
+  --color-acid-wash: #f0ffce;
+  --color-sprout-wash: #eafadd;
+  --color-coral-wash: #ffe5e2;
+  --color-cornflower-wash: #e7ebfe;
+  --color-lilac-wash: #f1edff;
+  --color-ochre: #dfa023;
+
+  /* In-product grounds. Only legal inside a product mock. */
+  --color-app: #f4f4f1;
+  --color-app-panel: #ffffff;
+  --color-app-sunken: #fbfbf9;
+  --color-app-ink: #17211b;
+  --color-app-muted: #7a7a72;
+  --color-app-faint: #9a9a92;
+  --color-app-fainter: #c8c8c0;
+
+  --font-display: var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
+  --font-sans: var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
+  --font-mono: var(--font-martian), "Martian Mono", ui-monospace, monospace;
+
+  --ease-overshoot: cubic-bezier(0.34, 1.8, 0.45, 1);
+  --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --animate-marquee: marquee 26s linear infinite;
+  --animate-pop: pop 3.4s cubic-bezier(0.34, 1.9, 0.45, 1) infinite;
+  --animate-wob: wob 3.2s cubic-bezier(0.34, 1.7, 0.45, 1) infinite;
+  --animate-drift: drift 5s ease-in-out infinite;
+  --animate-spin-slow: spin 6s linear infinite;
+  --animate-blink: blink 1.6s steps(1) infinite;
+  --animate-drop: drop 3.4s cubic-bezier(0.3, 1.8, 0.5, 1) infinite;
+  --animate-squash: squash 3.5s cubic-bezier(0.34, 1.9, 0.4, 1) infinite;
+  --animate-unfold: unfold 3.8s cubic-bezier(0.2, 1.9, 0.35, 1) infinite;
+  --animate-tilt: tilt 3.5s cubic-bezier(0.34, 1.8, 0.4, 1) infinite;
+  --animate-nudge: nudge 2.4s cubic-bezier(0.34, 1.7, 0.45, 1) infinite;
+  --animate-rec: rec 1.4s steps(1) infinite;
+  --animate-cursor: cursor 1.1s steps(1) infinite;
+  --animate-slide: slide 5s ease-in-out infinite;
+  --animate-zoom: zoom 0.42s cubic-bezier(0.34, 1.8, 0.45, 1) both;
+  --animate-fade: fade 0.2s ease both;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes pop {
+  0%,
+  72%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  10% {
+    transform: translateY(-18px) scale(1.14);
+  }
+  26% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes wob {
+  0%,
+  72%,
+  100% {
+    transform: rotate(0);
+  }
+  8% {
+    transform: rotate(9deg);
+  }
+  18% {
+    transform: rotate(-7deg);
+  }
+  27% {
+    transform: rotate(4deg);
+  }
+  36% {
+    transform: rotate(0);
+  }
+}
+@keyframes drift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+@keyframes blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.25;
+  }
+}
+@keyframes drop {
+  0%,
+  70%,
+  100% {
+    transform: translateY(0) scaleY(1);
+  }
+  6% {
+    transform: translateY(-42px) scaleY(1.12);
+  }
+  20% {
+    transform: translateY(0) scaleY(0.74);
+  }
+  28% {
+    transform: translateY(0) scaleY(1.08);
+  }
+  36% {
+    transform: translateY(0) scaleY(1);
+  }
+}
+@keyframes squash {
+  0%,
+  70%,
+  100% {
+    transform: scale(1, 1);
+  }
+  10% {
+    transform: scale(1.45, 0.62);
+  }
+  22% {
+    transform: scale(0.8, 1.4);
+  }
+  34% {
+    transform: scale(1, 1);
+  }
+}
+@keyframes unfold {
+  0%,
+  70%,
+  100% {
+    transform: scaleX(1);
+  }
+  6% {
+    transform: scaleX(0.06);
+  }
+  24% {
+    transform: scaleX(1.4);
+  }
+  38% {
+    transform: scaleX(1);
+  }
+}
+@keyframes tilt {
+  0%,
+  70%,
+  100% {
+    transform: rotate(0) scale(1);
+  }
+  12% {
+    transform: rotate(-10deg) scale(1.28);
+  }
+  26% {
+    transform: rotate(6deg) scale(0.92);
+  }
+  40% {
+    transform: rotate(0) scale(1);
+  }
+}
+@keyframes nudge {
+  0%,
+  60%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  42% {
+    transform: translateX(2px);
+  }
+}
+@keyframes rec {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.15;
+  }
+}
+@keyframes cursor {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes slide {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+@keyframes zoom {
+  from {
+    transform: translateY(24px) scale(0.94);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  /* The nav is sticky (72px), so anchored sections have to clear it. This is
+     the only place that offset is set. Adding scroll-mt to a section as well
+     stacks with it and lands the heading a nav-height too low. */
+  scroll-padding-top: 5rem;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  /* clip, not hidden. overflow-x: hidden makes <body> its own scroll container,
+     which strands smooth scrolling and scroll-padding on <html> and lands every
+     anchor link at the wrong offset. clip contains the overflow without one. */
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-acid);
+  color: var(--color-bottle);
+}
+
+:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--color-bottle) 55%, transparent);
+  outline-offset: 2px;
+}
+
+/* On Bottle and Acid grounds the Bottle ring disappears, so invert it. */
+.on-dark :focus-visible {
+  outline-color: var(--color-acid);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Letterpress, never a blurred drop shadow. */
+@utility press {
+  box-shadow: inset 0 -4px 0 rgb(11 64 48 / 0.4);
+}
+@utility press-lg {
+  box-shadow: inset 0 -5px 0 rgb(11 64 48 / 0.5);
+}
+@utility press-dark {
+  box-shadow: inset 0 -5px 0 rgb(0 0 0 / 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
