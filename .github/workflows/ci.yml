@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Supersede in-flight runs for the same branch; the newest push is the only one worth checking.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.14
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      # Steps after the first use !cancelled() so one run surfaces every problem
+      # rather than making you fix them one push at a time.
+      - name: Format check
+        run: make format-check
+
+      # next build typechecks, but Next 16 dropped linting from the build, so lint is
+      # the gap CI actually fills.
+      - name: Lint
+        if: ${{ !cancelled() }}
+        run: bun run lint
+
+      - name: Typecheck
+        if: ${{ !cancelled() }}
+        run: bun run typecheck
