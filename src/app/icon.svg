@@ -1,0 +1,17 @@
+<!--
+  Arbour app icon. Acid ground, Bottle A.
+
+  The path, stroke width, round caps and round joins are copied verbatim from
+  the wordmark in src/components/wordmark.tsx. The A is FIXED, so the only
+  thing this file does is place it: the viewBox is the wordmark's own box
+  scaled by 12 (64 x 12 = 768), and the translate centres the A horizontally
+  and drops it 7 units below the geometric centre so an upward triangle sits
+  optically level. Square corners, no gradient, no shadow.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 768 768" width="768" height="768">
+  <rect width="768" height="768" fill="#C6FF3D"/>
+  <g transform="translate(-213 -228)">
+    <path d="M394 805 L595 383 L796 805" fill="none" stroke="#0B4030"
+      stroke-width="122" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
