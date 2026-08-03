@@ -7,7 +7,9 @@ export default function Home() {
       <p className="max-w-md text-balance text-lg text-foreground/60">
         The CRM for wedding professionals.
       </p>
-      <p className="text-sm text-foreground/40">Landing page coming soon.</p>
+      <p className="text-sm text-foreground/40">
+        Landing page coming soon. (preview check)
+      </p>
     </main>
   );
 }
