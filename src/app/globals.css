@@ -36,7 +36,8 @@
   --color-app-faint: #9a9a92;
   --color-app-fainter: #c8c8c0;
 
-  --font-display: var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display:
+    var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
   --font-sans: var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
   --font-mono: var(--font-martian), "Martian Mono", ui-monospace, monospace;
 

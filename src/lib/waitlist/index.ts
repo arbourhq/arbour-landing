@@ -12,7 +12,9 @@ export type { WaitlistProvider, WaitlistResult, WaitlistSignup };
 const loggingProvider: WaitlistProvider = {
   name: "logging",
   async add({ email, category }) {
-    console.info(`[waitlist] ${email} · ${category} (not persisted, no provider configured)`);
+    console.info(
+      `[waitlist] ${email} · ${category} (not persisted, no provider configured)`,
+    );
     return { ok: true, alreadyOnList: false };
   },
 };

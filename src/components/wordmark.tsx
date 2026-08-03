@@ -9,6 +9,9 @@
  * a Bottle mark. Never on a photograph, never outlined, never with a crossbar.
  */
 
+// oxlint-disable jsx-a11y/prefer-tag-over-role -- half the mark is live text,
+// so it cannot be an <img>.
+
 export function ArbourA({ className }: { className?: string }) {
   return (
     <svg

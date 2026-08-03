@@ -7,6 +7,17 @@ import { Wordmark } from "./wordmark";
 import { WaitlistButton } from "./waitlist/waitlist-button";
 import { NAV_LINKS } from "@/content/site";
 
+// Anchor links have to be driven by hand. Left to the router they land at the
+// wrong offset, because the section heights change under a smooth scroll as
+// the Reveal blocks in between resolve. scrollIntoView honours the
+// scroll-padding-top on <html>, so the nav never covers the heading.
+function scrollToId(id: string) {
+  const target = document.getElementById(id);
+  if (!target) return false;
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  return true;
+}
+
 /**
  * One ground on every page. It used to flip to Acid on About and Thanks so the
  * bar matched the flood beneath it, but that read as two different navs, so the
@@ -15,17 +26,6 @@ import { NAV_LINKS } from "@/content/site";
 export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-
-  // Anchor links have to be driven by hand. Left to the router they land at the
-  // wrong offset, because the section heights change under a smooth scroll as
-  // the Reveal blocks in between resolve. scrollIntoView honours the
-  // scroll-padding-top on <html>, so the nav never covers the heading.
-  function scrollToId(id: string) {
-    const target = document.getElementById(id);
-    if (!target) return false;
-    target.scrollIntoView({ behavior: "smooth", block: "start" });
-    return true;
-  }
 
   // Arriving from another page, e.g. /about to /#pricing. The router restores
   // the hash before the page has settled, so do it again once it has.
@@ -47,7 +47,8 @@ export function SiteNav() {
     // modified click is the user asking for a new tab.
     if (!id) return;
     if ((path || "/") !== pathname) return;
-    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+      return;
 
     if (scrollToId(id)) {
       event.preventDefault();

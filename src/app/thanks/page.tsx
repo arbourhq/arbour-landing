@@ -39,8 +39,7 @@ export default async function ThanksPage({
 }) {
   const { category } = await searchParams;
   // Only echo back a category we recognise, never arbitrary query text.
-  const known =
-    category && CATEGORY_NAMES.includes(category) ? category : null;
+  const known = category && CATEGORY_NAMES.includes(category) ? category : null;
 
   return (
     <WaitlistProvider>

@@ -148,7 +148,10 @@ function Bookings() {
       <Panel>
         <div className="grid grid-cols-7 gap-1.5">
           {days.map((day) => (
-            <div key={day} className="label-mono pb-1 text-[8px] text-app-faint">
+            <div
+              key={day}
+              className="label-mono pb-1 text-[8px] text-app-faint"
+            >
               {day}
             </div>
           ))}

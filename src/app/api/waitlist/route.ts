@@ -29,8 +29,10 @@ export async function POST(request: Request) {
     return Response.json({ ok: true });
   }
 
-  const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
-  const category = typeof body.category === "string" ? body.category.trim() : "";
+  const email =
+    typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+  const category =
+    typeof body.category === "string" ? body.category.trim() : "";
 
   if (!EMAIL.test(email) || email.length > 254) {
     return bad("That email address does not look right.");

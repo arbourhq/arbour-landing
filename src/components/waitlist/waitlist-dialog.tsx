@@ -88,13 +88,12 @@ export function WaitlistDialog({
       router.push(`/thanks?category=${encodeURIComponent(category)}`);
     } catch (err) {
       setStatus("error");
-      setError(
-        err instanceof Error ? err.message : "That did not go through.",
-      );
+      setError(err instanceof Error ? err.message : "That did not go through.");
     }
   }
 
   return (
+    // oxlint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions -- <dialog> is interactive and closes on Esc already; this only adds click-outside.
     <dialog
       ref={dialogRef}
       onClose={onClose}

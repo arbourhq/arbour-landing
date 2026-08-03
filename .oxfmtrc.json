@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  // The codebase was written at 80 columns. Keep it there.
+  "printWidth": 80,
+  // Markdown here is hand-kept prose (the brand reference, the agent rules
+  // block Next.js regenerates), so leave it alone.
+  "ignorePatterns": ["**/*.md"]
+}
