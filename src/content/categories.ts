@@ -6,6 +6,9 @@
  * Ported verbatim from the design bundle's marketing-site template.
  */
 
+// oxlint-disable unicorn/no-thenable -- `then` here is the automation's
+// "when/then", not a promise.
+
 export type RunSheetRow = {
   time: string;
   label: string;
@@ -52,7 +55,11 @@ export const CATEGORIES: Category[] = [
     },
     runSheet: [
       { time: "07:30", label: "First light · detail flatlays", done: true },
-      { time: "11:00", label: "Getting-ready coverage, both sides", done: true },
+      {
+        time: "11:00",
+        label: "Getting-ready coverage, both sides",
+        done: true,
+      },
       { time: "15:30", label: "Ceremony · under the arbour", state: "Locked" },
       {
         time: "17:45",
@@ -89,7 +96,11 @@ export const CATEGORIES: Category[] = [
         label: "Gear check · batteries, cards, spare audio",
         done: true,
       },
-      { time: "11:00", label: "Prep b-roll while the light is soft", done: true },
+      {
+        time: "11:00",
+        label: "Prep b-roll while the light is soft",
+        done: true,
+      },
       {
         time: "15:30",
         label: "Ceremony · two angles, one backup mic",
@@ -100,7 +111,11 @@ export const CATEGORIES: Category[] = [
         label: "Speeches, lav on whoever holds the mic",
         state: "Locked",
       },
-      { time: "22:00", label: "Dance floor, then offload on site", state: "Locked" },
+      {
+        time: "22:00",
+        label: "Dance floor, then offload on site",
+        state: "Locked",
+      },
     ],
   },
   {
@@ -129,7 +144,11 @@ export const CATEGORIES: Category[] = [
       { time: "08:00", label: "Conditioning in the cool room", done: true },
       { time: "12:00", label: "Arbour install on site", state: "Locked" },
       { time: "14:00", label: "Bouquets to the bridal suite", state: "Locked" },
-      { time: "23:30", label: "Bump-out, vases back in the van", state: "Locked" },
+      {
+        time: "23:30",
+        label: "Bump-out, vases back in the van",
+        state: "Locked",
+      },
     ],
   },
   {
@@ -157,7 +176,11 @@ export const CATEGORIES: Category[] = [
       },
       { time: "15:15", label: "Sign the witnesses in", done: true },
       { time: "15:30", label: "Ceremony · under the arbour", state: "Locked" },
-      { time: "15:58", label: "Register signed, three signatures", state: "Locked" },
+      {
+        time: "15:58",
+        label: "Register signed, three signatures",
+        state: "Locked",
+      },
       { time: "16:10", label: "Certificate handed over", state: "Locked" },
     ],
   },
@@ -192,7 +215,8 @@ export const CATEGORIES: Category[] = [
   },
   {
     name: "Caterers",
-    heroSub: "Final numbers in, nine dietaries flagged, canapés timed to the photos.",
+    heroSub:
+      "Final numbers in, nine dietaries flagged, canapés timed to the photos.",
     jobLabel: "122 covers",
     meta: "Sent Tuesday · 122 covers",
     stages: [
@@ -210,8 +234,16 @@ export const CATEGORIES: Category[] = [
       { time: "06:00", label: "Prep kitchen · sauces and garnish", done: true },
       { time: "13:00", label: "Load-in, set the pass", done: true },
       { time: "17:00", label: "Canapés out during photos", state: "Locked" },
-      { time: "18:45", label: "Mains · 122 covers, 9 dietaries", state: "Locked" },
-      { time: "22:00", label: "Late-night rolls, the real hero", state: "Locked" },
+      {
+        time: "18:45",
+        label: "Mains · 122 covers, 9 dietaries",
+        state: "Locked",
+      },
+      {
+        time: "22:00",
+        label: "Late-night rolls, the real hero",
+        state: "Locked",
+      },
     ],
   },
   {
@@ -220,7 +252,13 @@ export const CATEGORIES: Category[] = [
       "Set times agreed, do-not-play list received, one lift and no stairs. Allegedly.",
     jobLabel: "4 x 45min",
     meta: "Sent Tuesday · set times",
-    stages: ["Enquiry in", "Date held", "Contract out", "Deposit paid", "Played"],
+    stages: [
+      "Enquiry in",
+      "Date held",
+      "Contract out",
+      "Deposit paid",
+      "Played",
+    ],
     automation: {
       when: "A booking is confirmed",
       then: "Send the do-not-play list and confirm power and load-in access",
@@ -243,10 +281,17 @@ export const CATEGORIES: Category[] = [
   },
   {
     name: "Hair & makeup",
-    heroSub: "Timing plan sent, trial signed off, six faces in the right order.",
+    heroSub:
+      "Timing plan sent, trial signed off, six faces in the right order.",
     jobLabel: "6 faces",
     meta: "Sent Tuesday · timing plan",
-    stages: ["Enquiry in", "Trial booked", "Quote sent", "Deposit paid", "Done"],
+    stages: [
+      "Enquiry in",
+      "Trial booked",
+      "Quote sent",
+      "Deposit paid",
+      "Done",
+    ],
     automation: {
       when: "The trial is finished",
       then: "Send the timing plan and the night-before hair-wash reminder",
@@ -255,13 +300,18 @@ export const CATEGORIES: Category[] = [
       { time: "06:30", label: "Arrive, set up by the good window", done: true },
       { time: "07:00", label: "Bridesmaid one · the early riser", done: true },
       { time: "09:30", label: "Mother of the bride", state: "Locked" },
-      { time: "10:30", label: "Bride · 75 minutes, protected", state: "Locked" },
+      {
+        time: "10:30",
+        label: "Bride · 75 minutes, protected",
+        state: "Locked",
+      },
       { time: "11:45", label: "Touch-up kit handed over", state: "Locked" },
     ],
   },
   {
     name: "Stylists",
-    heroSub: "Hire confirmed, floor plan with the venue, twelve rounds to dress.",
+    heroSub:
+      "Hire confirmed, floor plan with the venue, twelve rounds to dress.",
     jobLabel: "12 rounds",
     meta: "Sent Tuesday · floor plan",
     stages: [
@@ -276,7 +326,11 @@ export const CATEGORIES: Category[] = [
       then: "Lock the hire items and send the floor plan to the venue",
     },
     runSheet: [
-      { time: "09:00", label: "Hire delivery · count everything twice", done: true },
+      {
+        time: "09:00",
+        label: "Hire delivery · count everything twice",
+        done: true,
+      },
       { time: "10:30", label: "Tablescape · twelve rounds", done: true },
       { time: "13:00", label: "Signage and seating chart", state: "Locked" },
       {
@@ -289,7 +343,8 @@ export const CATEGORIES: Category[] = [
   },
   {
     name: "Cake",
-    heroSub: "Three tiers, one spare, and the venue found a cold room after all.",
+    heroSub:
+      "Three tiers, one spare, and the venue found a cold room after all.",
     jobLabel: "3 tiers",
     meta: "Sent Tuesday · three tiers",
     stages: [
@@ -306,8 +361,16 @@ export const CATEGORIES: Category[] = [
     runSheet: [
       { time: "05:00", label: "Bake · three tiers, one spare", done: true },
       { time: "09:00", label: "Crumb coat and chill", done: true },
-      { time: "13:00", label: "Final finish, fresh flowers on", state: "Locked" },
-      { time: "15:00", label: "Delivery · cold room, not the sun", state: "Locked" },
+      {
+        time: "13:00",
+        label: "Final finish, fresh flowers on",
+        state: "Locked",
+      },
+      {
+        time: "15:00",
+        label: "Delivery · cold room, not the sun",
+        state: "Locked",
+      },
       { time: "20:30", label: "Cut and served", state: "Locked" },
     ],
   },

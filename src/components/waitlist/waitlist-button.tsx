@@ -1,6 +1,10 @@
 "use client";
 
-import { buttonClass, type ButtonSize, type ButtonVariant } from "@/components/ui/button";
+import {
+  buttonClass,
+  type ButtonSize,
+  type ButtonVariant,
+} from "@/components/ui/button";
 import { useWaitlist } from "./waitlist-context";
 
 export function WaitlistButton({

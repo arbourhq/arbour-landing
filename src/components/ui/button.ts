@@ -37,5 +37,7 @@ export function buttonClass(
   size: ButtonSize = "md",
   extra?: string,
 ) {
-  return [BASE, VARIANTS[variant], SIZES[size], extra].filter(Boolean).join(" ");
+  return [BASE, VARIANTS[variant], SIZES[size], extra]
+    .filter(Boolean)
+    .join(" ");
 }

@@ -20,7 +20,8 @@ const PANELS = [
   {
     title: "Contracts",
     body: "Send, sign, countersign, done. No printer, no scanner, no “can you photograph it?”",
-    ground: "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+    ground:
+      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
     chip: "bg-bottle animate-squash origin-bottom",
   },
   {
@@ -86,7 +87,9 @@ export function Product() {
                 <div className="mb-2 font-display text-[26px] font-extrabold tracking-[-0.03em]">
                   {panel.title}
                 </div>
-                <div className={`text-[15px] leading-relaxed ${panel.bodyClass ?? ""}`}>
+                <div
+                  className={`text-[15px] leading-relaxed ${panel.bodyClass ?? ""}`}
+                >
                   {panel.body}
                 </div>
               </div>

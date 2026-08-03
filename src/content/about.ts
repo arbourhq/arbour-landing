@@ -94,7 +94,8 @@ export const RULES = [
   {
     title: "No feature that only a demo needs",
     body: "If it does not survive a real Saturday, it does not ship. We test on our own weddings first.",
-    ground: "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+    ground:
+      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
     chip: "bg-bottle animate-squash origin-bottom",
   },
   {

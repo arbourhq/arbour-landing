@@ -42,7 +42,11 @@ export function Hero() {
             </WaitlistButton>
             <a
               href="#building"
-              className={buttonClass("outlineAcid", "lg", "hover:rotate-[1deg]")}
+              className={buttonClass(
+                "outlineAcid",
+                "lg",
+                "hover:rotate-[1deg]",
+              )}
             >
               See what we&rsquo;re building
             </a>

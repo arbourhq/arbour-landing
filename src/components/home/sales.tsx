@@ -13,7 +13,8 @@ const EXTRAS = [
   },
   {
     label: "Lead source reporting that is actually honest",
-    ground: "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+    ground:
+      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
     chip: "bg-bottle animate-unfold origin-left",
     tilt: "hover:rotate-[1deg]",
   },
