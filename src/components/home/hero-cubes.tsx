@@ -85,8 +85,7 @@ export function HeroCubes() {
         if (!el) return;
         const tx = (e.clientX / window.innerWidth - 0.5) * 10;
         const ty = (e.clientY / window.innerHeight - 0.5) * -8;
-        el.style.transform =
-          `rotateX(${BASE_X + ty}deg) rotateY(${BASE_Y + tx}deg)`;
+        el.style.transform = `rotateX(${BASE_X + ty}deg) rotateY(${BASE_Y + tx}deg)`;
       });
     };
     window.addEventListener("mousemove", onMove);

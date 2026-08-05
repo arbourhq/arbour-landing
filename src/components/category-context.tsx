@@ -20,8 +20,9 @@ export function useCategory() {
 }
 
 /**
- * Picking a category in the hero re-skins the hero mock, the product tabs and
- * the pipeline further down the page. One choice, three sections.
+ * Picking a category in the hero re-skins the hero mock and the pipeline
+ * further down the page. The product tabs are screenshots now, so they do not
+ * follow the choice.
  */
 export function CategoryProvider({ children }: { children: React.ReactNode }) {
   const [index, setIndex] = useState(0);
