@@ -2,6 +2,7 @@
 
 import { HERO_CATEGORIES } from "@/content/categories";
 import { useCategory } from "@/components/category-context";
+import { HeroCubes } from "@/components/home/hero-cubes";
 import { HeroMock } from "@/components/product/hero-mock";
 import { WaitlistButton } from "@/components/waitlist/waitlist-button";
 import { buttonClass } from "@/components/ui/button";
@@ -11,7 +12,8 @@ export function Hero() {
 
   return (
     <section className="on-dark relative bg-bottle px-6 pt-16 sm:px-10">
-      <div className="mx-auto max-w-[1180px]">
+      <div className="relative mx-auto max-w-[1180px]">
+        <HeroCubes />
         {/* 0.95, not the usual 0.85: the tail of the y in Saturday and the dot
             of the i in isn't sit in the same column. Measured against the real
             font, the ink separates at 0.93 and 0.95 leaves about 2px of air.
