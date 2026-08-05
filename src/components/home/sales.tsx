@@ -39,7 +39,7 @@ export function Sales() {
     <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
       <div className="mx-auto max-w-[1180px]">
         <Reveal>
-          <p className="eyebrow mb-5 opacity-55">04 · The sales side</p>
+          <p className="eyebrow mb-5 opacity-55">05 · The sales side</p>
           <h2 className="m-0 mb-3.5 max-w-[24ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
             The wedding is the fun half. This is the half that pays.
           </h2>

@@ -83,7 +83,7 @@ export function Building() {
     >
       <div className="mx-auto max-w-[1180px]">
         <Reveal>
-          <p className="eyebrow mb-5 opacity-60">03 · What we are building</p>
+          <p className="eyebrow mb-5 opacity-60">04 · What we are building</p>
           <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-bottle">
             No customers yet. Here is the plan instead.
           </h2>

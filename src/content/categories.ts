@@ -410,3 +410,13 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const CATEGORY_NAMES = CATEGORIES.map((c) => c.name);
+
+/**
+ * The chips in the hero picker. Not every category earns a chip: Cake is still
+ * a waitlist option, it just does not sit in the row. Each entry carries its
+ * index into CATEGORIES so the picker and the provider stay in step.
+ */
+export const HERO_CATEGORIES = CATEGORIES.map((category, index) => ({
+  category,
+  index,
+})).filter(({ category }) => category.name !== "Cake");

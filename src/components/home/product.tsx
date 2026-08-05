@@ -54,49 +54,67 @@ export function Product() {
   const { category } = useCategory();
 
   return (
-    <section
-      id="product"
-      className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-24"
-    >
-      <div className="mx-auto max-w-[1180px]">
-        <Reveal>
-          <div className="mb-5 flex items-center gap-3">
-            <span className="block h-5 w-5 origin-bottom animate-squash bg-acid" />
-            <span className="eyebrow text-acid">02 · The whole thing</span>
-          </div>
-          <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
-            Three screens. That is the job.
-          </h2>
-          <p className="m-0 mb-9 max-w-[56ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-            Win the work, then deliver it. The same record carries an enquiry
-            from “are you free?” to “here is the invoice, thanks for a great
-            day.” Have a click.
-          </p>
-        </Reveal>
+    <>
+      <section
+        id="product"
+        className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-24"
+      >
+        <div className="mx-auto max-w-[1180px]">
+          <Reveal>
+            <div className="mb-5 flex items-center gap-3">
+              <span className="block h-5 w-5 origin-bottom animate-squash bg-acid" />
+              <span className="eyebrow text-acid">02 · The whole thing</span>
+            </div>
+            <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
+              Three screens. That is the job.
+            </h2>
+            <p className="m-0 mb-9 max-w-[56ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
+              Win the work, then deliver it. The same record carries an enquiry
+              from “are you free?” to “here is the invoice, thanks for a great
+              day.” Have a click.
+            </p>
+          </Reveal>
 
-        <ProductTabs category={category} />
+          <ProductTabs category={category} />
+        </div>
+      </section>
 
-        <div className="mt-0 grid md:grid-cols-2 lg:grid-cols-3">
-          {PANELS.map((panel) => (
-            <div
-              key={panel.title}
-              className={`flex min-h-[230px] flex-col justify-between gap-5 p-8 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${panel.ground}`}
-            >
-              <span className={`block h-[30px] w-[30px] ${panel.chip}`} />
-              <div>
-                <div className="mb-2 font-display text-[26px] font-extrabold tracking-[-0.03em]">
-                  {panel.title}
-                </div>
-                <div
-                  className={`text-[15px] leading-relaxed ${panel.bodyClass ?? ""}`}
-                >
-                  {panel.body}
+      <section className="bg-cream px-6 py-20 text-ink sm:px-10 sm:py-24">
+        <div className="mx-auto max-w-[1180px]">
+          <Reveal>
+            <p className="eyebrow mb-5 opacity-55">03 · The rest of it</p>
+            <h2 className="m-0 mb-3.5 max-w-[24ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
+              Six things you stop doing by hand.
+            </h2>
+            <p className="m-0 mb-9 max-w-[56ch] text-[17px] leading-relaxed opacity-70 sm:text-lg">
+              First enquiry to load out. The parts that eat a Tuesday night are
+              already handled, so the only thing still asking for you is the day
+              itself.
+            </p>
+          </Reveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3">
+            {PANELS.map((panel) => (
+              <div
+                key={panel.title}
+                className={`flex min-h-[230px] flex-col justify-between gap-5 p-8 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${panel.ground}`}
+              >
+                <span className={`block h-[30px] w-[30px] ${panel.chip}`} />
+                <div>
+                  <div className="mb-2 font-display text-[26px] font-extrabold tracking-[-0.03em]">
+                    {panel.title}
+                  </div>
+                  <div
+                    className={`text-[15px] leading-relaxed ${panel.bodyClass ?? ""}`}
+                  >
+                    {panel.body}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

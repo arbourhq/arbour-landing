@@ -15,8 +15,7 @@
  * a Bottle mark. Never on a photograph, never outlined, never with a crossbar.
  */
 
-// oxlint-disable jsx-a11y/prefer-tag-over-role -- half the mark is live text,
-// so it cannot be an <img>.
+import Image from "next/image";
 
 export function ArbourA({ className }: { className?: string }) {
   return (
@@ -38,16 +37,37 @@ export function ArbourA({ className }: { className?: string }) {
   );
 }
 
-export function Wordmark({ className }: { className?: string }) {
+/**
+ * The full wordmark is supplied artwork, not live type, so it is always the
+ * same drawing at every size. The PNGs are trimmed to the cap height, so the
+ * mark is set at 0.72em (Bricolage cap height) of whatever font-size the caller
+ * passes. Sizing therefore still works the way it always has: give it a
+ * text-[nn] class and the mark scales with it.
+ *
+ * Because it is artwork, a caller cannot recolour it with a text-* class. Pick
+ * the ground instead: Acid (the default) sits on Bottle, Bottle sits on Cream
+ * or on the neutral in-product ground, which is why the hero's dashboard mock
+ * asks for it. Those are the only two grounds the brand allows.
+ */
+export function Wordmark({
+  tone = "acid",
+  className,
+}: {
+  tone?: "acid" | "bottle";
+  className?: string;
+}) {
   return (
-    // The A is drawn, not typed, so the mark needs its own accessible name.
     <span
-      role="img"
-      aria-label="Arbour"
-      className={`inline-flex items-baseline font-display font-extrabold leading-none tracking-[0.04em] ${className ?? ""}`}
+      className={`inline-flex items-baseline leading-none ${className ?? ""}`}
     >
-      <ArbourA className="mr-[0.04em] h-[0.66em] w-auto self-baseline" />
-      <span aria-hidden="true">RBOUR</span>
+      <Image
+        src={`/arbour-wordmark-${tone}.png`}
+        alt="Arbour"
+        width={2400}
+        height={411}
+        priority
+        className="h-[0.72em] w-auto"
+      />
     </span>
   );
 }

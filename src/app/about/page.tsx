@@ -31,14 +31,7 @@ export default function AboutPage() {
       <SiteNav />
 
       <main>
-        <section className="relative bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute top-14 right-12 hidden animate-drift text-[130px] text-bottle opacity-15 lg:block"
-          >
-            <ArbourA className="block h-[1em] w-auto" />
-          </div>
-
+        <section className="bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
           <div className="mx-auto max-w-[1180px]">
             <p className="eyebrow mb-6 text-bottle">
               About · two people, one strange overlap

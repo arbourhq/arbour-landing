@@ -25,7 +25,7 @@ export function Pricing() {
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-6">
             <div>
-              <p className="eyebrow mb-5 text-acid/70">05 · Pricing</p>
+              <p className="eyebrow mb-5 text-acid/70">06 · Pricing</p>
               <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
                 Cheaper than one lost deposit.
               </h2>
