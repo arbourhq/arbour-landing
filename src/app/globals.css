@@ -273,6 +273,14 @@ body {
   color: var(--color-bottle);
 }
 
+/* The acid square in src/components/cursor.tsx stands in for the pointer. That
+   component sets this class itself, and only on a fine pointer with motion
+   allowed, so touch and reduced-motion keep the real cursor. */
+.cursor-swapped,
+.cursor-swapped * {
+  cursor: none !important;
+}
+
 :focus-visible {
   outline: 3px solid color-mix(in srgb, var(--color-bottle) 55%, transparent);
   outline-offset: 2px;

@@ -1,6 +1,6 @@
 "use client";
 
-import { CATEGORIES } from "@/content/categories";
+import { HERO_CATEGORIES } from "@/content/categories";
 import { useCategory } from "@/components/category-context";
 import { HeroMock } from "@/components/product/hero-mock";
 import { WaitlistButton } from "@/components/waitlist/waitlist-button";
@@ -12,21 +12,19 @@ export function Hero() {
   return (
     <section className="on-dark relative bg-bottle px-6 pt-16 sm:px-10">
       <div className="mx-auto max-w-[1180px]">
-        <p className="eyebrow mb-6 text-acid">
-          In build · the OS that weddings run on
-        </p>
-
-        <h1 className="m-0 max-w-[19ch] font-display text-[clamp(44px,9vw,112px)] leading-[0.85] font-extrabold tracking-[-0.05em] text-balance text-acid">
-          Thirty weddings. Not one lost Saturday.
+        {/* 0.95, not the usual 0.85: the tail of the y in Saturday and the dot
+            of the i in isn't sit in the same column. Measured against the real
+            font, the ink separates at 0.93 and 0.95 leaves about 2px of air.
+            Recheck if the copy changes. */}
+        <h1 className="m-0 max-w-[19ch] font-display text-[clamp(44px,9vw,112px)] leading-[0.95] font-extrabold tracking-[-0.05em] text-balance text-acid">
+          Saturday&rsquo;s busy. Sunday isn&rsquo;t.
         </h1>
 
         <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-8 pt-8 pb-11">
           <p className="m-0 max-w-[46ch] text-[17px] leading-relaxed text-acid sm:text-[19px]">
-            Sales and project management in one, built for nothing except
-            weddings. Enquiries, quotes, contracts, deposits, run sheets, the
-            couple who went quiet in March. Whether you shoot it, style it,
-            cater it, marry them off or run the entire day. It is not open yet.
-            The waitlist is.
+            From &ldquo;Are you free?&rdquo; to the final invoice. One place for
+            enquiries, quotes, contracts, deposits, run sheets, and the couple
+            who went quiet in March. Built for nothing except weddings.
           </p>
 
           {/* shrink-0 only once there is room for it: at 390px it forces the
@@ -55,7 +53,7 @@ export function Hero() {
 
         <div className="flex flex-wrap items-center gap-2 pb-10">
           <span className="label-mono mr-2 text-acid/70">Pick yours</span>
-          {CATEGORIES.map((cat, i) => {
+          {HERO_CATEGORIES.map(({ category: cat, index: i }) => {
             const on = i === index;
             return (
               <button

@@ -38,22 +38,30 @@ export function ArbourA({ className }: { className?: string }) {
 }
 
 /**
- * The full wordmark is the supplied Acid artwork, not live type, so it is
- * always the same drawing at every size. The PNG is trimmed to the cap height,
- * so the mark is set at 0.72em (Bricolage cap height) of whatever font-size the
- * caller passes. Sizing therefore still works the way it always has: give it a
+ * The full wordmark is supplied artwork, not live type, so it is always the
+ * same drawing at every size. The PNGs are trimmed to the cap height, so the
+ * mark is set at 0.72em (Bricolage cap height) of whatever font-size the caller
+ * passes. Sizing therefore still works the way it always has: give it a
  * text-[nn] class and the mark scales with it.
  *
- * The artwork is Acid, which fixes the colour: it belongs on Bottle. A caller
- * cannot recolour it with a text-* class.
+ * Because it is artwork, a caller cannot recolour it with a text-* class. Pick
+ * the ground instead: Acid (the default) sits on Bottle, Bottle sits on Cream
+ * or on the neutral in-product ground, which is why the hero's dashboard mock
+ * asks for it. Those are the only two grounds the brand allows.
  */
-export function Wordmark({ className }: { className?: string }) {
+export function Wordmark({
+  tone = "acid",
+  className,
+}: {
+  tone?: "acid" | "bottle";
+  className?: string;
+}) {
   return (
     <span
       className={`inline-flex items-baseline leading-none ${className ?? ""}`}
     >
       <Image
-        src="/arbour-wordmark-acid.png"
+        src={`/arbour-wordmark-${tone}.png`}
         alt="Arbour"
         width={2400}
         height={411}
