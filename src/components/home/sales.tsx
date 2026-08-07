@@ -44,9 +44,9 @@ export function Sales() {
             The wedding is the fun half. This is the half that pays.
           </h2>
           <p className="m-0 mb-10 max-w-[54ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-            A proper sales pipeline bolted to a proper project manager, and neither
-            half knows it is meant to be two products. Every enquiry has a
-            stage, every booking has a plan, every stage has a follow-up, and
+            A proper sales pipeline bolted to a proper project manager, and
+            neither half knows it is meant to be two products. Every enquiry has
+            a stage, every booking has a plan, every stage has a follow-up, and
             none of it depends on you remembering.
           </p>
         </Reveal>

@@ -218,8 +218,9 @@ export function Cursor() {
        * the square on the two legal wordmark grounds wherever it happens to be.
        */
       function applySkin() {
-        const wanted: SkinName =
-          (onButton ? !acid : acid) ? "onAcid" : "onRest";
+        const wanted: SkinName = (onButton ? !acid : acid)
+          ? "onAcid"
+          : "onRest";
         if (wanted === skin) return;
         skin = wanted;
         box.style.backgroundColor = SKINS[wanted].fill;

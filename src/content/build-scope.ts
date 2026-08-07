@@ -111,8 +111,7 @@ export const BUILD_SCOPE: ScopeGroup[] = [
     id: "not",
     index: "03",
     title: "Not yet, on purpose",
-    blurb:
-      "These are the things we have decided can wait.",
+    blurb: "These are the things we have decided can wait.",
     items: [
       {
         label: "Native apps",
