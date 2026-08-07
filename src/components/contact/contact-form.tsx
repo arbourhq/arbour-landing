@@ -91,6 +91,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setTopic(name)}
+                data-cursor="button"
                 className={`cursor-pointer border-0 px-3.5 py-2.5 font-sans text-sm font-semibold shadow-[inset_0_0_0_1.5px_#0B4030] transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] ${
                   on ? "bg-bottle text-acid" : "bg-transparent text-bottle"
                 }`}

@@ -62,6 +62,13 @@ const PRESS_SCALE = 0.68;
 
 const ACTION_SELECTOR =
   'a[href], button, [role="button"], summary, select, label[for], [data-cursor="action"]';
+/**
+ * Which of those are solid enough to invert the square's colour on. Every
+ * clickable thing opens the square up, but a colour flip on a 13px inline link
+ * is noise, so this is the buttons only: anything built by buttonClass, plus
+ * the chip buttons that carry their own styling and opt in by hand.
+ */
+const BUTTON_SELECTOR = '.ui-button, [data-cursor="button"]';
 const TEXT_SELECTOR =
   'input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]), textarea, [contenteditable=""], [contenteditable="true"]';
 
@@ -82,6 +89,8 @@ const SKINS = {
   onAcid: { fill: "#0B4030", shadow: "inset 0 -3px 0 rgba(0,0,0,.35)" },
   onRest: { fill: "#C6FF3D", shadow: "inset 0 -3px 0 rgba(11,64,48,.4)" },
 } as const;
+
+type SkinName = keyof typeof SKINS;
 
 /** Wrap to (-90, 90]. A stretched square is symmetric under a half turn, so
  *  reversing direction can be drawn without a visible 180 degree spin. */
@@ -148,6 +157,42 @@ export function Cursor() {
       const root = document.documentElement;
       root.classList.add("cursor-swapped");
 
+      /* A modal <dialog> lives in the top layer, which paints above every
+         z-index in the document, so the square went behind the waitlist modal
+         while cursor-swapped was still hiding the real pointer: no cursor at
+         all. A manual popover is the one other way into the top layer, and
+         within it the most recently promoted element wins, so the square has
+         to re-enter after any dialog opens to stay on top. Manual, not auto,
+         because an auto popover light-dismisses itself. */
+      const promotable = typeof frame.showPopover === "function";
+
+      function promote() {
+        if (!promotable) return;
+        if (frame.matches(":popover-open")) frame.hidePopover();
+        frame.showPopover();
+      }
+
+      // showModal() sets the open attribute, so watching it catches every
+      // dialog on the site without them having to announce themselves.
+      const dialogs = new MutationObserver((records) => {
+        for (const record of records) {
+          if (
+            record.target instanceof Element &&
+            record.target.matches("dialog[open]")
+          ) {
+            promote();
+            return;
+          }
+        }
+      });
+
+      promote();
+      dialogs.observe(document.body, {
+        attributeFilter: ["open"],
+        attributes: true,
+        subtree: true,
+      });
+
       const pointer = { x: 0, y: 0 };
       /** Measured pointer velocity, px/s, decaying toward nothing. */
       const speed = { x: 0, y: 0 };
@@ -159,22 +204,31 @@ export function Cursor() {
       let pressed = false;
       let placed = false;
       let acid = false;
+      let onButton = false;
+      let skin: SkinName = "onRest";
       let sampleIn = 0;
       let lastMove = 0;
       let raf = 0;
       let last = 0;
       let accumulator = 0;
 
-      function paint(onAcid: boolean) {
-        acid = onAcid;
-        const skin = onAcid ? SKINS.onAcid : SKINS.onRest;
-        box.style.backgroundColor = skin.fill;
-        box.style.boxShadow = skin.shadow;
+      /**
+       * The square is the opposite of the ground it sits on, and over a button
+       * it inverts again. Inverting rather than picking a third colour keeps
+       * the square on the two legal wordmark grounds wherever it happens to be.
+       */
+      function applySkin() {
+        const wanted: SkinName =
+          (onButton ? !acid : acid) ? "onAcid" : "onRest";
+        if (wanted === skin) return;
+        skin = wanted;
+        box.style.backgroundColor = SKINS[wanted].fill;
+        box.style.boxShadow = SKINS[wanted].shadow;
       }
 
       function sampleGround() {
-        const onAcid = overAcidFlood(pointer.x, pointer.y);
-        if (onAcid !== acid) paint(onAcid);
+        acid = overAcidFlood(pointer.x, pointer.y);
+        applySkin();
       }
 
       function integrate(h: number) {
@@ -251,6 +305,16 @@ export function Cursor() {
         return "idle";
       }
 
+      /** Read alongside the shape: size answers to any action, colour to
+       *  buttons only. */
+      function resolveTarget(target: EventTarget | null) {
+        shape = resolveShape(target);
+        onButton =
+          shape === "action" &&
+          target instanceof Element &&
+          target.closest(BUTTON_SELECTOR) !== null;
+      }
+
       function onMove(event: PointerEvent) {
         const dt = (event.timeStamp - lastMove) / 1000;
         const dx = event.clientX - pointer.x;
@@ -261,7 +325,7 @@ export function Cursor() {
 
         if (!placed) {
           placed = true;
-          shape = resolveShape(event.target);
+          resolveTarget(event.target);
           sampleGround();
           frame.style.opacity = "1";
           return;
@@ -276,7 +340,10 @@ export function Cursor() {
       }
 
       function onOver(event: PointerEvent) {
-        shape = resolveShape(event.target);
+        resolveTarget(event.target);
+        // The fill follows the target now, so it cannot wait for the next
+        // ground sample 90ms away.
+        applySkin();
       }
 
       function onDown() {
@@ -313,6 +380,8 @@ export function Cursor() {
 
       teardown = () => {
         cancelAnimationFrame(raf);
+        dialogs.disconnect();
+        if (promotable && frame.matches(":popover-open")) frame.hidePopover();
         document.removeEventListener("pointermove", onMove);
         document.removeEventListener("pointerover", onOver);
         document.removeEventListener("pointerdown", onDown);
@@ -349,8 +418,27 @@ export function Cursor() {
     <div
       ref={frameRef}
       aria-hidden
+      popover="manual"
       className="pointer-events-none fixed top-0 left-0 z-[9999] opacity-0 transition-opacity duration-150 ease-standard"
-      style={{ willChange: "transform" }}
+      style={{
+        willChange: "transform",
+        // The UA sheet dresses a popover as a centred bordered box on Canvas.
+        // All of it has to come off: this is a bare 16px square that positions
+        // itself, and inline is the only place that beats the UA defaults
+        // without an !important.
+        background: "transparent",
+        border: 0,
+        bottom: "auto",
+        color: "inherit",
+        height: "auto",
+        left: 0,
+        margin: 0,
+        overflow: "visible",
+        padding: 0,
+        right: "auto",
+        top: 0,
+        width: "auto",
+      }}
     >
       <div
         ref={boxRef}

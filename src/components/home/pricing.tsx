@@ -27,7 +27,7 @@ export function Pricing() {
             <div>
               <p className="eyebrow mb-5 text-acid/70">06 · Pricing</p>
               <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
-                Cheaper than one lost deposit.
+                Cheaper than an hour of your time.
               </h2>
             </div>
             {/* Mono is a label voice, never body copy, so the eyebrow is mono
@@ -93,6 +93,21 @@ export function Pricing() {
                     <span className="label-mono text-cream/60 group-hover:text-bottle/65">
                       {tier.priceNote}
                     </span>
+                    {/* Each tier row is its own grid, so the auto-sized price
+                        column is measured per row: House's "Built for you" is
+                        wider than "$39", which squeezed its feature column and
+                        started that list further left than the other two. This
+                        zero-height sizer gives the priced rows the same
+                        intrinsic width, so all three lists share a left edge
+                        without pinning the track to a magic pixel value. */}
+                    {tier.price === null ? null : (
+                      <span
+                        aria-hidden="true"
+                        className="-mt-1 hidden h-0 overflow-hidden font-display text-[clamp(28px,4vw,38px)] leading-none font-extrabold tracking-[-0.04em] whitespace-nowrap lg:block"
+                      >
+                        Built for you
+                      </span>
+                    )}
                   </div>
 
                   {tier.enterprise ? (

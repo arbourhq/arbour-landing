@@ -85,13 +85,11 @@ export function Building() {
         <Reveal>
           <p className="eyebrow mb-5 opacity-60">04 · What we are building</p>
           <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-bottle">
-            No customers yet. Here is the plan instead.
+            Here&rsquo;s the plan.
           </h2>
           <p className="m-0 mb-12 max-w-[58ch] text-[17px] leading-relaxed sm:text-lg">
-            Most software sites at this stage show a number they made up. This
-            is the actual scope: what opening day includes, what comes straight
-            after, and what Arbour is not going to do. Better you find out now
-            than in month two.
+            Most software sites at this stage show a number they made up. But
+            here&rsquo;s the actual scope.
           </p>
         </Reveal>
 
@@ -123,7 +121,7 @@ export function Building() {
                   {group.items.map((item) => (
                     <li
                       key={item.label}
-                      className="group/item -mx-3 border-t border-dashed border-bottle/30 px-3 transition-[transform,background-color,color] duration-300 ease-overshoot hover:translate-x-1 hover:border-transparent hover:bg-bottle hover:text-acid"
+                      className="group/item -mx-3 border-t border-dashed border-bottle/30 px-3 transition-transform duration-300 ease-overshoot hover:translate-x-1 hover:border-transparent hover:bg-bottle hover:text-acid"
                     >
                       <div className="py-3.5">
                         <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">

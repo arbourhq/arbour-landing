@@ -17,33 +17,33 @@ export type Tier = {
 };
 
 export const PRICING_NOTE =
-  "Indicative, and locked before we open. The waitlist gets told what it costs before anyone is asked to pay for it.";
+  "The week goes on quoting, chasing and re-keying the same details. That is what you are buying back. Prices are indicative and locked before we open.";
 
 export const TIERS: Tier[] = [
   {
     index: "01",
     name: "Solo",
     who: "One-person outfit, up to 20 weddings a year.",
-    price: 39,
-    priceNote: "per month",
+    price: 89,
+    priceNote: "AUD per month",
     features: [
-      "The book and soft holds",
-      "Contracts and deposit tracking",
-      "Run sheets, unlimited",
-      "Day-of mode",
+      "Sales pipeline",
+      "Date holds",
+      "Invoice, contract and form management",
+      "Email sync",
     ],
   },
   {
     index: "02",
     name: "Studio",
     who: "Small team, unlimited weddings. Where most land.",
-    price: 89,
-    priceNote: "per month",
+    price: 119,
+    priceNote: "AUD per month",
     features: [
       "Everything in Solo",
       "Up to 8 seats",
       "Crew, shifts and permissions",
-      "Automatic supplier chasing",
+      "Automations engine",
     ],
   },
   {
@@ -55,9 +55,10 @@ export const TIERS: Tier[] = [
     enterprise: true,
     features: [
       "Everything in Studio, unlimited seats",
-      "A build slot every quarter, shipped into your account",
-      "SSO, audit logs, migration done by us",
-      "Your reporting, your accountant, your rules",
+      "A build slot every six months, shipped into your account",
+      "Audit logs, migration done by us",
+      "Custom reporting",
+      "Early access to updates",
     ],
   },
 ];

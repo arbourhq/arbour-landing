@@ -14,7 +14,7 @@ export const FAQS = [
   },
   {
     q: "Will my couples have to log into something?",
-    a: "Not at first. The client portal is in the second release, deliberately, and it will be optional when it lands. Everything in the first release works over plain email links.",
+    a: "Only if you want them to. The client portal is in the first release, and it is optional. Leave it switched off and the whole job still runs over plain email links.",
   },
   {
     q: "Do I have to move everything over in one go?",
@@ -26,10 +26,10 @@ export const FAQS = [
   },
   {
     q: "You will really build custom software for my business?",
-    a: "On the House plan, yes. One build slot a quarter, scoped with you, shipped into your account. It stays yours, we only fold it into the core product if you say we can, and then you stop paying for it. If that is the conversation you want, say so on the waitlist and it will not be a sales call.",
+    a: "On the House plan, yes. One build slot every six months, scoped with you, shipped into your account. It stays yours, we only fold it into the core product if you say we can.",
   },
   {
     q: "Who is building this?",
-    a: "Two people. Ben has worked over three hundred weddings behind a camera and runs a crew of his own, Alex writes every line of the software. There is no support department to be handed to, which is a feature until it very briefly is not.",
+    a: "Two people. Ben has worked over three hundred weddings behind a camera and runs a crew of his own, Alex writes every line of the software.",
   },
 ] as const;

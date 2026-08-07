@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
 import { WaitlistButton } from "@/components/waitlist/waitlist-button";
 import { ContactForm } from "@/components/contact/contact-form";
-import { buttonClass } from "@/components/ui/button";
 import { CONTACT_FACTS } from "@/content/contact";
 import { SITE } from "@/content/site";
 
@@ -75,22 +73,6 @@ export default async function ContactPage({
                     </p>
                   </div>
                 ))}
-              </div>
-
-              <div className="on-dark flex flex-col items-start gap-5 bg-bottle p-8 text-cream">
-                <span className="block h-7 w-7 origin-left animate-unfold bg-acid" />
-                <p className="m-0 max-w-[40ch] text-[16px] leading-relaxed">
-                  Run a venue, a group or a studio that has outgrown its
-                  software? That is the House plan, and it comes with a build
-                  slot every quarter. Say so in the message and you get one of
-                  us, not a deck.
-                </p>
-                <Link
-                  href="/about"
-                  className={buttonClass("outlineAcid", "sm")}
-                >
-                  Meet the two of us
-                </Link>
               </div>
             </div>
           </div>

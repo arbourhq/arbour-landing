@@ -74,7 +74,11 @@ export default async function ThanksPage({
               {STEPS.map((step) => (
                 <div
                   key={step.index}
-                  className="flex min-h-[220px] flex-col justify-between gap-5 bg-cream p-7"
+                  // Not justify-between: that bottom-anchors the copy, so a
+                  // card with a shorter body drops its title below the ones
+                  // either side of it. Index top, copy straight under it, slack
+                  // at the foot, and all three titles line up.
+                  className="flex min-h-[220px] flex-col gap-5 bg-cream p-7"
                 >
                   <p className="label-mono opacity-45">{step.index}</p>
                   <div>
