@@ -14,7 +14,7 @@ Vendors also run non-wedding work through it (corporate functions, commercial sh
 
 Positioning note: the brand lives in the wedding niche, but the software must never assume a wedding.
 
-Top tier is enterprise, called HOUSE: venues, groups and studios who have outgrown other software. Its headline benefit is a BUILD SLOT EVERY QUARTER, real engineering time on the customer's own problem, shipped into their account. Not a roadmap vote.
+Top tier is enterprise, called HOUSE: venues, groups and studios who have outgrown other software. Its headline benefit is a BUILD SLOT EVERY SIX MONTHS, real engineering time on the customer's own problem, shipped into their account. Not a roadmap vote.
 
 Team: two founders. Ben (wedding videographer) and Alex (software engineer). Support is answered by one of the two.
 
@@ -146,39 +146,47 @@ Valid grounds: Acid with Bottle mark, Bottle with Acid mark, Cream with Bottle m
 
 ## 6. Tone of voice
 
-Upbeat, dry, human. Confident enough to be playful.
+Upbeat, dry, human. Confident enough to be playful. Sometimes a little cheeky. Lean into our Australian roots.
 
-Weddings are PARTIES, not projects. We are in the business of good days, and the copy should sound like someone who has worked a hundred of them.
+Weddings are PARTIES, not projects. We are in the business of
+good days, and the copy should sound like someone who has worked
+a hundred of them.
 
-The register: we know exactly what we are doing, and we are relaxed enough about it to be funny.
+The register: we know exactly what we are doing, and we are
+relaxed enough about it to be funny.
 
-**DO:**
-
-- Speak to someone who has used the platform for two years. No hand-holding, no explaining the obvious.
+DO:
+- Speak to someone who has used the platform for two years.
+  No hand-holding, no explaining the obvious.
 - Short sentences. Concrete nouns. Real numbers.
-- Trade language where it is genuine: the book, the run sheet, load-in, the rain call, covers, load out.
+- Trade language where it is genuine: the book, the run sheet,
+  load-in, the rain call, covers, load out.
 - Let a line land dryly. "Nothing needs you. Genuinely."
 - Australian English (organise, prioritise, recognise).
 
-**DO NOT:**
-
-- NEVER USE EM DASHES. Not anywhere, in any copy. Use a comma, a full stop, a colon, or brackets instead. This is absolute.
-- No pitch-deck language: no "seamlessly", "empower", "revolutionise", "supercharge", "unlock", "game-changing", "leverage", "solutions", "at scale".
+DO NOT:
+- NEVER USE EM DASHES. Not anywhere, in any copy. Use a comma,
+  a full stop, a colon, or brackets instead. This is absolute.
+- No pitch-deck language: no "seamlessly", "empower",
+  "revolutionise", "supercharge", "unlock", "game-changing",
+  "leverage", "solutions", "at scale".
 - No exclamation marks stacked for enthusiasm.
-- No onboarding voice in a mature product ("sent from your address, not ours" tells a two-year customer nothing).
+- No onboarding voice in a mature product ("sent from your
+  address, not ours" tells a two-year customer nothing).
 - No fake urgency, no dark patterns.
 
-Headings are plain, not clever. "Pipeline" not "$412k in play". Save the wit for body copy and empty states.
+In-app page headings are plain, not clever. "Pipeline" not "$412k in play".
+Save the wit for body copy and empty states.
 
 Voice examples that are correct:
-
-- "Run thirty weddings without losing a Saturday."
-- "Arbour is the CRM wedding vendors actually keep open."
-- "Nothing needs you. Genuinely. Go and have a coffee that is not from the servo."
-- "Quiet. Suspiciously quiet."
-- "Lock-in is not a business model, it is a hostage situation."
-- "That is the whole wedding, banked."
-- "No confetti, the ducks eat it."
+  "Book thirty planning meetings without manually sending a single email. That's cool."
+  "Arbour is the operating system that wedding vendors actually keep open."
+  "Nothing needs you. Genuinely. Go and have a coffee that is
+   not from the servo."
+  "Quiet. Suspiciously quiet. Hmmm."
+  "Lock-in is not a business model, it is a hostage situation."
+  "That is the whole wedding, banked."
+  "No confetti, the ducks eat it."
 
 ## 7. Product data model
 

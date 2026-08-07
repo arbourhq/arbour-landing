@@ -61,16 +61,20 @@ export const BUILD_SCOPE: ScopeGroup[] = [
         note: "Gmail or Outlook, threads on the job, replies from your address.",
       },
       {
-        label: "Day-of mode",
-        note: "Offline capable, because the good venues have the worst reception.",
-      },
-      {
         label: "Custom fields per category",
-        note: "Guest counts, dietaries, shot lists. Yours to define, never hard-coded.",
+        note: "Guest counts, dietaries, shot lists. Yours to define.",
       },
       {
         label: "Enquiry forms for your own site",
         note: "Straight into the pipeline, tagged with where it came from.",
+      },
+      {
+        label: "Client portal",
+        note: "Optional, and branded like you rather than like us.",
+      },
+      {
+        label: "Team and permissions",
+        note: "Seats, roles, and who gets to see the money.",
       },
     ],
   },
@@ -82,8 +86,12 @@ export const BUILD_SCOPE: ScopeGroup[] = [
       "Designed, specified, and deliberately not holding up the first release.",
     items: [
       {
-        label: "Client portal",
-        note: "Optional, and branded like you rather than like us.",
+        label: "Native automations",
+        note: "Triggers on your own jobs: chase the balance, send the run sheet, nudge the crew.",
+      },
+      {
+        label: "Webhooks",
+        note: "Fire an event out to whatever else you run, no polling.",
       },
       {
         label: "Xero and QuickBooks",
@@ -103,8 +111,7 @@ export const BUILD_SCOPE: ScopeGroup[] = [
     id: "not",
     index: "03",
     title: "Not yet, on purpose",
-    blurb:
-      "Better you know now than find out in month two. Saying no is most of the job.",
+    blurb: "These are the things we have decided can wait.",
     items: [
       {
         label: "Native apps",

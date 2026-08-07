@@ -1,6 +1,5 @@
 "use client";
 
-import { useCategory } from "@/components/category-context";
 import { ProductTabs } from "@/components/product/product-tabs";
 import { Reveal } from "@/components/reveal";
 
@@ -51,8 +50,6 @@ const PANELS = [
 ];
 
 export function Product() {
-  const { category } = useCategory();
-
   return (
     <>
       <section
@@ -63,19 +60,18 @@ export function Product() {
           <Reveal>
             <div className="mb-5 flex items-center gap-3">
               <span className="block h-5 w-5 origin-bottom animate-squash bg-acid" />
-              <span className="eyebrow text-acid">02 · The whole thing</span>
+              <span className="eyebrow text-acid">02 · The whole business</span>
             </div>
             <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
-              Three screens. That is the job.
+              Where you&rsquo;ll live.
             </h2>
             <p className="m-0 mb-9 max-w-[56ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-              Win the work, then deliver it. The same record carries an enquiry
-              from “are you free?” to “here is the invoice, thanks for a great
-              day.” Have a click.
+              Keep an eye on today, win the next booking, then deliver it. The
+              rest stays out of the way.
             </p>
           </Reveal>
 
-          <ProductTabs category={category} />
+          <ProductTabs />
         </div>
       </section>
 

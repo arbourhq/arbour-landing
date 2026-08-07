@@ -51,7 +51,7 @@ export const CATEGORIES: Category[] = [
     ],
     automation: {
       when: "A couple books you",
-      then: "Send the shot-list questionnaire and diarise the engagement session",
+      then: "Send over a confirmation and questionnaire",
     },
     runSheet: [
       { time: "07:30", label: "First light · detail flatlays", done: true },

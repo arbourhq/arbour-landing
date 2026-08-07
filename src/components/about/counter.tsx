@@ -55,7 +55,9 @@ export function AboutStats() {
       ref={ref}
       className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-22"
     >
-      <div className="mx-auto grid max-w-[1180px] grid-cols-2 gap-9 lg:grid-cols-4">
+      {/* Three across, centred: at grid-cols-4 the trio left a hole where the
+          fourth stat used to be. */}
+      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-9 text-center sm:grid-cols-3">
         {ABOUT_STATS.map((stat) => (
           <div key={stat.label}>
             <div className="font-display text-[clamp(40px,7vw,72px)] leading-[0.9] font-extrabold tracking-[-0.045em] text-acid">

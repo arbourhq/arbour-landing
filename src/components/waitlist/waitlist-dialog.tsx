@@ -132,6 +132,7 @@ export function WaitlistDialog({
                   key={name}
                   type="button"
                   onClick={() => pickCategory(name)}
+                  data-cursor="button"
                   className="cursor-pointer border-0 bg-transparent px-3.5 py-2.5 font-sans text-sm font-semibold text-bottle shadow-[inset_0_0_0_1.5px_#0B4030] transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] hover:bg-bottle hover:text-acid"
                 >
                   {name}

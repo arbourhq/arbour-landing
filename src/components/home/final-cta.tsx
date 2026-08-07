@@ -10,7 +10,7 @@ export function FinalCta() {
     <section className="overflow-hidden bg-acid px-6 py-20 text-bottle sm:px-10 sm:py-24">
       <div className="mx-auto max-w-[1180px]">
         <h2 className="m-0 max-w-[16ch] font-display text-[clamp(40px,8.5vw,104px)] leading-[0.86] font-extrabold tracking-[-0.05em] text-bottle">
-          Your Saturday is waiting.
+          Have the Saturday. We&rsquo;ll take the rest.
         </h2>
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-5 pt-8">

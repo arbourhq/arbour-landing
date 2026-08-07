@@ -44,9 +44,9 @@ export function Sales() {
             The wedding is the fun half. This is the half that pays.
           </h2>
           <p className="m-0 mb-10 max-w-[54ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-            A proper sales CRM bolted to a proper project manager, and neither
-            half knows it is meant to be two products. Every enquiry has a
-            stage, every booking has a plan, every stage has a follow-up, and
+            A proper sales pipeline bolted to a proper project manager, and
+            neither half knows it is meant to be two products. Every enquiry has
+            a stage, every booking has a plan, every stage has a follow-up, and
             none of it depends on you remembering.
           </p>
         </Reveal>
@@ -124,8 +124,7 @@ export function Sales() {
               </div>
               <div className="text-[15px] leading-relaxed opacity-85">
                 Build the follow-up once and it runs for every enquiry, forever.
-                Arbour ships with a set per category, and that one above is on
-                by default for {category.name}.
+                Arbour ships with a set per category. Fully customisable.
               </div>
             </div>
           </div>
@@ -166,19 +165,24 @@ export function Sales() {
           </div>
         </div>
 
-        <p className="label-mono mt-16 mb-4 opacity-55">Also in the box</p>
-        <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
-          {EXTRAS.map((extra) => (
-            <div
-              key={extra.label}
-              className={`flex min-h-[210px] flex-col justify-between gap-6 p-7 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${extra.ground} ${extra.tilt}`}
-            >
-              <span className={`block h-[26px] w-[26px] ${extra.chip}`} />
-              <span className="text-[17px] leading-snug font-semibold">
-                {extra.label}
-              </span>
-            </div>
-          ))}
+        {/* Off on phones. Stacked one per row it is four near-empty 210px
+            slabs and a long scroll for four words, so the section keeps its
+            place from 640px up and phones go straight to the next one. */}
+        <div className="hidden sm:block">
+          <p className="label-mono mt-16 mb-4 opacity-55">Also in the box</p>
+          <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
+            {EXTRAS.map((extra) => (
+              <div
+                key={extra.label}
+                className={`flex min-h-[210px] flex-col justify-between gap-6 p-7 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${extra.ground} ${extra.tilt}`}
+              >
+                <span className={`block h-[26px] w-[26px] ${extra.chip}`} />
+                <span className="text-[17px] leading-snug font-semibold">
+                  {extra.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

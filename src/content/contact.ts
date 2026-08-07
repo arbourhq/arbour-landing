@@ -20,7 +20,7 @@ export const CONTACT_FACTS = [
   {
     index: "01",
     title: "It is one of two people",
-    body: "There is no support desk and no ticket queue. Whatever you send lands with Ben or Alex, and one of them writes back.",
+    body: "Whatever you send lands with Ben or Alex, and we'll reply like our business depends on it.",
   },
   {
     index: "02",
