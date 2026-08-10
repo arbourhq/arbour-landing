@@ -9,6 +9,8 @@ type Props = {
   isOpen: boolean;
   onClose: () => void;
   initialCategory: string | null;
+  /** Already taken elsewhere, e.g. the field on /bio. Usually empty. */
+  initialEmail: string;
   onCategoryChange: (category: string) => void;
 };
 
@@ -18,6 +20,7 @@ export function WaitlistDialog({
   isOpen,
   onClose,
   initialCategory,
+  initialEmail,
   onCategoryChange,
 }: Props) {
   const router = useRouter();
@@ -26,7 +29,7 @@ export function WaitlistDialog({
 
   const [step, setStep] = useState<Step>("category");
   const [category, setCategory] = useState<string | null>(initialCategory);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(initialEmail);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
 
@@ -40,12 +43,13 @@ export function WaitlistDialog({
       dialog.showModal();
       setStep(initialCategory ? "email" : "category");
       setCategory(initialCategory);
+      setEmail(initialEmail);
       setStatus("idle");
       setError(null);
     } else if (!isOpen && dialog.open) {
       dialog.close();
     }
-  }, [isOpen, initialCategory]);
+  }, [isOpen, initialCategory, initialEmail]);
 
   useEffect(() => {
     if (step === "email") emailRef.current?.focus();

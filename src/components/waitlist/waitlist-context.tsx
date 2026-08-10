@@ -10,7 +10,12 @@ import {
 import { WaitlistDialog } from "./waitlist-dialog";
 
 type WaitlistContextValue = {
-  open: (presetCategory?: string) => void;
+  /**
+   * `presetEmail` is for callers that have already taken the address, such as
+   * the field on /bio. The dialog still asks for a category, because the API
+   * will not take a signup without one.
+   */
+  open: (presetCategory?: string, presetEmail?: string) => void;
   close: () => void;
   /** The category chosen in the hero chips, used to preselect the dialog. */
   category: string | null;
@@ -30,9 +35,11 @@ export function useWaitlist() {
 export function WaitlistProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [category, setCategory] = useState<string | null>(null);
+  const [email, setEmail] = useState("");
 
-  const open = useCallback((presetCategory?: string) => {
+  const open = useCallback((presetCategory?: string, presetEmail?: string) => {
     if (presetCategory) setCategory(presetCategory);
+    setEmail(presetEmail ?? "");
     setIsOpen(true);
   }, []);
 
@@ -50,6 +57,7 @@ export function WaitlistProvider({ children }: { children: React.ReactNode }) {
         isOpen={isOpen}
         onClose={close}
         initialCategory={category}
+        initialEmail={email}
         onCategoryChange={setCategory}
       />
     </WaitlistContext.Provider>

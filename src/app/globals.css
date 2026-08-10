@@ -268,6 +268,13 @@ body {
   overflow-x: clip;
 }
 
+/* Cream is the ground everywhere except /bio, which is one Bottle flood. The
+   page sets its own colour, but <body> has to match it or the gutter under the
+   content shows Cream, and an overscroll on a phone rubber-bands to it. */
+body:has([data-ground="bottle"]) {
+  background: var(--color-bottle);
+}
+
 ::selection {
   background: var(--color-acid);
   color: var(--color-bottle);
