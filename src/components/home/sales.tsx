@@ -1,7 +1,6 @@
 "use client";
 
 import { useCategory } from "@/components/category-context";
-import { STAGE_COUNTS } from "@/content/categories";
 import { Reveal } from "@/components/reveal";
 
 const EXTRAS = [
@@ -54,7 +53,14 @@ export function Sales() {
         <p className="label-mono mb-4 opacity-55">
           Your pipeline · {category.name}
         </p>
-        <div className="mb-14 grid grid-cols-2 gap-px bg-ink/20 sm:grid-cols-3 lg:grid-cols-5">
+        {/* Keyed so the row re-mounts on a category change and the swap
+            animation replays. The animation sits on the grid, not the cards:
+            with fill-mode both on a card it would pin the transform and kill
+            the hover lift. */}
+        <div
+          key={category.name}
+          className="mb-14 grid animate-swap grid-cols-2 gap-px bg-ink/20 sm:grid-cols-3 lg:grid-cols-5"
+        >
           {category.stages.map((stage, i) => (
             <div
               key={stage}
@@ -66,7 +72,7 @@ export function Sales() {
                   {stage}
                 </div>
                 <div className="font-display text-[30px] leading-none font-extrabold tracking-[-0.03em]">
-                  {STAGE_COUNTS[i]}
+                  {category.stageCounts[i]}
                 </div>
               </div>
             </div>
@@ -104,7 +110,10 @@ export function Sales() {
 
           <div className="on-dark flex min-h-[290px] flex-col justify-between gap-4 bg-bottle p-7 text-cream">
             <div className="h-[30px] w-[30px] animate-pop bg-acid" />
-            <div className="grid gap-px bg-cream/20">
+            <div
+              key={category.name}
+              className="grid animate-swap gap-px bg-cream/20"
+            >
               <div className="flex items-baseline gap-2.5 bg-bottle px-3 py-2.5">
                 <span className="label-mono shrink-0 text-acid">If</span>
                 <span className="text-[13px] leading-snug">

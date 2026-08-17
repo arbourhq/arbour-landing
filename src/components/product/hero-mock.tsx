@@ -1,48 +1,24 @@
 import { Wordmark } from "@/components/wordmark";
-import type { Category } from "@/content/categories";
+import type { Category, MockStat, RowTone } from "@/content/categories";
 
 /**
  * A mock of the product sitting inside a marketing page. This is the only
  * context on the site where Sprout, the neutral app ground and 6px corners are
  * allowed: inside the frame it is the product, outside it is marketing.
+ *
+ * Everything that changes with the hero picker is keyed on the category name so
+ * React re-mounts it and the swap animation replays. Reduced motion kills the
+ * animation globally, in globals.css.
  */
 
-const ROWS = [
-  {
-    name: "Nina & Theo",
-    detail: "14 Feb · Merricks",
-    tone: "paid" as const,
-    badge: "Paid",
-  },
-  {
-    name: "Hazel & Jun",
-    detail: "28 Feb · Coldstream",
-    tone: "late" as const,
-    badge: "Overdue",
-  },
-  {
-    name: "Priya & Sam",
-    detail: "07 Mar · Red Hill",
-    tone: "draft" as const,
-    badge: "Draft",
-  },
-];
-
-const BADGE_TONE = {
+const BADGE_TONE: Record<RowTone, string> = {
   paid: "bg-sprout text-bottle",
   late: "bg-coral text-white",
   draft: "bg-cornflower text-white",
+  hold: "bg-lilac text-bottle",
 };
 
-function Stat({
-  value,
-  label,
-  danger,
-}: {
-  value: string;
-  label: string;
-  danger?: boolean;
-}) {
+function Stat({ value, label, danger }: MockStat) {
   return (
     <div className="rounded-md border border-app-ink/5 bg-app-panel px-4 py-3 text-center">
       <div
@@ -58,39 +34,47 @@ function Stat({
 }
 
 export function HeroMock({ category }: { category: Category }) {
+  const { studio } = category;
+
   return (
     <div className="relative overflow-hidden rounded-t-lg border-2 border-b-0 border-acid bg-app px-4 pt-5 pb-8 text-app-ink sm:px-6">
       <div className="mb-6 flex items-center justify-between gap-4">
         {/* Bottle, not Acid: inside the frame this is the product, and the
             app ground is neutral. Acid on it is unreadable. */}
         <Wordmark tone="bottle" className="text-[17px]" />
-        <div className="flex items-center gap-3.5">
+        <div
+          key={category.name}
+          className="flex animate-swap items-center gap-3.5"
+        >
           <span className="label-mono hidden text-app-muted sm:inline">
-            The Tannery · Red Hill
+            {studio.name} · {studio.place}
           </span>
           <span className="flex h-[30px] w-[30px] items-center justify-center rounded-md bg-bottle font-display text-xs font-extrabold text-sprout">
-            RJ
+            {studio.initials}
           </span>
         </div>
       </div>
 
       <div className="mb-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
-        <div>
+        <div key={category.name} className="animate-swap">
           <div className="label-mono mb-2.5 text-app-muted">
-            Tue 28 Jul · Red Hill
+            Tue 28 Jul · 4 days out
           </div>
           <div className="font-display text-[clamp(26px,5vw,38px)] leading-[0.94] font-extrabold tracking-[-0.035em]">
-            Saturday is sorted
+            {category.mockTitle}
           </div>
           <p className="mt-2 max-w-[52ch] text-sm leading-snug text-app-muted">
             {category.heroSub}
           </p>
         </div>
 
-        <div className="grid shrink-0 grid-cols-3 gap-2.5">
-          <Stat value="31" label="Booked" />
-          <Stat value="$284k" label="Collected" />
-          <Stat value="2" label="Chasing" danger />
+        <div
+          key={`${category.name}-stats`}
+          className="grid shrink-0 animate-swap grid-cols-3 gap-2.5"
+        >
+          {category.stats.map((stat) => (
+            <Stat key={stat.label} {...stat} />
+          ))}
         </div>
       </div>
 
@@ -101,17 +85,20 @@ export function HeroMock({ category }: { category: Category }) {
         </div>
 
         <div className="grid gap-2">
-          {ROWS.map((row) => (
+          {category.rows.map((row, i) => (
             <div
-              key={row.name}
-              className="grid grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 rounded-md bg-app px-3.5 py-3 text-sm sm:grid-cols-[1.5fr_1.05fr_0.75fr_104px]"
+              key={`${category.name}-${row.name}`}
+              // Staggered so the board reads as three separate jobs landing,
+              // not one block sliding in.
+              style={{ animationDelay: `${i * 45}ms` }}
+              className="grid animate-swap grid-cols-[1fr_auto] items-center gap-x-4 gap-y-1 rounded-md bg-app px-3.5 py-3 text-sm sm:grid-cols-[1.5fr_1.05fr_0.75fr_104px]"
             >
               <b className="font-semibold">{row.name}</b>
               <span className="order-3 text-app-muted sm:order-none">
                 {row.detail}
               </span>
               <span className="order-4 hidden font-mono text-[10px] tracking-[0.06em] text-app-muted sm:order-none sm:block">
-                {category.jobLabel}
+                {row.line}
               </span>
               <span
                 className={`label-mono justify-self-end rounded-md px-2.5 py-1.5 text-[8px] tracking-[0.12em] sm:justify-self-start ${BADGE_TONE[row.tone]}`}
