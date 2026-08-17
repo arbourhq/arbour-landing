@@ -51,7 +51,6 @@ export function BioSocials() {
               href={social.href}
               target="_blank"
               rel="noreferrer"
-              data-cursor="button"
               className={`${TILE} bg-transparent text-acid shadow-[inset_0_0_0_1.5px_rgba(198,255,61,0.4)] hover:-translate-y-1 hover:rotate-[-3deg] hover:bg-acid hover:text-bottle`}
             >
               {social.name === "Instagram" ? (

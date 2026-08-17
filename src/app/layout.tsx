@@ -4,7 +4,6 @@ import {
   Instrument_Sans,
   Martian_Mono,
 } from "next/font/google";
-import { Cursor } from "@/components/cursor";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -60,10 +59,7 @@ export default function RootLayout({
       lang="en-AU"
       className={`${bricolage.variable} ${instrument.variable} ${martian.variable}`}
     >
-      <body>
-        {children}
-        <Cursor />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -13,14 +13,8 @@ export type ButtonVariant =
 
 export type ButtonSize = "sm" | "md" | "lg";
 
-/**
- * `ui-button` carries no styling. It is the marker the custom cursor reads to
- * decide that a target is solid enough to invert its colour on, which text
- * links are not. Chip buttons that do not go through here opt in with
- * data-cursor="button" instead.
- */
 const BASE =
-  "ui-button inline-flex items-center justify-center gap-2 border-0 font-sans font-semibold cursor-pointer select-none " +
+  "inline-flex items-center justify-center gap-2 border-0 font-sans font-semibold cursor-pointer select-none " +
   "transition-transform duration-300 ease-overshoot hover:-translate-y-1 active:translate-y-0 " +
   "disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0";
 
