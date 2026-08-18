@@ -1,31 +1,43 @@
 "use client";
 
 import { useCategory } from "@/components/category-context";
-import { Reveal } from "@/components/reveal";
+import { SectionHead } from "@/components/section-head";
+import { useTally } from "@/lib/use-tally";
 
+/**
+ * The longest section on the page, and the fourth Cream one, so it sits on
+ * Cream sunken instead. Same palette, one more ground, and the cards stay Cream
+ * so they read as raised off it.
+ *
+ * The tiles are butted with no gutter. Colour panels butt, light cards get a
+ * hairline gutter, and those are the only two gutter systems on the page: these
+ * four used to float on a 14px gap, which was a third one.
+ */
 const EXTRAS = [
   {
     label: "Quote builder that knows your packages",
-    ground: "bg-acid text-bottle",
+    ground: "bg-acid text-bottle press-lg",
     chip: "bg-bottle animate-pop origin-bottom-left",
     tilt: "hover:rotate-[-1deg]",
   },
   {
     label: "Lead source reporting that is actually honest",
+    // One shadow property, so the hairline and the pressed edge have to be
+    // declared together rather than as two classes.
     ground:
-      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2),inset_0_-5px_0_rgba(11,64,48,0.5)]",
     chip: "bg-bottle animate-unfold origin-left",
     tilt: "hover:rotate-[1deg]",
   },
   {
     label: "Calendar sync, both directions",
-    ground: "bg-cornflower text-cream",
+    ground: "bg-cornflower text-cream press-dark",
     chip: "bg-cream animate-tilt",
     tilt: "hover:rotate-[-1deg]",
   },
   {
     label: "Enquiry forms for your own site",
-    ground: "bg-lilac text-bottle",
+    ground: "bg-lilac text-bottle press-lg",
     chip: "bg-bottle animate-drop origin-bottom",
     tilt: "hover:rotate-[1deg]",
   },
@@ -33,50 +45,53 @@ const EXTRAS = [
 
 export function Sales() {
   const { category } = useCategory();
+  // Same hook the build scope columns use. Every number on this page tallies.
+  const { ref, progress } = useTally();
 
   return (
-    <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
+    <section className="bg-cream-sunken px-6 py-20 sm:px-10 sm:py-24">
       <div className="mx-auto max-w-[1180px]">
-        <Reveal>
-          <p className="eyebrow mb-5 opacity-55">05 · The sales side</p>
-          <h2 className="m-0 mb-3.5 max-w-[24ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
-            The wedding is the fun half. This is the half that pays.
-          </h2>
-          <p className="m-0 mb-10 max-w-[54ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-            A proper sales pipeline bolted to a proper project manager, and
-            neither half knows it is meant to be two products. Every enquiry has
-            a stage, every booking has a plan, every stage has a follow-up, and
-            none of it depends on you remembering.
-          </p>
-        </Reveal>
+        <SectionHead
+          index="05"
+          label="The sales side"
+          title="The wedding is the fun half. This is the half that pays."
+          lead="A proper sales pipeline bolted to a proper project manager, and neither half knows it is meant to be two products. Every enquiry has a stage, every booking has a plan, every stage has a follow-up, and none of it depends on you remembering."
+          className="mb-11"
+        />
 
-        <p className="label-mono mb-4 opacity-55">
-          Your pipeline · {category.name}
-        </p>
-        {/* Keyed so the row re-mounts on a category change and the swap
-            animation replays. The animation sits on the grid, not the cards:
-            with fill-mode both on a card it would pin the transform and kill
-            the hover lift. */}
-        <div
-          key={category.name}
-          className="mb-14 grid animate-swap grid-cols-2 gap-px bg-ink/20 sm:grid-cols-3 lg:grid-cols-5"
-        >
-          {category.stages.map((stage, i) => (
-            <div
-              key={stage}
-              className="flex min-h-[150px] flex-col justify-between gap-3.5 bg-cream p-5 transition-transform duration-300 ease-overshoot hover:-translate-y-1.5 hover:bg-acid-wash"
-            >
-              <div className="label-mono opacity-45">0{i + 1}</div>
-              <div>
-                <div className="mb-2.5 text-[17px] leading-tight font-semibold">
-                  {stage}
-                </div>
-                <div className="font-display text-[30px] leading-none font-extrabold tracking-[-0.03em]">
-                  {category.stageCounts[i]}
+        {/* The ref sits outside the keyed grid: a category change re-mounts the
+            cards to replay the swap, and the tally must not restart with it. */}
+        <div ref={ref}>
+          <p className="label-mono mb-4 opacity-55">
+            Your pipeline · {category.name}
+          </p>
+          {/* Keyed so the row re-mounts on a category change and the swap
+              animation replays. The animation sits on the grid, not the cards:
+              with fill-mode both on a card it would pin the transform and kill
+              the hover lift. */}
+          <div
+            key={category.name}
+            className="mb-14 grid animate-swap grid-cols-2 gap-px bg-ink/20 sm:grid-cols-3 lg:grid-cols-5"
+          >
+            {category.stages.map((stage, i) => (
+              <div
+                key={stage}
+                className="flex min-h-[175px] flex-col justify-between gap-3.5 bg-cream p-5 transition-[transform,background-color] duration-300 ease-overshoot hover:-translate-y-1.5 hover:bg-acid-wash"
+              >
+                <div className="label-mono opacity-45">0{i + 1}</div>
+                <div>
+                  <div className="mb-2 text-[15px] leading-tight font-semibold">
+                    {stage}
+                  </div>
+                  {/* The count is the point of the cell, so it is the biggest
+                      thing in it, not a footnote under the label. */}
+                  <div className="font-display text-[clamp(40px,5vw,60px)] leading-[0.85] font-extrabold tracking-[-0.04em] tabular-nums">
+                    {Math.round(category.stageCounts[i] * progress)}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className="grid gap-px bg-ink/20 lg:grid-cols-3">
@@ -108,7 +123,7 @@ export function Sales() {
             </div>
           </div>
 
-          <div className="on-dark flex min-h-[290px] flex-col justify-between gap-4 bg-bottle p-7 text-cream">
+          <div className="on-dark press-dark flex min-h-[290px] flex-col justify-between gap-4 bg-bottle p-7 text-cream">
             <div className="h-[30px] w-[30px] animate-pop bg-acid" />
             <div
               key={category.name}
@@ -179,11 +194,11 @@ export function Sales() {
             place from 640px up and phones go straight to the next one. */}
         <div className="hidden sm:block">
           <p className="label-mono mt-16 mb-4 opacity-55">Also in the box</p>
-          <div className="grid gap-3.5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4">
             {EXTRAS.map((extra) => (
               <div
                 key={extra.label}
-                className={`flex min-h-[210px] flex-col justify-between gap-6 p-7 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${extra.ground} ${extra.tilt}`}
+                className={`relative flex min-h-[210px] flex-col justify-between gap-6 p-7 transition-transform duration-300 ease-overshoot hover:z-10 hover:-translate-y-2 ${extra.ground} ${extra.tilt}`}
               >
                 <span className={`block h-[26px] w-[26px] ${extra.chip}`} />
                 <span className="text-[17px] leading-snug font-semibold">

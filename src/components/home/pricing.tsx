@@ -2,6 +2,7 @@ import Link from "next/link";
 import { PRICING_NOTE, TIERS } from "@/content/pricing";
 import { CONTACT_TOPICS } from "@/content/contact";
 import { Reveal } from "@/components/reveal";
+import { SectionHead } from "@/components/section-head";
 import { WaitlistButton } from "@/components/waitlist/waitlist-button";
 import { buttonClass } from "@/components/ui/button";
 
@@ -22,31 +23,30 @@ export function Pricing() {
       className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-24"
     >
       <div className="mx-auto max-w-[1180px]">
-        <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-6">
-            <div>
-              <p className="eyebrow mb-5 text-acid/70">06 · Pricing</p>
-              <h2 className="m-0 max-w-[16ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
-                Cheaper than an hour of your time.
-              </h2>
-            </div>
-            {/* Mono is a label voice, never body copy, so the eyebrow is mono
-                and the sentence under it is not. */}
+        <SectionHead
+          index="06"
+          label="Pricing"
+          title="Cheaper than an hour of your time."
+          tone="dark"
+          split
+          // Mono is a label voice, never body copy, so the small line is mono
+          // and the sentence under it is not.
+          aside={
             <div className="max-w-[34ch]">
               <p className="label-mono mb-2 text-acid/70">Not open yet</p>
               <p className="text-[15px] leading-relaxed text-cream/75">
                 {PRICING_NOTE}
               </p>
             </div>
-          </div>
-        </Reveal>
+          }
+        />
 
         {/* The ledger bleeds past the text column so the hover flood has room
             either side of the row, while the content stays on the same left
             edge as the heading above it. */}
         <div className="mt-14 -mx-3 border-b border-cream/20 sm:-mx-6">
           {TIERS.map((tier, i) => (
-            <Reveal key={tier.name} delay={i * 0.06}>
+            <Reveal key={tier.name} delay={i * 0.04}>
               <div className="group grid grid-cols-1 items-start gap-x-8 gap-y-6 border-t border-cream/20 px-4 py-9 transition-colors duration-200 hover:bg-acid hover:text-bottle sm:px-7 lg:grid-cols-[3rem_minmax(0,1.05fr)_minmax(0,1fr)_auto]">
                 <div className="label-mono pt-3 text-cream/45 group-hover:text-bottle/55">
                   {tier.index}
@@ -82,11 +82,11 @@ export function Pricing() {
                 <div className="flex flex-col items-start gap-4 lg:items-end">
                   <div className="flex items-baseline gap-2 lg:flex-col lg:items-end lg:gap-1">
                     {tier.price === null ? (
-                      <span className="font-display text-[clamp(28px,4vw,38px)] leading-none font-extrabold tracking-[-0.04em] text-acid group-hover:text-bottle">
+                      <span className="font-display text-[clamp(24px,4vw,32px)] leading-none font-extrabold tracking-[-0.04em] text-acid group-hover:text-bottle">
                         Built for you
                       </span>
                     ) : (
-                      <span className="font-display text-[clamp(44px,6vw,64px)] leading-none font-extrabold tracking-[-0.045em] text-acid group-hover:text-bottle">
+                      <span className="font-display text-[clamp(44px,6vw,60px)] leading-none font-extrabold tracking-[-0.04em] text-acid group-hover:text-bottle">
                         ${tier.price}
                       </span>
                     )}
@@ -103,7 +103,7 @@ export function Pricing() {
                     {tier.price === null ? null : (
                       <span
                         aria-hidden="true"
-                        className="-mt-1 hidden h-0 overflow-hidden font-display text-[clamp(28px,4vw,38px)] leading-none font-extrabold tracking-[-0.04em] whitespace-nowrap lg:block"
+                        className="-mt-1 hidden h-0 overflow-hidden font-display text-[clamp(24px,4vw,32px)] leading-none font-extrabold tracking-[-0.04em] whitespace-nowrap lg:block"
                       >
                         Built for you
                       </span>

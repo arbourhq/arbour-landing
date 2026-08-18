@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Wordmark } from "./wordmark";
@@ -26,6 +26,53 @@ function scrollToId(id: string) {
 export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const progress = useRef<HTMLSpanElement>(null);
+  const bar = useRef<HTMLDivElement>(null);
+
+  // scroll-padding-top has to be the exact height of the bar, or an anchor
+  // lands with a strip of Bottle above the section it jumped to. The bar
+  // changes height between breakpoints and when the mobile menu opens, so it
+  // is measured rather than hard-coded.
+  useEffect(() => {
+    const el = bar.current;
+    if (!el) return;
+    // offsetHeight, not contentRect: contentRect is the content box and would
+    // drop the bar's vertical padding.
+    const observer = new ResizeObserver(() => {
+      document.documentElement.style.setProperty(
+        "--nav-h",
+        `${el.offsetHeight}px`,
+      );
+    });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Scroll progress, drawn as a hairline of Acid across the bottom of the bar.
+  // Written straight to the node so a scroll does not re-render the nav.
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const el = progress.current;
+      if (!el) return;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+      el.style.transform = `scaleX(${p})`;
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
 
   // Arriving from another page, e.g. /about to /#pricing. The router restores
   // the hash before the page has settled, so do it again once it has.
@@ -57,8 +104,15 @@ export function SiteNav() {
   }
 
   return (
-    <nav className="on-dark sticky top-0 z-50 border-b-2 border-bottle bg-bottle text-acid">
-      <div className="flex items-center gap-8 px-6 py-3.5 sm:px-10">
+    <nav className="on-dark sticky top-0 z-50 bg-bottle text-acid">
+      {/* Scaled from the left so it reads as a hairline filling in. Inside the
+          bar, so it does not add height the anchor offset would have to clear. */}
+      <span
+        ref={progress}
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-acid"
+      />
+      <div ref={bar} className="flex items-center gap-8 px-6 py-3.5 sm:px-10">
         <Link href="/" className="shrink-0">
           <Wordmark className="text-[22px] sm:text-[26px]" />
         </Link>

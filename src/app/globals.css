@@ -264,10 +264,11 @@
 
 html {
   scroll-behavior: smooth;
-  /* The nav is sticky (72px), so anchored sections have to clear it. This is
-     the only place that offset is set. Adding scroll-mt to a section as well
-     stacks with it and lands the heading a nav-height too low. */
-  scroll-padding-top: 5rem;
+  /* The nav is sticky, so anchored sections have to clear it exactly. SiteNav
+     measures the bar and writes --nav-h; the fallback is the desktop height.
+     This is the only place that offset is set. Adding scroll-mt to a section
+     as well stacks with it and lands the heading a nav-height too low. */
+  scroll-padding-top: var(--nav-h, 3.5rem);
 }
 
 body {
@@ -286,6 +287,79 @@ body {
    content shows Cream, and an overscroll on a phone rubber-bands to it. */
 body:has([data-ground="bottle"]) {
   background: var(--color-bottle);
+}
+
+/* ---------------------------------------------------------------------------
+   Scrollbar. Square, no radius, no gradient: a solid Bottle block running in a
+   sunken Cream channel, hairline-ruled on its left edge like every other
+   divider on the site. Only on fine pointers, because styling the WebKit
+   scrollbar turns an overlay bar into a permanent one, which is right on a
+   desktop and wrong on a phone.
+   --------------------------------------------------------------------------- */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-cream-sunken);
+    box-shadow: inset 1px 0 0 rgba(15, 42, 30, 0.24);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-bottle);
+    /* The inset edge is the letterpress rule the buttons carry, turned on its
+       side: the thumb reads as pressed into the channel, not floating. Scaled
+       with the bar, or 4px of a 10px thumb is more edge than block. */
+    box-shadow: inset -3px 0 0 rgba(5, 33, 23, 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-bottle-deep);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: var(--color-bottle-ink);
+  }
+
+  /* Steppers at the ends of the track, off. */
+  ::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: var(--color-cream-sunken);
+  }
+
+  /* /bio is one Bottle flood, so the channel inverts with it. Keyed off <html>,
+     not <body>: the page scrollbar is painted from the root element, so a rule
+     hung on <body> never reaches it. */
+  html:has([data-ground="bottle"]) ::-webkit-scrollbar-track,
+  html:has([data-ground="bottle"])::-webkit-scrollbar-track {
+    background: var(--color-bottle-ink);
+    box-shadow: inset 1px 0 0 rgba(198, 255, 61, 0.24);
+  }
+
+  html:has([data-ground="bottle"]) ::-webkit-scrollbar-thumb,
+  html:has([data-ground="bottle"])::-webkit-scrollbar-thumb {
+    background: var(--color-acid);
+    box-shadow: inset -3px 0 0 rgba(11, 64, 48, 0.35);
+  }
+
+  /* Firefox, which has no scrollbar pseudo-elements and only takes the two
+     standard properties. Scoped so it never lands in Chrome: setting
+     scrollbar-color there makes Chrome ignore everything above and paint its
+     own rounded thumb instead. */
+  @supports not selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-color: var(--color-bottle) var(--color-cream-sunken);
+    }
+
+    html:has([data-ground="bottle"]) {
+      scrollbar-color: var(--color-acid) var(--color-bottle-ink);
+    }
+  }
 }
 
 ::selection {
