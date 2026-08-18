@@ -15,8 +15,8 @@ import { SITE } from "@/content/site";
  * transparent, so it only ever sits on the Bottle panel.
  */
 const WORDMARK = `${SITE.url}/arbour-wordmark-acid.png`;
-const WORDMARK_W = 168;
-const WORDMARK_H = 29; // source is 2400x411
+const WORDMARK_W = 124;
+const WORDMARK_H = 21; // source is 2400x411
 
 const CREAM = "#FFFBEF";
 const BOTTLE = "#0B4030";
@@ -45,14 +45,18 @@ export function confirmationText(category: string) {
     "",
     `We have you down as: ${category}.`,
     "",
-    "That is the useful half. It tells us which pipeline, which run sheet and which automations to have ready for you on the day you get in.",
+    "Thank you for showing an interest in Arbour.",
     "",
-    "What happens now: nothing, for a while. We are building. When the first release is good enough to run a real season on, the waitlist hears first, in the order people joined. One email, not a drip sequence.",
+    "We are building it for people who run wedding businesses and are tired of duct-taping their admin and operations systems together.",
     "",
-    "Venues and groups wanting to talk about the House plan can reply to this. It is not a sales call, and a person answers it.",
+    "We are still building, so there is not much for you to do just yet.",
+    "",
+    "We will keep you in the loop as things take shape. When we are ready for beta testing, you will be one of the first to know.",
+    "",
+    "No daily \u201cjust checking in\u201d emails. Just the occasional update when we have actually got something worth showing you.",
     "",
     "Arbour",
-    "The OS that weddings run on",
+    "Wedding Industry OS",
   ].join("\n");
 }
 
@@ -83,24 +87,29 @@ export function confirmationHtml(category: string) {
 
         <tr><td style="background:${CREAM};padding:32px;box-shadow:inset 0 0 0 1px rgba(15,42,30,0.2);">
           <p style="margin:0 0 18px;font-size:16px;line-height:1.55;">
-            That is the useful half. It tells us which pipeline, which run sheet and which
-            automations to have ready for you on the day you get in.
+            Thank you for showing an interest in Arbour.
           </p>
           <p style="margin:0 0 18px;font-size:16px;line-height:1.55;">
-            What happens now: nothing, for a while. We are building. When the first release is
-            good enough to run a real season on, the waitlist hears first, in the order people
-            joined. One email, not a drip sequence.
+            We are building it for people who run wedding businesses and are tired of
+            duct-taping their admin and operations systems together.
+          </p>
+          <p style="margin:0 0 18px;font-size:16px;line-height:1.55;">
+            We are still building, so there is not much for you to do just yet.
+          </p>
+          <p style="margin:0 0 18px;font-size:16px;line-height:1.55;">
+            We will keep you in the loop as things take shape. When we are ready for beta
+            testing, you will be one of the first to know.
           </p>
           <p style="margin:0;font-size:16px;line-height:1.55;">
-            Venues and groups wanting to talk about the House plan can reply to this. It is not
-            a sales call, and a person answers it.
+            No daily &ldquo;just checking in&rdquo; emails. Just the occasional update when we
+            have actually got something worth showing you.
           </p>
         </td></tr>
 
         <tr><td style="background:${BOTTLE};padding:24px 32px;">
           <p style="margin:0;color:${CREAM};font-size:15px;line-height:1.5;">Arbour</p>
           <p style="margin:8px 0 0;font-family:${MONO};font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${ACID};">
-            The OS that weddings run on
+            Wedding Industry OS
           </p>
         </td></tr>
 

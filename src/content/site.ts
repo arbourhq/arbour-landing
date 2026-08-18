@@ -6,7 +6,7 @@
  */
 export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://usearbour.com",
-  tagline: "The OS that weddings run on",
+  tagline: "Wedding Industry OS",
   description:
     "Sales CRM and project management in one, built for nothing except the wedding industry. In build now. Join the waitlist.",
 

@@ -65,7 +65,7 @@ export function receiptText({ topic, message }: ContactMessage) {
     message,
     "",
     "Arbour",
-    "The OS that weddings run on",
+    "Wedding Industry OS",
   ].join("\n");
 }
 
@@ -109,7 +109,7 @@ export function receiptHtml({ topic, message }: ContactMessage) {
         <tr><td style="background:${BOTTLE};padding:24px 32px;">
           <p style="margin:0;color:${CREAM};font-size:15px;line-height:1.5;">Arbour</p>
           <p style="margin:8px 0 0;font-family:${MONO};font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:${ACID};">
-            The OS that weddings run on
+            Wedding Industry OS
           </p>
         </td></tr>
 

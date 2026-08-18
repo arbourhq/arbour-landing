@@ -50,9 +50,16 @@ export function ProductTabs() {
         <span className="inline-block animate-nudge">&rarr;</span>
       </div>
 
-      <div role="tablist" className="flex gap-px bg-cream/25">
+      {/*
+        The divider hairline rides on the button itself (inset, so it costs no
+        width) rather than sitting in a gap behind the row. Tabs lift on hover
+        and on select, and a gap-based rule would flash in and out as they move.
+        Only two adjacent resting tabs need one: the acid tab separates itself.
+      */}
+      <div role="tablist" className="flex">
         {TABS.map((item, index) => {
           const on = tab === index;
+          const divider = index > 0 && !on && tab !== index - 1;
           return (
             <button
               key={item.label}
@@ -65,7 +72,7 @@ export function ProductTabs() {
                 on
                   ? "-translate-y-[3px] bg-acid text-bottle"
                   : "bg-bottle text-cream hover:-translate-y-[2px]"
-              }`}
+              } ${divider ? "shadow-[inset_1px_0_0_0_rgba(255,251,239,0.25)]" : ""}`}
             >
               {item.label}
             </button>

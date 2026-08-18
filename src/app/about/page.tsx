@@ -5,7 +5,6 @@ import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
 import { WaitlistButton } from "@/components/waitlist/waitlist-button";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { Marquee } from "@/components/marquee";
 import { ArbourA } from "@/components/wordmark";
 import { Lenses } from "@/components/about/lenses";
 import { AboutStats } from "@/components/about/counter";
@@ -17,12 +16,6 @@ export const metadata: Metadata = {
   description:
     "Arbour is built by two people: a wedding videographer and a software engineer. Here is what each of them thinks a wedding is.",
 };
-
-const MARQUEE_ITEMS = [
-  "250+ weddings worked",
-  "Seven years shipping software",
-  "Zero investors",
-];
 
 export default function AboutPage() {
   return (
@@ -42,12 +35,6 @@ export default function AboutPage() {
             </p>
           </div>
         </section>
-
-        <Marquee
-          items={MARQUEE_ITEMS}
-          seconds={30}
-          className="bg-bottle text-acid"
-        />
 
         <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
           <div className="mx-auto max-w-[1180px]">
