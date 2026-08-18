@@ -3,7 +3,7 @@ import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Marquee } from "@/components/marquee";
-import { Hero } from "@/components/home/hero";
+import { HeroWord } from "@/components/home/hero-word";
 import { Problem } from "@/components/home/problem";
 import { Product } from "@/components/home/product";
 import { Statement } from "@/components/home/statement";
@@ -32,7 +32,8 @@ export default function Home() {
             sunken, Bottle, Cream, Acid, Bottle. Moving a section means
             rechecking that run. */}
         <main>
-          <Hero />
+          <HeroWord />
+
           <Marquee items={MARQUEE_ITEMS} className="bg-acid text-bottle" />
           <Problem />
           <Product />

@@ -61,6 +61,7 @@
   --animate-zoom: zoom 0.42s cubic-bezier(0.34, 1.8, 0.45, 1) both;
   --animate-swap: swap 0.28s cubic-bezier(0.34, 1.8, 0.45, 1) both;
   --animate-fade: fade 0.2s ease both;
+  --animate-flip: flip 0.34s cubic-bezier(0.34, 1.8, 0.45, 1) both;
 }
 
 @keyframes marquee {
@@ -260,6 +261,48 @@
   to {
     opacity: 1;
   }
+}
+/* One shot, for a value that has just changed in place: a word flipping in a
+   slab, a run sheet row ticking off, a count going up by one. squash and pop
+   are the same gesture on a loop, which is wrong for something that happens
+   once. Squashes on the way in, so it lands rather than fades. */
+@keyframes flip {
+  from {
+    transform: translateY(-0.12em) scaleY(0.64);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Hover skirt. Every lift and tilt on the site moves the element out from
+   under a cursor resting on its bottom edge. That drops :hover, which drops
+   the element back under the cursor, which starts the lift again: the button
+   jitters in place until you move the mouse.
+
+   The fix is a transparent box 10px bigger than the element (the 8px lift plus
+   what the overshoot curve adds on top), so the pointer is still inside it for
+   the whole distance travelled. Two details keep it from causing trouble of
+   its own: it is drawn only while the element is hovered, so it never sits
+   over a neighbour waiting to steal a pointer, and z-index -1 puts it behind
+   the content, so children stay clickable.
+
+   Keyed off the utility names because the behaviour is spread across fifty-odd
+   call sites, and :where() keeps it at zero specificity so any component that
+   wants its own ::after still wins.
+   --------------------------------------------------------------------------- */
+:where([class*="hover:-translate-y"], [class*="hover:rotate"]):hover {
+  position: relative;
+}
+
+:where([class*="hover:-translate-y"], [class*="hover:rotate"]):hover::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  z-index: -1;
 }
 
 html {
