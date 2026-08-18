@@ -1,12 +1,23 @@
-"use client";
-
 import { ProductTabs } from "@/components/product/product-tabs";
-import { Reveal } from "@/components/reveal";
+import { SectionHead } from "@/components/section-head";
 
 /**
- * The six panels. The design bundle flooded one of these Sprout, which is an
- * in-product colour, so it is Acid wash here instead: same pale green beat,
- * legal on a marketing surface.
+ * The six panels. One colour each, butted with no gutter, inside the same
+ * 1180px column as every other section.
+ *
+ * This was briefly three grounds running edge to edge, on the argument that the
+ * brand wants colour to flood a section rather than tint cards in it. It read
+ * worse: full-bleed put the tiles on a different left edge to the heading above
+ * them, and cutting six hues to three lost the thing that makes the block work,
+ * which is that each panel is its own colour.
+ *
+ * The design bundle flooded one of these Sprout, which is an in-product colour,
+ * so it is Acid wash here instead: same pale green beat, legal on a marketing
+ * surface.
+ *
+ * No pressed bottom edge and no hairline here. The panels butt against each
+ * other, so the letterpress line read as a border ruled across the block
+ * rather than depth on a single tile. Colour does the separating.
  */
 const PANELS = [
   {
@@ -19,8 +30,7 @@ const PANELS = [
   {
     title: "Contracts",
     body: "Send, sign, countersign, done. No printer, no scanner, no “can you photograph it?”",
-    ground:
-      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+    ground: "bg-acid-wash text-bottle",
     chip: "bg-bottle animate-squash origin-bottom",
   },
   {
@@ -57,19 +67,15 @@ export function Product() {
         className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-24"
       >
         <div className="mx-auto max-w-[1180px]">
-          <Reveal>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="block h-5 w-5 origin-bottom animate-squash bg-acid" />
-              <span className="eyebrow text-acid">02 · The whole business</span>
-            </div>
-            <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-acid">
-              Where you&rsquo;ll live.
-            </h2>
-            <p className="m-0 mb-9 max-w-[56ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-              Keep an eye on today, win the next booking, then deliver it. The
-              rest stays out of the way.
-            </p>
-          </Reveal>
+          <SectionHead
+            index="02"
+            label="The whole business"
+            title={<>Where you&rsquo;ll live.</>}
+            lead="Keep an eye on today, win the next booking, then deliver it. The rest stays out of the way."
+            tone="dark"
+            split
+            className="mb-10"
+          />
 
           <ProductTabs />
         </div>
@@ -77,27 +83,23 @@ export function Product() {
 
       <section className="bg-cream px-6 py-20 text-ink sm:px-10 sm:py-24">
         <div className="mx-auto max-w-[1180px]">
-          <Reveal>
-            <p className="eyebrow mb-5 opacity-55">03 · The rest of it</p>
-            <h2 className="m-0 mb-3.5 max-w-[24ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
-              Six things you stop doing by hand.
-            </h2>
-            <p className="m-0 mb-9 max-w-[56ch] text-[17px] leading-relaxed opacity-70 sm:text-lg">
-              First enquiry to load out. The parts that eat a Tuesday night are
-              already handled, so the only thing still asking for you is the day
-              itself.
-            </p>
-          </Reveal>
+          {/* No lead paragraph. The panels are the lead. */}
+          <SectionHead
+            index="03"
+            label="The rest of it"
+            title="Six things you stop doing by hand."
+            className="mb-10"
+          />
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3">
             {PANELS.map((panel) => (
               <div
                 key={panel.title}
-                className={`flex min-h-[230px] flex-col justify-between gap-5 p-8 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${panel.ground}`}
+                className={`relative flex min-h-[230px] flex-col justify-between gap-5 p-8 transition-transform duration-300 ease-overshoot hover:z-10 hover:-translate-y-2 ${panel.ground}`}
               >
                 <span className={`block h-[30px] w-[30px] ${panel.chip}`} />
                 <div>
-                  <div className="mb-2 font-display text-[26px] font-extrabold tracking-[-0.03em]">
+                  <div className="mb-2 font-display text-[24px] font-extrabold tracking-[-0.03em]">
                     {panel.title}
                   </div>
                   <div

@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { BUILD_SCOPE, STATUS_LABELS } from "@/content/build-scope";
 import { Reveal } from "@/components/reveal";
+import { SectionHead } from "@/components/section-head";
 import { WaitlistButton } from "@/components/waitlist/waitlist-button";
+import { useTally } from "@/lib/use-tally";
 
 /**
  * Replaces the design bundle's usage stats ("4,200 weddings run on Arbour") and
@@ -25,54 +26,6 @@ const CHIPS = [
   "animate-squash origin-bottom",
 ];
 
-/**
- * 0 to 1 once the node is on screen, held at 1 for reduced motion and for
- * anyone without IntersectionObserver.
- */
-function useTally(duration = 1100) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    const node = ref.current;
-    const reduced = window.matchMedia?.(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
-    if (!node || reduced || typeof IntersectionObserver === "undefined") {
-      setProgress(1);
-      return;
-    }
-
-    let frame = 0;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue;
-          observer.disconnect();
-
-          const start = performance.now();
-          const step = (now: number) => {
-            const p = Math.min(1, (now - start) / duration);
-            setProgress(1 - Math.pow(1 - p, 3));
-            if (p < 1) frame = requestAnimationFrame(step);
-          };
-          frame = requestAnimationFrame(step);
-        }
-      },
-      { threshold: 0.25 },
-    );
-
-    observer.observe(node);
-    return () => {
-      observer.disconnect();
-      cancelAnimationFrame(frame);
-    };
-  }, [duration]);
-
-  return { ref, progress };
-}
-
 export function Building() {
   const { ref, progress } = useTally();
 
@@ -82,20 +35,19 @@ export function Building() {
       className="bg-acid px-6 py-20 text-bottle sm:px-10 sm:py-24"
     >
       <div className="mx-auto max-w-[1180px]">
-        <Reveal>
-          <p className="eyebrow mb-5 opacity-60">04 · What we are building</p>
-          <h2 className="m-0 mb-3.5 max-w-[22ch] font-display text-[clamp(34px,6.5vw,66px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-bottle">
-            Here&rsquo;s the plan.
-          </h2>
-          <p className="m-0 mb-12 max-w-[58ch] text-[17px] leading-relaxed sm:text-lg">
-            Most software sites at this stage show a number they made up. But
-            here&rsquo;s the actual scope.
-          </p>
-        </Reveal>
+        <SectionHead
+          index="04"
+          label="What we are building"
+          title={<>Here&rsquo;s the plan.</>}
+          lead="Most software sites at this stage show a number they made up. But here’s the actual scope."
+          tone="acid"
+          split
+          className="mb-12"
+        />
 
         <div ref={ref} className="grid gap-px bg-bottle/25 lg:grid-cols-3">
           {BUILD_SCOPE.map((group, i) => (
-            <Reveal key={group.id} delay={i * 0.07}>
+            <Reveal key={group.id} delay={i * 0.04} className="h-full">
               <div className="flex h-full flex-col bg-acid p-7">
                 <div className="flex items-center gap-3">
                   <span
@@ -103,14 +55,14 @@ export function Building() {
                   />
                   <p className="label-mono opacity-55">{group.index}</p>
                   <span
-                    className="ml-auto font-display text-[34px] leading-none font-extrabold tracking-[-0.04em] tabular-nums"
+                    className="ml-auto font-display text-[32px] leading-none font-extrabold tracking-[-0.04em] tabular-nums"
                     aria-hidden="true"
                   >
                     {Math.round(group.items.length * progress)}
                   </span>
                 </div>
 
-                <h3 className="m-0 mt-5 font-display text-[28px] leading-none font-extrabold tracking-[-0.03em] text-bottle">
+                <h3 className="m-0 mt-5 font-display text-[24px] leading-none font-extrabold tracking-[-0.03em] text-bottle">
                   {group.title}
                 </h3>
                 <p className="mt-3 mb-6 text-[15px] leading-relaxed opacity-80">
@@ -150,7 +102,7 @@ export function Building() {
           ))}
         </div>
 
-        <div className="on-dark mt-px flex flex-wrap items-center gap-6 bg-bottle p-8 text-cream">
+        <div className="on-dark press-dark mt-px flex flex-wrap items-center gap-6 bg-bottle p-8 text-cream">
           <span className="block h-7 w-7 shrink-0 animate-pop bg-acid" />
           <p className="m-0 max-w-[62ch] text-[17px] leading-relaxed">
             When that first list is genuinely good enough to run a season on,

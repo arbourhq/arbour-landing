@@ -18,12 +18,15 @@ const BASE =
   "transition-transform duration-300 ease-overshoot hover:-translate-y-1 active:translate-y-0 " +
   "disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0";
 
+// The inset edge comes from the press utilities in globals.css rather than an
+// inline shadow, so the buttons and the colour panels share one definition of
+// what letterpress depth is.
 const VARIANTS: Record<ButtonVariant, string> = {
-  acid: "bg-acid text-bottle shadow-[inset_0_-4px_0_rgba(11,64,48,0.5)]",
-  bottle: "bg-bottle text-acid shadow-[inset_0_-4px_0_rgba(0,0,0,0.45)]",
+  acid: "bg-acid text-bottle press",
+  bottle: "bg-bottle text-acid press-dark",
   outlineAcid: "bg-transparent text-acid shadow-[inset_0_0_0_2px_#C6FF3D]",
   outlineBottle: "bg-transparent text-bottle shadow-[inset_0_0_0_2px_#0B4030]",
-  cream: "bg-cream text-cornflower shadow-[inset_0_-4px_0_rgba(11,64,48,0.35)]",
+  cream: "bg-cream text-cornflower press",
 };
 
 const SIZES: Record<ButtonSize, string> = {

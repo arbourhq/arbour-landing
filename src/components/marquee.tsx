@@ -4,8 +4,15 @@
  * screen reader hears each item once.
  *
  * Note: the design bundle tinted the separators Sprout. Sprout is in-product
- * only, so on a marketing surface it is Cream at low opacity instead. The
- * separator is a hard square, not a glyph, to match the chips used elsewhere.
+ * only, so on a marketing surface the separator is drawn from currentColor at
+ * low opacity instead, which also means the strip works on any ground the
+ * caller gives it. It is a hard square turned on its corner, not a glyph, to
+ * match the chips used elsewhere.
+ *
+ * Stays at 22/26px. It was tried a tier up at 44 to make it read as a hard cut
+ * between the hero and the page, and at that size it stops being a strip and
+ * starts competing with the headings either side of it. The ground does that
+ * job instead.
  */
 export function Marquee({
   items,
@@ -26,7 +33,7 @@ export function Marquee({
           {item}
           <span
             aria-hidden="true"
-            className="block h-2 w-2 shrink-0 bg-cream/40 sm:h-2.5 sm:w-2.5"
+            className="block h-2 w-2 shrink-0 rotate-45 bg-current opacity-40 sm:h-2.5 sm:w-2.5"
           />
         </span>
       ))}
