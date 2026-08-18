@@ -44,7 +44,6 @@
   --ease-overshoot: cubic-bezier(0.34, 1.8, 0.45, 1);
   --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);
 
-  --animate-marquee: marquee 26s linear infinite;
   --animate-pop: pop 3.4s cubic-bezier(0.34, 1.9, 0.45, 1) infinite;
   --animate-wob: wob 3.2s cubic-bezier(0.34, 1.7, 0.45, 1) infinite;
   --animate-drift: drift 5s ease-in-out infinite;
@@ -64,14 +63,6 @@
   --animate-flip: flip 0.34s cubic-bezier(0.34, 1.8, 0.45, 1) both;
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
 @keyframes pop {
   0%,
   72%,

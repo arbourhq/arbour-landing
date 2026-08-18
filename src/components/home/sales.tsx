@@ -16,28 +16,26 @@ import { useTally } from "@/lib/use-tally";
 const EXTRAS = [
   {
     label: "Quote builder that knows your packages",
-    ground: "bg-acid text-bottle press-lg",
+    ground: "bg-acid text-bottle",
     chip: "bg-bottle animate-pop origin-bottom-left",
     tilt: "hover:rotate-[-1deg]",
   },
   {
     label: "Lead source reporting that is actually honest",
-    // One shadow property, so the hairline and the pressed edge have to be
-    // declared together rather than as two classes.
     ground:
-      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2),inset_0_-5px_0_rgba(11,64,48,0.5)]",
+      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
     chip: "bg-bottle animate-unfold origin-left",
     tilt: "hover:rotate-[1deg]",
   },
   {
     label: "Calendar sync, both directions",
-    ground: "bg-cornflower text-cream press-dark",
+    ground: "bg-cornflower text-cream",
     chip: "bg-cream animate-tilt",
     tilt: "hover:rotate-[-1deg]",
   },
   {
     label: "Enquiry forms for your own site",
-    ground: "bg-lilac text-bottle press-lg",
+    ground: "bg-lilac text-bottle",
     chip: "bg-bottle animate-drop origin-bottom",
     tilt: "hover:rotate-[1deg]",
   },
