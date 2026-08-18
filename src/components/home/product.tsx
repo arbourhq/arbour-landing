@@ -15,48 +15,46 @@ import { SectionHead } from "@/components/section-head";
  * so it is Acid wash here instead: same pale green beat, legal on a marketing
  * surface.
  *
- * Depth is the one thing kept from that pass. Every panel carries an inset
- * bottom edge, which is the brand's letterpress signature. Acid wash needs its
- * hairline and its pressed edge declared as one shadow, because they are the
- * same property.
+ * No pressed bottom edge and no hairline here. The panels butt against each
+ * other, so the letterpress line read as a border ruled across the block
+ * rather than depth on a single tile. Colour does the separating.
  */
 const PANELS = [
   {
     title: "Enquiries",
     body: "Every “are you free in October?” lands in one inbox with a reply already half-written.",
-    ground: "bg-bottle text-acid press-dark",
+    ground: "bg-bottle text-acid",
     chip: "bg-acid animate-drop origin-bottom",
     bodyClass: "text-cream/80",
   },
   {
     title: "Contracts",
     body: "Send, sign, countersign, done. No printer, no scanner, no “can you photograph it?”",
-    ground:
-      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2),inset_0_-5px_0_rgba(11,64,48,0.5)]",
+    ground: "bg-acid-wash text-bottle",
     chip: "bg-bottle animate-squash origin-bottom",
   },
   {
     title: "Chasing",
     body: "Arbour nudges whoever has gone quiet (couple, planner or supplier) so you are never the villain twice.",
-    ground: "bg-coral text-cream press-dark",
+    ground: "bg-coral text-cream",
     chip: "bg-cream animate-wob origin-top",
   },
   {
     title: "Run sheets",
     body: "One timeline, everyone on it, and each person only sees the part that is theirs.",
-    ground: "bg-cornflower text-cream press-dark",
+    ground: "bg-cornflower text-cream",
     chip: "bg-cream animate-unfold origin-left",
   },
   {
     title: "Soft holds",
     body: "Pencilled dates stay pencilled, clearly, in their own colour, until money moves.",
-    ground: "bg-lilac text-bottle press-lg",
+    ground: "bg-lilac text-bottle",
     chip: "bg-bottle animate-tilt",
   },
   {
     title: "The day itself",
     body: "Live mode on your phone. Tick things off with one thumb while holding a lens, a bouquet or a tray of canapés.",
-    ground: "bg-acid text-bottle press-lg",
+    ground: "bg-acid text-bottle",
     chip: "bg-bottle animate-spin-slow",
   },
 ];
