@@ -83,11 +83,11 @@ export function Product() {
 
       <section className="bg-cream px-6 py-20 text-ink sm:px-10 sm:py-24">
         <div className="mx-auto max-w-[1180px]">
-          {/* No lead paragraph. The panels are the lead. */}
           <SectionHead
             index="03"
             label="The rest of it"
             title="Six things you stop doing by hand."
+            lead="First enquiry to load out. The parts that eat a Tuesday night are already handled, so the only thing still asking for you is the day itself."
             className="mb-10"
           />
 

@@ -23,7 +23,7 @@ export function Faq() {
         <SectionHead
           index="07"
           label="Before you ask"
-          title="Reasonable questions."
+          title="Reasonable questions"
           className="mb-12"
         />
 

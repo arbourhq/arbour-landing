@@ -1,5 +1,11 @@
 import { Wordmark } from "@/components/wordmark";
-import type { Category, MockStat, RowTone } from "@/content/categories";
+import { Reserve } from "@/components/ui/reserve";
+import {
+  CATEGORIES,
+  type Category,
+  type MockStat,
+  type RowTone,
+} from "@/content/categories";
 
 /**
  * A mock of the product sitting inside a marketing page. This is the only
@@ -10,6 +16,11 @@ import type { Category, MockStat, RowTone } from "@/content/categories";
  * React re-mounts it and the swap animation replays. Reduced motion kills the
  * animation globally, in globals.css.
  */
+
+/* The two lines that change length with the picker. Measured once, up here,
+   so the mock reserves the tallest of the eleven rather than resizing. */
+const MOCK_TITLES = CATEGORIES.map((c) => c.mockTitle);
+const HERO_SUBS = CATEGORIES.map((c) => c.heroSub);
 
 const BADGE_TONE: Record<RowTone, string> = {
   paid: "bg-sprout text-bottle",
@@ -61,10 +72,10 @@ export function HeroMock({ category }: { category: Category }) {
             Tue 28 Jul · 4 days out
           </div>
           <div className="font-display text-[clamp(26px,5vw,38px)] leading-[0.94] font-extrabold tracking-[-0.035em]">
-            {category.mockTitle}
+            <Reserve text={category.mockTitle} all={MOCK_TITLES} />
           </div>
           <p className="mt-2 max-w-[52ch] text-sm leading-snug text-app-muted">
-            {category.heroSub}
+            <Reserve text={category.heroSub} all={HERO_SUBS} />
           </p>
         </div>
 

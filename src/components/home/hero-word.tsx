@@ -47,7 +47,38 @@ const isReduced = () =>
 const SLAB_BOX =
   "px-[0.2em] font-display [font-size:inherit] font-extrabold leading-[0.95] tracking-[-0.04em]";
 
-function CategorySlab() {
+/**
+ * True while the hero is on screen and the tab is in front.
+ *
+ * The cycle used to run for the life of the page. Six sections down, a flip
+ * still changed the headline and the pipeline, and the page moved under
+ * whatever you were reading. Off screen there is nobody to sell the other ten
+ * categories to, so it stops.
+ */
+function useOnScreen(ref: React.RefObject<HTMLElement | null>) {
+  const [onScreen, setOnScreen] = useState(false);
+  const intersecting = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const sync = () => setOnScreen(intersecting.current && !document.hidden);
+    const observer = new IntersectionObserver(([entry]) => {
+      intersecting.current = entry.isIntersecting;
+      sync();
+    });
+    observer.observe(el);
+    document.addEventListener("visibilitychange", sync);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
+    };
+  }, [ref]);
+
+  return onScreen;
+}
+
+function CategorySlab({ onScreen }: { onScreen: boolean }) {
   const { category, index, setIndex } = useCategory();
   const [open, setOpen] = useState(false);
   /** A deliberate touch holds the cycle for PAUSE_MS. A hover only pauses it. */
@@ -89,13 +120,13 @@ function CategorySlab() {
   }, []);
 
   useEffect(() => {
-    if (paused || hovered || open || isReduced()) return;
+    if (!onScreen || paused || hovered || open || isReduced()) return;
     const id = setInterval(
       () => setIndex((live.current + 1) % CATEGORIES.length),
       CYCLE_MS,
     );
     return () => clearInterval(id);
-  }, [paused, hovered, open, setIndex]);
+  }, [onScreen, paused, hovered, open, setIndex]);
 
   /** Every touch restarts the hold, so the clock runs from the last one. */
   const hold = useCallback(() => {
@@ -271,9 +302,14 @@ function CategorySlab() {
 
 export function HeroWord() {
   const { category } = useCategory();
+  const section = useRef<HTMLElement>(null);
+  const onScreen = useOnScreen(section);
 
   return (
-    <section className="on-dark relative bg-bottle px-6 pt-16 sm:px-10">
+    <section
+      ref={section}
+      className="on-dark relative bg-bottle px-6 pt-16 sm:px-10"
+    >
       <div className="relative mx-auto max-w-[1180px]">
         <p className="eyebrow mb-6 text-acid/70">
           00 · In build · Waitlist open
@@ -289,7 +325,7 @@ export function HeroWord() {
           <span className="mt-[0.14em] flex flex-wrap items-baseline gap-x-[0.22em]">
             <span>Built for</span>
             <span className="whitespace-nowrap">
-              <CategorySlab />.
+              <CategorySlab onScreen={onScreen} />.
             </span>
           </span>
         </h1>

@@ -2,6 +2,8 @@
 
 import { useCategory } from "@/components/category-context";
 import { SectionHead } from "@/components/section-head";
+import { Reserve } from "@/components/ui/reserve";
+import { CATEGORIES } from "@/content/categories";
 import { useTally } from "@/lib/use-tally";
 
 /**
@@ -13,6 +15,15 @@ import { useTally } from "@/lib/use-tally";
  * hairline gutter, and those are the only two gutter systems on the page: these
  * four used to float on a 14px gap, which was a third one.
  */
+/* Everything the picker swaps in this section, gathered so each slot can hold
+   the tallest of the eleven. Stage names are per column: slot three is only
+   ever compared against the other slot threes. */
+const STAGE_NAMES = [0, 1, 2, 3, 4].map((i) =>
+  CATEGORIES.map((c) => c.stages[i]),
+);
+const AUTOMATION_WHENS = CATEGORIES.map((c) => c.automation.when);
+const AUTOMATION_THENS = CATEGORIES.map((c) => c.automation.then);
+
 const EXTRAS = [
   {
     label: "Quote builder that knows your packages",
@@ -79,7 +90,7 @@ export function Sales() {
                 <div className="label-mono opacity-45">0{i + 1}</div>
                 <div>
                   <div className="mb-2 text-[15px] leading-tight font-semibold">
-                    {stage}
+                    <Reserve text={stage} all={STAGE_NAMES[i]} />
                   </div>
                   {/* The count is the point of the cell, so it is the biggest
                       thing in it, not a footnote under the label. */}
@@ -130,13 +141,19 @@ export function Sales() {
               <div className="flex items-baseline gap-2.5 bg-bottle px-3 py-2.5">
                 <span className="label-mono shrink-0 text-acid">If</span>
                 <span className="text-[13px] leading-snug">
-                  {category.automation.when}
+                  <Reserve
+                    text={category.automation.when}
+                    all={AUTOMATION_WHENS}
+                  />
                 </span>
               </div>
               <div className="flex items-baseline gap-2.5 bg-bottle px-3 py-2.5">
                 <span className="label-mono shrink-0 text-acid/70">Then</span>
                 <span className="text-[13px] leading-snug">
-                  {category.automation.then}
+                  <Reserve
+                    text={category.automation.then}
+                    all={AUTOMATION_THENS}
+                  />
                 </span>
               </div>
             </div>
