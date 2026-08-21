@@ -87,6 +87,16 @@ export function SiteFooter() {
                     {SITE.contactEmail}
                   </a>
                 </li>
+                <li>
+                  <Link href="/terms" className={LINK}>
+                    Terms and Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy" className={LINK}>
+                    Privacy Policy
+                  </Link>
+                </li>
               </ul>
             </div>
 
