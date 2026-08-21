@@ -21,7 +21,7 @@ export const BIO_LINKS: BioLink[] = [
     index: "01",
     label: "The product",
     sub: "One record, first enquiry to final invoice.",
-    href: "/#product",
+    href: "/",
   },
   {
     index: "02",
