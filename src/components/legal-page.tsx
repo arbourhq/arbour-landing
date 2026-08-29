@@ -12,11 +12,13 @@ export function LegalPage({
   eyebrow,
   title,
   introduction,
+  effectiveDate,
   sections,
 }: {
   eyebrow: string;
   title: string;
   introduction: string;
+  effectiveDate: string;
   sections: readonly LegalSection[];
 }) {
   return (
@@ -38,13 +40,9 @@ export function LegalPage({
         <section className="bg-cream px-6 py-16 sm:px-10 sm:py-22">
           <article className="mx-auto max-w-[820px]">
             <div className="mb-14 bg-bottle p-6 text-cream shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)] sm:p-8">
-              <p className="label-mono mb-3 text-acid">
-                Draft for legal review
-              </p>
+              <p className="label-mono mb-3 text-acid">Effective date</p>
               <p className="m-0 max-w-[58ch] text-[15px] leading-relaxed text-cream/80">
-                This page contains placeholder legal copy. It must be reviewed
-                and approved by an Australian legal practitioner before Arbour
-                launches.
+                {effectiveDate}
               </p>
             </div>
 
