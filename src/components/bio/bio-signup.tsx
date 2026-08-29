@@ -33,7 +33,7 @@ export function BioSignup() {
           // The browser has already checked the address by here, so the dialog
           // only has the category left to ask for.
           event.preventDefault();
-          open(undefined, email);
+          open(email);
         }}
         className="mt-6 flex flex-col gap-3"
       >

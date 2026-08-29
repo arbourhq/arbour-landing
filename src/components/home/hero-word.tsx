@@ -341,7 +341,6 @@ export function HeroWord() {
             <WaitlistButton
               variant="acid"
               size="lg"
-              presetCategory={category.name}
               className="hover:rotate-[-1deg]"
             >
               Join the waitlist

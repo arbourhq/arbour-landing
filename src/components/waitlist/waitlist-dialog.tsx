@@ -8,27 +8,19 @@ import { buttonClass } from "@/components/ui/button";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
-  initialCategory: string | null;
   /** Already taken elsewhere, e.g. the field on /bio. Usually empty. */
   initialEmail: string;
-  onCategoryChange: (category: string) => void;
 };
 
 type Step = "category" | "email";
 
-export function WaitlistDialog({
-  isOpen,
-  onClose,
-  initialCategory,
-  initialEmail,
-  onCategoryChange,
-}: Props) {
+export function WaitlistDialog({ isOpen, onClose, initialEmail }: Props) {
   const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
 
   const [step, setStep] = useState<Step>("category");
-  const [category, setCategory] = useState<string | null>(initialCategory);
+  const [category, setCategory] = useState<string | null>(null);
   const [email, setEmail] = useState(initialEmail);
   const [status, setStatus] = useState<"idle" | "sending" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
@@ -41,15 +33,16 @@ export function WaitlistDialog({
 
     if (isOpen && !dialog.open) {
       dialog.showModal();
-      setStep(initialCategory ? "email" : "category");
-      setCategory(initialCategory);
+      // The category is always asked, never carried in from the page.
+      setStep("category");
+      setCategory(null);
       setEmail(initialEmail);
       setStatus("idle");
       setError(null);
     } else if (!isOpen && dialog.open) {
       dialog.close();
     }
-  }, [isOpen, initialCategory, initialEmail]);
+  }, [isOpen, initialEmail]);
 
   useEffect(() => {
     if (step === "email") emailRef.current?.focus();
@@ -57,7 +50,6 @@ export function WaitlistDialog({
 
   function pickCategory(name: string) {
     setCategory(name);
-    onCategoryChange(name);
     setStep("email");
   }
 
