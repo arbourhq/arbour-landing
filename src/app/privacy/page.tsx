@@ -73,8 +73,17 @@ const SECTIONS: readonly LegalSection[] = [
     heading: "Mailbox, AI and signing features",
     paragraphs: [
       "If a business connects Gmail or Microsoft Outlook, Arbour accesses mailbox data using the permissions approved during connection. The sync is designed to retain conversations involving contacts in that business's Arbour contact list. Other inspected messages are discarded. Arbour stores relevant message content, participants and inline images so the business can work with the conversation. Disconnecting a mailbox stops future sync and removes Arbour's connection credential, but previously synced business records remain until deleted under the business's retention settings or request.",
-      "When an authorised user asks the AI writing assistant for help, Arbour sends the prompt, current draft, chat history, writing preferences and any context the user chooses to include to OpenAI. That context can include contact, enquiry, booking, custom-field and internal-note information. The feature is optional, and an organisation owner can disable it. AI output is stored with the requesting user's chat and must be reviewed before use.",
+      "When an authorised user asks the AI writing assistant for help, Arbour sends the prompt, current draft, chat history, writing preferences and relevant context to OpenAI. That context can include connected Gmail content and contact, enquiry, booking, custom-field and internal-note information. The feature is optional, and an organisation owner can disable it. AI output is stored with the requesting user's chat and must be reviewed before use.",
       "When a business uses electronic signing, Arbour sends the document, signer details and signing instructions to Documenso. Documenso returns signing status and executed documents to Arbour. Signers also provide information directly to Documenso under its privacy policy.",
+    ],
+  },
+  {
+    heading: "AI provider and Google user data",
+    paragraphs: [
+      "Arbour has one third-party AI integration: OpenAI API Platform, used through direct Responses API requests with the API service tier set to auto. As at the effective date of this policy, the configured model is gpt-5.6-luna. Arbour does not route AI requests through an aggregator, gateway or model hub, and does not use a self-hosted or offline AI model.",
+      "Arbour disables OpenAI response storage for each request. OpenAI states that API inputs and outputs are not used to train or improve its models unless the API customer explicitly opts in. Arbour does not opt in or otherwise authorise OpenAI to use Arbour customer content for model training. Under its standard API controls, OpenAI may retain content in abuse-monitoring logs for up to 30 days unless a stricter retention control applies.",
+      "Where AI context comes from a connected Gmail account, raw or derived Google Workspace API user data is sent only to generate the response requested by the authorised user. Arbour does not use that data to train a generalised AI or machine learning model and does not transfer it to a third party that uses it for that purpose. Arbour does not use Google Photos APIs.",
+      "Arbour's use of information received from Google Workspace APIs adheres to the Google User Data Policy, including the Limited Use requirements.",
     ],
   },
   {
@@ -175,7 +184,7 @@ export default function PrivacyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       introduction="How Arbour collects, uses, protects and shares personal information."
-      effectiveDate="29 August 2026"
+      effectiveDate="31 August 2026"
       sections={SECTIONS}
     />
   );

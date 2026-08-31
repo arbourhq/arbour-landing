@@ -73,7 +73,9 @@ const SECTIONS: readonly LegalSection[] = [
   {
     heading: "AI writing assistant",
     paragraphs: [
-      "The optional AI writing assistant sends the user's instructions, draft, conversation history, writing preferences and selected Customer Content to our AI provider to generate a response. The organisation owner can disable this feature.",
+      "The optional AI writing assistant sends the user's instructions, draft, conversation history, writing preferences and relevant Customer Content to OpenAI through its API Platform to generate a response. This can include content originally received through a connected Gmail account. The organisation owner can disable this feature.",
+      "OpenAI states that API inputs and outputs are not used to train or improve its models unless the API customer explicitly opts in. Arbour does not opt in or otherwise authorise OpenAI to use Customer Content for model training, and disables OpenAI response storage for each request. OpenAI may retain content in abuse-monitoring logs under its API terms and data controls.",
+      "Arbour will not use Google Workspace API user data to train a generalised AI or machine learning model, or transfer that data to a third party that uses it for that purpose. Arbour's use of information received from Google Workspace APIs will comply with the Google User Data Policy, including the Limited Use requirements.",
       "AI output can be incomplete, inaccurate, inappropriate or similar to output given to others. It is a drafting aid, not professional, legal, financial or accounting advice. The user must review and, where needed, correct each output before relying on or sending it. Arbour does not send AI output to a recipient without a user's further action or an automation the Customer configured.",
       "The Customer must not submit information to the AI assistant unless it has authority to disclose it for this purpose, and must not use the assistant for decisions that produce legal or similarly significant effects without appropriate human review.",
     ],
@@ -192,7 +194,7 @@ export default function TermsPage() {
       eyebrow="Legal"
       title="Terms and Conditions"
       introduction="The terms for creating an account, running a business and using Arbour."
-      effectiveDate="29 August 2026"
+      effectiveDate="31 August 2026"
       sections={SECTIONS}
     />
   );
