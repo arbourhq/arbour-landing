@@ -24,8 +24,8 @@ const BASE =
 const VARIANTS: Record<ButtonVariant, string> = {
   acid: "bg-acid text-bottle press",
   bottle: "bg-bottle text-acid press-dark",
-  outlineAcid: "bg-transparent text-acid shadow-[inset_0_0_0_2px_#C6FF3D]",
-  outlineBottle: "bg-transparent text-bottle shadow-[inset_0_0_0_2px_#0B4030]",
+  outlineAcid: "bg-transparent text-acid edge-acid",
+  outlineBottle: "bg-transparent text-bottle edge-bottle",
   cream: "bg-cream text-cornflower press",
 };
 

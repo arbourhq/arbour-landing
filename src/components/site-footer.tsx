@@ -21,11 +21,11 @@ const COMPANY_LINKS = NAV_LINKS.filter((link) => !link.href.includes("#"));
 const SURVEY_HREF = "https://forms.gle/2haJPf696ejiLHRx8";
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
-  return <p className="label-mono mb-5 text-acid/60">{children}</p>;
+  return <p className="label-mono mb-5 text-acid/70">{children}</p>;
 }
 
 const LINK =
-  "text-[15px] leading-snug text-cream/70 transition-colors hover:text-acid";
+  "inline-block py-0.5 text-[15px] leading-snug text-cream/70 transition-colors hover:text-acid";
 
 export function SiteFooter() {
   return (
@@ -52,7 +52,7 @@ export function SiteFooter() {
                 href={SURVEY_HREF}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 bg-transparent px-4 py-3 text-[15px] font-semibold text-acid shadow-[inset_0_0_0_2px_#C6FF3D] transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1deg]"
+                className="mt-6 inline-flex items-center gap-2 bg-transparent px-4 py-3 text-[15px] font-semibold text-acid edge-acid transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1deg]"
               >
                 Tell us how you actually work
                 <span aria-hidden="true">&#8599;</span>
@@ -113,7 +113,7 @@ export function SiteFooter() {
                         className={LINK}
                       >
                         {social.name}
-                        <span className="ml-2 text-cream/40">
+                        <span className="ml-2 text-cream/60">
                           {social.handle}
                         </span>
                       </a>
@@ -121,10 +121,10 @@ export function SiteFooter() {
                   ) : (
                     <li
                       key={social.name}
-                      className="text-[15px] leading-snug text-cream/35"
+                      className="text-[15px] leading-snug text-cream/60"
                     >
                       {social.name}
-                      <span className="label-mono ml-2 text-cream/30">
+                      <span className="label-mono ml-2 text-cream/60">
                         Not yet
                       </span>
                     </li>
@@ -141,10 +141,10 @@ export function SiteFooter() {
             <Link href="/" className="shrink-0 text-acid">
               <Wordmark className="text-lg" />
             </Link>
-            <p className="label-mono text-cream/45">
+            <p className="label-mono text-cream/60">
               &copy; {new Date().getFullYear()} Arbour
             </p>
-            <p className="label-mono ml-auto text-cream/45">
+            <p className="label-mono ml-auto text-cream/60">
               Made in Australia for people who work weekends
             </p>
           </div>

@@ -52,9 +52,20 @@ export function ArbourA({ className }: { className?: string }) {
 export function Wordmark({
   tone = "acid",
   className,
+  sizes = "160px",
+  priority = false,
 }: {
   tone?: "acid" | "bottle";
   className?: string;
+  /**
+   * The rendered width, for the srcset. Without it next/image assumes the
+   * 2400px intrinsic width and every retina screen fetches the 3840px
+   * rendition for a 109px logo. 160px covers the nav at its biggest; /bio
+   * passes its own.
+   */
+  sizes?: string;
+  /** Preload. Only the nav instance is above the fold on every page. */
+  priority?: boolean;
 }) {
   return (
     <span
@@ -65,7 +76,8 @@ export function Wordmark({
         alt="Arbour"
         width={2400}
         height={411}
-        priority
+        sizes={sizes}
+        priority={priority}
         className="h-[0.72em] w-auto"
       />
     </span>

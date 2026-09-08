@@ -1,5 +1,10 @@
 "use client";
 
+// oxlint-disable jsx-a11y/prefer-tag-over-role -- the picker is an Acid slab at
+// headline size with a popover list, which a <select> cannot be. It carries
+// the ARIA listbox pattern instead: roles, aria-selected, roving focus, arrow
+// keys, Escape.
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { CATEGORIES } from "@/content/categories";
@@ -94,6 +99,7 @@ function CategorySlab({ onScreen }: { onScreen: boolean }) {
   } | null>(null);
   const sizer = useRef<HTMLSpanElement>(null);
   const wrap = useRef<HTMLSpanElement>(null);
+  const slab = useRef<HTMLButtonElement>(null);
   const list = useRef<HTMLDivElement>(null);
   const pauseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const live = useRef(index);
@@ -202,6 +208,40 @@ function CategorySlab({ onScreen }: { onScreen: boolean }) {
     };
   }, [open, placePanel]);
 
+  /* Focus follows the list. Opening puts it on the current option so the
+     arrow keys work from the first press; closing, however it happened, puts
+     it back on the slab without scrolling the page to do so. */
+  useEffect(() => {
+    if (!open) return;
+    const slabEl = slab.current;
+    const current = list.current?.querySelector<HTMLElement>(
+      '[aria-selected="true"]',
+    );
+    current?.focus({ preventScroll: true });
+    return () => slabEl?.focus({ preventScroll: true });
+  }, [open]);
+
+  /* Arrows walk the options, Home and End jump, Enter and Space are the
+     button's own click. Wraps at both ends because eleven is a short list. */
+  function onListKey(event: React.KeyboardEvent<HTMLDivElement>) {
+    const options = Array.from(
+      list.current?.querySelectorAll<HTMLElement>('[role="option"]') ?? [],
+    );
+    const at = options.indexOf(document.activeElement as HTMLElement);
+    const step: Record<string, number | undefined> = {
+      ArrowDown: at + 1,
+      ArrowRight: at + 1,
+      ArrowUp: at - 1,
+      ArrowLeft: at - 1,
+      Home: 0,
+      End: options.length - 1,
+    };
+    const target = step[event.key];
+    if (target === undefined) return;
+    event.preventDefault();
+    options[(target + options.length) % options.length]?.focus();
+  }
+
   const width = widths[index];
 
   return (
@@ -228,8 +268,10 @@ function CategorySlab({ onScreen }: { onScreen: boolean }) {
       </span>
 
       <button
+        ref={slab}
         type="button"
         aria-expanded={open}
+        aria-haspopup="listbox"
         aria-label={`Vendor category: ${category.name}. Pick another.`}
         onClick={() => {
           hold();
@@ -263,7 +305,10 @@ function CategorySlab({ onScreen }: { onScreen: boolean }) {
         createPortal(
           <div
             ref={list}
+            role="listbox"
             aria-label="Vendor category"
+            tabIndex={-1}
+            onKeyDown={onListKey}
             style={{
               left: panel.left,
               top: panel.top,
@@ -277,7 +322,9 @@ function CategorySlab({ onScreen }: { onScreen: boolean }) {
                 <button
                   key={c.name}
                   type="button"
-                  aria-current={i === index}
+                  role="option"
+                  aria-selected={i === index}
+                  tabIndex={i === index ? 0 : -1}
                   onClick={() => {
                     hold();
                     setIndex(i);

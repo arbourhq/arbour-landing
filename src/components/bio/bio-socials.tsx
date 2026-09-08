@@ -51,7 +51,7 @@ export function BioSocials() {
               href={social.href}
               target="_blank"
               rel="noreferrer"
-              className={`${TILE} bg-transparent text-acid shadow-[inset_0_0_0_1.5px_rgba(198,255,61,0.4)] hover:-translate-y-1 hover:rotate-[-3deg] hover:bg-acid hover:text-bottle`}
+              className={`${TILE} bg-transparent text-acid edge-acid-soft hover:-translate-y-1 hover:rotate-[-3deg] hover:bg-acid hover:text-bottle`}
             >
               {social.name === "Instagram" ? (
                 <InstagramGlyph />
@@ -65,10 +65,7 @@ export function BioSocials() {
           ) : (
             // No account yet, so no glyph and nothing to click. The tile holds
             // the spot so the row does not jump the day it goes up.
-            <div
-              aria-hidden="true"
-              className={`${TILE} shadow-[inset_0_0_0_1.5px_rgba(198,255,61,0.16)]`}
-            />
+            <div aria-hidden="true" className={`${TILE} edge-acid-faint`} />
           )}
         </li>
       ))}

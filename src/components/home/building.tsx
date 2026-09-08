@@ -53,7 +53,7 @@ export function Building() {
                   <span
                     className={`block h-[18px] w-[18px] shrink-0 bg-bottle ${CHIPS[i]}`}
                   />
-                  <p className="label-mono opacity-55">{group.index}</p>
+                  <p className="label-mono opacity-75">{group.index}</p>
                   <span
                     className="ml-auto font-display text-[32px] leading-none font-extrabold tracking-[-0.04em] tabular-nums"
                     aria-hidden="true"

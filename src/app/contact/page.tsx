@@ -25,7 +25,7 @@ export default async function ContactPage({
     <WaitlistProvider>
       <SiteNav />
 
-      <main>
+      <main id="main">
         <section className="bg-acid px-6 pt-16 pb-20 text-bottle sm:px-10 sm:py-22">
           <div className="mx-auto max-w-[1180px]">
             <p className="eyebrow mb-6">Contact · one of two people</p>
@@ -46,7 +46,7 @@ export default async function ContactPage({
 
             <div className="flex flex-col gap-10">
               <div>
-                <p className="eyebrow mb-5 opacity-55">
+                <p className="eyebrow mb-5 opacity-65">
                   Or skip the form entirely
                 </p>
                 <a
@@ -64,10 +64,10 @@ export default async function ContactPage({
               <div className="grid gap-px bg-ink/20">
                 {CONTACT_FACTS.map((fact) => (
                   <div key={fact.index} className="bg-cream py-6 pr-2">
-                    <p className="label-mono mb-2.5 opacity-45">{fact.index}</p>
-                    <div className="mb-1.5 font-display text-[22px] leading-none font-extrabold tracking-[-0.03em]">
+                    <p className="label-mono mb-2.5 opacity-65">{fact.index}</p>
+                    <h2 className="m-0 mb-1.5 font-display text-[22px] leading-none font-extrabold tracking-[-0.03em]">
                       {fact.title}
-                    </div>
+                    </h2>
                     <p className="m-0 max-w-[42ch] text-[15px] leading-relaxed opacity-80">
                       {fact.body}
                     </p>

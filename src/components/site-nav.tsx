@@ -83,6 +83,16 @@ export function SiteNav() {
     return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
+  // Escape closes the phone menu, the same as it closes everything else.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [menuOpen]);
+
   function onNavClick(
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string,
@@ -105,6 +115,14 @@ export function SiteNav() {
 
   return (
     <nav className="on-dark sticky top-0 z-50 bg-bottle text-acid">
+      {/* Keyboard users get past the seven links and the button in one press.
+          Off screen until focused, then a solid Acid block over the bar. */}
+      <a
+        href="#main"
+        className="sr-only bg-acid px-4 py-3 text-[15px] font-semibold text-bottle focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
+      >
+        Skip to content
+      </a>
       {/* Scaled from the left so it reads as a hairline filling in. Inside the
           bar, so it does not add height the anchor offset would have to clear. */}
       <span
@@ -114,7 +132,7 @@ export function SiteNav() {
       />
       <div ref={bar} className="flex items-center gap-8 px-6 py-3.5 sm:px-10">
         <Link href="/" className="shrink-0">
-          <Wordmark className="text-[22px] sm:text-[26px]" />
+          <Wordmark className="text-[22px] sm:text-[26px]" priority />
         </Link>
 
         <div className="ml-auto hidden items-center gap-6 md:flex">
@@ -123,7 +141,7 @@ export function SiteNav() {
               key={link.href}
               href={link.href}
               onClick={(event) => onNavClick(event, link.href)}
-              className="label-mono text-[10px] tracking-[0.16em] hover:underline"
+              className="label-mono py-3 text-[10px] tracking-[0.16em] hover:underline"
             >
               {link.label}
             </Link>
@@ -138,8 +156,7 @@ export function SiteNav() {
           onClick={() => setMenuOpen((open) => !open)}
           aria-expanded={menuOpen}
           aria-controls="mobile-nav"
-          className="label-mono ml-auto cursor-pointer border-0 bg-transparent px-2 py-2 text-[10px] tracking-[0.16em] md:hidden"
-          style={{ color: "currentColor" }}
+          className="label-mono ml-auto cursor-pointer border-0 bg-transparent px-3 py-3 text-[10px] tracking-[0.16em] text-current md:hidden"
         >
           {menuOpen ? "Close" : "Menu"}
         </button>
@@ -155,7 +172,7 @@ export function SiteNav() {
               key={link.href}
               href={link.href}
               onClick={(event) => onNavClick(event, link.href)}
-              className="label-mono py-2.5 text-[11px] tracking-[0.16em]"
+              className="label-mono py-3 text-[11px] tracking-[0.16em]"
             >
               {link.label}
             </Link>

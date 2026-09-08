@@ -5,9 +5,9 @@ import { CONTACT_TOPIC_NAMES, CONTACT_TOPICS } from "@/content/contact";
 import { buttonClass } from "@/components/ui/button";
 
 const FIELD =
-  "w-full border-0 bg-acid-wash px-4.5 py-4 font-sans text-[17px] text-ink shadow-[inset_0_0_0_1.5px_#0B4030] placeholder:text-ink/40";
+  "w-full border-0 bg-acid-wash px-4.5 py-4 font-sans text-[17px] text-ink edge-bottle-thin placeholder:text-ink/65";
 
-const LABEL = "eyebrow mb-2.5 block opacity-55";
+const LABEL = "eyebrow mb-2.5 block opacity-70";
 
 /**
  * The topic buttons are square chips rather than a select, because the choice
@@ -62,7 +62,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
 
   if (status === "sent") {
     return (
-      <div className="flex flex-col gap-5 bg-acid p-8 text-bottle shadow-[inset_0_0_0_2px_#0B4030] sm:p-11">
+      <div className="flex flex-col gap-5 bg-acid p-8 text-bottle edge-bottle sm:p-11">
         <span className="block h-7 w-7 origin-bottom animate-pop bg-bottle" />
         <h2 className="m-0 font-display text-[clamp(30px,5vw,44px)] leading-[0.95] font-extrabold tracking-[-0.04em]">
           Sent. Now go and do something else.
@@ -78,7 +78,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
   return (
     <form
       onSubmit={submit}
-      className="flex flex-col gap-7 bg-cream p-8 shadow-[inset_0_0_0_2px_#0B4030] sm:p-11"
+      className="flex flex-col gap-7 bg-cream p-8 edge-bottle sm:p-11"
     >
       <fieldset className="m-0 border-0 p-0">
         <legend className={LABEL}>What is this about</legend>
@@ -91,7 +91,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setTopic(name)}
-                className={`cursor-pointer border-0 px-3.5 py-2.5 font-sans text-sm font-semibold shadow-[inset_0_0_0_1.5px_#0B4030] transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] ${
+                className={`cursor-pointer border-0 px-3.5 py-3 font-sans text-sm font-semibold edge-bottle-thin transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] ${
                   on ? "bg-bottle text-acid" : "bg-transparent text-bottle"
                 }`}
               >
@@ -163,7 +163,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
       {error ? (
         <p
           role="alert"
-          className="bg-coral-wash px-4 py-3 text-sm text-ink shadow-[inset_0_0_0_1.5px_#FF4438]"
+          className="bg-coral-wash px-4 py-3 text-sm text-ink edge-coral-thin"
         >
           {error}
         </p>
@@ -177,7 +177,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
         >
           {status === "sending" ? "Sending" : "Send it"}
         </button>
-        <span className="label-mono max-w-[30ch] leading-relaxed opacity-55">
+        <span className="label-mono max-w-[30ch] leading-relaxed opacity-65">
           Goes to two people · no ticket number
         </span>
       </div>

@@ -48,7 +48,7 @@ export function Pricing() {
           {TIERS.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 0.04}>
               <div className="group grid grid-cols-1 items-start gap-x-8 gap-y-6 border-t border-cream/20 px-4 py-9 transition-colors duration-200 hover:bg-acid hover:text-bottle sm:px-7 lg:grid-cols-[3rem_minmax(0,1.05fr)_minmax(0,1fr)_auto]">
-                <div className="label-mono pt-3 text-cream/45 group-hover:text-bottle/55">
+                <div className="label-mono pt-3 text-cream/60 group-hover:text-bottle/75">
                   {tier.index}
                 </div>
 
@@ -58,7 +58,7 @@ export function Pricing() {
                       {tier.name}
                     </h3>
                     {tier.enterprise ? (
-                      <span className="label-mono bg-cornflower px-2.5 py-1.5 text-[8px] text-cream">
+                      <span className="label-mono bg-cornflower-deep px-2.5 py-1.5 text-[8px] text-cream">
                         Enterprise
                       </span>
                     ) : null}
@@ -90,7 +90,7 @@ export function Pricing() {
                         ${tier.price}
                       </span>
                     )}
-                    <span className="label-mono text-cream/60 group-hover:text-bottle/65">
+                    <span className="label-mono text-cream/60 group-hover:text-bottle/80">
                       {tier.priceNote}
                     </span>
                     {/* Each tier row is its own grid, so the auto-sized price
@@ -116,7 +116,7 @@ export function Pricing() {
                       className={buttonClass(
                         "outlineAcid",
                         "sm",
-                        "w-full justify-center lg:w-auto group-hover:shadow-[inset_0_0_0_2px_#0B4030] group-hover:text-bottle",
+                        "w-full justify-center lg:w-auto group-hover:edge-bottle group-hover:text-bottle",
                       )}
                     >
                       Talk to us

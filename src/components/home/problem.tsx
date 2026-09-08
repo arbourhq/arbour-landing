@@ -51,9 +51,9 @@ export function Problem() {
                   {card.figure}
                 </div>
                 <div>
-                  <div className="mb-2 text-[20px] leading-snug font-semibold">
+                  <h3 className="m-0 mb-2 text-[20px] leading-snug font-semibold">
                     {card.title}
-                  </div>
+                  </h3>
                   <div className="text-[15px] leading-relaxed opacity-70">
                     {card.body}
                   </div>

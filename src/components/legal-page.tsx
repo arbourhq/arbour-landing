@@ -24,7 +24,7 @@ export function LegalPage({
   return (
     <WaitlistProvider>
       <SiteNav />
-      <main>
+      <main id="main">
         <section className="bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
           <div className="mx-auto max-w-[1180px]">
             <p className="eyebrow mb-6 text-bottle">{eyebrow}</p>
@@ -39,7 +39,7 @@ export function LegalPage({
 
         <section className="bg-cream px-6 py-16 sm:px-10 sm:py-22">
           <article className="mx-auto max-w-[820px]">
-            <div className="mb-14 bg-bottle p-6 text-cream shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)] sm:p-8">
+            <div className="mb-14 bg-bottle p-6 text-cream hairline sm:p-8">
               <p className="label-mono mb-3 text-acid">Effective date</p>
               <p className="m-0 max-w-[58ch] text-[15px] leading-relaxed text-cream/80">
                 {effectiveDate}
@@ -52,7 +52,7 @@ export function LegalPage({
                   key={section.heading}
                   className="grid gap-5 py-10 first:pt-0 sm:grid-cols-[80px_1fr]"
                 >
-                  <p className="label-mono pt-1 opacity-50">
+                  <p className="label-mono pt-1 opacity-65">
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <div>

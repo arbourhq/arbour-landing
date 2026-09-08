@@ -27,13 +27,24 @@
   --color-lilac-wash: #f1edff;
   --color-ochre: #dfa023;
 
-  /* In-product grounds. Only legal inside a product mock. */
+  /* Deep and ink steps of the two saturated hues, lifted from the product
+     kit's press and ink shades. Cream on Cornflower is 4.2:1 and Cream on
+     Coral 3.3:1, so neither hue can carry 15px body copy as it stands.
+     Cornflower-deep takes Cream at 5.7:1; the ink shades sit on their wash
+     for status badges inside the mock. Coral tiles carry Bottle ink instead. */
+  --color-cornflower-deep: #3a57dc;
+  --color-cornflower-ink: #2438a8;
+  --color-coral-ink: #9e1d14;
+
+  /* In-product grounds. Only legal inside a product mock. The two greys are
+     set so that muted clears 4.5:1 on the app ground and faint clears it on
+     a white panel, which is where each is used. */
   --color-app: #f4f4f1;
   --color-app-panel: #ffffff;
   --color-app-sunken: #fbfbf9;
   --color-app-ink: #17211b;
-  --color-app-muted: #7a7a72;
-  --color-app-faint: #9a9a92;
+  --color-app-muted: #66665f;
+  --color-app-faint: #6f6f68;
   --color-app-fainter: #c8c8c0;
 
   --font-display:
@@ -436,6 +447,36 @@ body:has([data-ground="bottle"]) {
 }
 @utility press-dark {
   box-shadow: inset 0 -5px 0 rgb(0 0 0 / 0.45);
+}
+
+/* Inset outlines. Every outline on the site is an inset ring in a brand
+   colour, drawn with box-shadow so it costs no layout. They read the tokens,
+   so a palette change in @theme reaches every field, chip and panel. */
+@utility edge-bottle {
+  box-shadow: inset 0 0 0 2px var(--color-bottle);
+}
+@utility edge-bottle-thin {
+  box-shadow: inset 0 0 0 1.5px var(--color-bottle);
+}
+@utility edge-acid {
+  box-shadow: inset 0 0 0 2px var(--color-acid);
+}
+@utility edge-acid-soft {
+  box-shadow: inset 0 0 0 1.5px rgb(198 255 61 / 0.4);
+}
+@utility edge-acid-faint {
+  box-shadow: inset 0 0 0 1.5px rgb(198 255 61 / 0.16);
+}
+@utility edge-coral-thin {
+  box-shadow: inset 0 0 0 1.5px var(--color-coral);
+}
+/* The Ink hairline the light panels sit inside. */
+@utility hairline {
+  box-shadow: inset 0 0 0 1px rgb(15 42 30 / 0.2);
+}
+/* A single Cream rule down the left edge, for butted tabs on Bottle. */
+@utility divider-cream {
+  box-shadow: inset 1px 0 0 0 rgb(255 251 239 / 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {

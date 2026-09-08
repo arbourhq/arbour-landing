@@ -22,7 +22,7 @@ export default function AboutPage() {
     <WaitlistProvider>
       <SiteNav />
 
-      <main>
+      <main id="main">
         <section className="bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
           <div className="mx-auto max-w-[1180px]">
             <p className="eyebrow mb-6 text-bottle">About</p>
@@ -38,7 +38,7 @@ export default function AboutPage() {
 
         <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
           <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-55">01 · The two brains</p>
+            <p className="eyebrow mb-5 opacity-65">01 · The two brains</p>
             {/* Wide enough to hold "Ask each of us what a wedding is." on one
                 line at the 60px cap. At 22ch the measure cut after "wedding"
                 and left "is." stranded on its own. */}
@@ -55,7 +55,7 @@ export default function AboutPage() {
 
         <section className="bg-cream px-6 pb-20 sm:px-10 sm:pb-24">
           <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-55">02 · The history</p>
+            <p className="eyebrow mb-5 opacity-65">02 · The history</p>
             <h2 className="m-0 mb-4 max-w-[20ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
               How we got here.
             </h2>
@@ -67,13 +67,13 @@ export default function AboutPage() {
               {TIMELINE.map((entry) => (
                 <div
                   key={entry.year}
-                  className={`flex min-h-[280px] flex-col justify-between gap-5 p-6 shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)] transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${entry.ground}`}
+                  className={`flex min-h-[280px] flex-col justify-between gap-5 p-6 hairline transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${entry.ground}`}
                 >
                   <span className={`block h-[26px] w-[26px] ${entry.chip}`} />
                   <div>
-                    <div className="mb-2.5 font-display text-[30px] font-extrabold tracking-[-0.03em] text-bottle">
+                    <h3 className="m-0 mb-2.5 font-display text-[30px] font-extrabold tracking-[-0.03em] text-bottle">
                       {entry.year}
-                    </div>
+                    </h3>
                     <div className="text-[15px] leading-snug text-ink">
                       {entry.body}
                     </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
 
         <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
           <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-55">03 · Our values</p>
+            <p className="eyebrow mb-5 opacity-65">03 · Our values</p>
             <h2 className="m-0 mb-10 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
               Six rules, written on a napkin, still true.
             </h2>
@@ -104,11 +104,11 @@ export default function AboutPage() {
                 >
                   <span className={`block h-7 w-7 ${rule.chip}`} />
                   <div>
-                    <div
-                      className={`mb-2 font-display text-2xl font-extrabold tracking-[-0.03em] ${rule.titleClass ?? ""}`}
+                    <h3
+                      className={`m-0 mb-2 font-display text-2xl font-extrabold tracking-[-0.03em] ${rule.titleClass ?? ""}`}
                     >
                       {rule.title}
-                    </div>
+                    </h3>
                     <div className="text-[15px] leading-relaxed opacity-90">
                       {rule.body}
                     </div>
@@ -121,7 +121,7 @@ export default function AboutPage() {
 
         <section className="bg-cream px-6 pb-20 sm:px-10 sm:pb-24">
           <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-55">
+            <p className="eyebrow mb-5 opacity-65">
               04 · Who you are actually emailing
             </p>
             <div className="grid gap-px bg-ink/20 lg:grid-cols-2">
@@ -159,14 +159,14 @@ export default function AboutPage() {
                     )}
 
                     {person.name === "Ben" ? (
-                      <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 bg-bottle/70 px-3 py-2">
+                      <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 bg-bottle/85 px-3 py-2">
                         <span className="block h-2.5 w-2.5 animate-rec rounded-full bg-coral" />
                         <span className="label-mono text-[8px] text-cream">
                           Rec · 04:12
                         </span>
                       </div>
                     ) : (
-                      <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2 bg-bottle/70 px-3 py-2">
+                      <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2 bg-bottle/85 px-3 py-2">
                         <span className="label-mono text-[8px] text-acid">
                           deploy · ok
                         </span>
@@ -181,18 +181,18 @@ export default function AboutPage() {
                         <span
                           className={`block h-[22px] w-[22px] shrink-0 ${person.chip}`}
                         />
-                        <div className="font-display text-[30px] font-extrabold tracking-[-0.03em]">
+                        <h3 className="m-0 font-display text-[30px] font-extrabold tracking-[-0.03em]">
                           {person.name}
-                        </div>
+                        </h3>
                       </div>
-                      <div className="label-mono mt-2 opacity-60">
+                      <div className="label-mono mt-2 opacity-65">
                         {person.role}
                       </div>
                     </div>
                     <p className="m-0 text-[16px] leading-relaxed opacity-80">
                       {person.bio}
                     </p>
-                    <div className="label-mono mt-auto animate-slide opacity-50">
+                    <div className="label-mono mt-auto animate-slide opacity-65">
                       {person.footnote}
                     </div>
                   </div>
@@ -248,7 +248,7 @@ export default function AboutPage() {
               <span className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <Link
                   href="/contact"
-                  className="text-[15px] font-semibold underline underline-offset-4"
+                  className="inline-block py-2.5 text-[15px] font-semibold underline underline-offset-4"
                 >
                   Or write to one of us
                 </Link>

@@ -39,6 +39,33 @@ const TABS = [
   },
 ] as const;
 
+/**
+ * The ARIA tabs contract: arrows move between tabs, Home and End jump, and
+ * only the active tab sits in the Tab order. Selection follows focus.
+ */
+export function onTabKey(
+  event: React.KeyboardEvent<HTMLButtonElement>,
+  index: number,
+  count: number,
+  select: (next: number) => void,
+) {
+  const step: Record<string, number | undefined> = {
+    ArrowRight: index + 1,
+    ArrowDown: index + 1,
+    ArrowLeft: index - 1,
+    ArrowUp: index - 1,
+    Home: 0,
+    End: count - 1,
+  };
+  const target = step[event.key];
+  if (target === undefined) return;
+  event.preventDefault();
+  const next = (target + count) % count;
+  select(next);
+  const tabs = event.currentTarget.parentElement?.children;
+  (tabs?.[next] as HTMLElement | undefined)?.focus();
+}
+
 export function ProductTabs() {
   const [tab, setTab] = useState(0);
   const shot = TABS[tab];
@@ -67,12 +94,14 @@ export function ProductTabs() {
               id={`product-tab-${index}`}
               aria-selected={on}
               aria-controls={`product-panel-${index}`}
+              tabIndex={on ? 0 : -1}
               onClick={() => setTab(index)}
+              onKeyDown={(event) => onTabKey(event, index, TABS.length, setTab)}
               className={`label-mono flex-1 cursor-pointer border-0 px-3 py-4 text-[10px] tracking-[0.16em] transition-transform duration-300 ease-overshoot ${
                 on
                   ? "-translate-y-[3px] bg-acid text-bottle"
                   : "bg-bottle text-cream hover:-translate-y-[2px]"
-              } ${divider ? "shadow-[inset_1px_0_0_0_rgba(255,251,239,0.25)]" : ""}`}
+              } ${divider ? "divider-cream" : ""}`}
             >
               {item.label}
             </button>
