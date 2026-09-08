@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { LENSES } from "@/content/about";
+import { onTabKey } from "@/components/product/product-tabs";
 
 export function Lenses() {
   const [active, setActive] = useState(0);
@@ -22,7 +23,11 @@ export function Lenses() {
               id={`lens-tab-${i}`}
               aria-selected={on}
               aria-controls="lens-panel"
+              tabIndex={on ? 0 : -1}
               onClick={() => setActive(i)}
+              onKeyDown={(event) =>
+                onTabKey(event, i, LENSES.length, setActive)
+              }
               className={`label-mono cursor-pointer border-0 px-3.5 py-4 text-[10px] tracking-[0.16em] ${
                 on ? "bg-bottle text-acid" : "bg-cream text-ink"
               }`}
@@ -56,7 +61,7 @@ export function Lenses() {
         </div>
 
         <div className="flex min-h-[400px] flex-col bg-cream p-8 sm:p-10">
-          <p className="label-mono mb-5 opacity-50">What that taught Arbour</p>
+          <p className="label-mono mb-5 opacity-65">What that taught Arbour</p>
           {lens.lessons.map((lesson) => (
             <div
               key={lesson}

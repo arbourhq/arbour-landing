@@ -45,7 +45,7 @@ export default async function ThanksPage({
     <WaitlistProvider>
       <SiteNav />
 
-      <main>
+      <main id="main">
         <section className="relative overflow-hidden bg-acid px-6 pt-16 pb-20 text-bottle sm:px-10 sm:py-24">
           <div className="mx-auto max-w-[1180px]">
             <p className="eyebrow mb-6">Waitlist · confirmed</p>
@@ -69,7 +69,7 @@ export default async function ThanksPage({
 
         <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
           <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-55">What happens now</p>
+            <h2 className="eyebrow m-0 mb-5 opacity-65">What happens now</h2>
             <div className="grid gap-px bg-ink/20 lg:grid-cols-3">
               {STEPS.map((step) => (
                 <div
@@ -80,11 +80,11 @@ export default async function ThanksPage({
                   // at the foot, and all three titles line up.
                   className="flex min-h-[220px] flex-col gap-5 bg-cream p-7"
                 >
-                  <p className="label-mono opacity-45">{step.index}</p>
+                  <p className="label-mono opacity-65">{step.index}</p>
                   <div>
-                    <div className="mb-2 font-display text-2xl font-extrabold tracking-[-0.03em]">
+                    <h3 className="m-0 mb-2 font-display text-2xl font-extrabold tracking-[-0.03em]">
                       {step.title}
-                    </div>
+                    </h3>
                     <div className="text-[15px] leading-relaxed opacity-80">
                       {step.body}
                     </div>

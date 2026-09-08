@@ -27,7 +27,7 @@ const TONES: Record<Tone, ToneSet> = {
   /** Cream and Cream sunken grounds. */
   light: {
     block: "bg-ink text-cream",
-    label: "text-ink/55",
+    label: "text-ink/65",
     rule: "bg-ink/20",
     title: "text-ink",
     lead: "text-ink/75",
@@ -43,7 +43,7 @@ const TONES: Record<Tone, ToneSet> = {
   /** Acid grounds. */
   acid: {
     block: "bg-bottle text-acid",
-    label: "text-bottle/60",
+    label: "text-bottle/75",
     rule: "bg-bottle/25",
     title: "text-bottle",
     lead: "text-bottle/80",

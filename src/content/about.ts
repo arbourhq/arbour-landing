@@ -79,20 +79,20 @@ export const RULES = [
   {
     title: "No feature that only a demo needs",
     body: "If it does not survive a real Saturday, it does not ship. We test on our own weddings first.",
-    ground:
-      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+    ground: "bg-acid-wash text-bottle hairline",
     chip: "bg-bottle animate-squash origin-bottom",
   },
   {
     title: "One thumb, or it is broken",
     body: "On the day you have one hand free at best. Every mobile screen is built for a thumb and a bad signal.",
-    ground: "bg-coral text-cream",
+    // Cream on Coral is 3.3:1, so the tile carries ink like Lilac does.
+    ground: "bg-coral text-bottle-ink",
     chip: "bg-cream animate-wob origin-top",
   },
   {
     title: "Your data leaves whenever you like",
     body: "Full export, one button, no phone call, no retention specialist. Lock-in is not a business model, it is a hostage situation.",
-    ground: "bg-cornflower text-cream",
+    ground: "bg-cornflower-deep text-cream",
     chip: "bg-cream animate-unfold origin-left",
   },
   {

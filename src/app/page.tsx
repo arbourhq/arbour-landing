@@ -21,7 +21,7 @@ export default function Home() {
             match: Bottle, Cream, Bottle, Cream, Bottle, Acid, Cream sunken,
             Bottle, Cream, Acid, Bottle. Moving a section means rechecking that
             run. */}
-        <main>
+        <main id="main">
           <HeroWord />
           <Problem />
           <Product />

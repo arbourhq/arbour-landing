@@ -100,19 +100,19 @@ export function WaitlistDialog({ isOpen, onClose, initialEmail }: Props) {
       }}
       className="m-auto w-[640px] max-w-[calc(100vw-2rem)] bg-transparent p-0 text-ink backdrop:animate-fade backdrop:bg-bottle/94 open:animate-zoom"
     >
-      <div className="relative flex flex-col gap-6 bg-cream p-8 shadow-[inset_0_0_0_2px_#0B4030] sm:p-11">
+      <div className="relative flex flex-col gap-6 bg-cream p-8 edge-bottle sm:p-11">
         <button
           type="button"
           onClick={onClose}
           aria-label="Close"
-          className="absolute top-3 right-3 cursor-pointer border-0 bg-transparent p-2 font-mono text-base text-ink transition-transform duration-300 ease-overshoot hover:rotate-90"
+          className="absolute top-2 right-2 flex h-11 w-11 cursor-pointer items-center justify-center border-0 bg-transparent font-mono text-base text-ink transition-transform duration-300 ease-overshoot hover:rotate-90"
         >
           &times;
         </button>
 
         {step === "category" ? (
           <>
-            <p className="label-mono opacity-55">
+            <p className="label-mono opacity-65">
               Step 1 of 2 · about twenty seconds
             </p>
             <h2 className="font-display text-[clamp(28px,6vw,40px)] leading-[0.95] font-extrabold tracking-[-0.035em]">
@@ -128,7 +128,7 @@ export function WaitlistDialog({ isOpen, onClose, initialEmail }: Props) {
                   key={name}
                   type="button"
                   onClick={() => pickCategory(name)}
-                  className="cursor-pointer border-0 bg-transparent px-3.5 py-2.5 font-sans text-sm font-semibold text-bottle shadow-[inset_0_0_0_1.5px_#0B4030] transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] hover:bg-bottle hover:text-acid"
+                  className="cursor-pointer border-0 bg-transparent px-3.5 py-3 font-sans text-sm font-semibold text-bottle edge-bottle-thin transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] hover:bg-bottle hover:text-acid"
                 >
                   {name}
                 </button>
@@ -137,7 +137,7 @@ export function WaitlistDialog({ isOpen, onClose, initialEmail }: Props) {
           </>
         ) : (
           <>
-            <p className="label-mono opacity-55">Step 2 of 2 · {category}</p>
+            <p className="label-mono opacity-65">Step 2 of 2 · {category}</p>
             <h2 className="font-display text-[clamp(28px,6vw,40px)] leading-[0.95] font-extrabold tracking-[-0.035em]">
               Right. Where do we find you?
             </h2>
@@ -160,7 +160,7 @@ export function WaitlistDialog({ isOpen, onClose, initialEmail }: Props) {
                 placeholder="you@yourstudio.com.au"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border-0 bg-acid-wash px-4.5 py-4 font-sans text-[17px] text-ink shadow-[inset_0_0_0_1.5px_#0B4030] placeholder:text-ink/40"
+                className="w-full border-0 bg-acid-wash px-4.5 py-4 font-sans text-[17px] text-ink edge-bottle-thin placeholder:text-ink/65"
               />
 
               {/* Honeypot. Never shown, never filled in by a person. */}
@@ -176,7 +176,7 @@ export function WaitlistDialog({ isOpen, onClose, initialEmail }: Props) {
               {error ? (
                 <p
                   role="alert"
-                  className="bg-coral-wash px-4 py-3 text-sm text-ink shadow-[inset_0_0_0_1.5px_#FF4438]"
+                  className="bg-coral-wash px-4 py-3 text-sm text-ink edge-coral-thin"
                 >
                   {error} Try again, or email us and we will add you by hand.
                 </p>

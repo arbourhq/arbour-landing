@@ -17,7 +17,7 @@ export function BioSignup() {
 
   return (
     <section className="bg-acid p-6 text-bottle">
-      <p className="eyebrow opacity-65">Waitlist · open</p>
+      <p className="eyebrow opacity-80">Waitlist · open</p>
 
       <h2 className="mt-4 font-display text-[32px] leading-[0.95] font-extrabold tracking-[-0.04em]">
         Get on the list.
@@ -50,7 +50,7 @@ export function BioSignup() {
           placeholder="you@yourstudio.com.au"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full border-0 bg-cream px-4.5 py-4 font-sans text-[17px] text-ink shadow-[inset_0_0_0_1.5px_#0B4030] placeholder:text-ink/40"
+          className="w-full border-0 bg-cream px-4.5 py-4 font-sans text-[17px] text-ink edge-bottle-thin placeholder:text-ink/65"
         />
         <button type="submit" className={buttonClass("bottle", "md")}>
           Join the waitlist

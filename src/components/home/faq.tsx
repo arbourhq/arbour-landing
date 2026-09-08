@@ -45,7 +45,7 @@ export function Faq() {
                     aria-controls={`faq-answer-${i}`}
                     className="flex w-full cursor-pointer items-baseline gap-5 border-0 bg-transparent px-3 py-7 text-left font-sans text-ink sm:px-6"
                   >
-                    <span className="label-mono shrink-0 pt-1 opacity-45 tabular-nums">
+                    <span className="label-mono shrink-0 pt-1 opacity-65 tabular-nums">
                       {`07.${i + 1}`}
                     </span>
                     <span className="flex-1 text-[17px] leading-snug font-semibold sm:text-[20px]">
@@ -62,14 +62,15 @@ export function Faq() {
                   </button>
                 </h3>
 
-                {isOpen ? (
-                  <div
-                    id={`faq-answer-${i}`}
-                    className="max-w-[56ch] px-3 pb-7 text-[15px] leading-relaxed opacity-80 sm:px-6 lg:pt-7 lg:pr-6 lg:pl-0"
-                  >
-                    {faq.a}
-                  </div>
-                ) : null}
+                {/* Always in the DOM so aria-controls has something to point
+                    at while the row is closed. hidden takes it out of layout. */}
+                <div
+                  id={`faq-answer-${i}`}
+                  hidden={!isOpen}
+                  className="max-w-[56ch] px-3 pb-7 text-[15px] leading-relaxed opacity-80 sm:px-6 lg:pt-7 lg:pr-6 lg:pl-0"
+                >
+                  {faq.a}
+                </div>
               </div>
             );
           })}

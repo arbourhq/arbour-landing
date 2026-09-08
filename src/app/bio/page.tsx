@@ -64,7 +64,11 @@ export default function BioPage() {
           <header className="flex flex-col items-center gap-10 pt-4 pb-3">
             <h1 className="m-0">
               <Link href="/" className="block text-acid">
-                <Wordmark className="text-[clamp(60px,19vw,84px)]" />
+                <Wordmark
+                  className="text-[clamp(60px,19vw,84px)]"
+                  sizes="(min-width: 640px) 360px, 80vw"
+                  priority
+                />
               </Link>
             </h1>
 
@@ -76,7 +80,7 @@ export default function BioPage() {
               {BIO_LINKS.map((link, index) => {
                 // Alternating tilt on hover, so a stack of four does not read
                 // as one block leaning the same way.
-                const rowClass = `group flex items-center gap-4 bg-bottle-deep p-4.5 text-cream shadow-[inset_0_0_0_1.5px_rgba(198,255,61,0.28)] transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:bg-acid hover:text-bottle ${
+                const rowClass = `group flex items-center gap-4 bg-bottle-deep p-4.5 text-cream edge-acid-soft transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:bg-acid hover:text-bottle ${
                   index % 2 === 0
                     ? "hover:rotate-[-1deg]"
                     : "hover:rotate-[1deg]"
@@ -84,7 +88,7 @@ export default function BioPage() {
 
                 const row = (
                   <>
-                    <span className="label-mono w-5 shrink-0 text-acid/55 group-hover:text-bottle/55">
+                    <span className="label-mono w-5 shrink-0 text-acid/70 group-hover:text-bottle/75">
                       {link.index}
                     </span>
 
@@ -92,7 +96,7 @@ export default function BioPage() {
                       <span className="block font-display text-xl leading-tight font-extrabold tracking-[-0.03em]">
                         {link.label}
                       </span>
-                      <span className="mt-1 block text-[13px] leading-snug text-cream/65 group-hover:text-bottle/70">
+                      <span className="mt-1 block text-[13px] leading-snug text-cream/65 group-hover:text-bottle/80">
                         {link.sub}
                       </span>
                     </span>
@@ -127,10 +131,13 @@ export default function BioPage() {
           <BioSignup />
 
           <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <Link href="/" className="label-mono text-acid/70 hover:text-acid">
+            <Link
+              href="/"
+              className="label-mono py-3 text-acid/70 hover:text-acid"
+            >
               usearbour.com
             </Link>
-            <p className="label-mono text-cream/45">
+            <p className="label-mono text-cream/60">
               Made for people who work weekends
             </p>
           </footer>

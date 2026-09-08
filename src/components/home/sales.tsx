@@ -33,14 +33,13 @@ const EXTRAS = [
   },
   {
     label: "Lead source reporting that is actually honest",
-    ground:
-      "bg-acid-wash text-bottle shadow-[inset_0_0_0_1px_rgba(15,42,30,0.2)]",
+    ground: "bg-acid-wash text-bottle hairline",
     chip: "bg-bottle animate-unfold origin-left",
     tilt: "hover:rotate-[1deg]",
   },
   {
     label: "Calendar sync, both directions",
-    ground: "bg-cornflower text-cream",
+    ground: "bg-cornflower-deep text-cream",
     chip: "bg-cream animate-tilt",
     tilt: "hover:rotate-[-1deg]",
   },
@@ -71,7 +70,7 @@ export function Sales() {
         {/* The ref sits outside the keyed grid: a category change re-mounts the
             cards to replay the swap, and the tally must not restart with it. */}
         <div ref={ref}>
-          <p className="label-mono mb-4 opacity-55">
+          <p className="label-mono mb-4 opacity-70">
             Your pipeline · {category.name}
           </p>
           {/* Keyed so the row re-mounts on a category change and the swap
@@ -87,7 +86,7 @@ export function Sales() {
                 key={stage}
                 className="flex min-h-[175px] flex-col justify-between gap-3.5 bg-cream p-5 transition-[transform,background-color] duration-300 ease-overshoot hover:-translate-y-1.5 hover:bg-acid-wash"
               >
-                <div className="label-mono opacity-45">0{i + 1}</div>
+                <div className="label-mono opacity-65">0{i + 1}</div>
                 <div>
                   <div className="mb-2 text-[15px] leading-tight font-semibold">
                     <Reserve text={stage} all={STAGE_NAMES[i]} />
@@ -108,7 +107,9 @@ export function Sales() {
             <div className="h-[30px] w-[30px] animate-tilt bg-cornflower" />
             <div className="grid gap-px bg-ink/15">
               <div className="flex items-baseline gap-2.5 bg-cream px-3 py-2.5">
-                <span className="label-mono shrink-0 text-cornflower">In</span>
+                <span className="label-mono shrink-0 text-cornflower-ink">
+                  In
+                </span>
                 <span className="text-[13px] leading-snug">
                   “Hi! Are you free on the 14th of Feb next year?”
                 </span>
@@ -121,9 +122,9 @@ export function Sales() {
               </div>
             </div>
             <div>
-              <div className="mb-2 font-display text-2xl font-extrabold tracking-[-0.03em]">
+              <h3 className="m-0 mb-2 font-display text-2xl font-extrabold tracking-[-0.03em]">
                 Two-way email sync
-              </div>
+              </h3>
               <div className="text-[15px] leading-relaxed opacity-80">
                 Connect Gmail or Outlook and the whole thread lives on the
                 enquiry. Reply from Arbour or from your inbox, it lands in the
@@ -158,9 +159,9 @@ export function Sales() {
               </div>
             </div>
             <div>
-              <div className="mb-2 font-display text-2xl font-extrabold tracking-[-0.03em] text-acid">
+              <h3 className="m-0 mb-2 font-display text-2xl font-extrabold tracking-[-0.03em] text-acid">
                 Automations
-              </div>
+              </h3>
               <div className="text-[15px] leading-relaxed opacity-85">
                 Build the follow-up once and it runs for every enquiry, forever.
                 Arbour ships with a set per category. Fully customisable.
@@ -184,7 +185,7 @@ export function Sales() {
                 >
                   <span className="text-[13px]">{label}</span>
                   <span
-                    className={`label-mono ${done ? "text-bottle" : "opacity-50"}`}
+                    className={`label-mono ${done ? "text-bottle" : "opacity-65"}`}
                   >
                     {state}
                   </span>
@@ -192,9 +193,9 @@ export function Sales() {
               ))}
             </div>
             <div>
-              <div className="mb-2 font-display text-2xl font-extrabold tracking-[-0.03em]">
+              <h3 className="m-0 mb-2 font-display text-2xl font-extrabold tracking-[-0.03em]">
                 Contracts &amp; payments
-              </div>
+              </h3>
               <div className="text-[15px] leading-relaxed opacity-80">
                 Send a quote, it becomes a contract, it becomes an invoice, it
                 takes the card. Deposits, instalments and a balance that chases
@@ -208,7 +209,7 @@ export function Sales() {
             slabs and a long scroll for four words, so the section keeps its
             place from 640px up and phones go straight to the next one. */}
         <div className="hidden sm:block">
-          <p className="label-mono mt-16 mb-4 opacity-55">Also in the box</p>
+          <p className="label-mono mt-16 mb-4 opacity-70">Also in the box</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4">
             {EXTRAS.map((extra) => (
               <div

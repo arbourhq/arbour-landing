@@ -36,13 +36,14 @@ const PANELS = [
   {
     title: "Chasing",
     body: "Arbour nudges whoever has gone quiet (couple, planner or supplier) so you are never the villain twice.",
-    ground: "bg-coral text-cream",
+    // Cream on Coral is 3.3:1, so this tile carries ink like Lilac does.
+    ground: "bg-coral text-bottle-ink",
     chip: "bg-cream animate-wob origin-top",
   },
   {
     title: "Run sheets",
     body: "One timeline, everyone on it, and each person only sees the part that is theirs.",
-    ground: "bg-cornflower text-cream",
+    ground: "bg-cornflower-deep text-cream",
     chip: "bg-cream animate-unfold origin-left",
   },
   {
@@ -99,9 +100,9 @@ export function Product() {
               >
                 <span className={`block h-[30px] w-[30px] ${panel.chip}`} />
                 <div>
-                  <div className="mb-2 font-display text-[24px] font-extrabold tracking-[-0.03em]">
+                  <h3 className="m-0 mb-2 font-display text-[24px] font-extrabold tracking-[-0.03em]">
                     {panel.title}
-                  </div>
+                  </h3>
                   <div
                     className={`text-[15px] leading-relaxed ${panel.bodyClass ?? ""}`}
                   >

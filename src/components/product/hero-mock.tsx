@@ -22,10 +22,13 @@ import {
 const MOCK_TITLES = CATEGORIES.map((c) => c.mockTitle);
 const HERO_SUBS = CATEGORIES.map((c) => c.heroSub);
 
+/* Status badges the way the product kit draws them: the saturated hues on
+   their wash with the ink step for text, because white on Coral is 3.4:1 and
+   white on Cornflower 4.3:1 at badge size. Paid and hold clear on the hue. */
 const BADGE_TONE: Record<RowTone, string> = {
   paid: "bg-sprout text-bottle",
-  late: "bg-coral text-white",
-  draft: "bg-cornflower text-white",
+  late: "bg-coral-wash text-coral-ink",
+  draft: "bg-cornflower-wash text-cornflower-ink",
   hold: "bg-lilac text-bottle",
 };
 
@@ -124,7 +127,7 @@ export function HeroMock({ category }: { category: Category }) {
       {/* Floating app chrome. 6px corners are legal inside the product. */}
       <div className="mt-6 flex justify-center">
         <div className="flex items-center gap-0.5 rounded-lg border border-app-ink/10 bg-app-panel p-1.5 shadow-[0_10px_28px_rgba(23,33,27,0.13),0_2px_5px_rgba(23,33,27,0.07)]">
-          <span className="flex items-center gap-2 rounded-[5px] bg-bottle px-3 py-2.5 text-[13px] font-semibold text-white">
+          <span className="flex items-center gap-2 rounded-[5px] bg-bottle px-3 py-2.5 text-[13px] font-semibold text-app-panel">
             <svg
               viewBox="0 0 20 20"
               aria-hidden="true"
