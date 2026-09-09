@@ -3,8 +3,8 @@
  * only page on the site built for a phone and nothing else, so it carries no
  * nav and no footer, just the stack.
  *
- * Same rule as everywhere else: Arbour has not launched, so nothing here may
- * claim customers, usage or traction. Every link points at a page that exists.
+ * Same rule as everywhere else: nothing here may claim customers, usage or
+ * traction. Every link points at a page that exists.
  */
 
 export type BioLink = {
@@ -19,27 +19,34 @@ export type BioLink = {
 export const BIO_LINKS: BioLink[] = [
   {
     index: "01",
+    label: "Start a free trial",
+    sub: "Fourteen days, no card. app.usearbour.com.",
+    href: "https://app.usearbour.com/sign-up",
+    external: true,
+  },
+  {
+    index: "02",
     label: "The product",
     sub: "One record, first enquiry to final invoice.",
     href: "/",
   },
   {
-    index: "02",
+    index: "03",
     label: "About",
     sub: "A wedding videographer and an engineer.",
     href: "/about",
   },
   {
-    index: "03",
+    index: "04",
     label: "Talk to us",
     sub: "One inbox, both of us read it.",
     href: "/contact",
   },
   {
-    index: "04",
-    label: "The survey",
-    sub: "Tell us how you actually work. It decides what we build.",
-    href: "https://forms.gle/2haJPf696ejiLHRx8",
+    index: "05",
+    label: "Help centre",
+    sub: "Every screen, written up. No login needed.",
+    href: "https://app.usearbour.com/help",
     external: true,
   },
 ];

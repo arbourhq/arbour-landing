@@ -6,7 +6,7 @@
 export const CONTACT_TOPICS = [
   "Something about the product",
   "House plan, venues and groups",
-  "Waitlist and early access",
+  "Moving across from other software",
   "Press or partnerships",
   "Something else",
 ] as const;
@@ -29,7 +29,7 @@ export const CONTACT_FACTS = [
   },
   {
     index: "03",
-    title: "Not a sales call",
-    body: "Nothing to sell yet. Ask what you like about the build, the scope or what it will cost, and you get a straight answer.",
+    title: "Straight answers",
+    body: "Ask what it costs, what it will not do, or whether it survives a two-hundred cover Saturday. If the answer is no, you will hear no.",
   },
 ];

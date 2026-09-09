@@ -1,9 +1,9 @@
 /**
  * About content. Every claim here is one Ben or Alex has confirmed, so nothing
- * on this page is invented flavour dressed as history. Arbour is pre-launch and
- * waitlist only: no customer counts, no traction numbers, no "vendors already
- * running on it". The figures that will drift are the wedding count, the years
- * writing software and the dates in TIMELINE. Change them here.
+ * on this page is invented flavour dressed as history. Arbour is open, but it
+ * still has no customer counts or traction numbers to quote, so none appear.
+ * The figures that will drift are the wedding count, the years writing
+ * software and the dates in TIMELINE. Change them here.
  */
 
 export const ABOUT_STATS = [
@@ -44,8 +44,8 @@ export const LENSES = [
 ];
 
 /**
- * The real sequence, short because it is short. Three entries, so the grid on
- * the about page runs three across rather than five.
+ * The real sequence, short because it is short. Four entries, two by two on a
+ * tablet and four across on a laptop.
  */
 export const TIMELINE = [
   {
@@ -62,7 +62,13 @@ export const TIMELINE = [
   },
   {
     year: "Aug 2026",
-    body: "In motion. Platform skeleton in production. Waitlist early-access on the way.",
+    body: "In motion. Platform skeleton in production, the two of us running our own jobs through it.",
+    chip: "bg-lilac animate-tilt",
+    ground: "bg-cream",
+  },
+  {
+    year: "Sep 2026",
+    body: "Open. Sign up, pick a plan, fourteen days free. Support is still the two of us, and it will stay that way for a while.",
     chip: "bg-bottle animate-spin-slow",
     ground: "bg-acid",
   },

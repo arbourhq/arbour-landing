@@ -1,6 +1,5 @@
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
-import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
 
 export interface LegalSection {
   heading: string;
@@ -22,7 +21,7 @@ export function LegalPage({
   sections: readonly LegalSection[];
 }) {
   return (
-    <WaitlistProvider>
+    <>
       <SiteNav />
       <main id="main">
         <section className="bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
@@ -81,6 +80,6 @@ export function LegalPage({
         </section>
       </main>
       <SiteFooter />
-    </WaitlistProvider>
+    </>
   );
 }
