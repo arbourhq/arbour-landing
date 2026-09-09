@@ -262,7 +262,7 @@ Ledgers (stage facts, vendor claims, pricing tiers, FAQ) are single-column lists
 
 Breakpoints as used: 640px (sm) is the main step for padding, type and grids; 1024px (lg) is where two-column layouts turn on; 768px (md) is used only by the nav to swap the phone menu for links; 1280px (xl) shows the large A behind the final CTA.
 
-Section anchors clear the sticky nav through `scroll-padding-top: var(--nav-h)` on `<html>`, and stage sections additionally clear the sticky rail through `scroll-margin-top: var(--rail-h)`. The rail writes `--rail-tall` (96px) for the hero and `--rail-h` (its live height) for the stages; all three variables are measured from the live elements, never hard-coded. The hero and the five stages share one `#board` wrapper so the rail is sticky for exactly their combined height.
+Section anchors clear the sticky nav through `scroll-padding-top: var(--nav-h)` on `<html>`, and stage sections additionally clear the sticky rail through a constant `scroll-margin-top` of 52px, the compact bar's height. The rail's sticky wrapper keeps the tall height (96px, 72px on phones, written to `--rail-tall` for the hero) in the layout in both states; the squash to 52px happens to the bar inside it, so sticking never moves the wrapper's own top edge. That constancy is load-bearing: a rail that shrank in layout as it stuck un-stuck itself and flickered. The 44px under the compact bar is transparent and passes pointer events through. The hero and the five stages share one `#board` wrapper so the rail is sticky for exactly their combined height.
 
 ## Elevation & Depth
 
