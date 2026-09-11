@@ -11,7 +11,7 @@ Scope: `/`, the launched marketing home. Mode: Persuade. Visitor: a wedding vend
 
 Job: recognise their own pipeline, see the real console doing each stage, understand it is one record enquiry to invoice, and start the trial (no card) at `app.usearbour.com/sign-up`.
 
-Proof: real help-centre captures of the seeded console copied into `public/product/` (captured 4 to 7 Sep 2026, commits bac91e9 to b3bc1db). Product facts come from `../arbour/apps/web/content/help/*.mdx` and `packages/core/src/plans.ts`. No customers, testimonials, usage numbers or launch-day claims.
+Proof: each stage has one full-width 2880 × 1800 Playwright recording of the seeded local console in `public/product/demos/`, with lossless WebP, a matching poster and capture provenance. Four facts sit beneath each recording; there is no secondary image. Product facts come from `../arbour/apps/web/content/help/*.mdx` and `packages/core/src/plans.ts`. No customers, testimonials, usage numbers or launch-day claims.
 
 Constraints: brand.md binding (Acid sells, Sprout only inside captures, square corners, inset depth, no gradients, no em dashes, Australian English). Category picker stays as the copy device. Every CTA is the trial; House routes to contact.
 
@@ -23,8 +23,8 @@ OWN-WORLD: Bottle, Acid and Cream floods; Cornflower, Lilac and Coral as one acc
 
 STORY: "That is my board." Then: the real product does each stage, on one record. Then: start the trial.
 
-FIRST VIEWPORT: Bottle, the full viewport. Headline in Acid at 92px across the full width with the flipping category slab; lead on the left, Start free trial (Acid) and See the board (outline) on the right. Along the bottom, the board drawn in squares: five columns on the rail's grid, each a stack of one card per job in the chosen category's book, in the stage's accent, the count above in Bricolage. On the hero's foot, at the fold, the stage rail tall: five column headers, each with the chosen category's own stage name.
+FIRST VIEWPORT: Bottle. Headline in Acid at 96px hard left with the flipping category slab, one lead, one Acid Start free trial button at the largest size on the site with the mono trial facts beside it. Natural height, even rhythm. Straight under it the stage rail: five column headers, 64px, the same rail that sticks; stage 01 starts below.
 
-FORM: The Board, third on my ranked list. Seed key d4e8bfb3. Signature interaction: the rail is born on the hero's foot as the board's tall column headers and squashes into the compact sticky rail as the reader scrolls into stage 01; the active stage inverts with its accent as an inset edge, hovering a cell lifts it; the category slab re-deals the hero's card stacks and reskins the rail's sub-lines, the vendor chips and the automation example.
+FORM: The Board, third on my ranked list. Seed key d4e8bfb3. Signature interaction: the rail sits straight under the hero and sticks under the nav through the five stages; the active stage inverts with its accent as an inset edge, hovering a cell lifts it; the category slab reskins the vendor chips and the automation example.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.

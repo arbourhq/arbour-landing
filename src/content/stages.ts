@@ -2,12 +2,9 @@
  * The board. Five stages a job moves through, each carrying one real capture
  * of the console and the facts that stage is allowed to claim.
  *
- * Every capture in public/product/ is a help-centre screenshot of the seeded
- * console from the main repo (apps/web/public/help), taken 4 to 7 September
- * 2026. The data in them (Acme Weddings, Ella & Jack, Ruby & Max Walker) is
- * seed data, and the copy says so once, in the frame's caption. Every fact
- * below is checked against the help article for that screen; when the product
- * changes, the article changes first and this follows.
+ * The stage demos are Playwright recordings of the local seeded console.
+ * Their posters, capture routes and provenance live in public/product/demos/.
+ * Supporting facts are checked against the corresponding help articles.
  */
 
 export type Capture = {
@@ -15,7 +12,14 @@ export type Capture = {
   alt: string;
   width: number;
   height: number;
-};
+} & (
+  | { recording?: never; label?: never }
+  | {
+      /** Animated WebP, loaded only while visible and motion is allowed. */
+      recording: string;
+      label: string;
+    }
+);
 
 export type StageFact = {
   label: string;
@@ -33,16 +37,11 @@ export type Stage = {
   name: string;
   short: string;
   title: string;
-  lead: string;
   ground: Ground;
   /** The stage's one accent: the square by the numeral, the rail's active edge, the caption mark. */
   accent: Accent;
   capture: Capture;
-  /** A smaller second capture, when the stage has a second screen worth showing. */
-  detail?: Capture & { note: string };
   facts: StageFact[];
-  /** Capture on the right instead of the left. Alternates down the page. */
-  flip?: boolean;
 };
 
 export const STAGES: Stage[] = [
@@ -52,21 +51,15 @@ export const STAGES: Stage[] = [
     name: "Enquiry in",
     short: "Enquiry",
     title: "Every “are you free?” lands on the board.",
-    lead: "From your website form, your inbox or a phone call at a fair. One card, every answer attached, nobody retyping anything.",
     ground: "cream",
     accent: "cornflower",
     capture: {
-      src: "/product/enquiries-board.webp",
-      alt: "The enquiries board with New enquiry, Qualified and Quote sent columns, each holding a card with the client's name, event date and package.",
+      src: "/product/demos/enquiries-board-poster.webp",
+      recording: "/product/demos/enquiries-board.webp",
+      label: "enquiries",
+      alt: "The enquiries board switching between board and list views, with each enquiry’s contact, event date and package kept together.",
       width: 2880,
       height: 1800,
-    },
-    detail: {
-      src: "/product/enquiry-form.webp",
-      alt: "The enquiry form editor: fixed fields at the top, then your own questions, each with a type and a required tick.",
-      width: 2880,
-      height: 1800,
-      note: "The form on your site. Fixed details, then your questions.",
     },
     facts: [
       {
@@ -82,8 +75,8 @@ export const STAGES: Stage[] = [
         body: "Rename, reorder, add and remove them. Saved views, filters, assignees, and a custom field for anything we did not think of.",
       },
       {
-        label: "Coming from Studio Ninja",
-        body: "Upload the export ZIP. Clients, dates, notes, invoices, quotes, contracts and questionnaires come across in one run.",
+        label: "Coming from somewhere else",
+        body: "Studio Ninja, Dubsado, Pixieset or Sprout Studio: zip up the export and the history comes across in one run. Anything else, upload the CSV and map the columns yourself.",
       },
     ],
   },
@@ -93,22 +86,15 @@ export const STAGES: Stage[] = [
     name: "Quote out",
     short: "Quote",
     title: "Quote, contract, deposit. One chain.",
-    lead: "The quote carries the contract and the payment plan. The client accepts on their phone, signs, and pays the deposit, and none of it is typed twice.",
     ground: "bottle",
     accent: "lilac",
-    flip: true,
     capture: {
-      src: "/product/quote.webp",
+      src: "/product/demos/quote-poster.webp",
+      recording: "/product/demos/quote.webp",
+      label: "quote",
       alt: "A quote being edited: two lines, Photo and film and Extra reception hour, a $7,000 total including GST, then a payment plan with a 30% deposit on acceptance and the balance due before the event.",
-      width: 2048,
-      height: 1620,
-    },
-    detail: {
-      src: "/product/packages.webp",
-      alt: "The packages page: Full day photography at $4,500 selected, with its booked total, win rate and a live quote preview beside it.",
       width: 2880,
       height: 1800,
-      note: "Packages you already sell, copied straight onto a quote.",
     },
     facts: [
       {
@@ -135,26 +121,20 @@ export const STAGES: Stage[] = [
     name: "Booked",
     short: "Booked",
     title: "Accepted. Same record, now a booking.",
-    lead: "Nothing moves house. The enquiry converts on the spot with its portal link, its quote and its history, and what is owed sits on the header.",
     ground: "acid",
     accent: "acid",
     capture: {
-      src: "/product/booking.webp",
+      src: "/product/demos/booking-poster.webp",
+      recording: "/product/demos/booking.webp",
+      label: "booking",
       alt: "A booking for Ella & Jack on Saturday 3 October 2026: the stage strip across the header, $3,150 outstanding of $4,500, and the contacts, event dates, crew and client portal cards below.",
       width: 2880,
       height: 1800,
     },
-    detail: {
-      src: "/product/portal.webp",
-      alt: "The client portal under the vendor's banner: Hello Ella, the accepted quote, the partially paid invoice, and what is up next.",
-      width: 2880,
-      height: 1800,
-      note: "What the client sees. Your logo, your colours, no password.",
-    },
     facts: [
       {
         label: "One private link per job",
-        body: "Quotes, contracts, invoices, questionnaires, the run sheet and one conversation, under your logo and colours. No account, no password.",
+        body: "Quotes, contracts, invoices, questionnaires, the run sheet and one conversation, under your logo and colours, on your own domain if you have one. No account, no password.",
       },
       {
         label: "The money, on the header",
@@ -176,13 +156,13 @@ export const STAGES: Stage[] = [
     name: "The day",
     short: "The day",
     title: "The book, the run sheet, and who is where.",
-    lead: "One calendar holds every job and every blocked-out day. The run sheet lives on the booking and the client can edit it in the portal.",
     ground: "sunken",
     accent: "coral",
-    flip: true,
     capture: {
-      src: "/product/calendar.webp",
-      alt: "The calendar on October 2026 in month view, with Bookings, Enquiries and Unavailable toggles and a two-day booking bar for Ella & Jack across the weekend.",
+      src: "/product/demos/calendar-poster.webp",
+      recording: "/product/demos/calendar.webp",
+      label: "calendar",
+      alt: "The October 2026 calendar opening Ella & Jack’s booking details, then switching between month and year views.",
       width: 2880,
       height: 1800,
     },
@@ -211,21 +191,15 @@ export const STAGES: Stage[] = [
     name: "Paid",
     short: "Paid",
     title: "The whole job, banked.",
-    lead: "An accepted quote issues its own invoice. Payments, refunds and receipts sit on the job, push to your accounting software, and roll up into reports you did not have to build.",
     ground: "bottle",
     accent: "acid",
     capture: {
-      src: "/product/payments.webp",
+      src: "/product/demos/payments-poster.webp",
+      recording: "/product/demos/payments.webp",
+      label: "payments",
       alt: "The payments overview: outstanding, overdue, collected and average days to pay across the top, a money-in chart, and the ageing bar underneath.",
       width: 2880,
       height: 1800,
-    },
-    detail: {
-      src: "/product/reports.webp",
-      alt: "Sales and financial reports side by side: new enquiries, bookings won, conversion rate and time to convert on the left, booked revenue, payments and outstanding invoices on the right.",
-      width: 2880,
-      height: 1800,
-      note: "Sales and financial reports, against the period before.",
     },
     facts: [
       {

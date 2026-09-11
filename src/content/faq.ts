@@ -10,11 +10,11 @@ export const FAQS = [
   },
   {
     q: "Do I have to move everything over in one go?",
-    a: "No. Coming from Studio Ninja, upload the export ZIP and your jobs come across with their clients, dates, notes, invoices, quotes, contracts and questionnaires. Coming from anywhere else, bring the season in front of you and leave the archive where it is. Your data goes out again through the API, webhooks, accounting sync and CSV.",
+    a: "No. Coming from Studio Ninja, Dubsado, Pixieset or Sprout Studio, zip up the export and upload it. Contacts, jobs, dates, invoices and documents come across in one run, and you see the counts before anything is written. Coming from anywhere else, export a CSV, say whether it is sales or bookings, and map the columns to your own fields. Arbour suggests the mapping, you correct it. Or bring the season in front of you and leave the archive where it is. Your data goes out again through the API, webhooks, accounting sync and CSV.",
   },
   {
     q: "Will my clients have to log into something?",
-    a: "No password and no account. Every job has one private link, and it opens on their phone under your logo and colours: quotes to accept, contracts to sign, invoices to pay, the run sheet, the questionnaire and one conversation for the job.",
+    a: "No password and no account. Every job has one private link, and it opens on their phone under your logo and colours: quotes to accept, contracts to sign, invoices to pay, the run sheet, the questionnaire and one conversation for the job. On Studio and House the link can live on your own domain, clients.yourstudio.com.au, and Arbour handles the certificate.",
   },
   {
     q: "Is this just Studio Ninja with better fonts?",

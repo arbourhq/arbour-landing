@@ -11,7 +11,7 @@ export type ButtonVariant =
   | "outlineBottle" // on an Acid or Cream ground
   | "cream"; // on a Cornflower ground
 
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "sm" | "md" | "lg" | "xl";
 
 const BASE =
   "inline-flex items-center justify-center gap-2 border-0 font-sans font-semibold cursor-pointer select-none " +
@@ -33,6 +33,8 @@ const SIZES: Record<ButtonSize, string> = {
   sm: "px-4 py-[11px] text-sm",
   md: "px-6 py-4 text-[15px]",
   lg: "px-7 py-[17px] text-base sm:text-[17px]",
+  /** The hero's one ask. Nowhere else. */
+  xl: "px-8 py-5 text-[17px] sm:px-9 sm:py-6 sm:text-[19px]",
 };
 
 export function buttonClass(

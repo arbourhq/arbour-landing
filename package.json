@@ -10,7 +10,8 @@
     "lint": "oxlint",
     "typecheck": "tsc --noEmit",
     "format": "oxfmt && oxlint --fix",
-    "format:check": "oxfmt --check"
+    "format:check": "oxfmt --check",
+    "capture:demos": "node scripts/record-demos.mjs"
   },
   "dependencies": {
     "next": "16.2.12",

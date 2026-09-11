@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-09T06:20:00.000Z",
+  "generatedAt": "2026-09-11T08:00:00.000Z",
   "title": "Design System: Arbour marketing site",
   "extensions": {
     "colorMeta": {
@@ -218,7 +218,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "The home h1 only, full container width, with the Acid category slab inside it. 92px cap, 0.92 leading, -0.045em."
+        "purpose": "The home h1 only, full container width, a flex-wrap row of four nowrap groups with the Acid category slab inside the last. 96px cap, 0.92 leading, -0.045em."
       },
       "statement": {
         "displayName": "Statement",
@@ -226,7 +226,7 @@
       },
       "numeral": {
         "displayName": "Numeral",
-        "purpose": "Stage index 01 to 05, prices, the hero board's column counts. Bricolage 800 tabular."
+        "purpose": "Stage index 01 to 05 and prices. Bricolage 800 tabular."
       },
       "headline": {
         "displayName": "Headline",
@@ -238,7 +238,7 @@
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "The paragraph beside a headline, 46 to 52ch."
+        "purpose": "The paragraph beside or under a headline, 44 to 52ch (44ch in the hero, Cream at 0.85)."
       },
       "body": {
         "displayName": "Body",
@@ -250,7 +250,7 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "label-mono utility: indices, captions, the hero board's two labels, the tall rail's sub-lines, column heads, meta lines. Uppercase."
+        "purpose": "label-mono utility: indices, captions, column heads, meta lines beside or under buttons (the hero's trial line in Acid 0.7). Uppercase."
       },
       "eyebrow": {
         "displayName": "Eyebrow",
@@ -318,7 +318,7 @@
       {
         "name": "ease-overshoot",
         "value": "cubic-bezier(0.34, 1.8, 0.45, 1)",
-        "purpose": "Every hover lift, tilt, reveal and cell transition."
+        "purpose": "Every hover lift, tilt, reveal and rail cell transition."
       },
       {
         "name": "duration-hover",
@@ -348,27 +348,17 @@
       {
         "name": "flip",
         "value": "flip 0.34s cubic-bezier(0.34, 1.8, 0.45, 1) both",
-        "purpose": "One-shot for a value changing in place: the slab word, a price. The hero board's cards deal in on it too."
-      },
-      {
-        "name": "deal",
-        "value": "flip, animation-delay 28ms per card from the bottom card up, transform-origin bottom",
-        "purpose": "The hero board's card stacks entering and re-dealing on a category change (the grid is keyed on the category)."
+        "purpose": "One-shot for a value changing in place: the slab word, a price."
       },
       {
         "name": "swap",
         "value": "swap 0.28s cubic-bezier(0.34, 1.8, 0.45, 1) both",
-        "purpose": "Data swap inside a panel or the tall rail's sub-lines after a category change, 7px."
-      },
-      {
-        "name": "rail-squash",
-        "value": "min-height 96px (72px on phones) to 52px, grid-template-rows 1fr to 0fr with opacity, 300ms ease-overshoot",
-        "purpose": "The tall rail folding its sub-lines away as it sticks under the nav; the same curve carries the cell's colour inversion."
+        "purpose": "Data swap inside a panel after a category change, 7px."
       },
       {
         "name": "loops",
         "value": "pop 3.4s, wob 3.2s, drop 3.4s, squash 3.5s, tilt 3.5s, all overshoot infinite",
-        "purpose": "One accent square per section; the only ambient motion."
+        "purpose": "One accent square per section, in stage order. The only ambient motion; the hero carries none."
       },
       {
         "name": "slab-cycle",
@@ -408,6 +398,14 @@
       "description": "The trial CTA on any Bottle ground: Acid fill, Bottle text, letterpress edge.",
       "html": "<button class=\"ds-btn-acid\">Start free trial</button>",
       "css": ".ds-btn-acid{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans, 'Instrument Sans', system-ui, sans-serif);font-weight:600;font-size:15px;padding:16px 24px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -4px 0 rgb(11 64 48 / .4)}.ds-btn-acid:hover{transform:translateY(-4px) rotate(-1deg)}.ds-btn-acid:active{transform:translateY(0)}.ds-btn-acid:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Hero trial button",
+      "kind": "button",
+      "refersTo": "button-acid-xl",
+      "description": "The hero's one ask: the Acid button at the xl size (24px/36px at 19px from sm), tilting a degree on hover, with the label-mono trial line in Acid 0.7 beside it. The xl size is used nowhere else.",
+      "html": "<div class=\"ds-hero-ask\"><button class=\"ds-btn-acid-xl\">Start free trial</button><p class=\"ds-hero-meta\">14 days free · no card</p></div>",
+      "css": ".ds-hero-ask{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding:24px;background:var(--color-bottle,#0b4030)}.ds-btn-acid-xl{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:19px;padding:24px 36px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -4px 0 rgb(11 64 48 / .4)}.ds-btn-acid-xl:hover{transform:translateY(-4px) rotate(-1deg)}.ds-btn-acid-xl:active{transform:translateY(0)}.ds-btn-acid-xl:focus-visible{outline:3px solid var(--color-acid,#c6ff3d);outline-offset:2px}.ds-hero-meta{margin:0;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;color:rgb(198 255 61 / .7)}"
     },
     {
       "name": "Bottle button",
@@ -452,10 +450,10 @@
     {
       "name": "Stage rail",
       "kind": "nav",
-      "refersTo": "rail-cell-tall",
-      "description": "The board's column headers, one element with two states: tall on the hero's foot with the category's own stage names (72px on phones, 96px from sm), compact once stuck under the nav (add ds-rail-stuck), the active cell inverted to Bottle with an inset edge in its accent.",
-      "html": "<ol class=\"ds-rail\"><li><a class=\"ds-rail-cell ds-rail-on\" href=\"#\"><span class=\"ds-rail-top\"><span class=\"ds-rail-i\">01</span>Enquiry in</span><span class=\"ds-rail-sub\"><span class=\"ds-rail-line\"><span class=\"ds-rail-sq\" style=\"background:#4e6df5\"></span>Enquiry in</span></span></a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-top\"><span class=\"ds-rail-i\">02</span>Quote out</span><span class=\"ds-rail-sub\"><span class=\"ds-rail-line\"><span class=\"ds-rail-sq\" style=\"background:#b9a7ff\"></span>Date held</span></span></a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-top\"><span class=\"ds-rail-i\">03</span>Booked</span><span class=\"ds-rail-sub\"><span class=\"ds-rail-line\"><span class=\"ds-rail-sq\" style=\"background:#0b4030\"></span>Contract out</span></span></a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-top\"><span class=\"ds-rail-i\">04</span>The day</span><span class=\"ds-rail-sub\"><span class=\"ds-rail-line\"><span class=\"ds-rail-sq\" style=\"background:#ff4438\"></span>Deposit paid</span></span></a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-top\"><span class=\"ds-rail-i\">05</span>Paid</span><span class=\"ds-rail-sub\"><span class=\"ds-rail-line\"><span class=\"ds-rail-sq\" style=\"background:#0b4030\"></span>Gallery delivered</span></span></a></li></ol>",
-      "css": ".ds-rail{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -1px 0 rgba(11,64,48,.3)}.ds-rail li+li .ds-rail-cell{box-shadow:inset 1px 0 0 rgba(11,64,48,.25)}.ds-rail-cell{display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:96px;padding:10px 16px;text-decoration:none;color:inherit;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:15px;transition:background-color .3s cubic-bezier(.34,1.8,.45,1),color .3s cubic-bezier(.34,1.8,.45,1),min-height .3s cubic-bezier(.34,1.8,.45,1),transform .3s cubic-bezier(.34,1.8,.45,1)}.ds-rail-top{display:flex;align-items:center;gap:10px;line-height:1}.ds-rail-i{font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgb(11 64 48 / .6)}.ds-rail-sub{display:grid;grid-template-rows:1fr;opacity:1;transition:grid-template-rows .3s cubic-bezier(.34,1.8,.45,1),opacity .3s cubic-bezier(.34,1.8,.45,1)}.ds-rail-line{display:flex;align-items:center;gap:8px;min-height:0;overflow:hidden;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;color:rgb(11 64 48 / .7)}.ds-rail-sq{display:block;width:8px;height:8px;flex:none}.ds-rail-stuck .ds-rail-cell{min-height:52px}.ds-rail-stuck .ds-rail-sub{grid-template-rows:0fr;opacity:0}.ds-rail-cell:hover{transform:translateY(-2px);background:rgb(11 64 48 / .1)}.ds-rail-on,.ds-rail-on:hover{background:var(--color-bottle,#0b4030);color:var(--color-acid,#c6ff3d);box-shadow:inset 0 -4px 0 var(--color-cornflower,#4e6df5);transform:none}.ds-rail-on .ds-rail-i{color:rgb(198 255 61 / .7)}.ds-rail-on .ds-rail-line{color:rgb(198 255 61 / .7)}.ds-rail-cell:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+      "refersTo": "rail-cell",
+      "description": "The board's column headers, one element at one height: five butted Acid cells, 64px, straight under the hero and sticky under the nav for the five stages. The active cell inverts to Bottle with an inset edge in its accent; the others lift 2px on hover.",
+      "html": "<ol class=\"ds-rail\"><li><a class=\"ds-rail-cell ds-rail-on\" href=\"#\"><span class=\"ds-rail-i\">01</span>Enquiry in</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">02</span>Quote out</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">03</span>Booked</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">04</span>The day</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">05</span>Paid</a></li></ol>",
+      "css": ".ds-rail{list-style:none;margin:0;padding:0 16px;display:grid;grid-template-columns:repeat(5,1fr);height:64px;background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -1px 0 rgba(11,64,48,.3)}.ds-rail li{min-width:0}.ds-rail li+li .ds-rail-cell{box-shadow:inset 1px 0 0 rgba(11,64,48,.25)}.ds-rail-cell{display:flex;align-items:center;gap:10px;height:100%;padding:0 16px;text-decoration:none;color:inherit;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:15px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background-color .3s cubic-bezier(.34,1.8,.45,1),color .3s cubic-bezier(.34,1.8,.45,1),transform .3s cubic-bezier(.34,1.8,.45,1)}.ds-rail-i{flex:none;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgb(11 64 48 / .6)}.ds-rail-cell:hover{transform:translateY(-2px);background:rgb(11 64 48 / .1)}.ds-rail-on,.ds-rail-on:hover{background:var(--color-bottle,#0b4030);color:var(--color-acid,#c6ff3d);box-shadow:inset 0 -4px 0 var(--color-cornflower,#4e6df5);transform:none}.ds-rail-on .ds-rail-i{color:rgb(198 255 61 / .7)}.ds-rail-cell:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
     },
     {
       "name": "Ledger row",
@@ -474,14 +472,6 @@
       "css": ".ds-capture{margin:0;color:var(--color-ink,#0f2a1e)}.ds-capture-frame{overflow:hidden;border:2px solid var(--color-bottle,#0b4030);background:var(--color-app,#f4f4f1)}.ds-capture-img{aspect-ratio:16/10;background:var(--color-app,#f4f4f1)}.ds-capture-cap{display:flex;align-items:center;gap:10px;margin-top:12px;opacity:.8;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4}.ds-capture-mark{display:block;width:10px;height:10px;background:var(--color-cornflower,#4e6df5)}"
     },
     {
-      "name": "Hero board",
-      "kind": "custom",
-      "refersTo": "board-card",
-      "description": "The hero's bottom band: five columns on the rail's grid, each a Bricolage count above a stack of one card per job in the stage's accent, labelled illustrative. Cards deal in on flip, 28ms apart from the bottom.",
-      "html": "<div class=\"ds-board\"><div class=\"ds-board-labels\"><p class=\"ds-board-label ds-board-label-acid\">Your board · Photographers</p><p class=\"ds-board-label ds-board-label-cream\">One job per card · illustrative</p></div><ol class=\"ds-board-cols\"><li class=\"ds-board-col\"><span class=\"ds-board-count\">9</span><span class=\"ds-card\" style=\"background:#4e6df5;animation-delay:252ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:224ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:196ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:168ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:140ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:112ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:84ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:56ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#4e6df5;animation-delay:28ms\"></span></li><li class=\"ds-board-col\"><span class=\"ds-board-count\">5</span><span class=\"ds-card\" style=\"background:#b9a7ff;animation-delay:140ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#b9a7ff;animation-delay:112ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#b9a7ff;animation-delay:84ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#b9a7ff;animation-delay:56ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#b9a7ff;animation-delay:28ms\"></span></li><li class=\"ds-board-col\"><span class=\"ds-board-count\">3</span><span class=\"ds-card\" style=\"background:#c6ff3d;animation-delay:84ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:56ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:28ms\"></span></li><li class=\"ds-board-col\"><span class=\"ds-board-count\">2</span><span class=\"ds-card\" style=\"background:#ff4438;animation-delay:56ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#ff4438;animation-delay:28ms\"></span></li><li class=\"ds-board-col\"><span class=\"ds-board-count\">31</span><span class=\"ds-card\" style=\"background:#c6ff3d;animation-delay:336ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:308ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:280ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:252ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:224ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:196ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:168ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:140ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:112ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:84ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:56ms\"></span><span class=\"ds-card ds-card-under\" style=\"background:#c6ff3d;animation-delay:28ms\"></span></li></ol></div>",
-      "css": ".ds-board{background:var(--color-bottle,#0b4030);padding:24px 16px 20px}.ds-board-labels{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 24px;margin-bottom:12px}.ds-board-label{margin:0;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4}.ds-board-label-acid{color:var(--color-acid,#c6ff3d)}.ds-board-label-cream{color:rgb(255 251 239 / .55)}.ds-board-cols{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);align-items:end;column-gap:1px}.ds-board-col{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;gap:4px;padding:0 16px}.ds-board-count{margin-bottom:6px;font-family:var(--font-display,'Bricolage Grotesque',system-ui,sans-serif);font-weight:800;font-size:clamp(22px,3vw,32px);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--color-acid,#c6ff3d)}.ds-card{display:block;width:100%;max-width:72px;height:11px;transform-origin:bottom;animation:ds-flip .34s cubic-bezier(.34,1.8,.45,1) both}.ds-card-under{opacity:.85}@keyframes ds-flip{0%{transform:scaleY(.4);opacity:0}100%{transform:none;opacity:1}}"
-    },
-    {
       "name": "Site nav",
       "kind": "nav",
       "refersTo": "button-acid",
@@ -492,10 +482,10 @@
   ],
   "narrative": {
     "northStar": "The Board",
-    "overview": "The site is a pipeline board read top to bottom. Every section is a whole colour, edge to edge, and no two neighbours share a ground: Bottle, Acid, Cream and Cream sunken take turns, with Cornflower, Lilac and Coral admitted one at a time as a single stage's accent. Inside each flood a real capture of the console sits in a two-pixel square frame, and everything else is type and hairlines. There are no cards. The layout work is done by rules, butted cells and oversized numerals, and the reader always knows which stage they are on because the sticky rail says so. The hero draws the board itself in the brand's own squares: five stacks of accent cards, one card per job, standing on the five cells of the rail. The rail is born tall on the hero's foot, at the fold, as the board's column headers, and squashes into the compact sticky rail as the reader scrolls into stage 01.\n\nThis is the loud half of \"loud brand, quiet product\". Bricolage Grotesque at 800 is set hard left and tightened to -0.04em; the biggest word on the page is a control (the category slab inside the h1) rather than an ornament. Depth is letterpress: filled buttons carry an inset bottom edge, panels sit inside an inset hairline ring, the active rail cell has an inset edge in its stage's accent. Nothing floats on a blurred shadow. Motion is short and slightly cartoon: one overshoot curve at 260 to 320ms, hovers that lift a few pixels and tilt a degree, one small square per section that pops, drops or squashes on a loop.\n\nConfirmed rejections, all evidenced by the build: no gradients, no blurred drop shadows, no rounded corners on marketing surfaces, no grey borders, no Sprout outside a product capture, no em dashes in copy, no emoji, no glyph icon sets (the only icons are two hand-drawn 16px strokes: a plus and an outbound arrow).",
+    "overview": "The site is a pipeline board read top to bottom. Every section is a whole colour, edge to edge, and no two neighbours share a ground: Bottle, Acid, Cream and Cream sunken take turns, with Cornflower, Lilac and Coral admitted one at a time as a single stage's accent. Inside each flood a real capture of the console sits in a two-pixel square frame, and everything else is type and hairlines. There are no cards. The layout work is done by rules, butted cells and oversized numerals, and the reader always knows which stage they are on because the sticky rail says so. The hero is headline, one lead and one button at natural height, and the stage rail sits straight under it: five 64px Acid cells as the board's column headers, which then stick under the nav for the length of the five stages, so the page reads headline, ask, board.\n\nThis is the loud half of \"loud brand, quiet product\". Bricolage Grotesque at 800 is set hard left and tightened to -0.04em; the biggest word on the page is a control (the category slab inside the h1) rather than an ornament. Depth is letterpress: filled buttons carry an inset bottom edge, panels sit inside an inset hairline ring, the active rail cell has an inset edge in its stage's accent. Nothing floats on a blurred shadow. Motion is short and slightly cartoon: one overshoot curve at 260 to 320ms, hovers that lift a few pixels and tilt a degree, one small square per section that pops, drops or squashes on a loop.\n\nConfirmed rejections, all evidenced by the build: no gradients, no blurred drop shadows, no rounded corners on marketing surfaces, no grey borders, no Sprout outside a product capture, no em dashes in copy, no emoji, no glyph icon sets (the only icons are two hand-drawn 16px strokes: a plus and an outbound arrow).",
     "keyCharacteristics": [
       "Whole-section colour floods that alternate Bottle / Acid / Cream / Cream sunken, never two alike in a row.",
-      "One accent per stage (Cornflower, Lilac, Acid, Coral), carried by the hero board's card stack, a small square (beside the numeral and in the tall rail's sub-line), the rail's active edge and the caption mark.",
+      "One accent per stage (Cornflower, Lilac, Acid, Coral), carried by the square beside the numeral, the rail's active edge and the caption mark.",
       "Bricolage Grotesque 800 hard left at -0.04em; Instrument Sans body at 15px; Martian Mono uppercase labels at 9px.",
       "Letterpress depth: inset bottom edges and inset hairline rings, drawn with box-shadow, never blur.",
       "Hairline ledgers instead of cards: rows separated by Ink at 0.20 alpha, flooding Acid on hover.",
@@ -515,7 +505,7 @@
       },
       {
         "name": "The One Accent Rule",
-        "body": "A stage gets exactly one of Cornflower, Lilac, Acid or Coral, and it appears in exactly five places: the card stack in the hero board, the 8px square in the tall rail's sub-line, the square beside the numeral, the inset edge under the active rail cell, and the mark before the capture caption. On an Acid ground the square turns Bottle; on Bottle the Acid stages' cards stay Acid.",
+        "body": "A stage gets exactly one of Cornflower, Lilac, Acid or Coral, and it appears in exactly three places: the square beside the numeral, the inset edge under the active rail cell, and the mark before the capture caption. On an Acid ground the square and the mark turn Bottle.",
         "section": "colors"
       },
       {
@@ -530,7 +520,7 @@
       },
       {
         "name": "The Tighten at Size Rule",
-        "body": "Bricolage tracks -0.03em up to 30px, -0.04em from 32px, -0.045em at the 92px display, and -0.05em at 100px and above. Leading falls with size: 1 at title, 0.92 at display, 0.9 at headline, 0.86 at statement, 0.8 at numeral.",
+        "body": "-0.045em at the display (to 96px), and -0.05em at the numeral and the secondary-page statement (104 to 112px).",
         "section": "typography"
       },
       {
@@ -554,7 +544,7 @@
       "Do keep Martian Mono uppercase at 9 to 11px and use it for indices, captions, column heads and form labels.",
       "Do give each stage or section one accent square (16 to 28px) and one ambient loop, and put every hairline in Ink, Cream or Acid at low alpha.",
       "Do frame product captures in a 2px square border, App ground, with a label-mono caption and accent mark below.",
-      "Do draw invented data in the brand's own squares (a Bricolage count above a stack of accent blocks) and label it illustrative; a real screen is a capture, never a mock.",
+      "Do show the product only as a real capture in a frame; nothing on the site is a mock or illustrated data.",
       "Do switch focus rings to Acid inside any section marked `.on-dark`."
     ],
     "donts": [

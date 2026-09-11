@@ -23,7 +23,7 @@ const CLAIMS = [
   {
     title: "No hostages",
     lines: [
-      "Studio Ninja import: upload the export ZIP, jobs come across.",
+      "Import from Studio Ninja, Dubsado, Pixieset or Sprout Studio, or map your own CSV.",
       "API keys on every plan. Outbound webhooks on Studio and House.",
       "Xero and QuickBooks Online sync, CSV from every report.",
       "Lock-in is not a business model, it is a hostage situation.",

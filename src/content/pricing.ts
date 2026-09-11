@@ -43,6 +43,7 @@ export const TIERS: Tier[] = [
     features: [
       "Everything in Solo",
       "Roles and granular permissions",
+      "Client portal on your own domain",
       "Outbound webhooks",
       "Extra seats, $19 a month each",
     ],

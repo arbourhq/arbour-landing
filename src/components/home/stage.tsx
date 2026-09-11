@@ -1,6 +1,6 @@
 import { CaptureFrame, type FrameTone } from "@/components/home/capture-frame";
 import { Reveal } from "@/components/reveal";
-import { COMPACT_PX } from "@/components/home/stage-rail";
+import { RAIL_PX } from "@/components/home/stage-rail";
 import type { Accent, Ground, Stage as StageContent } from "@/content/stages";
 
 /** The accent square: on Acid ground the Acid accent needs a Bottle square. */
@@ -13,8 +13,8 @@ const ACCENT_SQUARE: Record<Accent, string> = {
 
 /**
  * One stage of the board: a flood of colour edge to edge, the stage number at
- * headline size beside the heading, the real capture across eight columns and
- * the facts it earns down the other four.
+ * headline size beside the heading, one full-width recording and
+ * a four-column ledger of facts underneath.
  *
  * The number is not a label. It is the same numeral the rail carries, and it
  * is what tells the reader where on the board they are.
@@ -25,7 +25,6 @@ type Tone = {
   frame: FrameTone;
   index: string;
   title: string;
-  lead: string;
   rule: string;
   label: string;
   body: string;
@@ -39,7 +38,6 @@ const TONES: Record<Ground, Tone> = {
     frame: "bottle",
     index: "text-bottle",
     title: "text-ink",
-    lead: "text-ink/75",
     rule: "border-ink/20",
     label: "text-bottle",
     body: "text-ink/80",
@@ -51,7 +49,6 @@ const TONES: Record<Ground, Tone> = {
     frame: "bottle",
     index: "text-bottle",
     title: "text-ink",
-    lead: "text-ink/75",
     rule: "border-ink/20",
     label: "text-bottle",
     body: "text-ink/80",
@@ -63,7 +60,6 @@ const TONES: Record<Ground, Tone> = {
     frame: "acid",
     index: "text-acid",
     title: "text-acid",
-    lead: "text-cream/80",
     rule: "border-cream/20",
     label: "text-acid",
     body: "text-cream/80",
@@ -75,7 +71,6 @@ const TONES: Record<Ground, Tone> = {
     frame: "bottle",
     index: "text-bottle",
     title: "text-bottle",
-    lead: "text-bottle/80",
     rule: "border-bottle/30",
     label: "text-bottle",
     body: "text-bottle/80",
@@ -84,7 +79,7 @@ const TONES: Record<Ground, Tone> = {
   },
 };
 
-/** One per stage, in order. The square is the only ambient motion. */
+/** Accent motion for each stage header, in order. */
 const CHIPS = [
   "animate-drop origin-bottom",
   "animate-tilt",
@@ -102,101 +97,79 @@ export function Stage({ stage }: { stage: StageContent }) {
       id={`stage-${stage.id}`}
       aria-labelledby={`stage-${stage.id}-title`}
       className={`${t.section} px-6 pt-10 pb-14 sm:px-10 sm:pt-12 sm:pb-20`}
-      style={{ scrollMarginTop: COMPACT_PX }}
+      style={{ scrollMarginTop: RAIL_PX }}
     >
       <div className="mx-auto max-w-[1180px]">
         <Reveal>
-          <div className="mb-10 grid gap-x-8 gap-y-6 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-start lg:mb-12">
-            <div className="flex items-center gap-4 sm:flex-col sm:items-start sm:gap-5">
+          {/* Number and title share a baseline and a top edge. Bricolage's
+              ascenders sit at 0.72em and its digits at 0.673em, so a two-line
+              title at 0.9 leading spans 1.62em and the numeral is 2.4x the
+              title size to cover exactly that. A one-line title simply sits on
+              the numeral's baseline. */}
+          <div
+            className="mb-10 grid gap-x-8 gap-y-5 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-baseline-last lg:mb-12"
+            style={{ "--stage-title": "clamp(32px,5vw,60px)" } as React.CSSProperties}
+          >
+            {/* "01." The accent square is the full stop: on the baseline,
+                sized off the numeral so it scales with it. */}
+            <span
+              aria-hidden="true"
+              className={`font-display text-[calc(2.4*var(--stage-title))] leading-[0.9] font-extrabold tracking-[-0.05em] whitespace-nowrap tabular-nums ${t.index}`}
+            >
+              {stage.index}
               <span
-                aria-hidden="true"
-                className={`font-display text-[clamp(56px,9vw,120px)] leading-[0.8] font-extrabold tracking-[-0.05em] tabular-nums ${t.index}`}
-              >
-                {stage.index}
-              </span>
-              <span
-                aria-hidden="true"
-                className={`block h-4 w-4 shrink-0 sm:h-5 sm:w-5 ${stage.ground === "acid" ? "bg-bottle" : ACCENT_SQUARE[stage.accent]} ${chip}`}
+                className={`ml-[0.1em] inline-block h-[0.16em] w-[0.16em] align-baseline ${stage.ground === "acid" ? "bg-bottle" : ACCENT_SQUARE[stage.accent]} ${chip}`}
               />
-            </div>
-            <div className="grid gap-x-12 gap-y-5 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
-              <h2
-                id={`stage-${stage.id}-title`}
-                className={`m-0 max-w-[16ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-balance ${t.title}`}
-              >
-                <span className="sr-only">
-                  Stage {stage.index}, {stage.name}.{" "}
-                </span>
-                {stage.title}
-              </h2>
-              <p
-                className={`m-0 max-w-[52ch] text-[17px] leading-relaxed lg:pt-2 ${t.lead}`}
-              >
-                {stage.lead}
-              </p>
-            </div>
+            </span>
+            <h2
+              id={`stage-${stage.id}-title`}
+              className={`m-0 max-w-[24ch] font-display text-(length:--stage-title) leading-[0.9] font-extrabold tracking-[-0.04em] text-balance ${t.title}`}
+            >
+              <span className="sr-only">
+                Stage {stage.index}, {stage.name}.{" "}
+              </span>
+              {stage.title}
+            </h2>
           </div>
         </Reveal>
 
-        <div className="grid gap-x-10 gap-y-10 lg:grid-cols-12">
-          <Reveal
-            delay={0.04}
-            className={`lg:col-span-8 ${stage.flip ? "lg:order-2" : ""}`}
-          >
-            <CaptureFrame
-              capture={stage.capture}
-              tone={t.frame}
-              sizes="(max-width: 1024px) 100vw, 780px"
-              caption={`Real screen, seed data · ${stage.name}`}
-              mark={
-                stage.ground === "acid"
-                  ? "bg-bottle"
-                  : ACCENT_SQUARE[stage.accent]
-              }
-            />
-            {stage.detail ? (
-              <div className="mt-8 grid items-start gap-x-6 gap-y-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,1.6fr)]">
-                <p
-                  className={`m-0 max-w-[30ch] text-[15px] leading-relaxed sm:pt-1 ${t.body}`}
-                >
-                  {stage.detail.note}
-                </p>
-                <CaptureFrame
-                  capture={stage.detail}
-                  tone={t.frame}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 480px"
-                />
-              </div>
-            ) : null}
-          </Reveal>
+        <Reveal delay={0.04}>
+          <CaptureFrame
+            capture={stage.capture}
+            tone={t.frame}
+            sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1280px) calc(100vw - 80px), 1180px"
+            caption={`Screen recording, seed data · ${stage.name}`}
+            mark={
+              stage.ground === "acid"
+                ? "bg-bottle"
+                : ACCENT_SQUARE[stage.accent]
+            }
+          />
+        </Reveal>
 
-          <Reveal
-            delay={0.08}
-            className={`lg:col-span-4 ${stage.flip ? "lg:order-1" : ""}`}
+        <Reveal delay={0.08} className="mt-8 sm:mt-10">
+          <ul
+            className={`m-0 grid list-none border-b p-0 sm:grid-cols-2 lg:grid-cols-4 ${t.rule}`}
           >
-            {/* The ledger bleeds past its column so the hover flood has room
-                either side of the row. */}
-            <ul className={`m-0 -mx-3 list-none border-b p-0 ${t.rule}`}>
-              {stage.facts.map((fact) => (
-                <li
-                  key={fact.label}
-                  className={`group border-t px-3 py-5 transition-[background-color,transform] duration-300 ease-overshoot hover:translate-x-1 ${t.rule} ${t.hover}`}
+            {stage.facts.map((fact) => (
+              <li
+                key={fact.label}
+                className={`group border-t px-4 py-6 transition-colors duration-300 sm:px-5 lg:py-7 ${t.rule} ${t.hover}`}
+              >
+                <p
+                  className={`label-mono mb-3 group-hover:text-current ${t.label}`}
                 >
-                  <p
-                    className={`label-mono mb-2 group-hover:text-current ${t.label}`}
-                  >
-                    {fact.label}
-                  </p>
-                  <p
-                    className={`m-0 text-[15px] leading-relaxed group-hover:text-current ${t.body}`}
-                  >
-                    {fact.body}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+                  {fact.label}
+                </p>
+                <p
+                  className={`m-0 max-w-[52ch] text-[15px] leading-relaxed group-hover:text-current ${t.body}`}
+                >
+                  {fact.body}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
       </div>
     </section>
   );
