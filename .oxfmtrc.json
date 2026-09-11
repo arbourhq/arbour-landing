@@ -4,5 +4,5 @@
   "printWidth": 80,
   // Markdown here is hand-kept prose (the brand reference, the agent rules
   // block Next.js regenerates), so leave it alone.
-  "ignorePatterns": ["**/*.md"]
+  "ignorePatterns": ["**/*.md", ".impeccable/**", "public/product/*.json"]
 }

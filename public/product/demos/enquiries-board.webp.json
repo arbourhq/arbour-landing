@@ -1,0 +1,16 @@
+{
+  "prompt": "Real Playwright screen recording of the local seeded Arbour console. Switch from the enquiry board to its list and back. No records are changed. No generated product UI.",
+  "createdAt": "2026-09-11T08:08:23.433Z",
+  "route": "/enquiries",
+  "sourceCommit": "2a2ddce3fdf99c820efe497e03013faf47e1b901",
+  "width": 2880,
+  "height": 1800,
+  "frames": 15,
+  "targetFps": 10,
+  "capturedFrames": 84,
+  "elapsedMs": 8723,
+  "durationMs": 8723,
+  "bytes": 192440,
+  "sha256": "0561f25925ce5709cafda92094020e528264d07164c9d7318ec518889c72d004",
+  "script": "scripts/record-demos.mjs"
+}

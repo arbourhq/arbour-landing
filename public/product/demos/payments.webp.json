@@ -1,0 +1,16 @@
+{
+  "prompt": "Real Playwright screen recording of the local seeded Arbour console. Compare collected payments across the calendar and financial year. No generated product UI.",
+  "createdAt": "2026-09-11T08:10:01.200Z",
+  "route": "/payments",
+  "sourceCommit": "2a2ddce3fdf99c820efe497e03013faf47e1b901",
+  "width": 2880,
+  "height": 1800,
+  "frames": 47,
+  "targetFps": 10,
+  "capturedFrames": 128,
+  "elapsedMs": 13087,
+  "durationMs": 13087,
+  "bytes": 423936,
+  "sha256": "16655d02464d90e26c1d0f1fc5bf98e77aae4a39db4e99db708a717e1c873c34",
+  "script": "scripts/record-demos.mjs"
+}

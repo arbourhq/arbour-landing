@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
-import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
 import { BioSocials } from "@/components/bio/bio-socials";
-import { BioSignup } from "@/components/bio/bio-signup";
+import { TrialLink } from "@/components/trial-link";
 import { BIO_LINKS } from "@/content/bio";
-import { SITE } from "@/content/site";
+import { SITE, TRIAL_DAYS } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Link in bio",
@@ -48,11 +47,11 @@ function Arrow({ external }: { external?: boolean }) {
  *
  * No nav and no footer on purpose. Somebody lands here from a profile, taps one
  * thing, and leaves. Every row is a real page and the block at the bottom is
- * the same waitlist the rest of the site runs on.
+ * the same sign-up the rest of the site points at.
  */
 export default function BioPage() {
   return (
-    <WaitlistProvider>
+    <>
       <main
         // Tells <body> to take the Bottle ground too, see globals.css.
         data-ground="bottle"
@@ -108,7 +107,7 @@ export default function BioPage() {
                 return (
                   <li key={link.href}>
                     {link.external ? (
-                      // Google Forms, so it leaves the site rather than routing.
+                      // Off-site, so it leaves rather than routing.
                       <a
                         href={link.href}
                         target="_blank"
@@ -128,7 +127,16 @@ export default function BioPage() {
             </ul>
           </nav>
 
-          <BioSignup />
+          <section className="bg-acid p-6 text-bottle">
+            <h2 className="m-0 font-display text-[32px] leading-[0.95] font-extrabold tracking-[-0.04em]">
+              Try it on a real job.
+            </h2>
+            <p className="mt-3 text-[15px] leading-relaxed opacity-80">
+              {TRIAL_DAYS} days free, no card. Pick Solo or Studio at sign-up
+              and the plan applies from day one. Support is the two of us.
+            </p>
+            <TrialLink variant="bottle" size="md" className="mt-6 w-full" />
+          </section>
 
           <footer className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
             <Link
@@ -143,6 +151,6 @@ export default function BioPage() {
           </footer>
         </div>
       </main>
-    </WaitlistProvider>
+    </>
   );
 }
