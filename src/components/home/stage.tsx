@@ -108,7 +108,9 @@ export function Stage({ stage }: { stage: StageContent }) {
               the numeral's baseline. */}
           <div
             className="mb-10 grid gap-x-8 gap-y-5 sm:grid-cols-[auto_minmax(0,1fr)] sm:items-baseline-last lg:mb-12"
-            style={{ "--stage-title": "clamp(32px,5vw,60px)" } as React.CSSProperties}
+            style={
+              { "--stage-title": "clamp(32px,5vw,60px)" } as React.CSSProperties
+            }
           >
             {/* "01." The accent square is the full stop: on the baseline,
                 sized off the numeral so it scales with it. */}
