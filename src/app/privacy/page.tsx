@@ -36,7 +36,7 @@ const SECTIONS: readonly LegalSection[] = [
       "Communications, including connected mailbox messages, participants, drafts, scheduled sends, signatures, attachments, delivery status and messages sent to support.",
       "Integration information, including provider account identifiers, connection status, encrypted access credentials and data exchanged with services you choose to connect.",
       "Technical and usage information, including IP address, browser, device, session and cookie identifiers, pages and features used, security events, diagnostic data and error reports.",
-      "Website enquiries and waitlist information, including name, email address, business category, topic, message and communication preferences.",
+      "Website enquiries, including name, email address, topic, message and communication preferences.",
     ],
   },
   {
@@ -49,7 +49,7 @@ const SECTIONS: readonly LegalSection[] = [
   {
     heading: "How we collect information",
     paragraphs: [
-      "We collect information directly from you when you create an account, use Arbour, join a waitlist, contact us or connect a service. We also receive information from the organisation that invited you, people who submit a public form or customer portal, other users in an organisation, and connected providers such as Clerk, Stripe, Google, Microsoft, Documenso, Xero and QuickBooks.",
+      "We collect information directly from you when you create an account, use Arbour, contact us or connect a service. We also receive information from the organisation that invited you, people who submit a public form or customer portal, other users in an organisation, and connected providers such as Clerk, Stripe, Google, Microsoft, Documenso, Xero and QuickBooks.",
       "We collect technical and usage information automatically when you use the console. Authorised Arbour administrators may also create support and security records when investigating an issue or assisting a customer.",
       "You may choose not to provide personal information, but we may then be unable to create an account, process a request or provide the relevant feature.",
     ],

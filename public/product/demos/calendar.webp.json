@@ -1,0 +1,16 @@
+{
+  "prompt": "Real Playwright screen recording of the local seeded Arbour console. Open the October booking, view the year, then return to October. No generated product UI.",
+  "createdAt": "2026-09-11T08:11:41.383Z",
+  "route": "/calendar",
+  "sourceCommit": "2a2ddce3fdf99c820efe497e03013faf47e1b901",
+  "width": 2880,
+  "height": 1800,
+  "frames": 38,
+  "targetFps": 10,
+  "capturedFrames": 136,
+  "elapsedMs": 14122,
+  "durationMs": 14122,
+  "bytes": 542888,
+  "sha256": "eb0c85570f46cff32c0f0e12438b78fa74e225d93b18cda0d7ed08ad20ef4cb9",
+  "script": "scripts/record-demos.mjs"
+}

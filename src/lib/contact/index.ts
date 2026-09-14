@@ -17,9 +17,8 @@ export type ContactSender = {
 
 /**
  * Local development has no Resend key, so the message goes to the log instead.
- * The route handler refuses to fall back to this in production, the same way
- * the waitlist route does: a message that quietly vanishes is worse than an
- * error the sender can see.
+ * The route handler refuses to fall back to this in production: a message
+ * that quietly vanishes is worse than an error the sender can see.
  */
 const loggingSender: ContactSender = {
   name: "logging",
@@ -36,7 +35,10 @@ export function getContactSender(): ContactSender {
   if (cached) return cached;
 
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.WAITLIST_FROM_EMAIL;
+  // CONTACT_FROM_EMAIL is the name; WAITLIST_FROM_EMAIL is what production
+  // was configured with before launch and still works.
+  const from =
+    process.env.CONTACT_FROM_EMAIL ?? process.env.WAITLIST_FROM_EMAIL;
 
   if (!apiKey || !from) {
     cached = loggingSender;

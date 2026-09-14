@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "./wordmark";
-import { NAV_LINKS, SITE } from "@/content/site";
+import { APP, NAV_LINKS, SITE, TRIAL_DAYS } from "@/content/site";
 import { SOCIALS } from "@/content/bio";
 
 /**
@@ -11,14 +11,12 @@ import { SOCIALS } from "@/content/bio";
  * Everything here has to be true. No customers, no traction, no legal pages
  * that do not exist as routes, no socials that are not live: Facebook has no
  * href in content/bio.ts, so it renders as a dead label rather than a link.
+ * The product links go to the console host, which is a separate deployment.
  */
 
 /** In-page anchors are the product story, the rest is the company. */
 const SITE_LINKS = NAV_LINKS.filter((link) => link.href.includes("#"));
 const COMPANY_LINKS = NAV_LINKS.filter((link) => !link.href.includes("#"));
-
-/** The survey that decides what gets built. Lives in content/bio.ts. */
-const SURVEY_HREF = "https://forms.gle/2haJPf696ejiLHRx8";
 
 function ColumnHeading({ children }: { children: React.ReactNode }) {
   return <p className="label-mono mb-5 text-acid/70">{children}</p>;
@@ -34,11 +32,6 @@ export function SiteFooter() {
         <div className="mx-auto max-w-[1180px]">
           <div className="grid gap-x-10 gap-y-12 lg:grid-cols-[minmax(0,1.7fr)_repeat(3,minmax(0,1fr))]">
             <div>
-              <div className="mb-5 flex items-center gap-3">
-                <span className="block h-3.5 w-3.5 origin-bottom animate-squash bg-acid" />
-                <p className="eyebrow text-acid/70">In build · Waitlist open</p>
-              </div>
-
               <p className="m-0 max-w-[34ch] font-display text-[24px] leading-tight font-extrabold tracking-[-0.03em] text-acid">
                 {SITE.tagline}.
               </p>
@@ -48,15 +41,32 @@ export function SiteFooter() {
                 &ldquo;are you free?&rdquo; to the final invoice.
               </p>
 
-              <a
-                href={SURVEY_HREF}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 bg-transparent px-4 py-3 text-[15px] font-semibold text-acid edge-acid transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1deg]"
-              >
-                Tell us how you actually work
-                <span aria-hidden="true">&#8599;</span>
-              </a>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <a
+                  href={APP.signUp}
+                  className="inline-flex items-center gap-2 bg-acid px-4 py-3 text-[15px] font-semibold text-bottle press transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1deg]"
+                >
+                  Start free trial
+                </a>
+                <a
+                  href={APP.help}
+                  className="inline-flex items-center gap-2 bg-transparent px-4 py-3 text-[15px] font-semibold text-acid edge-acid transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[1deg]"
+                >
+                  Help centre
+                  <svg
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    focusable="false"
+                    className="h-3.5 w-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="square"
+                  >
+                    <path d="M3.5 12.5 12.5 3.5M5.5 3.5h7v7" />
+                  </svg>
+                </a>
+              </div>
             </div>
 
             <div>
@@ -85,6 +95,11 @@ export function SiteFooter() {
                 <li>
                   <a href={`mailto:${SITE.contactEmail}`} className={LINK}>
                     {SITE.contactEmail}
+                  </a>
+                </li>
+                <li>
+                  <a href={APP.signIn} className={LINK}>
+                    Log in
                   </a>
                 </li>
                 <li>
@@ -135,14 +150,17 @@ export function SiteFooter() {
           </div>
 
           {/* The mark lives down here rather than at the top of the first
-              column: the column leads with the status chip, and the bar is the
-              sign-off and the home link in one row. */}
+              column: the column leads with the tagline, and the bar is the
+              sign-off, the home link and the trial facts in one row. */}
           <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-cream/15 pt-7 pb-11">
             <Link href="/" className="shrink-0 text-acid">
               <Wordmark className="text-lg" />
             </Link>
             <p className="label-mono text-cream/60">
               &copy; {new Date().getFullYear()} Arbour
+            </p>
+            <p className="label-mono text-acid/70">
+              Open · {TRIAL_DAYS} days free · no card
             </p>
             <p className="label-mono ml-auto text-cream/60">
               Made in Australia for people who work weekends

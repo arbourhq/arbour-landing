@@ -1,26 +1,21 @@
 import { ArbourA } from "@/components/wordmark";
-import { WaitlistButton } from "@/components/waitlist/waitlist-button";
+import { TrialLink } from "@/components/trial-link";
+import { TRIAL_DAYS } from "@/content/site";
 
 /**
- * The bundle's version had 88px of top padding and 0 at the bottom with an
- * empty trailing div, so the Acid flood stopped dead against the footer. This
- * one closes properly on its own padding.
- *
  * The A is the only piece of geometry the brand owns and it appears at 26px in
  * the nav and nowhere else at size, so the page signs off with it: Bottle mark
- * on an Acid ground, which is one of the three legal pairings, flat and at full
- * strength rather than a faded watermark.
+ * on an Acid ground, flat and at full strength.
  *
- * It is xl only, and the size and offset are chosen so it starts clear of the
- * 16ch headline. Bottle type over a Bottle mark is invisible, so if the copy
- * grows, move the mark, do not fade it.
+ * It is xl only, sized and offset so it starts clear of the 16ch headline.
+ * Bottle type over a Bottle mark is invisible, so if the copy grows, move the
+ * mark, do not fade it.
  */
 export function FinalCta() {
   return (
     <section className="relative overflow-hidden bg-acid px-6 py-20 text-bottle sm:px-10 sm:py-24">
       <div className="pointer-events-none absolute inset-0 hidden xl:block">
         <div className="relative mx-auto h-full max-w-[1180px]">
-          {/* ArbourA sets aria-hidden itself. */}
           <ArbourA className="absolute top-1/2 right-[-40px] h-[420px] w-auto -translate-y-1/2 text-bottle" />
         </div>
       </div>
@@ -31,15 +26,13 @@ export function FinalCta() {
         </h2>
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-5 pt-8">
-          <WaitlistButton
+          <TrialLink
             variant="bottle"
             size="lg"
             className="hover:rotate-[-1.5deg]"
-          >
-            Join the waitlist
-          </WaitlistButton>
+          />
           <span className="label-mono max-w-[34ch] leading-relaxed">
-            No card · no demo call · one email when it opens
+            {TRIAL_DAYS} days free · no card · one of us on support
           </span>
         </div>
       </div>

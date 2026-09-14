@@ -75,7 +75,7 @@ export default async function Image() {
             background: "#C6FF3D",
           }}
         />
-        <span>In build. Waitlist open.</span>
+        <span>Open. 14 days free, no card.</span>
         <span style={{ color: "#C6FF3D" }}>usearbour.com</span>
       </div>
     </div>,

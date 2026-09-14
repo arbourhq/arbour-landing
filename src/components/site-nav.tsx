@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Wordmark } from "./wordmark";
-import { WaitlistButton } from "./waitlist/waitlist-button";
-import { NAV_LINKS } from "@/content/site";
+import { TrialLink } from "./trial-link";
+import { APP, NAV_LINKS } from "@/content/site";
 
 // Anchor links have to be driven by hand. Left to the router they land at the
 // wrong offset, because the section heights change under a smooth scroll as
@@ -115,7 +115,7 @@ export function SiteNav() {
 
   return (
     <nav className="on-dark sticky top-0 z-50 bg-bottle text-acid">
-      {/* Keyboard users get past the seven links and the button in one press.
+      {/* Keyboard users get past the links and the buttons in one press.
           Off screen until focused, then a solid Acid block over the bar. */}
       <a
         href="#main"
@@ -146,9 +146,13 @@ export function SiteNav() {
               {link.label}
             </Link>
           ))}
-          <WaitlistButton variant="acid" size="sm">
-            Join the waitlist
-          </WaitlistButton>
+          <a
+            href={APP.signIn}
+            className="label-mono py-3 text-[10px] tracking-[0.16em] hover:underline"
+          >
+            Log in
+          </a>
+          <TrialLink variant="acid" size="sm" />
         </div>
 
         <button
@@ -177,9 +181,13 @@ export function SiteNav() {
               {link.label}
             </Link>
           ))}
-          <WaitlistButton variant="acid" size="sm" className="mt-3 w-full">
-            Join the waitlist
-          </WaitlistButton>
+          <a
+            href={APP.signIn}
+            className="label-mono py-3 text-[11px] tracking-[0.16em]"
+          >
+            Log in
+          </a>
+          <TrialLink variant="acid" size="sm" className="mt-3 w-full" />
         </div>
       ) : null}
     </nav>

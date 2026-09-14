@@ -2,17 +2,13 @@
 
 import { useState } from "react";
 import { FAQS } from "@/content/faq";
-import { SectionHead } from "@/components/section-head";
+import { Reveal } from "@/components/reveal";
 
 /**
- * Numbered 07 and built as the same ledger as Pricing. It used to be the only
- * section on the page with no number, no colour and a narrower column, sitting
- * immediately before the close, which made the last thing before the call to
- * action read like an afterthought.
- *
- * The question and its answer sit on different axes: the question owns the left
- * half of the row and the marker lands on the midline, the answer opens in the
- * right half. Closed rows leave that half empty on purpose.
+ * Built as the same ledger as Pricing. The question and its answer sit on
+ * different axes: the question owns the left half of the row and the marker
+ * lands on the midline, the answer opens in the right half. Closed rows leave
+ * that half empty on purpose.
  */
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
@@ -20,15 +16,12 @@ export function Faq() {
   return (
     <section id="faq" className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
       <div className="mx-auto max-w-[1180px]">
-        <SectionHead
-          index="07"
-          label="Before you ask"
-          title="Reasonable questions"
-          className="mb-12"
-        />
+        <Reveal>
+          <h2 className="m-0 mb-12 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
+            Reasonable questions
+          </h2>
+        </Reveal>
 
-        {/* Bleeds past the text column so the hover flood has room either side
-            of the row, same as the pricing ledger. */}
         <div className="-mx-3 border-b border-ink/20 sm:-mx-6">
           {FAQS.map((faq, i) => {
             const isOpen = open === i;
@@ -45,25 +38,26 @@ export function Faq() {
                     aria-controls={`faq-answer-${i}`}
                     className="flex w-full cursor-pointer items-baseline gap-5 border-0 bg-transparent px-3 py-7 text-left font-sans text-ink sm:px-6"
                   >
-                    <span className="label-mono shrink-0 pt-1 opacity-65 tabular-nums">
-                      {`07.${i + 1}`}
-                    </span>
                     <span className="flex-1 text-[17px] leading-snug font-semibold sm:text-[20px]">
                       {faq.q}
                     </span>
-                    <span
+                    <svg
+                      viewBox="0 0 16 16"
                       aria-hidden="true"
-                      className={`inline-block shrink-0 font-mono text-lg transition-transform duration-300 ease-overshoot ${
+                      focusable="false"
+                      className={`h-4 w-4 shrink-0 self-center transition-transform duration-300 ease-overshoot ${
                         isOpen ? "rotate-45" : ""
                       }`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="square"
                     >
-                      +
-                    </span>
+                      <path d="M8 2v12M2 8h12" />
+                    </svg>
                   </button>
                 </h3>
 
-                {/* Always in the DOM so aria-controls has something to point
-                    at while the row is closed. hidden takes it out of layout. */}
                 <div
                   id={`faq-answer-${i}`}
                   hidden={!isOpen}

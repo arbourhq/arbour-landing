@@ -1,0 +1,563 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-11T08:00:00.000Z",
+  "title": "Design System: Arbour marketing site",
+  "extensions": {
+    "colorMeta": {
+      "bottle": {
+        "role": "primary",
+        "displayName": "Bottle",
+        "canonical": "#0b4030",
+        "tonalRamp": [
+          "oklch(15% 0.07 165)",
+          "oklch(25% 0.07 165)",
+          "oklch(35% 0.07 165)",
+          "oklch(45% 0.07 165)",
+          "oklch(55% 0.07 165)",
+          "oklch(65% 0.07 165)",
+          "oklch(80% 0.07 165)",
+          "oklch(95% 0.07 165)"
+        ]
+      },
+      "bottle-deep": {
+        "role": "primary",
+        "displayName": "Bottle deep",
+        "canonical": "#083023",
+        "tonalRamp": [
+          "oklch(15% 0.06 165)",
+          "oklch(25% 0.06 165)",
+          "oklch(35% 0.06 165)",
+          "oklch(45% 0.06 165)",
+          "oklch(55% 0.06 165)",
+          "oklch(65% 0.06 165)",
+          "oklch(80% 0.06 165)",
+          "oklch(95% 0.06 165)"
+        ]
+      },
+      "bottle-ink": {
+        "role": "primary",
+        "displayName": "Bottle ink",
+        "canonical": "#052117",
+        "tonalRamp": [
+          "oklch(15% 0.05 165)",
+          "oklch(25% 0.05 165)",
+          "oklch(35% 0.05 165)",
+          "oklch(45% 0.05 165)",
+          "oklch(55% 0.05 165)",
+          "oklch(65% 0.05 165)",
+          "oklch(80% 0.05 165)",
+          "oklch(95% 0.05 165)"
+        ]
+      },
+      "acid": {
+        "role": "primary",
+        "displayName": "Acid",
+        "canonical": "#c6ff3d",
+        "tonalRamp": [
+          "oklch(15% 0.2 122)",
+          "oklch(25% 0.2 122)",
+          "oklch(35% 0.2 122)",
+          "oklch(45% 0.2 122)",
+          "oklch(55% 0.2 122)",
+          "oklch(65% 0.2 122)",
+          "oklch(80% 0.2 122)",
+          "oklch(95% 0.2 122)"
+        ]
+      },
+      "acid-wash": {
+        "role": "primary",
+        "displayName": "Acid wash",
+        "canonical": "#f0ffce",
+        "tonalRamp": [
+          "oklch(15% 0.08 120)",
+          "oklch(25% 0.08 120)",
+          "oklch(35% 0.08 120)",
+          "oklch(45% 0.08 120)",
+          "oklch(55% 0.08 120)",
+          "oklch(65% 0.08 120)",
+          "oklch(80% 0.08 120)",
+          "oklch(95% 0.08 120)"
+        ]
+      },
+      "cream": {
+        "role": "neutral",
+        "displayName": "Cream",
+        "canonical": "#fffbef",
+        "tonalRamp": [
+          "oklch(15% 0.02 95)",
+          "oklch(25% 0.02 95)",
+          "oklch(35% 0.02 95)",
+          "oklch(45% 0.02 95)",
+          "oklch(55% 0.02 95)",
+          "oklch(65% 0.02 95)",
+          "oklch(80% 0.02 95)",
+          "oklch(95% 0.02 95)"
+        ]
+      },
+      "cream-sunken": {
+        "role": "neutral",
+        "displayName": "Cream sunken",
+        "canonical": "#f6f0dc",
+        "tonalRamp": [
+          "oklch(15% 0.04 92)",
+          "oklch(25% 0.04 92)",
+          "oklch(35% 0.04 92)",
+          "oklch(45% 0.04 92)",
+          "oklch(55% 0.04 92)",
+          "oklch(65% 0.04 92)",
+          "oklch(80% 0.04 92)",
+          "oklch(95% 0.04 92)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0f2a1e",
+        "tonalRamp": [
+          "oklch(15% 0.04 165)",
+          "oklch(25% 0.04 165)",
+          "oklch(35% 0.04 165)",
+          "oklch(45% 0.04 165)",
+          "oklch(55% 0.04 165)",
+          "oklch(65% 0.04 165)",
+          "oklch(80% 0.04 165)",
+          "oklch(95% 0.04 165)"
+        ]
+      },
+      "cornflower": {
+        "role": "secondary",
+        "displayName": "Cornflower",
+        "canonical": "#4e6df5",
+        "tonalRamp": [
+          "oklch(15% 0.19 270)",
+          "oklch(25% 0.19 270)",
+          "oklch(35% 0.19 270)",
+          "oklch(45% 0.19 270)",
+          "oklch(55% 0.19 270)",
+          "oklch(65% 0.19 270)",
+          "oklch(80% 0.19 270)",
+          "oklch(95% 0.19 270)"
+        ]
+      },
+      "cornflower-deep": {
+        "role": "secondary",
+        "displayName": "Cornflower deep",
+        "canonical": "#3a57dc",
+        "tonalRamp": [
+          "oklch(15% 0.18 270)",
+          "oklch(25% 0.18 270)",
+          "oklch(35% 0.18 270)",
+          "oklch(45% 0.18 270)",
+          "oklch(55% 0.18 270)",
+          "oklch(65% 0.18 270)",
+          "oklch(80% 0.18 270)",
+          "oklch(95% 0.18 270)"
+        ]
+      },
+      "lilac": {
+        "role": "secondary",
+        "displayName": "Lilac",
+        "canonical": "#b9a7ff",
+        "tonalRamp": [
+          "oklch(15% 0.11 290)",
+          "oklch(25% 0.11 290)",
+          "oklch(35% 0.11 290)",
+          "oklch(45% 0.11 290)",
+          "oklch(55% 0.11 290)",
+          "oklch(65% 0.11 290)",
+          "oklch(80% 0.11 290)",
+          "oklch(95% 0.11 290)"
+        ]
+      },
+      "coral": {
+        "role": "secondary",
+        "displayName": "Coral",
+        "canonical": "#ff4438",
+        "tonalRamp": [
+          "oklch(15% 0.22 28)",
+          "oklch(25% 0.22 28)",
+          "oklch(35% 0.22 28)",
+          "oklch(45% 0.22 28)",
+          "oklch(55% 0.22 28)",
+          "oklch(65% 0.22 28)",
+          "oklch(80% 0.22 28)",
+          "oklch(95% 0.22 28)"
+        ]
+      },
+      "coral-wash": {
+        "role": "secondary",
+        "displayName": "Coral wash",
+        "canonical": "#ffe5e2",
+        "tonalRamp": [
+          "oklch(15% 0.05 28)",
+          "oklch(25% 0.05 28)",
+          "oklch(35% 0.05 28)",
+          "oklch(45% 0.05 28)",
+          "oklch(55% 0.05 28)",
+          "oklch(65% 0.05 28)",
+          "oklch(80% 0.05 28)",
+          "oklch(95% 0.05 28)"
+        ]
+      },
+      "app": {
+        "role": "neutral",
+        "displayName": "App ground",
+        "canonical": "#f4f4f1",
+        "tonalRamp": [
+          "oklch(15% 0.005 100)",
+          "oklch(25% 0.005 100)",
+          "oklch(35% 0.005 100)",
+          "oklch(45% 0.005 100)",
+          "oklch(55% 0.005 100)",
+          "oklch(65% 0.005 100)",
+          "oklch(80% 0.005 100)",
+          "oklch(95% 0.005 100)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The home h1 only, full container width, a flex-wrap row of four nowrap groups with the Acid category slab inside the last. 96px cap, 0.92 leading, -0.045em."
+      },
+      "statement": {
+        "displayName": "Statement",
+        "purpose": "Final CTA and secondary-page h1s."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Stage index 01 to 05 and prices. Bricolage 800 tabular."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every section h2, 16 to 22ch, text-balance."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Ledger row titles, footer tagline, contact facts."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The paragraph beside or under a headline, 44 to 52ch (44ch in the hero, Cream at 0.85)."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Default reading size, 30 to 58ch."
+      },
+      "ui": {
+        "displayName": "UI",
+        "purpose": "Buttons, rail and chip labels, FAQ questions."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "label-mono utility: indices, captions, column heads, meta lines beside or under buttons (the hero's trial line in Acid 0.7). Uppercase."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "eyebrow utility: form field labels and section index labels on secondary pages. Uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "press",
+        "value": "inset 0 -4px 0 rgb(11 64 48 / 0.4)",
+        "purpose": "Letterpress bottom edge on Acid and Cream filled buttons and the category slab."
+      },
+      {
+        "name": "press-lg",
+        "value": "inset 0 -5px 0 rgb(11 64 48 / 0.5)",
+        "purpose": "The same edge on a large Acid surface."
+      },
+      {
+        "name": "press-dark",
+        "value": "inset 0 -5px 0 rgb(0 0 0 / 0.45)",
+        "purpose": "Bottom edge on Bottle filled buttons, the selected chip and the automation panel."
+      },
+      {
+        "name": "hairline",
+        "value": "inset 0 0 0 1px rgb(15 42 30 / 0.2)",
+        "purpose": "Inset ring on light panels."
+      },
+      {
+        "name": "edge-bottle",
+        "value": "inset 0 0 0 2px var(--color-bottle)",
+        "purpose": "Outline buttons and form panels on light grounds."
+      },
+      {
+        "name": "edge-acid",
+        "value": "inset 0 0 0 2px var(--color-acid)",
+        "purpose": "Outline buttons and the billing toggle on Bottle."
+      },
+      {
+        "name": "edge-bottle-thin",
+        "value": "inset 0 0 0 1.5px var(--color-bottle)",
+        "purpose": "Form fields and topic chips."
+      },
+      {
+        "name": "edge-coral-thin",
+        "value": "inset 0 0 0 1.5px var(--color-coral)",
+        "purpose": "The form error panel."
+      },
+      {
+        "name": "rail-active-edge",
+        "value": "inset 0 -4px 0 var(--color-cornflower)",
+        "purpose": "Active rail cell, in the stage's own accent (cornflower, lilac, acid or coral)."
+      },
+      {
+        "name": "rail-divider",
+        "value": "inset 1px 0 0 rgba(11,64,48,0.25)",
+        "purpose": "Rule between butted rail cells; the rail's bottom is inset 0 -1px 0 rgba(11,64,48,0.3)."
+      },
+      {
+        "name": "scrollbar-thumb",
+        "value": "inset -3px 0 0 rgba(5,33,23,0.4)",
+        "purpose": "The press edge turned on its side for the 10px Bottle scrollbar thumb."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-overshoot",
+        "value": "cubic-bezier(0.34, 1.8, 0.45, 1)",
+        "purpose": "Every hover lift, tilt, reveal and rail cell transition."
+      },
+      {
+        "name": "duration-hover",
+        "value": "300ms",
+        "purpose": "Transform transitions on buttons, cells and rows."
+      },
+      {
+        "name": "duration-colour",
+        "value": "200ms",
+        "purpose": "Colour-only transitions: ledger row floods, the billing toggle."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "320ms",
+        "purpose": "Reveal on scroll: opacity and a 4px lift, 12% threshold, stagger 0.04s."
+      },
+      {
+        "name": "lift",
+        "value": "translateY(-4px)",
+        "purpose": "Default button and chip hover; 2px on rail cells, 3px on the slab, 8px on large tiles."
+      },
+      {
+        "name": "tilt",
+        "value": "rotate(-1deg) to rotate(-1.5deg)",
+        "purpose": "Primary CTA hover; the secondary tilts +1deg."
+      },
+      {
+        "name": "flip",
+        "value": "flip 0.34s cubic-bezier(0.34, 1.8, 0.45, 1) both",
+        "purpose": "One-shot for a value changing in place: the slab word, a price."
+      },
+      {
+        "name": "swap",
+        "value": "swap 0.28s cubic-bezier(0.34, 1.8, 0.45, 1) both",
+        "purpose": "Data swap inside a panel after a category change, 7px."
+      },
+      {
+        "name": "loops",
+        "value": "pop 3.4s, wob 3.2s, drop 3.4s, squash 3.5s, tilt 3.5s, all overshoot infinite",
+        "purpose": "One accent square per section, in stage order. The only ambient motion; the hero carries none."
+      },
+      {
+        "name": "slab-cycle",
+        "value": "2600ms",
+        "purpose": "Category slab auto-advance; holds 30s after a touch."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms, iteration 1",
+        "purpose": "prefers-reduced-motion collapses every animation and transition."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Acid button",
+      "kind": "button",
+      "refersTo": "button-acid",
+      "description": "The trial CTA on any Bottle ground: Acid fill, Bottle text, letterpress edge.",
+      "html": "<button class=\"ds-btn-acid\">Start free trial</button>",
+      "css": ".ds-btn-acid{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans, 'Instrument Sans', system-ui, sans-serif);font-weight:600;font-size:15px;padding:16px 24px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -4px 0 rgb(11 64 48 / .4)}.ds-btn-acid:hover{transform:translateY(-4px) rotate(-1deg)}.ds-btn-acid:active{transform:translateY(0)}.ds-btn-acid:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Hero trial button",
+      "kind": "button",
+      "refersTo": "button-acid-xl",
+      "description": "The hero's one ask: the Acid button at the xl size (24px/36px at 19px from sm), tilting a degree on hover, with the label-mono trial line in Acid 0.7 beside it. The xl size is used nowhere else.",
+      "html": "<div class=\"ds-hero-ask\"><button class=\"ds-btn-acid-xl\">Start free trial</button><p class=\"ds-hero-meta\">14 days free · no card</p></div>",
+      "css": ".ds-hero-ask{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;padding:24px;background:var(--color-bottle,#0b4030)}.ds-btn-acid-xl{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:19px;padding:24px 36px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -4px 0 rgb(11 64 48 / .4)}.ds-btn-acid-xl:hover{transform:translateY(-4px) rotate(-1deg)}.ds-btn-acid-xl:active{transform:translateY(0)}.ds-btn-acid-xl:focus-visible{outline:3px solid var(--color-acid,#c6ff3d);outline-offset:2px}.ds-hero-meta{margin:0;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;color:rgb(198 255 61 / .7)}"
+    },
+    {
+      "name": "Bottle button",
+      "kind": "button",
+      "refersTo": "button-bottle",
+      "description": "The filled button on Acid or Cream: Bottle fill, Acid text, dark press edge.",
+      "html": "<button class=\"ds-btn-bottle\">Start free trial</button>",
+      "css": ".ds-btn-bottle{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans, 'Instrument Sans', system-ui, sans-serif);font-weight:600;font-size:15px;padding:16px 24px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:var(--color-bottle,#0b4030);color:var(--color-acid,#c6ff3d);box-shadow:inset 0 -5px 0 rgb(0 0 0 / .45)}.ds-btn-bottle:hover{transform:translateY(-4px) rotate(-1deg)}.ds-btn-bottle:active{transform:translateY(0)}.ds-btn-bottle:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Outline Acid button",
+      "kind": "button",
+      "refersTo": "button-outline-acid",
+      "description": "Secondary action beside an Acid button on Bottle: 2px inset Acid ring.",
+      "html": "<button class=\"ds-btn-outline-acid\">See the board</button>",
+      "css": ".ds-btn-outline-acid{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans, 'Instrument Sans', system-ui, sans-serif);font-weight:600;font-size:15px;padding:16px 24px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:transparent;color:var(--color-acid,#c6ff3d);box-shadow:inset 0 0 0 2px var(--color-acid,#c6ff3d)}.ds-btn-outline-acid:hover{transform:translateY(-4px) rotate(1deg)}.ds-btn-outline-acid:active{transform:translateY(0)}.ds-btn-outline-acid:focus-visible{outline:3px solid var(--color-acid,#c6ff3d);outline-offset:2px}"
+    },
+    {
+      "name": "Outline Bottle button",
+      "kind": "button",
+      "refersTo": "button-outline-bottle",
+      "description": "Secondary action on Acid or Cream: 2px inset Bottle ring.",
+      "html": "<button class=\"ds-btn-outline-bottle\">Help centre</button>",
+      "css": ".ds-btn-outline-bottle{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:0;font-family:var(--font-sans, 'Instrument Sans', system-ui, sans-serif);font-weight:600;font-size:15px;padding:16px 24px;cursor:pointer;user-select:none;transition:transform .3s cubic-bezier(.34,1.8,.45,1);background:transparent;color:var(--color-bottle,#0b4030);box-shadow:inset 0 0 0 2px var(--color-bottle,#0b4030)}.ds-btn-outline-bottle:hover{transform:translateY(-4px) rotate(1deg)}.ds-btn-outline-bottle:active{transform:translateY(0)}.ds-btn-outline-bottle:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Text field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Contact form field: Acid wash ground, 1.5px Bottle inset ring, eyebrow label above.",
+      "html": "<label class=\"ds-field-label\" for=\"ds-f\">Your name</label><input id=\"ds-f\" class=\"ds-field\" placeholder=\"Ruby Walker\">",
+      "css": ".ds-field-label{display:block;margin-bottom:10px;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.2em;text-transform:uppercase;line-height:1.4;opacity:.7;color:var(--color-ink,#0f2a1e)}.ds-field{width:100%;border:0;border-radius:0;background:var(--color-acid-wash,#f0ffce);color:var(--color-ink,#0f2a1e);font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-size:17px;padding:16px 18px;box-shadow:inset 0 0 0 1.5px var(--color-bottle,#0b4030)}.ds-field::placeholder{color:rgb(15 42 30 / .65)}.ds-field:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Category chips",
+      "kind": "chip",
+      "refersTo": "chip-cell",
+      "description": "Butted cells on an Ink 0.20 grout; hover floods Acid, selected inverts to Bottle with a dark press edge.",
+      "html": "<div class=\"ds-chips\"><button class=\"ds-chip ds-chip-on\" aria-pressed=\"true\">Photographers</button><button class=\"ds-chip\">Celebrants</button><button class=\"ds-chip\">Florists</button><p class=\"ds-chip-more\">More at sign-up</p></div>",
+      "css": ".ds-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgb(15 42 30 / .2);padding:0}.ds-chip{min-height:56px;border:0;border-radius:0;padding:12px 16px;text-align:left;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:15px;background:var(--color-cream,#fffbef);color:var(--color-bottle,#0b4030);cursor:pointer;transition:background-color .3s cubic-bezier(.34,1.8,.45,1),transform .3s cubic-bezier(.34,1.8,.45,1)}.ds-chip:hover{transform:translateY(-2px);background:var(--color-acid,#c6ff3d)}.ds-chip-on,.ds-chip-on:hover{background:var(--color-bottle,#0b4030);color:var(--color-acid,#c6ff3d);box-shadow:inset 0 -5px 0 rgb(0 0 0 / .45);transform:none}.ds-chip-more{margin:0;display:flex;align-items:center;min-height:56px;padding:12px 16px;background:var(--color-cream-sunken,#f6f0dc);color:rgb(15 42 30 / .65);font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase}.ds-chip:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Stage rail",
+      "kind": "nav",
+      "refersTo": "rail-cell",
+      "description": "The board's column headers, one element at one height: five butted Acid cells, 64px, straight under the hero and sticky under the nav for the five stages. The active cell inverts to Bottle with an inset edge in its accent; the others lift 2px on hover.",
+      "html": "<ol class=\"ds-rail\"><li><a class=\"ds-rail-cell ds-rail-on\" href=\"#\"><span class=\"ds-rail-i\">01</span>Enquiry in</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">02</span>Quote out</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">03</span>Booked</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">04</span>The day</a></li><li><a class=\"ds-rail-cell\" href=\"#\"><span class=\"ds-rail-i\">05</span>Paid</a></li></ol>",
+      "css": ".ds-rail{list-style:none;margin:0;padding:0 16px;display:grid;grid-template-columns:repeat(5,1fr);height:64px;background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);box-shadow:inset 0 -1px 0 rgba(11,64,48,.3)}.ds-rail li{min-width:0}.ds-rail li+li .ds-rail-cell{box-shadow:inset 1px 0 0 rgba(11,64,48,.25)}.ds-rail-cell{display:flex;align-items:center;gap:10px;height:100%;padding:0 16px;text-decoration:none;color:inherit;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:15px;line-height:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:background-color .3s cubic-bezier(.34,1.8,.45,1),color .3s cubic-bezier(.34,1.8,.45,1),transform .3s cubic-bezier(.34,1.8,.45,1)}.ds-rail-i{flex:none;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgb(11 64 48 / .6)}.ds-rail-cell:hover{transform:translateY(-2px);background:rgb(11 64 48 / .1)}.ds-rail-on,.ds-rail-on:hover{background:var(--color-bottle,#0b4030);color:var(--color-acid,#c6ff3d);box-shadow:inset 0 -4px 0 var(--color-cornflower,#4e6df5);transform:none}.ds-rail-on .ds-rail-i{color:rgb(198 255 61 / .7)}.ds-rail-cell:focus-visible{outline:3px solid color-mix(in srgb, var(--color-bottle,#0b4030) 55%, transparent);outline-offset:2px}"
+    },
+    {
+      "name": "Ledger row",
+      "kind": "card",
+      "refersTo": "ledger-row",
+      "description": "The site's container: a hairline row with a label-mono label and body, flooding Acid and shifting 4px on hover. No cards.",
+      "html": "<ul class=\"ds-ledger\"><li class=\"ds-row\"><p class=\"ds-row-label\">A form on your site</p><p class=\"ds-row-body\">Hosted or embedded, one public link that never changes. A submission is a card on the board with every answer on it.</p></li><li class=\"ds-row\"><p class=\"ds-row-label\">Your inbox, filed on the job</p><p class=\"ds-row-body\">Connect Gmail or Microsoft 365. Every thread with a contact sits on their enquiry.</p></li></ul>",
+      "css": ".ds-ledger{list-style:none;margin:0;padding:0;border-bottom:1px solid rgb(15 42 30 / .2);color:var(--color-ink,#0f2a1e);background:var(--color-cream,#fffbef)}.ds-row{border-top:1px solid rgb(15 42 30 / .2);padding:20px 12px;transition:background-color .3s cubic-bezier(.34,1.8,.45,1),transform .3s cubic-bezier(.34,1.8,.45,1)}.ds-row:hover{background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);transform:translateX(4px)}.ds-row-label{margin:0 0 8px;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4;color:var(--color-bottle,#0b4030)}.ds-row:hover .ds-row-label{color:currentColor}.ds-row-body{margin:0;font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-size:15px;line-height:1.625;color:rgb(15 42 30 / .8)}.ds-row:hover .ds-row-body{color:currentColor}"
+    },
+    {
+      "name": "Capture frame",
+      "kind": "custom",
+      "refersTo": "capture-frame",
+      "description": "A real product capture in a 2px square Bottle frame on App ground, with a label-mono caption and accent square.",
+      "html": "<figure class=\"ds-capture\"><div class=\"ds-capture-frame\"><div class=\"ds-capture-img\"></div></div><figcaption class=\"ds-capture-cap\"><span class=\"ds-capture-mark\"></span>Real screen, seed data · Enquiry in</figcaption></figure>",
+      "css": ".ds-capture{margin:0;color:var(--color-ink,#0f2a1e)}.ds-capture-frame{overflow:hidden;border:2px solid var(--color-bottle,#0b4030);background:var(--color-app,#f4f4f1)}.ds-capture-img{aspect-ratio:16/10;background:var(--color-app,#f4f4f1)}.ds-capture-cap{display:flex;align-items:center;gap:10px;margin-top:12px;opacity:.8;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:9px;letter-spacing:.16em;text-transform:uppercase;line-height:1.4}.ds-capture-mark{display:block;width:10px;height:10px;background:var(--color-cornflower,#4e6df5)}"
+    },
+    {
+      "name": "Site nav",
+      "kind": "nav",
+      "refersTo": "button-acid",
+      "description": "Sticky Bottle bar: wordmark left, label-mono links right (Product targets #stage-enquiry), small Acid trial button, 2px Acid progress line along the bottom.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">ARBOUR</span><div class=\"ds-nav-links\"><a href=\"#\">Product</a><a href=\"#\">Pricing</a><a href=\"#\">FAQ</a><a href=\"#\">Log in</a><a class=\"ds-nav-cta\" href=\"#\">Start free trial</a></div><span class=\"ds-nav-progress\"></span></nav>",
+      "css": ".ds-nav{position:relative;display:flex;align-items:center;gap:32px;padding:14px 24px;background:var(--color-bottle,#0b4030);color:var(--color-acid,#c6ff3d)}.ds-nav-mark{font-family:var(--font-display,'Bricolage Grotesque',system-ui,sans-serif);font-weight:800;font-size:22px;letter-spacing:.04em;line-height:1}.ds-nav-links{margin-left:auto;display:flex;align-items:center;gap:24px}.ds-nav-links a{padding:12px 0;color:inherit;text-decoration:none;font-family:var(--font-mono,'Martian Mono',ui-monospace,monospace);font-size:10px;letter-spacing:.16em;text-transform:uppercase}.ds-nav-links a:hover{text-decoration:underline}.ds-nav-cta,.ds-nav-links a.ds-nav-cta{padding:11px 16px;background:var(--color-acid,#c6ff3d);color:var(--color-bottle,#0b4030);font-family:var(--font-sans,'Instrument Sans',system-ui,sans-serif);font-weight:600;font-size:14px;letter-spacing:0;text-transform:none;box-shadow:inset 0 -4px 0 rgb(11 64 48 / .4);transition:transform .3s cubic-bezier(.34,1.8,.45,1)}.ds-nav-links a.ds-nav-cta:hover{text-decoration:none;transform:translateY(-4px)}.ds-nav-progress{position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--color-acid,#c6ff3d);transform:scaleX(.35);transform-origin:left}.ds-nav a:focus-visible{outline:3px solid var(--color-acid,#c6ff3d);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Board",
+    "overview": "The site is a pipeline board read top to bottom. Every section is a whole colour, edge to edge, and no two neighbours share a ground: Bottle, Acid, Cream and Cream sunken take turns, with Cornflower, Lilac and Coral admitted one at a time as a single stage's accent. Inside each flood a real capture of the console sits in a two-pixel square frame, and everything else is type and hairlines. There are no cards. The layout work is done by rules, butted cells and oversized numerals, and the reader always knows which stage they are on because the sticky rail says so. The hero is headline, one lead and one button at natural height, and the stage rail sits straight under it: five 64px Acid cells as the board's column headers, which then stick under the nav for the length of the five stages, so the page reads headline, ask, board.\n\nThis is the loud half of \"loud brand, quiet product\". Bricolage Grotesque at 800 is set hard left and tightened to -0.04em; the biggest word on the page is a control (the category slab inside the h1) rather than an ornament. Depth is letterpress: filled buttons carry an inset bottom edge, panels sit inside an inset hairline ring, the active rail cell has an inset edge in its stage's accent. Nothing floats on a blurred shadow. Motion is short and slightly cartoon: one overshoot curve at 260 to 320ms, hovers that lift a few pixels and tilt a degree, one small square per section that pops, drops or squashes on a loop.\n\nConfirmed rejections, all evidenced by the build: no gradients, no blurred drop shadows, no rounded corners on marketing surfaces, no grey borders, no Sprout outside a product capture, no em dashes in copy, no emoji, no glyph icon sets (the only icons are two hand-drawn 16px strokes: a plus and an outbound arrow).",
+    "keyCharacteristics": [
+      "Whole-section colour floods that alternate Bottle / Acid / Cream / Cream sunken, never two alike in a row.",
+      "One accent per stage (Cornflower, Lilac, Acid, Coral), carried by the square beside the numeral, the rail's active edge and the caption mark.",
+      "Bricolage Grotesque 800 hard left at -0.04em; Instrument Sans body at 15px; Martian Mono uppercase labels at 9px.",
+      "Letterpress depth: inset bottom edges and inset hairline rings, drawn with box-shadow, never blur.",
+      "Hairline ledgers instead of cards: rows separated by Ink at 0.20 alpha, flooding Acid on hover.",
+      "Square everything, including the scrollbar, the selection highlight and the focus ring; nothing sits off axis at rest, rotation is a hover.",
+      "Overshoot motion, cubic-bezier(.34,1.8,.45,1), 200 to 320ms, lifts of 2 to 8px with a degree or so of rotate."
+    ],
+    "rules": [
+      {
+        "name": "The Acid Sells, Sprout Runs Rule",
+        "body": "Sprout (#9fe870) is the product's action colour and appears on this site only inside a product capture. It is defined in the theme and used in zero lines of markup; keep it that way.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Two Alike Rule",
+        "body": "Adjacent sections never share a ground. The home page runs Bottle, Acid (rail), Cream, Bottle, Acid, Cream sunken, Bottle, Acid, Cream, Bottle, Cream, Acid, Bottle. When two light sections would touch, the second drops to Cream sunken.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Accent Rule",
+        "body": "A stage gets exactly one of Cornflower, Lilac, Acid or Coral, and it appears in exactly three places: the square beside the numeral, the inset edge under the active rail cell, and the mark before the capture caption. On an Acid ground the square and the mark turn Bottle.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Hairline Rule",
+        "body": "Rules and dividers are Ink on light grounds and Cream or Acid on Bottle, always at low alpha (0.15 subtle, 0.20 default, 0.25 for dashed sub-rules and butted-cell grout). Never a grey.",
+        "section": "colors"
+      },
+      {
+        "name": "The 800 Only Rule",
+        "body": "Bricolage Grotesque is loaded and set at one weight, 800. No other weight of it exists on the site.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tighten at Size Rule",
+        "body": "-0.045em at the display (to 96px), and -0.05em at the numeral and the secondary-page statement (104 to 112px).",
+        "section": "typography"
+      },
+      {
+        "name": "The Label Voice Rule",
+        "body": "Martian Mono is always uppercase and always 9 to 11px. It names data (a stage index, a caption, a column head, a form field); it never runs as a sentence of body copy and it never sits above a headline as a kicker on the home page.",
+        "section": "typography"
+      },
+      {
+        "name": "The Letterpress Rule",
+        "body": "Depth is an inset edge on the object itself, never a shadow cast onto the ground. If a surface needs to sit forward, give it a bottom edge; if it needs to sit back, give it a ring.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do flood the whole section with one ground and pick the next ground so it differs from both neighbours (The No Two Alike Rule).",
+      "Do set every Bricolage headline at 800, hard left, -0.04em, with a `max-w` of 16 to 22ch and `text-balance`.",
+      "Do give filled buttons a Press edge (`inset 0 -4px 0 rgb(11 64 48 / 0.4)`, or Press dark on Bottle) and lift them 4px on `cubic-bezier(.34,1.8,.45,1)` over 300ms.",
+      "Do draw outlines and panel rings as inset box-shadows in Bottle or Acid, 1px for hairline rings, 1.5px for fields, 2px for outline buttons.",
+      "Do build lists as hairline ledgers (Ink 0.20 rules, rows that flood Acid on hover) rather than as cards.",
+      "Do use butted `gap-px` cells on a low-alpha ground for any set of equal choices (rail, chips, toggle, category list, automation panel).",
+      "Do keep Martian Mono uppercase at 9 to 11px and use it for indices, captions, column heads and form labels.",
+      "Do give each stage or section one accent square (16 to 28px) and one ambient loop, and put every hairline in Ink, Cream or Acid at low alpha.",
+      "Do frame product captures in a 2px square border, App ground, with a label-mono caption and accent mark below.",
+      "Do show the product only as a real capture in a frame; nothing on the site is a mock or illustrated data.",
+      "Do switch focus rings to Acid inside any section marked `.on-dark`."
+    ],
+    "donts": [
+      "Don't use Sprout (#9fe870) anywhere in marketing markup; it lives only inside product captures.",
+      "Don't add a border-radius on any marketing surface; the only permitted circles are illustration badges such as the recording dot.",
+      "Don't cast blurred drop shadows, gradients, glassmorphism or soft rounded cards.",
+      "Don't use grey for rules or borders; hairlines are Ink at 0.15 to 0.25, or Cream / Acid at 0.15 to 0.25 on Bottle.",
+      "Don't set Bricolage at any weight other than 800, or use it for body copy.",
+      "Don't run Martian Mono as body copy, at more than 11px, or as a kicker above a home page headline.",
+      "Don't put Cream body copy on plain Cornflower or Coral; step to Cornflower deep, or carry Bottle ink on Coral.",
+      "Don't use slow or cinematic motion: nothing longer than 320ms for a transition, no reveal larger than 4px, no stagger beyond 0.04s.",
+      "Don't import an icon set or use emoji; the two stroke icons in use (16px plus, 14px outbound arrow) are inline SVG with square caps.",
+      "Don't redraw the wordmark: the A has no crossbar and a flat top, and the viewBox top edge at y=372 is what makes it flat."
+    ]
+  }
+}

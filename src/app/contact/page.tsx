@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
-import { WaitlistButton } from "@/components/waitlist/waitlist-button";
+import { TrialLink } from "@/components/trial-link";
 import { ContactForm } from "@/components/contact/contact-form";
 import { CONTACT_FACTS } from "@/content/contact";
 import { SITE } from "@/content/site";
@@ -10,7 +9,7 @@ import { SITE } from "@/content/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Ask about the build, the House plan or what it will cost. There are two of us and one of us answers.",
+    "Ask about the product, the House plan or moving across. There are two of us and one of us answers.",
 };
 
 export default async function ContactPage({
@@ -22,7 +21,7 @@ export default async function ContactPage({
   const { topic } = await searchParams;
 
   return (
-    <WaitlistProvider>
+    <>
       <SiteNav />
 
       <main id="main">
@@ -33,9 +32,9 @@ export default async function ContactPage({
               Ask us something hard.
             </h1>
             <p className="m-0 max-w-[52ch] text-[17px] leading-relaxed sm:text-[19px]">
-              What it will cost, what it will not do, whether it survives a
-              two-hundred cover Saturday. Nothing is for sale yet, so there is
-              nothing to be cagey about.
+              What it costs, what it will not do, whether it survives a
+              two-hundred cover Saturday. It is our software and our names on
+              it, so there is nothing to be cagey about.
             </p>
           </div>
         </section>
@@ -83,18 +82,16 @@ export default async function ContactPage({
             <h2 className="m-0 max-w-[16ch] font-display text-[clamp(32px,6vw,64px)] leading-[0.88] font-extrabold tracking-[-0.045em] text-bottle">
               Not a question, just want in?
             </h2>
-            <WaitlistButton
+            <TrialLink
               variant="bottle"
               size="lg"
               className="hover:rotate-[-1.5deg]"
-            >
-              Join the waitlist
-            </WaitlistButton>
+            />
           </div>
         </section>
       </main>
 
       <SiteFooter />
-    </WaitlistProvider>
+    </>
   );
 }

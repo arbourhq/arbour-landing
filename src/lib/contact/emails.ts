@@ -1,6 +1,6 @@
 /**
  * The contact form produces two emails: the one that lands in our inbox, and
- * the receipt the sender gets. Same rules as the waitlist emails, no em dashes,
+ * the receipt the sender gets. Same rules as every email we send, no em dashes,
  * no emoji, and no promise of a response time we cannot keep.
  *
  * The receipt comes from Arbour, not from Ben and Alex personally. A person

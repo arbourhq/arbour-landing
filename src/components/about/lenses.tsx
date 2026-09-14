@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { LENSES } from "@/content/about";
-import { onTabKey } from "@/components/product/product-tabs";
+import { onTabKey } from "@/components/ui/tabs";
 
 export function Lenses() {
   const [active, setActive] = useState(0);

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { WaitlistProvider } from "@/components/waitlist/waitlist-context";
-import { WaitlistButton } from "@/components/waitlist/waitlist-button";
+import { TrialLink } from "@/components/trial-link";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { ArbourA } from "@/components/wordmark";
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <WaitlistProvider>
+    <>
       <SiteNav />
 
       <main id="main">
@@ -60,10 +59,10 @@ export default function AboutPage() {
               How we got here.
             </h2>
             <p className="m-0 mb-10 max-w-[52ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-              Sixteen months, multiple industry projects together. Time to get
-              serious.
+              Seventeen months, a couple of industry projects together, then the
+              real one.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4">
               {TIMELINE.map((entry) => (
                 <div
                   key={entry.year}
@@ -228,15 +227,13 @@ export default function AboutPage() {
               Come and run your season on it.
             </h2>
             <div className="flex flex-wrap items-center gap-x-4 gap-y-5 pt-8">
-              <WaitlistButton
+              <TrialLink
                 variant="bottle"
                 size="lg"
                 className="hover:rotate-[-1.5deg]"
-              >
-                Join the waitlist
-              </WaitlistButton>
+              />
               <Link
-                href="/#product"
+                href="/#stage-enquiry"
                 className={buttonClass(
                   "outlineBottle",
                   "lg",
@@ -262,6 +259,6 @@ export default function AboutPage() {
       </main>
 
       <SiteFooter />
-    </WaitlistProvider>
+    </>
   );
 }

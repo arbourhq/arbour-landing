@@ -14,7 +14,7 @@ Vendors also run non-wedding work through it (corporate functions, commercial sh
 
 Positioning note: the brand lives in the wedding niche, but the software must never assume a wedding.
 
-Top tier is enterprise, called HOUSE: venues, groups and studios who have outgrown other software. Its headline benefit is a BUILD SLOT EVERY SIX MONTHS, real engineering time on the customer's own problem, shipped into their account. Not a roadmap vote.
+Top tier is enterprise, called HOUSE: venues, groups and studios who have outgrown other software. Unlimited seats, priority support and onboarding done for you, and its headline benefit is a BUILD SLOT EVERY QUARTER, real engineering time on the customer's own problem, shipped into their account. Not a roadmap vote.
 
 Team: two founders. Ben (wedding videographer) and Alex (software engineer). Support is answered by one of the two.
 
