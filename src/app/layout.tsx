@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import {
   Bricolage_Grotesque,
   Instrument_Sans,
@@ -59,7 +60,10 @@ export default function RootLayout({
       lang="en-AU"
       className={`${bricolage.variable} ${instrument.variable} ${martian.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
