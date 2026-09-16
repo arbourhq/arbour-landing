@@ -65,10 +65,9 @@ one on the home page sits beside a real capture of the screen that earns it.
 3. **Australian-first.** AUD, GST-inclusive pricing, Xero and QuickBooks,
    Australian English, support answered by one of the two founders, on a
    Saturday if that is when the job is.
-4. **No lock-in, real build time.** Studio Ninja import in; API keys,
-   webhooks, accounting sync and CSV out. House customers get a real
-   engineering build slot **every quarter**, shipped into their account. Not
-   a roadmap vote.
+4. **No lock-in, priority feature requests.** Studio Ninja import in; API keys,
+   webhooks, accounting sync and CSV out. House customers get priority
+   feature requests.
 
 Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
 

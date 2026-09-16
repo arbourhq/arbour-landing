@@ -56,7 +56,7 @@ export const TIERS: Tier[] = [
     enterprise: true,
     features: [
       "Everything in Studio",
-      "A build slot every quarter, shipped into your account",
+      "Priority feature requests",
       "Onboarding done for you",
       "Priority support",
     ],

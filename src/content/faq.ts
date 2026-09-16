@@ -25,8 +25,8 @@ export const FAQS = [
     a: "No. A corporate function, a commercial shoot or a staff party goes through the same board with the same quote and the same portal. The words are jobs and contacts, not weddings and couples, because that is what the work actually is.",
   },
   {
-    q: "You will really build custom software for my business?",
-    a: "On the House plan, yes. One build slot every quarter, scoped with you, shipped into your account. Not a roadmap vote. Email support@usearbour.com and one of the two of us will reply.",
+    q: "Does House include priority feature requests?",
+    a: "Yes. House includes priority feature requests. Tell us what your business needs by emailing support@usearbour.com and one of the two of us will reply.",
   },
   {
     q: "Who answers support?",
