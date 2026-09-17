@@ -132,6 +132,14 @@ Set the SVG height to `0.66em` of the type size with about `0.04em` of right mar
 
 Valid grounds: Acid with Bottle mark, Bottle with Acid mark, Cream with Bottle mark. Never on a photograph, never outlined, never with a crossbar added.
 
+### Arby, the mascot
+
+Arby, the in-app assistant, has a face: a kookaburra, drawn as twelve fixed-artwork poses that live in the product kit. Like the wordmark it is FIXED: master colours always (a cream body, dark green plumage, a lime crest), never the register's, never recoloured for a ground. The crest lime is artwork, not a UI colour, so it does not breach the Acid / Sprout rule.
+
+Valid grounds: Bottle wash `#E9F1EB`, white, or the product's neutral page grounds. Never Acid, Bottle or Bottle deep, never on a photograph. Cream only for the peeking pose, which is cut at the shoulders and reads by its crest, wing, beak and eye; a full-body pose on Cream loses its body. On the Acid flood the bird stands inside a Bottle-wash panel within the section, never on the flood itself.
+
+Where it appears: brand moments only. In the product, the first day, a dead end, an error, an empty chat, a clear queue. On the marketing site, the Arby block of the quiet section and the top of the FAQ ledger. Never in the portal, the embed form, emails, PDFs or social images.
+
 ## 5. Visual language
 
 - **SQUARE CORNERS**, or very nearly. 0 for marketing and print surfaces; up to 6px inside the product. Never pills, never large radii. Exception: floating chrome (a nav bar) may use 6px, and icon badges in illustrations may be circular.
@@ -209,6 +217,7 @@ AI SUGGESTIONS are confined to the Today screen only. Every other screen shows d
 - [ ] Inset depth, no blurred shadows
 - [ ] Bricolage 800 for display, Instrument Sans for body, Martian Mono uppercase for labels
 - [ ] Wordmark A has no crossbar
+- [ ] Arby in master colours, on Bottle wash or white (Cream for peeking only), only at a brand moment
 - [ ] Headings plain, not buzzwords
 - [ ] Copy assumes an experienced user
 - [ ] Product wording works for a corporate function, not just a wedding

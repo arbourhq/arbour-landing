@@ -454,6 +454,148 @@ body:has([data-ground="bottle"]) {
   box-shadow: inset 1px 0 0 0 rgb(255 251 239 / 0.25);
 }
 
+/* ---------------------------------------------------------------------------
+   Arby, the mascot (src/components/arby). The bird's motion is the console's,
+   vendored with the artwork: one pop on the overshoot curve the first time it
+   scrolls into view, then a slow idle that reads as alive rather than
+   animated. One part moves at a time and nothing loops fast enough to pull
+   the eye from the copy beside it.
+
+   Every moving part is three groups: the outer carries the master's placement
+   and the data-part name, the middle is the animated element, the inner puts
+   the joint at the origin, so a rotate pivots at the hinge or the eye with no
+   transform-origin arithmetic. The rules address [data-part="x"] > g.
+   Amplitudes are in master units on the 1000-unit canvas: a 2% breath is
+   under 4px at the 192px step, which is the point.
+
+   Rest is the last frame: every keyframe ends on the master artwork, so the
+   reduced-motion rule below (0.01ms, one iteration) parks each part exactly
+   where it was drawn. Transforms and opacity only, never a stroke or fill, so
+   the master colours stay literal.
+
+   The bird is held invisible until the component marks it entered, the way
+   Reveal holds a block, so the pop plays where someone can see it rather than
+   at page load three screens up. The idle loops start 440ms after the
+   entrance, so the bird is seen first and its mood second. --arby-delay lets
+   a section's own beat go first.
+   --------------------------------------------------------------------------- */
+[data-arby] {
+  --arby-idle-delay: calc(var(--arby-delay, 0ms) + 440ms);
+}
+[data-arby]:not([data-entered])
+  :is([data-part="bird"] > g, [data-part="peeking-feet"]) {
+  opacity: 0;
+}
+[data-arby][data-entered] [data-part="bird"] > g {
+  animation: arby-pop 260ms var(--ease-overshoot) var(--arby-delay, 0ms) both;
+}
+
+/* Standing: breath, a tail flick, a blink with the odd double. */
+[data-arby="standing"][data-idle] [data-part="body"] > g {
+  animation: arby-breath 4.2s ease-in-out var(--arby-idle-delay) infinite;
+}
+[data-arby="standing"][data-idle] [data-part="tail"] > g {
+  animation: arby-tail-flick 5.6s var(--ease-overshoot) var(--arby-idle-delay)
+    infinite;
+}
+[data-arby="standing"][data-idle] [data-part="eye"] > g {
+  animation: arby-blink 14.4s linear var(--arby-idle-delay) infinite;
+}
+
+/* Peeking: rises into view from below the clip edge instead of popping, then
+   a lookout bob every 4.4s and the standing blink. */
+[data-arby="peeking"][data-entered] [data-part="bird"] > g {
+  animation: arby-rise 420ms var(--ease-overshoot) var(--arby-delay, 0ms) both;
+}
+[data-arby="peeking"][data-entered][data-idle] [data-part="bird"] > g {
+  animation:
+    arby-rise 420ms var(--ease-overshoot) var(--arby-delay, 0ms) both,
+    arby-lookout 4.4s var(--ease-overshoot) var(--arby-idle-delay) infinite;
+}
+[data-arby="peeking"][data-idle] [data-part="eye"] > g {
+  animation: arby-blink 14.4s linear var(--arby-idle-delay) infinite;
+}
+/* The feet wait for the body to reach the edge. */
+[data-arby="peeking"][data-entered] [data-part="peeking-feet"] {
+  animation: arby-hold 420ms linear var(--arby-delay, 0ms) backwards;
+}
+
+@keyframes arby-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  46% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes arby-breath {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(var(--arby-breath, 1.02));
+  }
+}
+@keyframes arby-hold {
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes arby-rise {
+  0% {
+    transform: translateY(90px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes arby-lookout {
+  0%,
+  11.8%,
+  100% {
+    transform: translateY(0);
+  }
+  5.9% {
+    transform: translateY(-28px);
+  }
+}
+@keyframes arby-tail-flick {
+  0%,
+  7.5%,
+  100% {
+    transform: rotate(0deg);
+  }
+  3.75% {
+    transform: rotate(-6deg);
+  }
+}
+@keyframes arby-blink {
+  0%,
+  0.97%,
+  33.33%,
+  34.3%,
+  66.67%,
+  67.64%,
+  69.44%,
+  70.42%,
+  100% {
+    transform: scaleY(1);
+  }
+  0.49%,
+  33.82%,
+  67.15%,
+  69.93% {
+    transform: scaleY(0.08);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

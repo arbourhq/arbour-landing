@@ -6,6 +6,8 @@ import { Reveal } from "@/components/reveal";
 import { Reserve } from "@/components/ui/reserve";
 import { CATEGORIES } from "@/content/categories";
 import { AUTOMATION_CAPTURE } from "@/content/stages";
+import { ArbyPose } from "@/components/arby/arby-pose";
+import { standing } from "@/components/arby/poses/standing";
 
 /**
  * The page's single 150px moment, and the only place on the site that touches
@@ -13,7 +15,8 @@ import { AUTOMATION_CAPTURE } from "@/content/stages";
  * that is what the product does, this is what is left for you.
  *
  * Under it, the two things that make the line true: automations, with the
- * chosen category's example, and Arby.
+ * chosen category's example, and Arby. Each block opens on its mark: a Bottle
+ * square for automations, the bird itself for Arby.
  */
 
 const AUTOMATION_WHENS = CATEGORIES.map((c) => c.automation.when);
@@ -93,6 +96,13 @@ export function Quiet() {
               </div>
 
               <div>
+                {/* The bird's cream body vanishes on Acid, so the panel, not
+                    the section, is its ground. It pops once the column's own
+                    reveal has landed, then breathes, flicks and blinks while
+                    it is on screen. */}
+                <div className="hairline mb-4 flex w-fit items-end bg-bottle-wash px-4 pt-1">
+                  <ArbyPose pose={standing} size="lg" delay={360} />
+                </div>
                 <h3 className="m-0 mb-2 font-display text-[24px] font-extrabold tracking-[-0.03em]">
                   Arby
                 </h3>

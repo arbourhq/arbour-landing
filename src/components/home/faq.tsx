@@ -3,26 +3,46 @@
 import { useState } from "react";
 import { FAQS } from "@/content/faq";
 import { Reveal } from "@/components/reveal";
+import { ArbyPose } from "@/components/arby/arby-pose";
+import { peeking } from "@/components/arby/poses/peeking";
 
 /**
  * Built as the same ledger as Pricing. The question and its answer sit on
  * different axes: the question owns the left half of the row and the marker
  * lands on the midline, the answer opens in the right half. Closed rows leave
  * that half empty on purpose.
+ *
+ * Arby peeks over the top rule of the ledger at the right, feet on the line,
+ * as if it has questions too. The pose is cut at a clip 55.8% down its own
+ * box, so the box is offset upward by that much to put the clip edge on the
+ * rule, and the artwork stops at 79% of the box's width, so the box is
+ * pushed past the ledger's bleed by the empty 21% to land the beak on the
+ * container's right edge (the section clips the overhang). The headline's
+ * bottom margin is sized so the crest clears it, and the box takes no
+ * pointer events because it hangs over the first row.
  */
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
+    <section
+      id="faq"
+      className="overflow-x-clip bg-cream px-6 py-20 sm:px-10 sm:py-24"
+    >
       <div className="mx-auto max-w-[1180px]">
         <Reveal>
-          <h2 className="m-0 mb-12 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
+          <h2 className="m-0 mb-20 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink lg:mb-24">
             Reasonable questions
           </h2>
         </Reveal>
 
-        <div className="-mx-3 border-b border-ink/20 sm:-mx-6">
+        <div className="relative -mx-3 border-b border-ink/20 sm:-mx-6">
+          <ArbyPose
+            pose={peeking}
+            size="md"
+            delay={320}
+            className="pointer-events-none absolute top-[-71px] right-[-14px] sm:right-[-2px] lg:top-[-107px] lg:right-[-16px] lg:size-48"
+          />
           {FAQS.map((faq, i) => {
             const isOpen = open === i;
             return (

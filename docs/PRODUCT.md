@@ -80,7 +80,8 @@ Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
   runs through it).
 - **Routes.** `/` (hero with category picker and the category's board, the
   five-stage board with a real capture per stage, the quiet section with
-  automations and Arby, every vendor, pricing, FAQ, final call), `/about`,
+  automations and Arby, every vendor, pricing, FAQ with Arby peeking over
+  the ledger, final call), `/about`,
   `/contact`, `/bio` (phone-only link stack for Instagram, no nav or footer),
   `/privacy`, `/terms`.
 - **Call to action.** Every CTA is `src/components/trial-link.tsx`, a plain
@@ -173,6 +174,10 @@ Present:
   signatures; the site code does not reference them).
 - Brand artwork: wordmark and icon PNG/SVG in `public/`, `src/app/icon.svg`,
   `src/app/apple-icon.png`, `public/arbour-squares.png`.
+- Arby, the mascot: the standing and peeking poses, vendored by hand from
+  the main repo's kit (`packages/ui/src/components/arby`) into
+  `src/components/arby/poses/` with the console's motion. Refresh them from
+  the kit when the artwork changes; the other ten poses stay in the kit.
 - Real console captures in `public/product/` (24 screens, WebP, captured 4
   to 7 September 2026 from the seeded console). Provenance is recorded in
   each file's metadata and in the header of `src/content/stages.ts`.
