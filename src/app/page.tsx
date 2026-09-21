@@ -1,3 +1,4 @@
+import { ScrollCompanion } from "@/components/arby/scroll-companion";
 import { CategoryProvider } from "@/components/category-context";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -38,6 +39,7 @@ export default function Home() {
         <FinalCta />
       </main>
       <SiteFooter />
+      <ScrollCompanion />
     </CategoryProvider>
   );
 }

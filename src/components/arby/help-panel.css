@@ -1,0 +1,283 @@
+.arby-help {
+  position: fixed;
+  z-index: 60;
+  right: 24px;
+  left: auto;
+  top: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  max-width: none;
+  bottom: calc(
+    max(24px, env(safe-area-inset-bottom)) + var(--help-keyboard-inset, 0px)
+  );
+  display: flex;
+  flex-direction: column;
+  width: min(390px, calc(100vw - 24px));
+  height: min(660px, calc(var(--help-viewport-height, 100dvh) - 180px));
+  color: var(--color-ink);
+  background: var(--color-cream);
+  box-shadow: inset 0 0 0 1px var(--color-bottle);
+  animation: arby-help-open 280ms var(--ease-standard);
+}
+.arby-help[hidden] {
+  display: none;
+}
+@keyframes arby-help-open {
+  from {
+    opacity: 0;
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+}
+.arby-help-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-top: 2px solid var(--color-acid);
+  background: var(--color-bottle);
+  color: var(--color-cream);
+}
+.arby-help-header h2 {
+  margin: 0;
+  font: 800 28px/1 var(--font-display);
+  letter-spacing: -0.04em;
+  color: var(--color-acid);
+}
+.arby-help-header p {
+  margin: 8px 0 0;
+  font-size: 13px;
+}
+.arby-help button {
+  cursor: pointer;
+  border-radius: 0;
+}
+.arby-help button:disabled {
+  cursor: default;
+}
+.arby-help-close {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  color: var(--color-cream);
+  border: 1px solid rgb(255 251 239 / 0.35);
+}
+.arby-help-close:hover {
+  background: var(--color-bottle-deep);
+}
+.arby-help-close:focus-visible {
+  outline-color: var(--color-acid);
+}
+.arby-help-log {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 24px 20px;
+  scrollbar-color: var(--color-bottle) var(--color-cream-sunken);
+  scrollbar-width: thin;
+}
+.arby-help-welcome h3 {
+  margin: 0 0 12px;
+  font: 800 24px/1.05 var(--font-display);
+  letter-spacing: -0.03em;
+}
+.arby-help-welcome p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.arby-help-welcome .arby-help-note {
+  font-size: 13px;
+}
+.arby-help-starters {
+  margin-top: 24px;
+  border-top: 1px solid rgb(15 42 30 / 0.24);
+}
+.arby-help-starters button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 0;
+  border: 0;
+  border-bottom: 1px solid rgb(15 42 30 / 0.24);
+  background: transparent;
+  color: var(--color-bottle);
+  text-align: left;
+  font-size: 14px;
+}
+.arby-help-starters button:hover {
+  background: var(--color-acid-wash);
+}
+.arby-help-message {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid rgb(15 42 30 / 0.24);
+}
+.arby-help-message[data-role="user"] {
+  padding: 14px 16px;
+  border: 0;
+  background: var(--color-bottle-wash);
+}
+.arby-help-message p {
+  margin: 8px 0 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.arby-help-pending {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 0;
+  font-size: 14px;
+}
+.arby-help-pending span {
+  width: 8px;
+  height: 8px;
+  background: var(--color-bottle);
+  animation: arby-help-thinking 1s ease-in-out infinite alternate;
+}
+@keyframes arby-help-thinking {
+  to {
+    opacity: 0.35;
+  }
+}
+.arby-help-error {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--color-coral-wash);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.arby-help-error p {
+  margin: 0;
+}
+.arby-help-error button {
+  min-height: 44px;
+  padding: 8px 12px 8px 0;
+  border: 0;
+  background: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.arby-help-composer {
+  display: flex;
+  align-items: stretch;
+  margin: 0 16px;
+  box-shadow: inset 0 0 0 1px var(--color-bottle);
+  background: var(--color-cream-sunken);
+}
+.arby-help-composer textarea {
+  width: 100%;
+  min-width: 0;
+  resize: none;
+  border: 0;
+  padding: 12px;
+  background: transparent;
+  color: var(--color-ink);
+  caret-color: var(--color-bottle);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.arby-help-composer textarea::placeholder {
+  color: var(--color-bottle);
+  opacity: 0.8;
+}
+.arby-help-composer button {
+  margin: 6px;
+  align-self: flex-end;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 0;
+  background: var(--color-acid);
+  color: var(--color-bottle);
+  font-weight: 600;
+  box-shadow: inset 0 -3px 0 rgb(11 64 48 / 0.25);
+}
+.arby-help-composer button:disabled {
+  background: var(--color-cream-inset);
+  box-shadow: none;
+}
+.arby-help-footer {
+  padding: 12px 20px 8px;
+}
+.arby-help-footer p {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.arby-help-footer div {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.arby-help-footer a,
+.arby-help-footer button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-bottle);
+  font-size: 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.arby-help-footer button {
+  margin-left: auto;
+}
+@media (max-width: 639px) {
+  .arby-help {
+    right: 12px;
+    bottom: calc(
+      max(12px, env(safe-area-inset-bottom)) + var(--help-keyboard-inset, 0px)
+    );
+    height: min(640px, calc(var(--help-viewport-height, 100dvh) - 160px));
+  }
+  .arby-help-header {
+    padding: 16px;
+  }
+  .arby-help-log {
+    padding: 20px 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .arby-help,
+  .arby-help-pending span {
+    animation: none;
+  }
+}
+.arby-help[data-compact="true"] {
+  bottom: calc(12px + var(--help-keyboard-inset, 0px));
+  height: calc(var(--help-viewport-height, 100dvh) - 92px);
+}
+.arby-help[data-compact="true"] .arby-help-header {
+  padding: 8px 16px;
+}
+.arby-help[data-compact="true"] .arby-help-header p {
+  display: none;
+}
+.arby-help[data-compact="true"] .arby-help-footer {
+  padding-top: 6px;
+}
+@media print {
+  .arby-help {
+    display: none;
+  }
+}

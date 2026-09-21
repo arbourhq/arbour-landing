@@ -1,0 +1,150 @@
+.arby-companion {
+  --arby-size: 120px;
+  --arby-facing: -1;
+  --arby-bank: 0deg;
+  --arby-wingbeat: 460ms;
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  left: 0;
+  width: var(--arby-size);
+  height: var(--arby-size);
+  pointer-events: none;
+  visibility: hidden;
+  user-select: none;
+}
+
+.arby-direction {
+  position: absolute;
+  inset: 0;
+  translate: -54% -77%;
+  transform-origin: 54% 77%;
+  transform: rotate(var(--arby-bank)) scaleX(var(--arby-facing));
+}
+
+.arby-companion svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transition: opacity 100ms linear;
+}
+
+.arby-flight {
+  opacity: 0;
+}
+.arby-rest {
+  transform-origin: 54% 77%;
+}
+.arby-companion:not([data-phase="perched"]) .arby-flight {
+  opacity: 1;
+}
+.arby-companion:not([data-phase="perched"]) .arby-rest {
+  opacity: 0;
+}
+.arby-companion:not([data-phase="perched"]) {
+  will-change: transform;
+}
+
+.arby-companion:not([data-phase="perched"]) [data-part="near-flight-wing"] > g {
+  animation: arby-flight-beat var(--arby-wingbeat) ease-in-out infinite;
+}
+.arby-companion:not([data-phase="perched"]) [data-part="far-flight-wing"] > g {
+  animation: arby-flight-beat var(--arby-wingbeat) ease-in-out -70ms infinite
+    reverse;
+}
+.arby-companion:not([data-phase="perched"])
+  .arby-flight
+  [data-part="tail"]
+  > g {
+  animation: arby-flight-tail 900ms ease-in-out infinite;
+}
+
+@keyframes arby-flight-beat {
+  0%,
+  100% {
+    transform: rotate(-22deg) scaleY(0.88);
+  }
+  50% {
+    transform: rotate(15deg) scaleY(1.04);
+  }
+}
+@keyframes arby-flight-tail {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
+/* A glide holds the wings open between short bursts of flapping. */
+.arby-companion[data-phase="flying"][data-gait="glide"]
+  [data-part="near-flight-wing"]
+  > g,
+.arby-companion[data-phase="flying"][data-gait="glide"]
+  [data-part="far-flight-wing"]
+  > g {
+  animation: none;
+  transform: rotate(-12deg) scaleY(0.94);
+}
+
+.arby-branch {
+  position: fixed;
+  z-index: 29;
+  top: 0;
+  left: 0;
+  height: 32px;
+  pointer-events: none;
+  visibility: hidden;
+}
+.arby-branch svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.arby-companion[data-help="true"] {
+  z-index: 62;
+}
+.arby-hitarea {
+  position: absolute;
+  width: 80%;
+  height: 85%;
+  left: -40%;
+  top: -74%;
+  border: 0;
+  background: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.arby-hitarea:focus-visible {
+  outline: 2px solid var(--color-acid);
+  outline-offset: 4px;
+}
+/* One inline, still bird remains if motion is reduced, disabled or unavailable. */
+[data-arby-companion] .arby-static {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arby-companion,
+  .arby-branch {
+    display: none;
+  }
+  .arby-companion[data-help="true"] {
+    display: block;
+  }
+  [data-arby-companion] .arby-static {
+    display: none;
+  }
+}
+
+@media print {
+  .arby-companion,
+  .arby-branch {
+    display: none;
+  }
+}

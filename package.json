@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "oxlint",
     "typecheck": "tsc --noEmit",
+    "test:arby": "node --experimental-strip-types --test src/components/arby/flight.test.mjs",
+    "test:arby-help": "bun test src/lib/arby-help/help.test.mjs",
     "format": "oxfmt && oxlint --fix",
     "format:check": "oxfmt --check",
     "capture:demos": "node scripts/record-demos.mjs"

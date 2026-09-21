@@ -138,7 +138,11 @@ Arby, the in-app assistant, has a face: a kookaburra, drawn as twelve fixed-artw
 
 Valid grounds: Bottle wash `#E9F1EB`, white, or the product's neutral page grounds. Never Acid, Bottle or Bottle deep, never on a photograph. Cream only for the peeking pose, which is cut at the shoulders and reads by its crest, wing, beak and eye; a full-body pose on Cream loses its body. On the Acid flood the bird stands inside a Bottle-wash panel within the section, never on the flood itself.
 
-Where it appears: brand moments only. In the product, the first day, a dead end, an error, an empty chat, a clear queue. On the marketing site, the Arby block of the quiet section and the top of the FAQ ledger. Never in the portal, the embed form, emails, PDFs or social images.
+Where it appears: brand moments only. In the product, the first day, a dead end, an error, an empty chat, a clear queue. On the marketing home page, one scroll companion replaces the two separate mascot appearances. It follows scrolling, lands on clear page edges, and uses a branch attached to the viewport edge when no suitable page edge is visible. Reduced motion, disabled animation and unavailable JavaScript leave one still bird in the Arby block. Never in the portal, the embed form, emails, PDFs or social images.
+
+Home-page companion exception, approved 17 September 2026: the free-flying bird and its landings may cross the marketing grounds. Keep the master paths and colours unchanged. A crisp Cream silhouette outline with a finer Ink outer edge keeps the companion visible across colour floods, without a blurred shadow. Keep flight close to the edge of the viewport, prefer clear perches, avoid controls, and honour reduced motion. The user removed the bottom-right launcher and hide controls on 17 September 2026. This exception does not allow recolouring or change the background rules for any other mascot placement.
+
+Arby Help, approved 17 September 2026: clicking the companion or still fallback opens the support chat. Arby lands on the panel's top rule and stays there until it closes. The bird itself is the launcher; there are no bottom-right buttons. The panel uses Bottle, Cream and Acid, square corners and inset depth. Reduced motion keeps the perched bird still. Identify the chat as AI and distinguish it from the account-aware assistant inside the product.
 
 ## 5. Visual language
 

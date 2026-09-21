@@ -176,6 +176,19 @@ components:
 
 # Design System: Arbour marketing site
 
+## Arby Help
+
+The home-page support panel extends the existing brand with a Bottle header,
+Cream conversation area, Acid controls and square corners. Its top Acid rule is
+Arby's temporary perch. The same companion lands there when opened and resumes
+page flight only after the panel closes. Reduced motion uses direct placement.
+The chat is non-modal so the visitor can keep reading the page. Its independent
+scroll area, composer and founder-contact links stay inside the visual viewport.
+Use the existing 13px dense-copy and 11px micro-copy steps from `docs/brand.md`;
+the question field is 16px to avoid mobile focus zoom. Inset button edges follow
+the site's letterpress treatment. This is the AI product-help chat, distinct
+from the account-aware assistant inside Arbour.
+
 ## Overview
 
 **Creative North Star: "The Board"**
@@ -312,7 +325,7 @@ There are no cards. The three container patterns are:
 - **Automation panel:** butted Bottle cells on an Acid 0.25 `gap-px` grout with a Press dark edge, each cell a label-mono When / Then key in Acid beside 13px Cream copy, a Cream 0.6 11px footnote cell below; the whole panel `swap`s when the category changes.
 - **Capture frame:** a 2px square border in Bottle (light grounds) or Acid (Bottle), App ground behind the image, followed 12px below by a label-mono caption with a 10px accent square in front of it, at 0.8 opacity. The hero carries no capture. Each of the five stages carries one full-width, 2880 × 1800 animated WebP console recording with its four facts in a ledger underneath. Recordings play only while visible, with a square Stop demo / Play demo control below the frame. Static posters reserve the same space, cover load failures and remain visible for reduced motion or hidden tabs.
 Form panels on Contact are Acid or Cream blocks with a 2px Bottle inset ring and 32 to 44px padding.
-- **Mascot panel:** a Bottle wash block inside the Ink 0.20 hairline, fit to the bird (16px sides, 4px top, no bottom: the bird's canvas already carries the floor under its feet). It is the ground the standing Arby needs, because the bird's cream body vanishes on the Acid flood. Sits hard left in the Arby block of the quiet section. The peeking Arby on the FAQ needs no panel: it is cut at the shoulders and reads by its crest, wing, beak and eye against Cream.
+- **Mascot panel:** a Bottle wash block inside the Ink 0.20 hairline, fit to the bird (16px sides, 4px top, no bottom: the bird's canvas already carries the floor under its feet). It is the ground the standing Arby needs, because the bird's cream body vanishes on the Acid flood. Sits hard left in the Arby block of the quiet section. This panel is the still fallback when the scroll companion is disabled or unavailable.
 
 ### Inputs / Fields
 - **Style:** Acid wash ground, 1.5px Bottle inset ring, no border, square, Instrument Sans at 17px, 16px/18px padding, placeholder Ink at 0.65. Labels are the eyebrow utility at 0.7 opacity, 10px above the field.
@@ -332,12 +345,17 @@ The board's column headers: one element, one height. Five butted Acid cells, 64p
 The vendor category is a button inside the h1: an Acid block at headline size with a Press edge, 0.2em side padding, Bottle text, animating its width between names. Left alone it flips to the next category every 2.6s (a 0.34s one-shot `flip`, squashing on the way in), stops while hovered, open or off screen, and holds for 30s after a touch. Clicking opens a portalled two-column listbox on Bottle ink (Acid 0.25 grout) of label-mono options, selected in Acid. Choosing a category reskins the vendor chips and the automation example.
 
 ### Reveal and ambient motion
-Blocks enter with a 320ms overshoot fade from 4px below, at 12% visibility, staggered no more than 0.04s apart. Each section carries one small square on a 3.2 to 3.5s loop (`drop`, `tilt`, `squash`, `wob`, `pop`, in stage order) with demo recordings playing only in visible frames; the hero carries no square, the category slab is the only thing that moves in it. Data swaps inside a panel use `swap` (0.28s, 7px) not an entrance; in-place value changes use `flip`. Nothing blinks but the bird. `prefers-reduced-motion` collapses every animation and transition to 0.01ms and stops the slab cycle.
+Blocks enter with a 320ms overshoot fade from 4px below, at 12% visibility, staggered no more than 0.04s apart. Each section carries one small square on a 3.2 to 3.5s loop (`drop`, `tilt`, `squash`, `wob`, `pop`, in stage order) with demo recordings playing only in visible frames; the hero carries no square, the category slab is the only thing that moves in it. Data swaps inside a panel use `swap` (0.28s, 7px) not an entrance; in-place value changes use `flip`. The companion rests once it has landed. `prefers-reduced-motion` collapses every animation and transition to 0.01ms and stops the slab cycle.
 
 ### Arby, the mascot
-Arby, the console's AI assistant, has a face: a kookaburra drawn as fixed artwork in the main repo's kit (`arbourhq/arbour`, `packages/ui/src/components/arby`). Two of its twelve poses are vendored by hand into `src/components/arby/poses/` with a provenance header, the way the captures are, and rendered by `ArbyPose` (`src/components/arby/arby-pose.tsx`); refresh them from the kit, never redraw them here. The site shows the bird twice, at the two moments the page borrows the product's voice, and nowhere else: standing (192px) in a mascot panel in the Arby block under "Nothing needs you", where it is the block's mark the way the Bottle square is the automations block's; and peeking (128px, 192px from lg) over the top rule of the Reasonable questions ledger at its right end, feet on the line, the pose's own clip edge sitting on the rule so the body reads as behind it. The headline's bottom margin (80px, 96px from lg) is what keeps the crest clear of it. Master colours always, never the site's: the crest lime is artwork, not a marketing green, and it does not breach Acid sells, Sprout runs. The bird is never recoloured, never on Acid or Bottle, never on a photograph, never in the nav, the hero, a stage, the final call, `/bio` or an Open Graph image.
 
-Its motion is the console's, carried with the artwork: an entrance the first time the bird scrolls into view, then a slow idle on its own named parts while it is on screen. Standing pops in over 260ms on the overshoot curve (held back 360ms so the column's own reveal lands first), breathes 2% from the feet on a 4.2s loop, flicks its tail once every 5.6s and blinks every 4.8s with the odd double. Peeking rises 90 units from below its clip edge over 420ms on the same curve, its feet held until the body reaches the rule, then bobs 28 units (about 5px at 192px) for a lookout every 4.4s and blinks as standing does. Transforms and opacity only, on `<g>` groups, at most four concurrent animations per bird, paused off screen by an IntersectionObserver. Every keyframe ends on the master artwork, so the global reduced-motion rule parks each part where it was drawn: the reduced-motion frame matches the settled frame pixel for pixel.
+The home page has one scroll companion, implemented by `src/components/arby/scroll-companion.tsx`. It replaces the standing block and FAQ peeking bird during ordinary browsing. The flying and standing artwork comes unchanged from the platform kit, with branch paths extracted from its perched pose. No new animation dependency is required.
+
+Arby takes off when the document scrolls, joins varied swoops, climbs, hooked turns and brief glides near the right edge, and approaches a clear frame or ledger edge when scrolling ends. A small branch attached to the viewport edge supplies a perch when no suitable page element is visible. Flight and landing can be interrupted by further scrolling. A landing gets one 280ms compression, then rests without an idle loop. The bird has a keyboard-accessible hit area that opens Arby Help. There are no separate bottom-right launcher or hide controls.
+
+The sprite canvas is 120px on larger screens and 80px below 640px. A crisp Cream silhouette outline with a finer Ink outer edge separates it from both light and dark colour floods. Clear page edges always take priority over the branch, with landing points sampled across wide desktop ledges. Reduced motion, disabled animation and unavailable JavaScript show one still standing bird in the Bottle-wash panel beside the Arby description. The old FAQ peeking pose is removed. The home-page companion may cross marketing grounds under the specific exception in `docs/brand.md`; its paths and colours remain fixed.
+
+See `docs/arby-scroll-companion.md` for the renderer comparison, landing rules, timing, limitations and verification commands.
 
 ### Browser surfaces
 The scrollbar on fine pointers is a 10px square Bottle thumb (inset -3px edge, Bottle deep on hover, Bottle ink active) in a Cream sunken channel with an Ink 0.24 hairline on its left; on the Bottle-flooded /bio page the channel inverts to Bottle ink with an Acid thumb. Text selection is Acid with Bottle text.
@@ -365,7 +383,7 @@ The scrollbar on fine pointers is a 10px square Bottle thumb (inset -3px edge, B
 - **Don't** set Bricolage at any weight other than 800, or use it for body copy.
 - **Don't** run Martian Mono as body copy, at more than 11px, or as a kicker above a home page headline.
 - **Don't** put Cream body copy on plain Cornflower or Coral; step to Cornflower deep, or carry Bottle ink on Coral.
-- **Don't** use slow or cinematic motion: nothing longer than 320ms for a transition, no reveal larger than 4px, no stagger beyond 0.04s. The one exception is the mascot's entrance, which is the console's and travels with the artwork: the peeking bird rises 90 units (about 15px at 192px) over 420ms, because a bird climbing out from behind a rule needs the distance to read as climbing.
+- **Don't** use slow or cinematic motion: nothing longer than 320ms for a transition, no reveal larger than 4px, no stagger beyond 0.04s. The companion's landing flight is distance-based, 300 to 780ms; its final compression lasts 280ms.
 - **Don't** import an icon set or use emoji; the two stroke icons in use (16px plus, 14px outbound arrow) are inline SVG with square caps.
 - **Don't** redraw the wordmark: the A has no crossbar and a flat top, and the viewBox top edge at y=372 is what makes it flat.
-- **Don't** recolour Arby, stand it on Acid or Bottle, or show it outside the quiet section's Arby block and the FAQ ledger; it is a brand moment, not decoration.
+- **Don't** recolour Arby or change its fixed paths. The home-page scroll companion is the only exception to the original placement and background rules, as recorded in `docs/brand.md`.
