@@ -5,6 +5,8 @@ import {
   Instrument_Sans,
   Martian_Mono,
 } from "next/font/google";
+import { AttributionCapture } from "@/components/attribution-capture";
+import { MetaPixel } from "@/components/meta-pixel";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -48,6 +50,13 @@ export const metadata: Metadata = {
     title: `Arbour · ${SITE.tagline}`,
     description: SITE.description,
   },
+  // Meta Business domain verification. Must be in the server-rendered head,
+  // and Next renders each verification.other key as <meta name=key>.
+  verification: {
+    other: {
+      "facebook-domain-verification": "47swubvxinxgxxljjync0rcdkyblkw",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -63,6 +72,8 @@ export default function RootLayout({
       <body>
         {children}
         <Analytics />
+        <MetaPixel />
+        <AttributionCapture />
       </body>
     </html>
   );

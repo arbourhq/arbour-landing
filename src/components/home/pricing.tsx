@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EXTRA_SEAT, TIERS, type Interval } from "@/content/pricing";
 import { CONTACT_TOPICS } from "@/content/contact";
 import { TRIAL_DAYS } from "@/content/site";
+import { trackMetaEvent } from "@/components/meta-pixel";
 import { Reveal } from "@/components/reveal";
 import { TrialLink } from "@/components/trial-link";
 import { buttonClass } from "@/components/ui/button";
@@ -26,9 +27,36 @@ const INTERVALS: { key: Interval; label: string }[] = [
 export function Pricing() {
   const [interval, setInterval] = useState<Interval>("monthly");
   const yearly = interval === "yearly";
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // ViewContent once per visit, once the section has climbed a quarter of the
+  // way up the screen. A rootMargin, not threshold: 0.25, because on a phone
+  // the section is taller than four screens and would never reach a quarter
+  // visible. Without IntersectionObserver there is no telling whether it was
+  // seen, so it is not reported at all rather than counted on every load.
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            trackMetaEvent("ViewContent", { content_name: "pricing" });
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { rootMargin: "0px 0px -25% 0px" },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="pricing"
       className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-24"
     >
