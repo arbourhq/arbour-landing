@@ -114,8 +114,11 @@ Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
 
 Stack: Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4 with the
 brand tokens declared in `src/app/globals.css`, bun, oxlint and oxfmt. Fonts
-are self-hosted through `next/font`. No CMS, no analytics script, no cookie
-banner. Env in `.env.example`.
+are self-hosted through `next/font`. No CMS, no cookie banner. Analytics is
+Vercel Analytics plus the Meta Pixel (`src/components/meta-pixel.tsx`, off
+unless `NEXT_PUBLIC_META_PIXEL_ID` is set) and a first-touch
+`arbour_attribution` cookie the console reads at sign-up. Env in
+`.env.example`.
 
 Confirmed site facts:
 

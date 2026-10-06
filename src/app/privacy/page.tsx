@@ -109,7 +109,7 @@ const SECTIONS: readonly LegalSection[] = [
       "Clerk provides authentication and account management, primarily in the United States.",
       "Stripe provides subscription billing and connected-customer payment processing through entities and infrastructure in Australia, Ireland, the United States, India and other countries where Stripe operates.",
       "Resend delivers transactional and service email, primarily in the United States.",
-      "PostHog provides console product analytics in the United States. Sentry provides error monitoring through infrastructure in the United States or Germany, depending on project configuration.",
+      "Meta Platforms receives advertising measurement events from the marketing site, the sign-up pages and our servers, primarily in the United States. PostHog provides console product analytics in the United States. Sentry provides error monitoring through infrastructure in the United States or Germany, depending on project configuration.",
       "OpenAI processes AI writing requests in the United States and through subprocessors in other published locations.",
       "Documenso processes signing documents in the European Union and may process account or support information in the United States.",
       "Google and Microsoft process connected mailbox and calendar data in locations determined by the connected account and provider configuration.",
@@ -127,7 +127,10 @@ const SECTIONS: readonly LegalSection[] = [
     heading: "Cookies and analytics",
     paragraphs: [
       "Arbour uses cookies and similar browser storage for sign-in, security, organisation selection, preferences and portal sessions. Some are necessary for the service to work.",
-      "The authenticated console uses PostHog to understand product use. We use user and organisation identifiers and low-risk event properties, and configure session replay to mask interface text, attributes and input values. The customer portal does not load PostHog. The public marketing site does not currently use advertising or behavioural analytics cookies.",
+      "The authenticated console uses PostHog to understand product use. We use user and organisation identifiers and low-risk event properties, and configure session replay to mask interface text, attributes and input values. The customer portal does not load PostHog.",
+      "The public marketing site uses the Meta Pixel, an advertising cookie from Meta Platforms. It records page views and similar events so we can measure which ads lead people to Arbour and build advertising audiences on Meta's platforms. The console loads it on the sign-up, sign-in and onboarding pages only, never once you are signed in, and the customer portal does not load it. Meta handles this information under its own privacy policy, primarily in the United States.",
+      "When you arrive from a link that carries campaign parameters, such as utm_source or a Meta click identifier, the marketing site sets a first-party cookie called arbour_attribution. It holds those parameters, the page you landed on and when, and lasts 90 days. A later visit never replaces it. If you create an account, we keep that information with your account so we know which campaign brought you.",
+      "When you start a trial, and again when a trial becomes a paid subscription, our servers also report that event to Meta so the ad can be measured even if your browser blocked the pixel. That report carries your email address and name as one-way hashes, your account identifier hashed, the plan and its price, and the IP address, browser and Meta cookies from the request that created the account. We do not send Meta your clients, bookings or any content from your account.",
       "Sentry receives technical error and request context when something goes wrong. Browser settings can block some storage, but doing so may prevent sign-in or other features from working.",
     ],
   },
@@ -184,7 +187,7 @@ export default function PrivacyPage() {
       eyebrow="Legal"
       title="Privacy Policy"
       introduction="How Arbour collects, uses, protects and shares personal information."
-      effectiveDate="31 August 2026"
+      effectiveDate="6 October 2026"
       sections={SECTIONS}
     />
   );
