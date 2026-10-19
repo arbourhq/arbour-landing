@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import { AttributionCapture } from "@/components/attribution-capture";
 import { MetaPixel } from "@/components/meta-pixel";
+import { RedditPixel } from "@/components/reddit-pixel";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
@@ -73,6 +74,7 @@ export default function RootLayout({
         {children}
         <Analytics />
         <MetaPixel />
+        <RedditPixel />
         <AttributionCapture />
       </body>
     </html>

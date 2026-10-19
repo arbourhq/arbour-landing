@@ -6,6 +6,7 @@ import { EXTRA_SEAT, TIERS, type Interval } from "@/content/pricing";
 import { CONTACT_TOPICS } from "@/content/contact";
 import { TRIAL_DAYS } from "@/content/site";
 import { trackMetaEvent } from "@/components/meta-pixel";
+import { trackRedditEvent } from "@/components/reddit-pixel";
 import { Reveal } from "@/components/reveal";
 import { TrialLink } from "@/components/trial-link";
 import { buttonClass } from "@/components/ui/button";
@@ -43,6 +44,7 @@ export function Pricing() {
         for (const entry of entries) {
           if (entry.isIntersecting) {
             trackMetaEvent("ViewContent", { content_name: "pricing" });
+            trackRedditEvent("ViewContent");
             observer.unobserve(entry.target);
           }
         }

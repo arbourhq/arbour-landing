@@ -28,6 +28,9 @@ jobs:
       - name: Lint
         run: bun run lint
 
+      - name: Test
+        run: bun run test
+
       # No secrets here. Every env var the site reads has a fallback, and the
       # route handlers refuse the logging fallback at runtime in production.
       - name: Build

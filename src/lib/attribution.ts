@@ -1,8 +1,9 @@
 /**
  * First-touch campaign attribution, kept in a first-party cookie the console
  * reads at sign-up. A copy of the console's logic in the main repo
- * (`packages/core/src/meta-tracking.ts`), hand-rolled because this site has no
- * zod. The two must stay byte-compatible: same name, same JSON, same rules.
+ * (`packages/core/src/meta-attribution.ts`), hand-rolled because this site has
+ * no zod. The two must stay byte-compatible: same name, same JSON, same rules.
+ * Shared by every ad network: Meta's `fbclid`, Reddit's `rdt_cid`.
  */
 
 export const ATTRIBUTION_COOKIE_NAME = "arbour_attribution";
@@ -17,6 +18,7 @@ export interface SignupAttribution {
   utmContent?: string;
   utmTerm?: string;
   fbclid?: string;
+  rdtCid?: string;
   landingUrl: string;
   landedAt: string;
 }
@@ -30,6 +32,7 @@ const PARAM_KEYS: Record<string, CampaignKey> = {
   utm_content: "utmContent",
   utm_term: "utmTerm",
   fbclid: "fbclid",
+  rdt_cid: "rdtCid",
 };
 
 const VALUE_MAX = 500;

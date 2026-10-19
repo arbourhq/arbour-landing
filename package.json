@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "oxlint",
     "typecheck": "tsc --noEmit",
+    "test": "bun test",
     "format": "oxfmt && oxlint --fix",
     "format:check": "oxfmt --check",
     "capture:demos": "node scripts/record-demos.mjs"
@@ -21,6 +22,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/bun": "^1.4.3",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
