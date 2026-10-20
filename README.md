@@ -32,6 +32,31 @@ src/app/
   globals.css   # Tailwind + theme tokens
 ```
 
+## Arby Help
+
+Click Arby on the home page to open support chat. The same bird
+lands on the panel, stays through scrolling and resizing, then returns to page
+perches when it closes. Reduced motion uses a still bird. Closing keeps the
+conversation in memory until navigation or refresh; **New chat** clears it.
+
+Add `ANTHROPIC_API_KEY` to `.env.local` and the hosting environment. The
+server-only `/api/arby-help` route calls the Anthropic Messages API with
+`claude-haiku-5-5` at low effort. No key is shipped to the browser. Without a
+key, the panel offers retry and contact links rather than fabricated replies.
+
+Answers use the same content as the public pages: product explanations, FAQs,
+pricing, vendor examples, founders, company history, contact details, social
+links, terms and privacy policy. Uncertain or undocumented answers explicitly
+refer visitors to Contact us or the support email. Arby Help has no access to
+visitor accounts or actions. Keep the shared content current when the product changes. Messages are sent to OpenAI only when the visitor asks a
+question. This app does not persist chat transcripts.
+
+`bun run test:arby-help` checks validation, provider configuration, errors and
+rate limits. `bun run test:arby` checks the companion's flight geometry. The
+server has a per-process backstop of 12 requests per client and 60 total per
+minute. Production hosting should overwrite forwarded IP headers and enforce
+a shared rate limit across instances for `/api/arby-help`.
+
 ## Product recordings
 
 Each of the five landing-page stages uses one full-width animated

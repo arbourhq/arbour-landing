@@ -10,11 +10,14 @@
     "lint": "oxlint",
     "typecheck": "tsc --noEmit",
     "test": "bun test",
+    "test:arby": "node --experimental-strip-types --test src/components/arby/flight.test.mjs",
+    "test:arby-help": "bun test src/lib/arby-help/help.test.mjs",
     "format": "oxfmt && oxlint --fix",
     "format:check": "oxfmt --check",
     "capture:demos": "node scripts/record-demos.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0",
     "@vercel/analytics": "^2.0.1",
     "next": "16.2.12",
     "react": "19.2.4",

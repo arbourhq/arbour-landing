@@ -63,7 +63,10 @@ export function CaptureFrame({
 
   return (
     <figure ref={frame} className={`m-0 ${className ?? ""}`}>
-      <div className={`overflow-hidden border-2 bg-app ${FRAME[tone]}`}>
+      <div
+        data-arby-perch="capture"
+        className={`overflow-hidden border-2 bg-app ${FRAME[tone]}`}
+      >
         <Image
           src={playing && capture.recording ? capture.recording : capture.src}
           alt={capture.alt}

@@ -9,20 +9,27 @@ import { Reveal } from "@/components/reveal";
  * different axes: the question owns the left half of the row and the marker
  * lands on the midline, the answer opens in the right half. Closed rows leave
  * that half empty on purpose.
+
  */
 export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
+    <section
+      id="faq"
+      className="overflow-x-clip bg-cream px-6 py-20 sm:px-10 sm:py-24"
+    >
       <div className="mx-auto max-w-[1180px]">
         <Reveal>
-          <h2 className="m-0 mb-12 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
+          <h2 className="m-0 mb-20 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink lg:mb-24">
             Reasonable questions
           </h2>
         </Reveal>
 
-        <div className="-mx-3 border-b border-ink/20 sm:-mx-6">
+        <div
+          data-arby-perch="faq"
+          className="relative -mx-3 border-b border-ink/20 sm:-mx-6"
+        >
           {FAQS.map((faq, i) => {
             const isOpen = open === i;
             return (
@@ -60,6 +67,7 @@ export function Faq() {
 
                 <div
                   id={`faq-answer-${i}`}
+                  data-arby-avoid
                   hidden={!isOpen}
                   className="max-w-[56ch] px-3 pb-7 text-[15px] leading-relaxed opacity-80 sm:px-6 lg:pt-7 lg:pr-6 lg:pl-0"
                 >

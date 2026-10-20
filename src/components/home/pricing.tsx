@@ -98,7 +98,10 @@ export function Pricing() {
           </div>
         </Reveal>
 
-        <div className="mt-14 -mx-3 border-b border-cream/20 sm:-mx-6">
+        <div
+          data-arby-perch="pricing"
+          className="mt-14 -mx-3 border-b border-cream/20 sm:-mx-6"
+        >
           {TIERS.map((tier, i) => (
             <Reveal key={tier.name} delay={i * 0.04}>
               <div className="group grid grid-cols-1 items-start gap-x-8 gap-y-6 border-t border-cream/20 px-4 py-9 transition-colors duration-200 hover:bg-acid hover:text-bottle sm:px-7 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)_auto]">

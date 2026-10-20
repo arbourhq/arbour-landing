@@ -80,6 +80,7 @@ export function StageRail() {
   return (
     <div
       ref={bar}
+      data-arby-avoid
       className="sticky z-40 bg-acid text-bottle shadow-[inset_0_-1px_0_rgba(11,64,48,0.3)]"
       style={{ top: "var(--nav-h, 3.5rem)", height: RAIL_PX }}
     >

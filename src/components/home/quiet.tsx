@@ -4,8 +4,10 @@ import { useCategory } from "@/components/category-context";
 import { CaptureFrame } from "@/components/home/capture-frame";
 import { Reveal } from "@/components/reveal";
 import { Reserve } from "@/components/ui/reserve";
+import { PRODUCT } from "@/content/product";
 import { CATEGORIES } from "@/content/categories";
 import { AUTOMATION_CAPTURE } from "@/content/stages";
+import { standing } from "@/components/arby/poses/standing";
 
 /**
  * The page's single 150px moment, and the only place on the site that touches
@@ -13,7 +15,8 @@ import { AUTOMATION_CAPTURE } from "@/content/stages";
  * that is what the product does, this is what is left for you.
  *
  * Under it, the two things that make the line true: automations, with the
- * chosen category's example, and Arby.
+ * chosen category's example, and Arby. The standing bird is a still fallback
+ * when the page's scroll companion is disabled or unavailable.
  */
 
 const AUTOMATION_WHENS = CATEGORIES.map((c) => c.automation.when);
@@ -30,11 +33,7 @@ export function Quiet() {
             Nothing needs you.
           </h2>
           <p className="mt-7 max-w-[46ch] text-[17px] leading-relaxed text-bottle/85">
-            Genuinely. The overview counts what is waiting on a person:
-            enquiries without a reply, contracts out for signature, overdue
-            invoices, run sheets due. When a count is zero the row is not there
-            at all, and the rail says so. Go and have a coffee that is not from
-            the servo.
+            {PRODUCT.overview}
           </p>
         </Reveal>
 
@@ -50,7 +49,7 @@ export function Quiet() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.04}>
+          <Reveal delay={0.04} className="arby-copy">
             <div className="flex flex-col gap-8 lg:pl-9">
               <div>
                 <span className="mb-4 block h-[26px] w-[26px] origin-bottom-left animate-pop bg-bottle" />
@@ -58,10 +57,7 @@ export function Quiet() {
                   Automations
                 </h3>
                 <p className="m-0 text-[15px] leading-relaxed text-bottle/85">
-                  One sentence with three parts: when this happens, only if
-                  these match, then do this. Five rules ship with every
-                  organisation. Write your own: move a stage, email the client,
-                  nudge the team, call a webhook, wait a while.
+                  {PRODUCT.automations}
                 </p>
               </div>
 
@@ -93,13 +89,30 @@ export function Quiet() {
               </div>
 
               <div>
+                <button
+                  type="button"
+                  aria-label="Open Arby Help"
+                  aria-haspopup="dialog"
+                  aria-controls="arby-help"
+                  onClick={() =>
+                    window.dispatchEvent(new Event("arby-help-open"))
+                  }
+                  className="arby-static hairline mb-4 flex w-fit cursor-pointer items-end border-0 bg-bottle-wash px-4 pt-1"
+                >
+                  <svg
+                    viewBox="0 0 1000 1000"
+                    fill="none"
+                    aria-hidden="true"
+                    className="size-48"
+                  >
+                    {standing.render("arby-static")}
+                  </svg>
+                </button>
                 <h3 className="m-0 mb-2 font-display text-[24px] font-extrabold tracking-[-0.03em]">
                   Arby
                 </h3>
                 <p className="m-0 text-[15px] leading-relaxed text-bottle/85">
-                  Ask who is booked in March or which invoices are overdue and
-                  get the answer without hunting for the screen. Arby reads only
-                  what your role can already see, and it changes nothing.
+                  {PRODUCT.arby}
                 </p>
               </div>
             </div>

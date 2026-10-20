@@ -151,6 +151,7 @@ export function Stage({ stage }: { stage: StageContent }) {
 
         <Reveal delay={0.08} className="mt-8 sm:mt-10">
           <ul
+            data-arby-perch="facts"
             className={`m-0 grid list-none border-b p-0 sm:grid-cols-2 lg:grid-cols-4 ${t.rule}`}
           >
             {stage.facts.map((fact) => (

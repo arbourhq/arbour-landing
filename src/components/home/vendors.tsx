@@ -96,7 +96,10 @@ export function Vendors() {
           </fieldset>
         </Reveal>
 
-        <div className="mt-14 -mx-3 border-b border-ink/20 sm:-mx-6">
+        <div
+          data-arby-perch="vendors"
+          className="mt-14 -mx-3 border-b border-ink/20 sm:-mx-6"
+        >
           {CLAIMS.map((claim, i) => (
             <Reveal key={claim.title} delay={i * 0.04}>
               <div className="grid grid-cols-1 gap-x-12 gap-y-4 border-t border-ink/20 px-3 py-7 transition-colors duration-200 hover:bg-acid sm:px-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">

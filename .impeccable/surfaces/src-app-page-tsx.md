@@ -15,6 +15,8 @@ Proof: each stage has one full-width 2880 × 1800 Playwright recording of the se
 
 Constraints: brand.md binding (Acid sells, Sprout only inside captures, square corners, inset depth, no gradients, no em dashes, Australian English). Category picker stays as the copy device. Every CTA is the trial; House routes to contact.
 
+Mascot: Arby, the console's kookaburra, appears twice and only twice, in master colours: standing in a Bottle-wash panel as the mark of the Arby block in the quiet section, and peeking over the top rule of the Reasonable questions ledger at its right end, feet on the line. The poses and their motion are vendored from the main repo's kit; the site never redraws or recolours them.
+
 ## Direction contract
 
 THESIS: The page is a pipeline board read top to bottom: five stages the vendor's week already runs on, each a full-bleed colour flood carrying one real console capture. It refuses hero plus three-feature grid plus testimonial.

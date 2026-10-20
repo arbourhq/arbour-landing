@@ -16,6 +16,7 @@ colors:
   coral: "#ff4438"
   coral-wash: "#ffe5e2"
   app: "#f4f4f1"
+  bottle-wash: "#e9f1eb"
 typography:
   display:
     fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
@@ -130,6 +131,10 @@ components:
     rounded: "{rounded.none}"
     padding: "12px 16px"
     height: "56px"
+  mascot-panel:
+    backgroundColor: "{colors.bottle-wash}"
+    rounded: "{rounded.none}"
+    padding: "4px 16px 0"
   chip-cell-selected:
     backgroundColor: "{colors.bottle}"
     textColor: "{colors.acid}"
@@ -170,6 +175,19 @@ components:
 ---
 
 # Design System: Arbour marketing site
+
+## Arby Help
+
+The home-page support panel extends the existing brand with a Bottle header,
+Cream conversation area, Acid controls and square corners. Its top Acid rule is
+Arby's temporary perch. The same companion lands there when opened and resumes
+page flight only after the panel closes. Reduced motion uses direct placement.
+The chat is non-modal so the visitor can keep reading the page. Its independent
+scroll area, composer and founder-contact links stay inside the visual viewport.
+Use the existing 13px dense-copy and 11px micro-copy steps from `docs/brand.md`;
+the question field is 16px to avoid mobile focus zoom. Inset button edges follow
+the site's letterpress treatment. This is the AI product-help chat, distinct
+from the account-aware assistant inside Arbour.
 
 ## Overview
 
@@ -307,6 +325,7 @@ There are no cards. The three container patterns are:
 - **Automation panel:** butted Bottle cells on an Acid 0.25 `gap-px` grout with a Press dark edge, each cell a label-mono When / Then key in Acid beside 13px Cream copy, a Cream 0.6 11px footnote cell below; the whole panel `swap`s when the category changes.
 - **Capture frame:** a 2px square border in Bottle (light grounds) or Acid (Bottle), App ground behind the image, followed 12px below by a label-mono caption with a 10px accent square in front of it, at 0.8 opacity. The hero carries no capture. Each of the five stages carries one full-width, 2880 × 1800 animated WebP console recording with its four facts in a ledger underneath. Recordings play only while visible, with a square Stop demo / Play demo control below the frame. Static posters reserve the same space, cover load failures and remain visible for reduced motion or hidden tabs.
 Form panels on Contact are Acid or Cream blocks with a 2px Bottle inset ring and 32 to 44px padding.
+- **Mascot panel:** a Bottle wash block inside the Ink 0.20 hairline, fit to the bird (16px sides, 4px top, no bottom: the bird's canvas already carries the floor under its feet). It is the ground the standing Arby needs, because the bird's cream body vanishes on the Acid flood. Sits hard left in the Arby block of the quiet section. This panel is the still fallback when the scroll companion is disabled or unavailable.
 
 ### Inputs / Fields
 - **Style:** Acid wash ground, 1.5px Bottle inset ring, no border, square, Instrument Sans at 17px, 16px/18px padding, placeholder Ink at 0.65. Labels are the eyebrow utility at 0.7 opacity, 10px above the field.
@@ -326,7 +345,17 @@ The board's column headers: one element, one height. Five butted Acid cells, 64p
 The vendor category is a button inside the h1: an Acid block at headline size with a Press edge, 0.2em side padding, Bottle text, animating its width between names. Left alone it flips to the next category every 2.6s (a 0.34s one-shot `flip`, squashing on the way in), stops while hovered, open or off screen, and holds for 30s after a touch. Clicking opens a portalled two-column listbox on Bottle ink (Acid 0.25 grout) of label-mono options, selected in Acid. Choosing a category reskins the vendor chips and the automation example.
 
 ### Reveal and ambient motion
-Blocks enter with a 320ms overshoot fade from 4px below, at 12% visibility, staggered no more than 0.04s apart. Each section carries one small square on a 3.2 to 3.5s loop (`drop`, `tilt`, `squash`, `wob`, `pop`, in stage order) with demo recordings playing only in visible frames; the hero carries no square, the category slab is the only thing that moves in it. Data swaps inside a panel use `swap` (0.28s, 7px) not an entrance; in-place value changes use `flip`. Nothing blinks. `prefers-reduced-motion` collapses every animation and transition to 0.01ms and stops the slab cycle.
+Blocks enter with a 320ms overshoot fade from 4px below, at 12% visibility, staggered no more than 0.04s apart. Each section carries one small square on a 3.2 to 3.5s loop (`drop`, `tilt`, `squash`, `wob`, `pop`, in stage order) with demo recordings playing only in visible frames; the hero carries no square, the category slab is the only thing that moves in it. Data swaps inside a panel use `swap` (0.28s, 7px) not an entrance; in-place value changes use `flip`. The companion rests once it has landed. `prefers-reduced-motion` collapses every animation and transition to 0.01ms and stops the slab cycle.
+
+### Arby, the mascot
+
+The home page has one scroll companion, implemented by `src/components/arby/scroll-companion.tsx`. It replaces the standing block and FAQ peeking bird during ordinary browsing. The flying and standing artwork comes unchanged from the platform kit, with branch paths extracted from its perched pose. No new animation dependency is required.
+
+Arby takes off when the document scrolls, joins varied swoops, climbs, hooked turns and brief glides near the right edge, and approaches a clear frame or ledger edge when scrolling ends. A small branch attached to the viewport edge supplies a perch when no suitable page element is visible. Flight and landing can be interrupted by further scrolling. A landing gets one 280ms compression, then rests without an idle loop. The bird has a keyboard-accessible hit area that opens Arby Help. There are no separate bottom-right launcher or hide controls.
+
+The sprite canvas is 120px on larger screens and 80px below 640px. A crisp Cream silhouette outline with a finer Ink outer edge separates it from both light and dark colour floods. Clear page edges always take priority over the branch, with landing points sampled across wide desktop ledges. Reduced motion, disabled animation and unavailable JavaScript show one still standing bird in the Bottle-wash panel beside the Arby description. The old FAQ peeking pose is removed. The home-page companion may cross marketing grounds under the specific exception in `docs/brand.md`; its paths and colours remain fixed.
+
+See `docs/arby-scroll-companion.md` for the renderer comparison, landing rules, timing, limitations and verification commands.
 
 ### Browser surfaces
 The scrollbar on fine pointers is a 10px square Bottle thumb (inset -3px edge, Bottle deep on hover, Bottle ink active) in a Cream sunken channel with an Ink 0.24 hairline on its left; on the Bottle-flooded /bio page the channel inverts to Bottle ink with an Acid thumb. Text selection is Acid with Bottle text.
@@ -354,6 +383,7 @@ The scrollbar on fine pointers is a 10px square Bottle thumb (inset -3px edge, B
 - **Don't** set Bricolage at any weight other than 800, or use it for body copy.
 - **Don't** run Martian Mono as body copy, at more than 11px, or as a kicker above a home page headline.
 - **Don't** put Cream body copy on plain Cornflower or Coral; step to Cornflower deep, or carry Bottle ink on Coral.
-- **Don't** use slow or cinematic motion: nothing longer than 320ms for a transition, no reveal larger than 4px, no stagger beyond 0.04s.
+- **Don't** use slow or cinematic motion: nothing longer than 320ms for a transition, no reveal larger than 4px, no stagger beyond 0.04s. The companion's landing flight is distance-based, 300 to 780ms; its final compression lasts 280ms.
 - **Don't** import an icon set or use emoji; the two stroke icons in use (16px plus, 14px outbound arrow) are inline SVG with square caps.
 - **Don't** redraw the wordmark: the A has no crossbar and a flat top, and the viewBox top edge at y=372 is what makes it flat.
+- **Don't** recolour Arby or change its fixed paths. The home-page scroll companion is the only exception to the original placement and background rules, as recorded in `docs/brand.md`.
