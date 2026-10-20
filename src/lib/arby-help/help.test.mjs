@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
+import { AuthenticationError, RateLimitError } from "@anthropic-ai/sdk";
 import { handleHelp } from "./handler.ts";
 import { parseMessages } from "./messages.ts";
 import { createRateLimit } from "./rate-limit.ts";
@@ -15,14 +16,13 @@ const request = (body = { messages }, headers = {}) =>
     },
     body: JSON.stringify(body),
   });
-const completed = (text = "Fourteen days, no card.") =>
-  Response.json({
-    status: "completed",
-    output: [
-      { type: "reasoning", summary: [] },
-      { type: "message", content: [{ type: "output_text", text }] },
-    ],
-  });
+const completed = (text = "Fourteen days, no card.") => ({
+  stop_reason: "end_turn",
+  content: [
+    { type: "thinking", thinking: "", signature: "sig" },
+    { type: "text", text },
+  ],
+});
 
 test("rejects instructions, invalid history and oversized questions before a provider call", async () => {
   for (const body of [
@@ -41,7 +41,7 @@ test("rejects instructions, invalid history and oversized questions before a pro
   }
 });
 
-test("sends the requested Luna model and low reasoning with bounded, stateless history", async () => {
+test("sends Claude Haiku 5.5 at low effort with bounded, stateless history", async () => {
   const history = [
     ...messages,
     { role: "assistant", content: "Fourteen days." },
@@ -51,16 +51,13 @@ test("sends the requested Luna model and low reasoning with bounded, stateless h
     request({ messages: history }),
     "test-key",
     "product reference",
-    async (url, init) => {
-      assert.equal(url, "https://api.openai.com/v1/responses");
-      assert.equal(init.headers.Authorization, "Bearer test-key");
-      const payload = JSON.parse(init.body);
-      assert.equal(payload.model, "gpt-5.6-luna");
-      assert.deepEqual(payload.reasoning, { effort: "low" });
-      assert.equal(payload.instructions, "product reference");
-      assert.equal(payload.store, false);
-      assert.equal(payload.max_output_tokens, 1600);
-      assert.deepEqual(payload.input, history);
+    async (params, signal) => {
+      assert.equal(params.model, "claude-haiku-5-5");
+      assert.deepEqual(params.output_config, { effort: "low" });
+      assert.equal(params.system, "product reference");
+      assert.equal(params.max_tokens, 4000);
+      assert.deepEqual(params.messages, history);
+      assert(signal instanceof AbortSignal);
       return completed();
     },
   );
@@ -100,12 +97,27 @@ test("blocks cross-origin and oversized requests", async () => {
 test("provider failures, partial output and rate limits do not leak upstream details", async () => {
   for (const [provider, status] of [
     [
-      () =>
-        Response.json({ error: "secret provider details" }, { status: 401 }),
+      () => {
+        throw new AuthenticationError(
+          401,
+          { error: "secret provider details" },
+          "secret provider details",
+          new Headers(),
+        );
+      },
       502,
     ],
-    [() => Response.json({}, { status: 429 }), 429],
-    [() => Response.json({ status: "incomplete", output: [] }), 502],
+    [
+      () => {
+        throw new RateLimitError(429, {}, "secret", new Headers());
+      },
+      429,
+    ],
+    [
+      () => ({ ...completed("secret partial"), stop_reason: "max_tokens" }),
+      502,
+    ],
+    [() => ({ stop_reason: "refusal", content: [] }), 502],
     [
       () => {
         throw new Error("secret network details");
@@ -147,8 +159,7 @@ test("the provider receives the site's shared content, including policies and fo
     request(),
     "test",
     HELP_INSTRUCTIONS,
-    async (_url, init) => {
-      const { instructions } = JSON.parse(init.body);
+    async ({ system: instructions }) => {
       for (const faq of FAQS)
         assert(instructions.includes(JSON.stringify(faq.a)));
       for (const founder of FOUNDERS)

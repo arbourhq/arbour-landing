@@ -1,3 +1,5 @@
+import type Anthropic from "@anthropic-ai/sdk";
+
 export type HelpMessage = { role: "user" | "assistant"; content: string };
 
 export const MESSAGE_LIMIT = 2000;
@@ -33,44 +35,11 @@ export function parseMessages(body: unknown): HelpMessage[] | null {
     : null;
 }
 
-export function responseText(value: unknown): string | null {
-  if (
-    !value ||
-    typeof value !== "object" ||
-    !("status" in value) ||
-    value.status !== "completed" ||
-    !("output" in value) ||
-    !Array.isArray(value.output)
-  )
-    return null;
-  const text = value.output
-    .flatMap((item: unknown) => {
-      if (
-        !item ||
-        typeof item !== "object" ||
-        !("type" in item) ||
-        item.type !== "message" ||
-        !("content" in item) ||
-        !Array.isArray(item.content)
-      )
-        return [];
-      return item.content.flatMap((part: unknown) => {
-        if (!part || typeof part !== "object" || !("type" in part)) return [];
-        if (
-          part.type === "output_text" &&
-          "text" in part &&
-          typeof part.text === "string"
-        )
-          return [part.text];
-        if (
-          part.type === "refusal" &&
-          "refusal" in part &&
-          typeof part.refusal === "string"
-        )
-          return [part.refusal];
-        return [];
-      });
-    })
+export function responseText(message: Anthropic.Message): string | null {
+  // Refusals, truncation and other stops are not a finished answer.
+  if (message.stop_reason !== "end_turn") return null;
+  const text = message.content
+    .flatMap((block) => (block.type === "text" ? [block.text] : []))
     .join("\n")
     .trim();
   return text && text.length <= MESSAGE_LIMIT * 4 ? text : null;

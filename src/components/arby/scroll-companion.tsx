@@ -119,6 +119,7 @@ export function ScrollCompanion() {
     let flightLeg: FlightLeg | undefined;
     let legElapsed = 0;
     let gliding = false;
+    let relands = 0;
     let variation = flightVariation();
     let facing = -1;
     let bank = 0;
@@ -277,6 +278,7 @@ export function ScrollCompanion() {
       clearTimeout(stopTimer);
       scrollY = window.scrollY;
       lastFrame = 0;
+      relands = 0;
       destination = findPerch();
       position = { x: destination.x, y: destination.y };
       velocity = { x: 0, y: 0 };
@@ -288,7 +290,11 @@ export function ScrollCompanion() {
 
     function tick(now: number) {
       frame = 0;
-      if (!enabled()) return;
+      // Never leave a frozen bird mid-air; hide it until it can park again.
+      if (!enabled()) {
+        refresh();
+        return;
+      }
       const dt = Math.min(32, lastFrame ? now - lastFrame : 16);
       lastFrame = now;
       const previous = position;
@@ -308,15 +314,19 @@ export function ScrollCompanion() {
         if (progress === 1) {
           if (!destination.branch) {
             const settled = findPerch();
-            if (
-              Math.hypot(settled.x - position.x, settled.y - position.y) > 3
-            ) {
+            const moved =
+              Math.hypot(settled.x - position.x, settled.y - position.y) > 3;
+            // A perch that keeps shifting gets two chases, then Arby sits where it is.
+            if (moved && relands < 2) {
+              relands += 1;
               phase = "flying";
               land();
               return;
             }
-            destination = settled;
-            position = { x: settled.x, y: settled.y };
+            if (!moved) {
+              destination = settled;
+              position = { x: settled.x, y: settled.y };
+            }
           }
           phase = "perched";
           bank = 0;
@@ -430,9 +440,12 @@ export function ScrollCompanion() {
         phase = "flying";
         destination = undefined;
         lastFrame = 0;
+        relands = 0;
       }
       wake();
-      if (!supportsScrollEnd) stopTimer = window.setTimeout(land, 180);
+      // Scroll anchoring and other layout nudges scroll without a scrollend,
+      // so always keep a fallback landing queued.
+      stopTimer = window.setTimeout(land, supportsScrollEnd ? 400 : 180);
     }
 
     function onScrollEnd() {

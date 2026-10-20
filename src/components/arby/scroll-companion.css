@@ -4,7 +4,8 @@
   --arby-bank: 0deg;
   --arby-wingbeat: 460ms;
   position: fixed;
-  z-index: 30;
+  /* Above the nav (50) and the sticky stage rail (40), below Arby Help (60). */
+  z-index: 58;
   top: 0;
   left: 0;
   width: var(--arby-size);
@@ -93,7 +94,7 @@
 
 .arby-branch {
   position: fixed;
-  z-index: 29;
+  z-index: 57;
   top: 0;
   left: 0;
   height: 32px;

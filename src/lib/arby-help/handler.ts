@@ -1,3 +1,4 @@
+import Anthropic, { RateLimitError } from "@anthropic-ai/sdk";
 import { parseMessages, responseText } from "./messages";
 import { createRateLimit } from "./rate-limit";
 
@@ -14,12 +15,20 @@ function error(message: string, status: number) {
   );
 }
 
+type SendMessage = (
+  params: Anthropic.MessageCreateParamsNonStreaming,
+  signal: AbortSignal,
+) => Promise<Anthropic.Message>;
+
 /** Dependencies are explicit so the provider contract can be tested without a paid call. */
 export async function handleHelp(
   request: Request,
   apiKey: string | undefined,
   instructions: string,
-  fetchResponse: typeof fetch = fetch,
+  send: SendMessage = (params, signal) =>
+    new Anthropic({ apiKey, maxRetries: 1 }).messages.create(params, {
+      signal,
+    }),
   allow: (key: string) => boolean = allowRequest,
 ) {
   const origin = request.headers.get("origin");
@@ -67,41 +76,26 @@ export async function handleHelp(
     return error("Arby Help is busy. Give it a minute, then try again.", 429);
 
   try {
-    const response = await fetchResponse(
-      "https://api.openai.com/v1/responses",
+    const response = await send(
       {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        signal: AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]),
-        body: JSON.stringify({
-          model: "gpt-5.6-luna",
-          reasoning: { effort: "low" },
-          instructions,
-          input: messages,
-          max_output_tokens: 1600,
-          store: false,
-          text: { verbosity: "low" },
-        }),
+        model: "claude-haiku-5-5",
+        // Thinking counts toward the cap, so leave room beyond a short answer.
+        max_tokens: 4000,
+        output_config: { effort: "low" },
+        system: instructions,
+        messages,
       },
+      AbortSignal.any([request.signal, AbortSignal.timeout(30_000)]),
     );
-    if (!response.ok) {
-      if (response.status === 429)
-        return error(
-          "Arby Help is busy. Give it a minute, then try again.",
-          429,
-        );
-      return error(unavailable, 502);
-    }
-    const text = responseText(await response.json());
+    const text = responseText(response);
     if (!text) return error(unavailable, 502);
     return Response.json(
       { message: text },
       { headers: { "Cache-Control": "no-store" } },
     );
-  } catch {
+  } catch (cause) {
+    if (cause instanceof RateLimitError)
+      return error("Arby Help is busy. Give it a minute, then try again.", 429);
     return error(unavailable, 502);
   }
 }

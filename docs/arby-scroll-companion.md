@@ -23,8 +23,8 @@ been removed. With reduced motion, opening places the same bird directly on
 the panel. Closing restores the still fallback.
 Only the bird's hit area captures clicks; its artwork remains decorative.
 
-The chat calls a server-only Responses API route with `gpt-5.6-luna` and low
-reasoning. It uses the shared marketing content as its product reference and
+The chat calls a server-only Anthropic Messages API route with
+`claude-haiku-5-5` at low effort. It uses the shared marketing content as its product reference and
 cannot read accounts or take actions. See the README for credentials and tests.
 
 ## What already exists

@@ -39,11 +39,10 @@ lands on the panel, stays through scrolling and resizing, then returns to page
 perches when it closes. Reduced motion uses a still bird. Closing keeps the
 conversation in memory until navigation or refresh; **New chat** clears it.
 
-Add `OPENAI_API_KEY` to `.env.local` and the hosting environment. The server-only
-`/api/arby-help` route calls the OpenAI Responses API with `gpt-5.6-luna`, low
-reasoning and `store: false`. No key is shipped to the browser. Without a key,
-the panel offers retry and contact links rather than fabricated replies.
-The model and reasoning setting follow the [official Luna model documentation](https://developers.openai.com/api/docs/models/gpt-5.6-luna).
+Add `ANTHROPIC_API_KEY` to `.env.local` and the hosting environment. The
+server-only `/api/arby-help` route calls the Anthropic Messages API with
+`claude-haiku-5-5` at low effort. No key is shipped to the browser. Without a
+key, the panel offers retry and contact links rather than fabricated replies.
 
 Answers use the same content as the public pages: product explanations, FAQs,
 pricing, vendor examples, founders, company history, contact details, social
