@@ -54,7 +54,7 @@ export default async function Image() {
         }}
       >
         <span>Wedding</span>
-        <span>Industry OS.</span>
+        <span>Industry CRM.</span>
       </div>
 
       <div
