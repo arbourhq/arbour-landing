@@ -1,6 +1,6 @@
 import type { LegalSection } from "@/components/legal-page";
 
-export const PRIVACY_EFFECTIVE_DATE = "6 October 2026";
+export const PRIVACY_EFFECTIVE_DATE = "20 October 2026";
 
 export const PRIVACY_SECTIONS: readonly LegalSection[] = [
   {
@@ -33,6 +33,7 @@ export const PRIVACY_SECTIONS: readonly LegalSection[] = [
       "Integration information, including provider account identifiers, connection status, encrypted access credentials and data exchanged with services you choose to connect.",
       "Technical and usage information, including IP address, browser, device, session and cookie identifiers, pages and features used, security events, diagnostic data and error reports.",
       "Website enquiries, including name, email address, topic, message and communication preferences.",
+      "Questions and chat history sent to Arby Help, the support chat on our website.",
     ],
   },
   {
@@ -74,10 +75,12 @@ export const PRIVACY_SECTIONS: readonly LegalSection[] = [
     ],
   },
   {
-    heading: "AI provider and Google user data",
+    heading: "AI providers and Google user data",
     paragraphs: [
-      "Arbour has one third-party AI integration: OpenAI API Platform, used through direct Responses API requests with the API service tier set to auto. As at the effective date of this policy, the configured model is gpt-5.6-luna. Arbour does not route AI requests through an aggregator, gateway or model hub, and does not use a self-hosted or offline AI model.",
+      "Arbour has two third-party AI integrations. The AI writing assistant uses OpenAI API Platform, through direct Responses API requests with the API service tier set to auto. Arby Help, the support chat on our website, uses the Anthropic API through direct Messages API requests. As at the effective date of this policy, the configured models are gpt-5.6-luna for the writing assistant and claude-haiku-5-5 for Arby Help. Arbour does not route AI requests through an aggregator, gateway or model hub, and does not use a self-hosted or offline AI model.",
       "Arbour disables OpenAI response storage for each request. OpenAI states that API inputs and outputs are not used to train or improve its models unless the API customer explicitly opts in. Arbour does not opt in or otherwise authorise OpenAI to use Arbour customer content for model training. Under its standard API controls, OpenAI may retain content in abuse-monitoring logs for up to 30 days unless a stricter retention control applies.",
+      "When you use Arby Help, Arbour sends your questions and the rest of that chat to Anthropic, together with Arbour's public website content, to generate a reply. Arby Help cannot see Arbour accounts or business data. Arbour does not store Arby Help conversations: a conversation stays in your browser until you start a new chat, leave the page or refresh. We use your IP address briefly, in memory, to limit how often the chat can be used.",
+      "Anthropic states that it does not use API inputs and outputs to train its models unless the API customer explicitly opts in. Arbour does not opt in or otherwise authorise Anthropic to use Arby Help conversations for model training. Under its commercial terms, Anthropic may retain API content for a limited period, including for trust and safety review.",
       "Where AI context comes from a connected Gmail account, raw or derived Google Workspace API user data is sent only to generate the response requested by the authorised user. Arbour does not use that data to train a generalised AI or machine learning model and does not transfer it to a third party that uses it for that purpose. Arbour does not use Google Photos APIs.",
       "Arbour's use of information received from Google Workspace APIs adheres to the Google User Data Policy, including the Limited Use requirements.",
     ],
@@ -107,6 +110,7 @@ export const PRIVACY_SECTIONS: readonly LegalSection[] = [
       "Resend delivers transactional and service email, primarily in the United States.",
       "Meta Platforms receives advertising measurement events from the marketing site, the sign-up pages and our servers, primarily in the United States. PostHog provides console product analytics in the United States. Sentry provides error monitoring through infrastructure in the United States or Germany, depending on project configuration.",
       "OpenAI processes AI writing requests in the United States and through subprocessors in other published locations.",
+      "Anthropic processes Arby Help requests in the United States and through subprocessors in other published locations.",
       "Documenso processes signing documents in the European Union and may process account or support information in the United States.",
       "Google and Microsoft process connected mailbox and calendar data in locations determined by the connected account and provider configuration.",
       "Xero and Intuit process accounting exports in Australia, New Zealand, the United States and other locations described in their policies.",
