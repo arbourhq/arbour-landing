@@ -93,7 +93,7 @@ export function cubic(points: [Point, Point, Point, Point], progress: number) {
 export function flightVariation(random: () => number = Math.random) {
   return {
     lift: 20 + random() * 35,
-    wingbeat: 380 + random() * 160,
+    wingbeat: 460 + random() * 140,
     approach: (random() < 0.5 ? -1 : 1) * (24 + random() * 48),
   };
 }
@@ -132,7 +132,8 @@ export function planFlight(
     x: clamp(point.x, left, right),
     y: clamp(point.y, top, bottom),
   });
-  const duration = (kind === "glide" ? 1250 : 850) + random() * 550;
+  // Long, shallow legs: the bird drifts beside the reader, it never darts.
+  const duration = (kind === "glide" ? 1600 : 1150) + random() * 600;
   const end = fit({
     x: right - corridor * (0.12 + random() * 0.88),
     y:
@@ -141,7 +142,7 @@ export function planFlight(
       Math.sign(scrollDirection) * height * 0.08,
   });
   const reach = corridor * (0.55 + random() * 0.45);
-  const lift = Math.min(height * 0.35, size * (0.8 + random()));
+  const lift = Math.min(height * 0.22, size * (0.45 + random() * 0.5));
   // Preserve the incoming tangent at joins and when a landing is interrupted.
   // A resting bird pushes up and away from its perch for the first wingbeat.
   const moving = Math.hypot(velocity.x, velocity.y) > 0.02;
@@ -161,7 +162,7 @@ export function planFlight(
     case "swoop":
       bend = {
         x: end.x - reach * 0.45,
-        y: Math.max(start.y, end.y) + lift * 1.5,
+        y: Math.max(start.y, end.y) + lift * 1.2,
       };
       break;
     case "climb":

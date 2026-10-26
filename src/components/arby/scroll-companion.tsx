@@ -41,6 +41,13 @@ const LINES: Record<string, [string, string]> = {
 /** Landings that may speak per page view, the hello included. */
 const MAX_SAYS = 4;
 const SAY_MS = 5200;
+/** Scroll a branch-perched bird sits through before it looks for a ledge. */
+const BRANCH_PATIENCE = 160;
+/** Horizontal speed, px/ms, needed to turn round mid-air. Stops dithering. */
+const TURN_SPEED = 0.12;
+
+/** At rest Arby faces into the page. */
+const restFacing = (x: number) => (x > innerWidth / 2 ? -1 : 1);
 
 function visible(rect: DOMRect) {
   return (
@@ -101,7 +108,13 @@ export function ScrollCompanion() {
     let flightLeg: FlightLeg | undefined;
     let legElapsed = 0;
     let gliding = false;
+    let wingRate = 1;
     let relands = 0;
+    // On a page ledge the bird is absolutely positioned at anchorY (document
+    // px), so the compositor scrolls it with the ledge in perfect step.
+    let anchored = false;
+    let anchorY = 0;
+    let travel = 0;
     let variation = flightVariation();
     let facing = -1;
     let bank = 0;
@@ -248,16 +261,19 @@ export function ScrollCompanion() {
     }
 
     function draw() {
-      bird.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
+      const ride = anchored && phase === "perched";
+      bird.style.position = ride ? "absolute" : "";
+      bird.style.transform = `translate3d(${position.x}px, ${ride ? anchorY : position.y}px, 0)`;
       bird.style.setProperty("--arby-facing", String(facing));
       bird.style.setProperty("--arby-bank", `${bank}deg`);
       bird.dataset.phase = phase;
-      bird.dataset.gait = gliding && phase === "flying" ? "glide" : "flap";
       bird.dataset.flight = flightLeg?.kind ?? "";
       bird.dataset.perch = destination?.id ?? "";
       bird.style.visibility = enabled() ? "visible" : "hidden";
-      const showBranch = enabled() && destination?.branch && phase !== "flying";
-      twig.style.visibility = showBranch ? "visible" : "hidden";
+      const showBranch = Boolean(
+        enabled() && destination?.branch && phase !== "flying",
+      );
+      twig.dataset.show = String(showBranch);
       if (showBranch && destination) {
         twig.style.transform = `translate3d(${destination.x - size * 0.42}px, ${destination.y - 5}px, 0)`;
         twig.style.width = `${innerWidth - destination.x + size * 0.42 + 10}px`;
@@ -325,6 +341,35 @@ export function ScrollCompanion() {
       sayTimer = window.setTimeout(hush, SAY_MS);
     }
 
+    /**
+     * Wing tempo per manoeuvre. updatePlaybackRate keeps each wing where it
+     * is in its beat, so a glide eases into lazy flaps instead of snapping.
+     */
+    function pace(rate: number) {
+      if (rate === wingRate) return;
+      wingRate = rate;
+      for (const animation of bird.getAnimations({ subtree: true }))
+        if (animation instanceof CSSAnimation)
+          animation.updatePlaybackRate(rate);
+    }
+
+    function settle() {
+      phase = "perched";
+      bank = 0;
+      travel = 0;
+      facing = restFacing(position.x);
+      anchored = Boolean(
+        destination && !destination.branch && destination.id !== "help",
+      );
+      anchorY = position.y + window.scrollY;
+    }
+
+    /** Where a ledge-riding bird is now, in viewport px, and back to fixed. */
+    function release() {
+      if (anchored) position = { x: position.x, y: anchorY - window.scrollY };
+      anchored = false;
+    }
+
     function park() {
       cancelAnimationFrame(frame);
       frame = 0;
@@ -335,9 +380,7 @@ export function ScrollCompanion() {
       destination = findPerch();
       position = { x: destination.x, y: destination.y };
       velocity = { x: 0, y: 0 };
-      phase = "perched";
-      bank = 0;
-      facing = position.x > innerWidth / 2 ? -1 : 1;
+      settle();
       placeSay();
       draw();
     }
@@ -370,8 +413,8 @@ export function ScrollCompanion() {
             const settled = findPerch();
             const moved =
               Math.hypot(settled.x - position.x, settled.y - position.y) > 3;
-            // A perch that keeps shifting gets two chases, then Arby sits where it is.
-            if (moved && relands < 2) {
+            // A perch that keeps shifting gets one chase, then Arby sits where it is.
+            if (moved && relands < 1) {
               relands += 1;
               phase = "flying";
               land();
@@ -382,9 +425,7 @@ export function ScrollCompanion() {
               position = { x: settled.x, y: settled.y };
             }
           }
-          phase = "perched";
-          bank = 0;
-          facing = position.x > innerWidth / 2 ? -1 : 1;
+          settle();
           // A short, finite landing compression. No idle loop while reading.
           bird.dataset.landed = String(now);
           window.setTimeout(() => {
@@ -399,7 +440,7 @@ export function ScrollCompanion() {
                   { transform: "scale(.99, 1.02)" },
                   { transform: "scale(1)" },
                 ],
-                { duration: 280, easing: "ease-out" },
+                { duration: 320, easing: "cubic-bezier(.34,1.8,.45,1)" },
               );
         }
       }
@@ -409,14 +450,32 @@ export function ScrollCompanion() {
         y: (position.y - previous.y) / dt,
       };
       if (phase !== "perched") {
-        if (Math.abs(velocity.x) > 0.05) facing = velocity.x > 0 ? 1 : -1;
-        const targetBank = clamp(velocity.y * 16, -14, 14) * facing;
-        bank += (targetBank - bank) * (1 - Math.exp(-dt / 110));
+        // The back half of a landing already faces the way it will sit, so
+        // there is no turn at touchdown.
+        if (
+          phase === "landing" &&
+          destination &&
+          now - landingStart > landingDuration / 2
+        )
+          facing = restFacing(destination.x);
+        else if (Math.abs(velocity.x) > TURN_SPEED)
+          facing = velocity.x > 0 ? 1 : -1;
+        const targetBank = clamp(velocity.y * 12, -10, 10) * facing;
+        bank += (targetBank - bank) * (1 - Math.exp(-dt / 160));
       }
       if (phase === "flying" && flightLeg && legElapsed >= flightLeg.duration) {
         beginFlightLeg();
       }
       draw();
+      pace(
+        phase === "perched"
+          ? 1
+          : gliding
+            ? 0.4
+            : flightLeg?.kind === "climb" && phase === "flying"
+              ? 1.2
+              : 1,
+      );
       if (phase !== "perched") frame = requestAnimationFrame(tick);
     }
 
@@ -431,12 +490,6 @@ export function ScrollCompanion() {
       );
       legElapsed = 0;
       gliding = false;
-      // Climbs work harder; glides keep the wings open through their middle.
-      const beat =
-        flightLeg.kind === "climb"
-          ? variation.wingbeat * 0.8
-          : variation.wingbeat;
-      bird.style.setProperty("--arby-wingbeat", `${beat}ms`);
     }
 
     function wake() {
@@ -445,12 +498,13 @@ export function ScrollCompanion() {
 
     function land() {
       if (!enabled() || phase !== "flying") return;
+      release();
       destination = findPerch();
       const distance = Math.hypot(
         destination.x - position.x,
         destination.y - position.y,
       );
-      landingDuration = clamp(280 + distance * 0.65, 300, 780);
+      landingDuration = clamp(380 + distance * 0.6, 440, 900);
       landingStart = performance.now();
       curve = [
         { ...position },
@@ -466,9 +520,14 @@ export function ScrollCompanion() {
             viewport.bottom,
           ),
         },
+        // Come in from the outer side, already heading the way it will sit.
         {
           x: clamp(
-            destination.x + (variation.approach * size) / 120,
+            destination.x -
+              (restFacing(destination.x) *
+                Math.abs(variation.approach) *
+                size) /
+                120,
             viewport.left + size * 0.6,
             viewport.right - size * 0.6,
           ),
@@ -490,10 +549,39 @@ export function ScrollCompanion() {
       if (!delta || !enabled() || helping) return;
       scrollSpeed = clamp(delta / Math.max(16, now - lastScroll), -2.5, 2.5);
       lastScroll = now;
+      if (phase === "perched") {
+        hush();
+        // Ride the ledge until it carries the bird toward the nav or off the
+        // bottom; sit on the branch through small scrolls. No take-off for a nudge.
+        if (anchored) {
+          position = { x: position.x, y: anchorY - window.scrollY };
+          if (
+            position.y - size * 0.78 >= viewport.top &&
+            position.y + size * 0.15 <= viewport.bottom
+          ) {
+            // Keeps the hover bubble clear of the nav as the ledge rises.
+            placeSay();
+            return;
+          }
+        } else if ((travel += Math.abs(delta)) < BRANCH_PATIENCE) return;
+      }
       clearTimeout(stopTimer);
       if (phase !== "flying") {
         hush();
-        variation = flightVariation();
+        if (phase === "perched") {
+          release();
+          variation = flightVariation();
+          // Set once per take-off: changing a running animation's duration
+          // jumps the wings to a new point in their beat.
+          bird.style.setProperty("--arby-wingbeat", `${variation.wingbeat}ms`);
+          if (!preference.matches)
+            bird
+              .querySelector(".arby-flight")
+              ?.animate(
+                [{ transform: "scale(.94, 1.07)" }, { transform: "scale(1)" }],
+                { duration: 240, easing: "cubic-bezier(.16,.84,.36,1)" },
+              );
+        }
         beginFlightLeg();
         phase = "flying";
         destination = undefined;
@@ -529,7 +617,7 @@ export function ScrollCompanion() {
         phase = "perched";
         bird.dataset.phase = phase;
         bird.style.visibility = "hidden";
-        twig.style.visibility = "hidden";
+        twig.dataset.show = "false";
         return;
       }
       park();
@@ -543,8 +631,23 @@ export function ScrollCompanion() {
           refresh();
           return;
         }
-        if (phase === "perched") park();
-        else if (phase === "landing") {
+        if (phase === "perched") {
+          // Hop to a ledge that moved (an FAQ opening, a late image) rather
+          // than teleporting; a still-good spot stays put.
+          release();
+          const next = findPerch();
+          if (Math.hypot(next.x - position.x, next.y - position.y) <= 4) {
+            destination = next;
+            position = { x: next.x, y: next.y };
+            settle();
+            draw();
+          } else if (preference.matches) park();
+          else {
+            phase = "flying";
+            velocity = { x: 0, y: 0 };
+            land();
+          }
+        } else if (phase === "landing") {
           phase = "flying";
           land();
         } else {

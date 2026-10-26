@@ -123,7 +123,7 @@ test("flight variation stays bounded at both random extremes", () => {
   for (const random of [() => 0, () => 1]) {
     const v = flightVariation(random);
     assert.ok(v.lift >= 20 && v.lift <= 55);
-    assert.ok(v.wingbeat >= 380 && v.wingbeat <= 540);
+    assert.ok(v.wingbeat >= 460 && v.wingbeat <= 600);
     assert.ok(Math.abs(v.approach) >= 24 && Math.abs(v.approach) <= 72);
   }
 });
