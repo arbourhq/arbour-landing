@@ -14,5 +14,5 @@ Non-negotiables, repeated here because they get broken most:
 
 - No em dashes anywhere in copy. Use a comma, full stop, colon or brackets.
 - Australian English (organise, prioritise, recognise).
-- Acid `#C6FF3D` is the marketing green. Sprout `#9FE870` is in-product only, so it does not belong on this site except inside a product screenshot.
-- Square corners (0 radius on marketing surfaces), inset depth instead of blurred shadows, no gradients, no emoji.
+- One register: the site looks like the console. White and Panel grounds, Bottle for structure, Sprout `#9FE870` for the one action on a screen. Acid and Cream are retired from the site (print and social only).
+- Slightly rounded corners (6px ceiling, 4px small controls, 2px leaves), letterpress depth on content, blurred shadow only on floating chrome, no gradients, no emoji.

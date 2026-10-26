@@ -4,7 +4,7 @@
   --arby-bank: 0deg;
   --arby-wingbeat: 460ms;
   position: fixed;
-  /* Above the nav (50) and the sticky stage rail (40), below Arby Help (60). */
+  /* Above the nav (50) and the stage dock (40), below Arby Help (60). */
   z-index: 58;
   top: 0;
   left: 0;
@@ -21,6 +21,17 @@
   translate: -54% -77%;
   transform-origin: 54% 77%;
   transform: rotate(var(--arby-bank)) scaleX(var(--arby-facing));
+}
+
+/* A 1px Cream keyline, so the dark plumage holds its edge on the Bottle
+   footer. Four unblurred 1px offsets, never a soft shadow; on white it all
+   but vanishes. In px, so it stays 1px at every size the bird is drawn. */
+.arby-direction {
+  filter: drop-shadow(1px 0 0 var(--arby-keyline))
+    drop-shadow(-1px 0 0 var(--arby-keyline))
+    drop-shadow(0 1px 0 var(--arby-keyline))
+    drop-shadow(0 -1px 0 var(--arby-keyline));
+  --arby-keyline: rgba(255, 251, 239, 0.85);
 }
 
 .arby-companion svg {
@@ -122,9 +133,123 @@
   cursor: pointer;
 }
 .arby-hitarea:focus-visible {
-  outline: 2px solid var(--color-acid);
+  outline: 3px solid var(--focus);
   outline-offset: 4px;
+  border-radius: var(--radius);
 }
+/*
+ * The speech bubble: floating chrome in the register (white, the Line
+ * hairline, 6px corners, the lifted shadow), with a 2px-cornered tail
+ * pointing at the bird. It pops from its tail on the overshoot curve and
+ * glides away. Above the head by default, beside it when the nav is in the
+ * way, always on the side toward the page.
+ */
+.arby-say {
+  --say-gap: 10px;
+  position: absolute;
+  bottom: calc(100% + var(--say-gap));
+  right: 18%;
+  display: flex;
+  width: max-content;
+  max-width: 15rem;
+  flex-direction: column;
+  gap: 4px;
+  padding: 9px 12px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--page);
+  box-shadow: var(--shadow-lifted);
+  color: var(--ink);
+  text-align: left;
+  transform-origin: calc(100% - 18px) 100%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px) scale(0.86);
+  transition:
+    opacity var(--duration-base) var(--curve-glide),
+    transform var(--duration-base) var(--curve-glide),
+    visibility 0s linear var(--duration-base);
+  pointer-events: none;
+}
+.arby-say::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  margin-top: -5px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-bottom-right-radius: var(--radius-tiny);
+  background: var(--page);
+  transform: rotate(45deg);
+}
+.arby-say-lead {
+  font-family: var(--face-sans);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.arby-say-cue {
+  color: var(--ink-muted);
+}
+
+.arby-companion[data-side="left"] .arby-say {
+  right: auto;
+  left: 18%;
+  transform-origin: 18px 100%;
+}
+.arby-companion[data-side="left"] .arby-say::after {
+  right: auto;
+  left: 14px;
+}
+
+.arby-companion[data-place="beside"] .arby-say {
+  top: 8%;
+  bottom: auto;
+  right: calc(100% + var(--say-gap));
+  transform-origin: 100% 18px;
+}
+.arby-companion[data-place="beside"] .arby-say::after {
+  top: 14px;
+  right: -5px;
+  margin-top: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0 var(--radius-tiny) 0 0;
+}
+.arby-companion[data-place="beside"][data-side="left"] .arby-say {
+  right: auto;
+  left: calc(100% + var(--say-gap));
+  transform-origin: 0 18px;
+}
+.arby-companion[data-place="beside"][data-side="left"] .arby-say::after {
+  right: auto;
+  left: -5px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  border-radius: 0 0 0 var(--radius-tiny);
+}
+
+.arby-companion[data-phase="perched"][data-say="true"]:not([data-help="true"])
+  .arby-say,
+.arby-companion[data-phase="perched"]:not([data-help="true"])
+  .arby-hitarea:is(:hover, :focus-visible)
+  .arby-say {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  pointer-events: auto;
+  transition:
+    opacity var(--duration-base) var(--curve-glide),
+    transform var(--duration-pop) var(--curve-overshoot),
+    visibility 0s;
+}
+
 /* One inline, still bird remains if motion is reduced, disabled or unavailable. */
 [data-arby-companion] .arby-static {
   display: none;

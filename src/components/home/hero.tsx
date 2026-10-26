@@ -2,19 +2,25 @@
 
 import { useEffect, useRef, useState } from "react";
 import { TRIAL_DAYS } from "@/content/site";
-import { CategorySlab } from "@/components/home/category-slab";
+import { CategorySelect } from "@/components/home/category-select";
+import { PipelineFragment } from "@/components/home/pipeline-fragment";
 import { TrialLink } from "@/components/trial-link";
+import { Row } from "@/components/ui/row";
+import { Scramble } from "@/components/motion/scramble";
+import { Split } from "@/components/motion/split";
 
 /**
- * The hero is three things: the headline, one lead, one button. Natural
- * height, even rhythm, and the stage rail sits straight under it so the page
- * reads headline, ask, board. The category slab is the only thing that moves.
+ * The first row of the sheet. The headline runs the full column with the
+ * category as a select inside it; under a cell rule, the lead and the one
+ * Sprout action on the left, and on the right a Panel cell holding the
+ * pipeline that answers to the select. Stage 01 starts at the fold.
+ *
+ * The row plays on load rather than on scroll (`reveal-now`): the headline
+ * sets in word by word with the select landing last, then the lead and the
+ * action rise, and the pipeline cell wipes up with its bars drawing out.
  */
 
-/**
- * True while the hero is on screen and the tab is in front, so the category
- * cycle stops the moment nobody can see it.
- */
+/** True while the hero is on screen and the tab is in front. */
 function useOnScreen(ref: React.RefObject<HTMLElement | null>) {
   const [onScreen, setOnScreen] = useState(false);
   const intersecting = useRef(false);
@@ -39,44 +45,67 @@ function useOnScreen(ref: React.RefObject<HTMLElement | null>) {
 }
 
 export function Hero() {
-  const section = useRef<HTMLElement>(null);
-  const onScreen = useOnScreen(section);
+  const heading = useRef<HTMLHeadingElement>(null);
+  const onScreen = useOnScreen(heading);
 
   return (
-    <section
-      ref={section}
-      className="on-dark bg-bottle px-6 pt-14 pb-16 sm:px-10 sm:pt-20 sm:pb-24"
+    <Row
+      first
+      labelledBy="hero-title"
+      className="pt-[calc(var(--nav-h)+var(--nav-gap))]"
     >
-      <div className="mx-auto max-w-[1180px]">
-        {/* The floor of the clamp is set by the longest category name: any
-            bigger and "Photographers." runs past the edge of a 375px phone,
-            and the slab cannot wrap mid-word to save it. */}
-        <h1 className="m-0 flex flex-wrap items-baseline gap-x-[0.24em] font-display text-[clamp(34px,8.4vw,96px)] leading-[0.92] font-extrabold tracking-[-0.045em] text-acid">
-          <span className="whitespace-nowrap">Book it. Run it.</span>
-          <span className="whitespace-nowrap">Bank it.</span>
-          <span className="whitespace-nowrap">Built for</span>
+      <div className="reveal-now px-5 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-12 lg:px-12 lg:pt-16 lg:pb-12">
+        {/* Four groups that never break inside, so a line only ever breaks
+            between them and the select is never split from its stop. */}
+        <h1
+          ref={heading}
+          id="hero-title"
+          className="headline m-0 flex flex-wrap items-baseline gap-x-[0.24em] gap-y-[0.08em] text-hero text-ink"
+        >
           <span className="whitespace-nowrap">
-            <CategorySlab onScreen={onScreen} />.
+            <Split text="Book it. Run it." />
+          </span>
+          <span className="whitespace-nowrap">
+            <Split text="Bank it." from={4} />
+          </span>
+          <span className="whitespace-nowrap">
+            <Split text="Built for" from={6} />
+          </span>
+          <span
+            className="split-word whitespace-nowrap"
+            style={{ "--i": 8 } as React.CSSProperties}
+          >
+            <CategorySelect onScreen={onScreen} />.
           </span>
         </h1>
+      </div>
 
-        <p className="m-0 mt-10 max-w-[44ch] text-[17px] leading-relaxed text-cream/85 sm:mt-12 sm:text-[19px]">
-          The sales CRM and project manager that wedding vendors keep open all
-          day. One record carries a job from &ldquo;are you free?&rdquo; to the
-          final invoice.
-        </p>
-
-        <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4 sm:mt-10">
-          <TrialLink
-            variant="acid"
-            size="xl"
-            className="hover:rotate-[-1deg]"
-          />
-          <p className="label-mono m-0 text-acid/70">
-            {TRIAL_DAYS} days free · no card
+      <div className="reveal-now cell-rule-t grid lg:grid-cols-12">
+        <div
+          className="reveal-rise flex flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:col-span-7 lg:px-12 lg:py-10"
+          style={{ "--reveal-delay": "380ms" } as React.CSSProperties}
+        >
+          <p className="m-0 max-w-[44ch] text-lead text-ink-secondary sm:text-[1.1875rem] sm:leading-[1.5]">
+            The sales CRM and project manager that wedding vendors keep open all
+            day. One record carries a job from &ldquo;are you free?&rdquo; to
+            the final invoice.
           </p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+            <TrialLink variant="sprout" size="lg" />
+            <Scramble
+              text={`${TRIAL_DAYS} days free · no card`}
+              delay={700}
+              className="mono-label m-0 text-ink-muted"
+            />
+          </div>
+        </div>
+        <div
+          className="reveal-wipe cell-rule-t bg-panel p-3 sm:p-6 lg:col-span-5 lg:border-t-0 lg:border-l lg:border-rule"
+          style={{ "--reveal-delay": "260ms" } as React.CSSProperties}
+        >
+          <PipelineFragment />
         </div>
       </div>
-    </section>
+    </Row>
   );
 }

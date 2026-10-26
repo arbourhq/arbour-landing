@@ -1,5 +1,6 @@
 import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
+import { Row } from "@/components/ui/row";
 
 export interface LegalSection {
   heading: string;
@@ -7,6 +8,12 @@ export interface LegalSection {
   items?: readonly string[];
 }
 
+/**
+ * Privacy and Terms, in the console's reading layout: a page header, the
+ * effective date as an info alert (a square tone dot beside a mono tone label,
+ * no flooded ground), then numbered sections down one ruled column at a
+ * reading measure. The numbers stay because people cite a clause by them.
+ */
 export function LegalPage({
   eyebrow,
   title,
@@ -24,60 +31,88 @@ export function LegalPage({
     <>
       <SiteNav />
       <main id="main">
-        <section className="bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-6 text-bottle">{eyebrow}</p>
-            <h1 className="m-0 max-w-[16ch] font-display text-[clamp(44px,9vw,112px)] leading-[0.95] font-extrabold tracking-[-0.05em] text-balance text-bottle">
+        <Row
+          first
+          labelledBy="legal-title"
+          className="pt-[calc(var(--nav-h)+var(--nav-gap))]"
+        >
+          <div className="grid gap-x-12 gap-y-6 px-5 pt-14 pb-12 sm:px-8 sm:pt-20 sm:pb-14 lg:grid-cols-12 lg:items-end lg:px-12 lg:pt-24 lg:pb-16">
+            <h1
+              id="legal-title"
+              className="headline m-0 max-w-[14ch] text-hero text-ink lg:col-span-7"
+            >
               {title}
             </h1>
-            <p className="m-0 max-w-[50ch] pt-8 text-[17px] leading-relaxed text-bottle sm:text-[19px]">
-              {introduction}
-            </p>
-          </div>
-        </section>
-
-        <section className="bg-cream px-6 py-16 sm:px-10 sm:py-22">
-          <article className="mx-auto max-w-[820px]">
-            <div className="mb-14 bg-bottle p-6 text-cream hairline sm:p-8">
-              <p className="label-mono mb-3 text-acid">Effective date</p>
-              <p className="m-0 max-w-[58ch] text-[15px] leading-relaxed text-cream/80">
-                {effectiveDate}
+            <div className="flex flex-col items-start gap-5 lg:col-span-5">
+              <p className="m-0 max-w-[46ch] text-lead text-ink-secondary">
+                {introduction}
               </p>
+              <div
+                role="note"
+                className="w-full max-w-[46ch] rounded-md border border-line bg-page px-3.5 py-3"
+              >
+                <p className="m-0 flex items-center gap-2">
+                  <span
+                    aria-hidden="true"
+                    className="size-2 shrink-0 rounded-xs bg-cornflower"
+                  />
+                  <span className="mono-label font-semibold text-cornflower-ink">
+                    {eyebrow} · Effective date
+                  </span>
+                </p>
+                <p className="m-0 mt-1.5 pl-4 text-ui text-ink-secondary">
+                  {effectiveDate}
+                </p>
+              </div>
             </div>
+          </div>
+        </Row>
 
-            <div className="divide-y divide-ink/15">
-              {sections.map((section, index) => (
-                <section
-                  key={section.heading}
-                  className="grid gap-5 py-10 first:pt-0 sm:grid-cols-[80px_1fr]"
-                >
-                  <p className="label-mono pt-1 opacity-65">
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <div>
-                    <h2 className="m-0 mb-5 font-display text-[30px] leading-tight font-extrabold tracking-[-0.03em] text-ink">
-                      {section.heading}
-                    </h2>
-                    <div className="space-y-4 text-[16px] leading-relaxed text-ink/80">
-                      {section.paragraphs.map((paragraph) => (
-                        <p key={paragraph} className="m-0">
-                          {paragraph}
-                        </p>
-                      ))}
-                      {section.items ? (
-                        <ul className="m-0 list-square space-y-2 pl-5">
-                          {section.items.map((item) => (
-                            <li key={item}>{item}</li>
-                          ))}
-                        </ul>
-                      ) : null}
-                    </div>
+        <Row>
+          <article>
+            {sections.map((section, index) => (
+              <section
+                key={section.heading}
+                aria-labelledby={`legal-${index}`}
+                className={`grid gap-x-12 gap-y-4 px-5 py-10 sm:px-8 lg:grid-cols-12 lg:px-12 lg:py-12 ${
+                  index > 0 ? "border-t border-rule" : ""
+                }`}
+              >
+                <p className="mono-eyebrow m-0 pt-1.5 text-ink-muted lg:col-span-2">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <div className="lg:col-span-8">
+                  <h2
+                    id={`legal-${index}`}
+                    className="headline m-0 text-section text-ink"
+                  >
+                    {section.heading}
+                  </h2>
+                  <div className="mt-5 flex max-w-[68ch] flex-col gap-4 text-body text-ink-secondary">
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph} className="m-0">
+                        {paragraph}
+                      </p>
+                    ))}
+                    {section.items ? (
+                      <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
+                        {section.items.map((item) => (
+                          <li key={item} className="flex gap-3">
+                            <span
+                              aria-hidden="true"
+                              className="mt-[0.6em] size-1.5 shrink-0 rounded-xs bg-ink-faint"
+                            />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
-                </section>
-              ))}
-            </div>
+                </div>
+              </section>
+            ))}
           </article>
-        </section>
+        </Row>
       </main>
       <SiteFooter />
     </>

@@ -5,28 +5,26 @@ primary_target: "src/app/page.tsx"
 related_targets: ["src/components/home","src/content"]
 ---
 
-# Home page (launched)
+# Home page (product register redesign)
 
-Scope: `/`, the launched marketing home. Mode: Persuade. Visitor: a wedding vendor deciding whether to start a 14-day trial; solo operator on a phone from the Instagram bio, or a studio owner on a laptop comparing against the CRM they pay for.
+Scope: `/`, the launched marketing home, redesigned 26 October 2026 into the console's own register. Mode: Persuade. Visitor: a wedding vendor deciding whether to start a 14-day trial; a solo operator on a phone from the Instagram bio, or a studio owner on a laptop comparing against the CRM they pay for.
 
-Job: recognise their own pipeline, see the real console doing each stage, understand it is one record enquiry to invoice, and start the trial (no card) at `app.usearbour.com/sign-up`.
+Job: recognise the console they would use, see the real screens doing each stage on one record, and start the trial (no card) at `app.usearbour.com/sign-up`. House routes to `/contact`.
 
-Proof: each stage has one full-width 2880 × 1800 Playwright recording of the seeded local console in `public/product/demos/`, with lossless WebP, a matching poster and capture provenance. Four facts sit beneath each recording; there is no secondary image. Product facts come from `../arbour/apps/web/content/help/*.mdx` and `packages/core/src/plans.ts`. No customers, testimonials, usage numbers or launch-day claims.
+Proof: the five stage recordings in `public/product/demos/` and the captures in `public/product/`, labelled as real screens with seed data. Code-drawn fragments (pipeline board, needs-you rail, automation rule) are illustrative and say so. No customers, testimonials or usage numbers.
 
-Constraints: brand.md binding (Acid sells, Sprout only inside captures, square corners, inset depth, no gradients, no em dashes, Australian English). Category picker stays as the copy device. Every CTA is the trial; House routes to contact.
-
-Mascot: Arby, the console's kookaburra, appears twice and only twice, in master colours: standing in a Bottle-wash panel as the mark of the Arby block in the quiet section, and peeking over the top rule of the Reasonable questions ledger at its right end, feet on the line. The poses and their motion are vendored from the main repo's kit; the site never redraws or recolours them.
+Constraints: the user kept the copy word for word and the Arby scroll companion; the category picker and the five-stage layout were released for rework. "Pick yours and the page follows" stays true, so a category choice still reskins the page. brand.md binding as rewritten for the product register.
 
 ## Direction contract
 
-THESIS: The page is a pipeline board read top to bottom: five stages the vendor's week already runs on, each a full-bleed colour flood carrying one real console capture. It refuses hero plus three-feature grid plus testimonial.
+THESIS: One ruled sheet, nav to footer, in the console's own register: every claim sits in a cell beside the screen that proves it. Refuses the feature-card grid and the old colour floods.
 
-OWN-WORLD: Bottle, Acid and Cream floods; Cornflower, Lilac and Coral as one accent per stage; Bricolage 800 headlines hard left; Martian Mono stage labels; hairline rules; captures inside a 2px square frame; letterpress buttons; overshoot motion.
+OWN-WORLD: White page, Panel cells, Line rules with registration marks at crossings; Bottle structure, one Sprout action; Bricolage 800 hard left, mono indices; 6px corners, letterpress buttons, lift only on floating chrome.
 
-STORY: "That is my board." Then: the real product does each stage, on one record. Then: start the trial.
+STORY: "That is my console." Real screens run every stage on one record. Start the trial.
 
-FIRST VIEWPORT: Bottle. Headline in Acid at 96px hard left with the flipping category slab, one lead, one Acid Start free trial button at the largest size on the site with the mono trial facts beside it. Natural height, even rhythm. Straight under it the stage rail: five column headers, 64px, the same rail that sticks; stage 01 starts below.
+FIRST VIEWPORT: Floating nav. h1 hard left at 96px, category as an inline select; lead; Sprout trial button; live pipeline fragment right; stage 01 row at the fold.
 
-FORM: The Board, third on my ranked list. Seed key d4e8bfb3. Signature interaction: the rail sits straight under the hero and sticks under the nav through the five stages; the active stage inverts with its accent as an inset edge, hovering a cell lifts it; the category slab reskins the vendor chips and the automation example.
+FORM: The Ruled Sheet, sixth of seven. Seed d7ddbaa4. Signature: the booking header's stage strip sticks through the stages, dots filling Sprout.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.

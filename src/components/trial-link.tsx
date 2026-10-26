@@ -9,10 +9,13 @@ import {
  * Every call to action on the site. It is a plain link to the console's
  * sign-up, which takes name, email and password and starts the 14-day trial
  * without a card. No dialog, no form of our own: the product owns sign-up.
+ *
+ * Bottle by default. A page passes `sprout` to the one trial button that is
+ * its headline action, and nowhere else in the same view.
  */
 export function TrialLink({
   children = "Start free trial",
-  variant = "acid",
+  variant = "primary",
   size = "md",
   className,
 }: {

@@ -4,16 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import { ABOUT_STATS } from "@/content/about";
 
 /**
- * Counts up once the band is on screen. Anyone without IntersectionObserver, or
- * with reduced motion, sees the final numbers immediately.
+ * The three numbers as the console's report legend: a ruled description list,
+ * the label left in Ink secondary, the figure right in Bricolage 800 with
+ * tabular figures, each row at least 56px so the rules sit level. The figures
+ * count up once when the legend comes on screen; anyone without
+ * IntersectionObserver, or with reduced motion, sees the final numbers.
  */
 export function AboutStats() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDListElement>(null);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const node = ref.current;
-
     const reduced =
       typeof window !== "undefined" &&
       window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -29,9 +31,8 @@ export function AboutStats() {
         for (const entry of entries) {
           if (!entry.isIntersecting) continue;
           observer.disconnect();
-
           const start = performance.now();
-          const duration = 1400;
+          const duration = 1100;
           const step = (now: number) => {
             const p = Math.min(1, (now - start) / duration);
             setProgress(1 - Math.pow(1 - p, 3));
@@ -40,7 +41,7 @@ export function AboutStats() {
           frame = requestAnimationFrame(step);
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.4 },
     );
 
     observer.observe(node);
@@ -51,25 +52,21 @@ export function AboutStats() {
   }, []);
 
   return (
-    <section
-      ref={ref}
-      className="on-dark bg-bottle px-6 py-20 text-cream sm:px-10 sm:py-22"
-    >
-      {/* Three across, centred: at grid-cols-4 the trio left a hole where the
-          fourth stat used to be. */}
-      <div className="mx-auto grid max-w-[1180px] grid-cols-1 gap-9 text-center sm:grid-cols-3">
-        {ABOUT_STATS.map((stat) => (
-          <div key={stat.label}>
-            <div className="font-display text-[clamp(40px,7vw,72px)] leading-[0.9] font-extrabold tracking-[-0.045em] text-acid">
-              {Math.round(stat.value * progress)}
-              {stat.suffix}
-            </div>
-            <div className="label-mono mt-2.5 text-[10px] opacity-80">
-              {stat.label}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
+    <dl ref={ref} className="m-0">
+      {ABOUT_STATS.map((stat, i) => (
+        <div
+          key={stat.label}
+          className={`flex min-h-14 items-baseline justify-between gap-6 py-4 ${
+            i > 0 ? "border-t border-line" : ""
+          }`}
+        >
+          <dt className="text-ui text-ink-secondary">{stat.label}</dt>
+          <dd className="headline m-0 text-display text-ink tabular-nums">
+            {Math.round(stat.value * progress)}
+            {stat.suffix}
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }

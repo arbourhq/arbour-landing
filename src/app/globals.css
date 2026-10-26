@@ -1,459 +1,747 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------------------
-   Arbour tokens. Source of truth is docs/brand.md.
-   Acid sells Arbour, Sprout runs it: Sprout may only appear inside a product
-   mock on this site, never as a marketing surface.
+   Arbour tokens. One register for the site and the console: these are the
+   console kit's own values (arbour/packages/ui/src/styles/globals.css), so a
+   button, a hairline or a corner here is the same object it is in the app.
+   docs/brand.md is the written source of truth.
+
+   Raw values live on :root, `@theme inline` maps them into utilities
+   (bg-panel, text-ink-secondary, inset-shadow-depth-button), and components
+   use the utilities. Light only, on purpose.
    --------------------------------------------------------------------------- */
-@theme {
-  --color-bottle: #0b4030;
-  --color-bottle-deep: #083023;
-  --color-bottle-ink: #052117;
-  --color-acid: #c6ff3d;
-  --color-sprout: #9fe870;
-  --color-coral: #ff4438;
-  --color-cornflower: #4e6df5;
-  --color-lilac: #b9a7ff;
-  --color-cream: #fffbef;
-  --color-ink: #0f2a1e;
+:root {
+  --bottle: #0b4030;
+  --bottle-deep: #083023;
+  --bottle-ink: #052117;
+  --bottle-wash: #e9f1eb;
+  --sprout: #9fe870;
+  --sprout-press: #86d653;
+  --sprout-ink: #2a5a1d;
+  --sprout-wash: #eafadd;
+  --coral: #ff4438;
+  --coral-ink: #9e1d14;
+  --coral-wash: #ffe5e2;
+  --cornflower: #4e6df5;
+  --cornflower-press: #3a57dc;
+  --cornflower-ink: #2438a8;
+  --cornflower-wash: #e7ebfe;
+  --lilac: #b9a7ff;
+  --lilac-ink: #4c3a99;
+  --lilac-wash: #f1edff;
+  --ochre: #dfa023;
+  --ochre-ink: #7a5510;
+  --ochre-wash: #fbf1d6;
 
-  --color-cream-sunken: #f6f0dc;
-  --color-cream-inset: #ede5c9;
-  --color-bottle-wash: #e9f1eb;
-  --color-acid-wash: #f0ffce;
-  --color-sprout-wash: #eafadd;
-  --color-coral-wash: #ffe5e2;
-  --color-cornflower-wash: #e7ebfe;
-  --color-lilac-wash: #f1edff;
-  --color-ochre: #dfa023;
+  /* The register: a white page, a grey-green panel, near-black ink. */
+  --page: #ffffff;
+  --panel: #f5f6f2;
+  --panel-hover: #edeee9;
+  --line: #efefec;
+  --ink: #17211b;
+  --ink-secondary: #57574f;
+  --ink-muted: #61615a;
+  --ink-faint: #6a6a62;
+  --on-dark: #f4f4f0;
+  --track: #ddded8;
+  --border-default: rgba(23, 33, 27, 0.1);
+  --border-soft: rgba(23, 33, 27, 0.05);
+  --border-input: rgba(23, 33, 27, 0.12);
+  --border-input-hover: rgba(23, 33, 27, 0.28);
 
-  /* Deep and ink steps of the two saturated hues, lifted from the product
-     kit's press and ink shades. Cream on Cornflower is 4.2:1 and Cream on
-     Coral 3.3:1, so neither hue can carry 15px body copy as it stands.
-     Cornflower-deep takes Cream at 5.7:1; the ink shades sit on their wash
-     for status badges inside the mock. Coral tiles carry Bottle ink instead. */
-  --color-cornflower-deep: #3a57dc;
-  --color-cornflower-ink: #2438a8;
-  --color-coral-ink: #9e1d14;
+  /* Depth. Letterpress on content; only floating chrome may blur. */
+  --depth-button: inset 0 -4px 0 rgba(11, 64, 48, 0.4);
+  --depth-panel: inset 0 0 0 1px var(--border-default);
+  --depth-thumb: 0 1px 2px rgba(23, 33, 27, 0.28);
+  --shadow-lifted:
+    0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07);
+  --shadow-modal: 0 30px 70px rgba(23, 33, 27, 0.3);
 
-  /* In-product grounds. Only legal inside a product mock. The two greys are
-     set so that muted clears 4.5:1 on the app ground and faint clears it on
-     a white panel, which is where each is used. */
-  --color-app: #f4f4f1;
-  --color-app-panel: #ffffff;
-  --color-app-sunken: #fbfbf9;
-  --color-app-ink: #17211b;
-  --color-app-muted: #66665f;
-  --color-app-faint: #6f6f68;
-  --color-app-fainter: #c8c8c0;
+  /* Motion. Overshoot for pops and lifts, glide for things that slide. */
+  --curve-overshoot: cubic-bezier(0.34, 1.8, 0.45, 1);
+  --curve-glide: cubic-bezier(0.16, 0.84, 0.36, 1);
+  --duration-fast: 120ms;
+  --duration-base: 180ms;
+  --duration-pop: 260ms;
 
-  --font-display:
-    var(--font-bricolage), "Bricolage Grotesque", system-ui, sans-serif;
-  --font-sans: var(--font-instrument), "Instrument Sans", system-ui, sans-serif;
-  --font-mono: var(--font-martian), "Martian Mono", ui-monospace, monospace;
+  /* 6px ceiling, 4px for small controls, 2px for leaves and dots. */
+  --radius: 6px;
+  --radius-small: 4px;
+  --radius-tiny: 2px;
 
-  --ease-overshoot: cubic-bezier(0.34, 1.8, 0.45, 1);
-  --ease-standard: cubic-bezier(0.32, 0.72, 0, 1);
+  /* The ruled sheet. Rules are the opaque hairline; the registration marks
+     where a row crosses a column rule are ink, quiet but findable. A Bottle
+     band redefines both (see .band-bottle). */
+  --rule: var(--line);
+  --mark: rgba(23, 33, 27, 0.5);
+  --focus: rgba(11, 64, 48, 0.55);
 
-  --animate-pop: pop 3.4s cubic-bezier(0.34, 1.9, 0.45, 1) infinite;
-  --animate-wob: wob 3.2s cubic-bezier(0.34, 1.7, 0.45, 1) infinite;
-  --animate-drift: drift 5s ease-in-out infinite;
-  --animate-spin-slow: spin 6s linear infinite;
-  --animate-drop: drop 3.4s cubic-bezier(0.3, 1.8, 0.5, 1) infinite;
-  --animate-squash: squash 3.5s cubic-bezier(0.34, 1.9, 0.4, 1) infinite;
-  --animate-unfold: unfold 3.8s cubic-bezier(0.2, 1.9, 0.35, 1) infinite;
-  --animate-tilt: tilt 3.5s cubic-bezier(0.34, 1.8, 0.4, 1) infinite;
-  --animate-rec: rec 1.4s steps(1) infinite;
-  --animate-cursor: cursor 1.1s steps(1) infinite;
-  --animate-slide: slide 5s ease-in-out infinite;
-  --animate-zoom: zoom 0.42s cubic-bezier(0.34, 1.8, 0.45, 1) both;
-  --animate-swap: swap 0.28s cubic-bezier(0.34, 1.8, 0.45, 1) both;
-  --animate-fade: fade 0.2s ease both;
-  --animate-flip: flip 0.34s cubic-bezier(0.34, 1.8, 0.45, 1) both;
+  /* The faces at runtime. next/font sets the three variables on <html>; the
+     theme's --font-* names are inlined into utilities and never emitted. */
+  --face-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --face-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --face-mono: var(--font-martian), ui-monospace, monospace;
+
+  /* SiteNav measures itself into --nav-h. Anchors clear the floating bar
+     plus its 12px offset and a breath of air. Both in px: the stage strip
+     and the stages read them back with parseFloat. */
+  --nav-h: 56px;
+  --nav-gap: 12px;
 }
 
-@keyframes pop {
-  0%,
-  72%,
-  100% {
-    transform: translateY(0) scale(1);
+@theme inline {
+  --radius-xs: var(--radius-tiny);
+  --radius-sm: var(--radius-small);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-martian), ui-monospace, monospace;
+
+  /* The console's type steps, in rem against an unpinned 16px root. The two
+     mono steps are the only ones that carry letter spacing. */
+  --text-micro: 0.5625rem; /* 9 */
+  --text-micro--line-height: 1.4;
+  --text-micro--letter-spacing: 0.16em;
+  --text-eyebrow: 0.6875rem; /* 11 */
+  --text-eyebrow--line-height: 1.4;
+  --text-eyebrow--letter-spacing: 0.14em;
+  --text-caption: 0.75rem; /* 12 */
+  --text-caption--line-height: 1.4;
+  --text-dense: 0.8125rem; /* 13 */
+  --text-dense--line-height: 1.4;
+  --text-ui: 0.875rem; /* 14 */
+  --text-ui--line-height: 1.4;
+  --text-body: 0.9375rem; /* 15 */
+  --text-body--line-height: 1.5;
+  --text-lead: 1.0625rem; /* 17 */
+  --text-lead--line-height: 1.5;
+  --text-title: 1.25rem; /* 20 */
+  --text-title--line-height: 1.05;
+  --text-section: 1.5rem; /* 24 */
+  --text-section--line-height: 1.05;
+  --text-page-title: 2rem; /* 32 */
+  --text-page-title--line-height: 0.95;
+  --text-display: 2.75rem; /* 44 */
+  --text-display--line-height: 0.9;
+
+  /* The site's display steps, fluid between a phone and a wide desktop.
+     Stage titles top out at the console's display step; section heads at
+     56px; the hero at 96px; one statement per page above that, sized so it
+     holds one line from a laptop up. The hero's floor is set by the longest
+     category name inside its select on a 360px phone. */
+  --text-stage: clamp(1.75rem, 1.1rem + 2vw, 2.75rem); /* 28 to 44 */
+  --text-stage--line-height: 0.95;
+  --text-headline: clamp(2rem, 1.25rem + 2.6vw, 3.5rem); /* 32 to 56 */
+  --text-headline--line-height: 0.95;
+  --text-readout: clamp(3.25rem, 1.5rem + 4.6vw, 6rem); /* 52 to 96 */
+  --text-readout--line-height: 0.85;
+  --text-hero: clamp(2.25rem, 0.9rem + 5.6vw, 6rem); /* 36 to 96 */
+  --text-hero--line-height: 0.92;
+  --text-statement: clamp(3.5rem, 0.25rem + 8.6vw, 8rem); /* 56 to 128 */
+  --text-statement--line-height: 0.85;
+
+  --color-bottle: var(--bottle);
+  --color-bottle-deep: var(--bottle-deep);
+  --color-bottle-ink: var(--bottle-ink);
+  --color-bottle-wash: var(--bottle-wash);
+  --color-sprout: var(--sprout);
+  --color-sprout-press: var(--sprout-press);
+  --color-sprout-ink: var(--sprout-ink);
+  --color-sprout-wash: var(--sprout-wash);
+  --color-coral: var(--coral);
+  --color-coral-ink: var(--coral-ink);
+  --color-coral-wash: var(--coral-wash);
+  --color-cornflower: var(--cornflower);
+  --color-cornflower-press: var(--cornflower-press);
+  --color-cornflower-ink: var(--cornflower-ink);
+  --color-cornflower-wash: var(--cornflower-wash);
+  --color-lilac: var(--lilac);
+  --color-lilac-ink: var(--lilac-ink);
+  --color-lilac-wash: var(--lilac-wash);
+  --color-ochre: var(--ochre);
+  --color-ochre-ink: var(--ochre-ink);
+  --color-ochre-wash: var(--ochre-wash);
+
+  --color-page: var(--page);
+  --color-panel: var(--panel);
+  --color-panel-hover: var(--panel-hover);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-on-dark: var(--on-dark);
+  --color-track: var(--track);
+  --color-border-default: var(--border-default);
+  --color-border-soft: var(--border-soft);
+  --color-input: var(--border-input);
+  --color-input-hover: var(--border-input-hover);
+  --color-rule: var(--rule);
+
+  /* The letterpress lives in the inset-shadow namespace so it composes with
+     a lifted shadow instead of fighting it for --tw-shadow. */
+  --inset-shadow-depth-button: var(--depth-button);
+  --inset-shadow-depth-panel: var(--depth-panel);
+  --shadow-thumb: var(--depth-thumb);
+  --shadow-lifted: var(--shadow-lifted);
+  --shadow-modal: var(--shadow-modal);
+
+  --ease-overshoot: var(--curve-overshoot);
+  --ease-glide: var(--curve-glide);
+
+  --animate-fade-in: fade-in var(--duration-base) var(--curve-glide) both;
+  --animate-pop-in: pop-in var(--duration-pop) var(--curve-overshoot) both;
+  --animate-bloom: bloom var(--duration-pop) var(--curve-overshoot) both;
+  --animate-flip: flip 0.34s var(--curve-overshoot) both;
+  --animate-swap: swap var(--duration-pop) var(--curve-glide) both;
+  --animate-squash: squash var(--duration-pop) var(--curve-overshoot) infinite
+    alternate;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
-  10% {
-    transform: translateY(-18px) scale(1.14);
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
-  26% {
-    transform: translateY(0) scale(1);
+  /* A dot growing from nothing: a stage passing, a count clearing. */
+  @keyframes bloom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
   }
-}
-@keyframes wob {
-  0%,
-  72%,
-  100% {
-    transform: rotate(0);
+  /* A value that changed in place: the category in the headline, a price
+     on the interval switch. Squashes on the way in so it lands. */
+  @keyframes flip {
+    from {
+      opacity: 0;
+      transform: translateY(-0.12em) scaleY(0.64);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scaleY(1);
+    }
   }
-  8% {
-    transform: rotate(9deg);
+  /* Data swapped inside a panel: short and small, not an entrance. */
+  @keyframes swap {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  18% {
-    transform: rotate(-7deg);
-  }
-  27% {
-    transform: rotate(4deg);
-  }
-  36% {
-    transform: rotate(0);
-  }
-}
-@keyframes drift {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-14px);
-  }
-}
-@keyframes drop {
-  0%,
-  70%,
-  100% {
-    transform: translateY(0) scaleY(1);
-  }
-  6% {
-    transform: translateY(-42px) scaleY(1.12);
-  }
-  20% {
-    transform: translateY(0) scaleY(0.74);
-  }
-  28% {
-    transform: translateY(0) scaleY(1.08);
-  }
-  36% {
-    transform: translateY(0) scaleY(1);
-  }
-}
-@keyframes squash {
-  0%,
-  70%,
-  100% {
-    transform: scale(1, 1);
-  }
-  10% {
-    transform: scale(1.45, 0.62);
-  }
-  22% {
-    transform: scale(0.8, 1.4);
-  }
-  34% {
-    transform: scale(1, 1);
-  }
-}
-@keyframes unfold {
-  0%,
-  70%,
-  100% {
-    transform: scaleX(1);
-  }
-  6% {
-    transform: scaleX(0.06);
-  }
-  24% {
-    transform: scaleX(1.4);
-  }
-  38% {
-    transform: scaleX(1);
-  }
-}
-@keyframes tilt {
-  0%,
-  70%,
-  100% {
-    transform: rotate(0) scale(1);
-  }
-  12% {
-    transform: rotate(-10deg) scale(1.28);
-  }
-  26% {
-    transform: rotate(6deg) scale(0.92);
-  }
-  40% {
-    transform: rotate(0) scale(1);
-  }
-}
-@keyframes rec {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0.15;
-  }
-}
-@keyframes cursor {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes slide {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(6px);
-  }
-}
-@keyframes zoom {
-  from {
-    transform: translateY(24px) scale(0.94);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-}
-/* Picking a category in the hero re-mounts the mock's contents. Short and
-   small: it is a data swap inside a panel, not an entrance. */
-@keyframes swap {
-  from {
-    transform: translateY(7px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/* One shot, for a value that has just changed in place: a word flipping in a
-   slab, a run sheet row ticking off, a count going up by one. squash and pop
-   are the same gesture on a loop, which is wrong for something that happens
-   once. Squashes on the way in, so it lands rather than fades. */
-@keyframes flip {
-  from {
-    transform: translateY(-0.12em) scaleY(0.64);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0) scaleY(1);
-    opacity: 1;
+  @keyframes squash {
+    from {
+      transform: scale(1, 1);
+    }
+    to {
+      transform: scale(1.12, 0.86);
+    }
   }
 }
 
-/* ---------------------------------------------------------------------------
-   Hover skirt. Every lift and tilt on the site moves the element out from
-   under a cursor resting on its bottom edge. That drops :hover, which drops
-   the element back under the cursor, which starts the lift again: the button
-   jitters in place until you move the mouse.
-
-   The fix is a transparent box 10px bigger than the element (the 8px lift plus
-   what the overshoot curve adds on top), so the pointer is still inside it for
-   the whole distance travelled. Two details keep it from causing trouble of
-   its own: it is drawn only while the element is hovered, so it never sits
-   over a neighbour waiting to steal a pointer, and z-index -1 puts it behind
-   the content, so children stay clickable.
-
-   Keyed off the utility names because the behaviour is spread across fifty-odd
-   call sites, and :where() keeps it at zero specificity so any component that
-   wants its own ::after still wins.
-   --------------------------------------------------------------------------- */
-:where([class*="hover:-translate-y"], [class*="hover:rotate"]):hover {
-  position: relative;
-}
-
-:where([class*="hover:-translate-y"], [class*="hover:rotate"]):hover::after {
-  content: "";
-  position: absolute;
-  inset: -10px;
-  z-index: -1;
-}
-
-html {
-  scroll-behavior: smooth;
-  /* The nav is sticky, so anchored sections have to clear it exactly. SiteNav
-     measures the bar and writes --nav-h; the fallback is the desktop height.
-     This is the only place that offset is set. Adding scroll-mt to a section
-     as well stacks with it and lands the heading a nav-height too low. */
-  scroll-padding-top: var(--nav-h, 3.5rem);
-}
-
-body {
-  background: var(--color-cream);
-  color: var(--color-ink);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  /* clip, not hidden. overflow-x: hidden makes <body> its own scroll container,
-     which strands smooth scrolling and scroll-padding on <html> and lands every
-     anchor link at the wrong offset. clip contains the overflow without one. */
-  overflow-x: clip;
-}
-
-/* Cream is the ground everywhere except /bio, which is one Bottle flood. The
-   page sets its own colour, but <body> has to match it or the gutter under the
-   content shows Cream, and an overscroll on a phone rubber-bands to it. */
-body:has([data-ground="bottle"]) {
-  background: var(--color-bottle);
-}
-
-/* ---------------------------------------------------------------------------
-   Scrollbar. Square, no radius, no gradient: a solid Bottle block running in a
-   sunken Cream channel, hairline-ruled on its left edge like every other
-   divider on the site. Only on fine pointers, because styling the WebKit
-   scrollbar turns an overlay bar into a permanent one, which is right on a
-   desktop and wrong on a phone.
-   --------------------------------------------------------------------------- */
-@media (pointer: fine) {
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+@layer base {
+  * {
+    border-color: var(--line);
   }
 
-  ::-webkit-scrollbar-track {
-    background: var(--color-cream-sunken);
-    box-shadow: inset 1px 0 0 rgba(15, 42, 30, 0.24);
+  html {
+    background: var(--page);
+    color: var(--ink);
+    font-family: var(--face-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Reserve the bar's gutter so nothing measured against the viewport
+       moves when a page stops overflowing. */
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+    /* Anchors clear the floating nav exactly. SiteNav writes --nav-h; this
+       is the only place the offset is set. Stage rows add the strip's
+       height on top through their own scroll-margin. */
+    scroll-padding-top: calc(var(--nav-h) + var(--nav-gap) * 2);
   }
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--color-bottle);
-    /* The inset edge is the letterpress rule the buttons carry, turned on its
-       side: the thumb reads as pressed into the channel, not floating. Scaled
-       with the bar, or 4px of a 10px thumb is more edge than block. */
-    box-shadow: inset -3px 0 0 rgba(5, 33, 23, 0.4);
+  body {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    /* clip, not hidden: hidden makes <body> a scroll container and strands
+       smooth scrolling and scroll-padding on <html>. */
+    overflow-x: clip;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-bottle-deep);
+  ::selection {
+    background: var(--sprout-wash);
+    color: var(--ink);
   }
 
-  ::-webkit-scrollbar-thumb:active {
-    background: var(--color-bottle-ink);
+  ::placeholder {
+    color: var(--ink-faint);
   }
 
-  /* Steppers at the ends of the track, off. */
-  ::-webkit-scrollbar-button {
+  /* The console's focus ring, drawn as an outline so it composes with the
+     letterpress edge on solid buttons. Bottle at 55% rather than the kit's
+     30%: on white the lighter ring falls under 3:1 against the page. */
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 1px;
+  }
+
+  button,
+  [role="button"],
+  [role="tab"],
+  [role="option"],
+  a[href],
+  label[for],
+  summary {
+    cursor: pointer;
+  }
+
+  :disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+
+  /* Quiet scrollbars, the console's skin: transparent track, a 6px thumb
+     inset in a 10px gutter, darker while the pointer is inside. Fine
+     pointers only: styling the bar turns a phone's overlay scrollbar into a
+     permanent 10px gutter. */
+  @supports selector(::-webkit-scrollbar) {
+    @media (pointer: fine) {
+      *::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      *::-webkit-scrollbar-track,
+      *::-webkit-scrollbar-corner {
+        background: transparent;
+      }
+      *::-webkit-scrollbar-thumb {
+        border: 2px solid transparent;
+        border-radius: var(--radius);
+        background-color: rgba(23, 33, 27, 0.14);
+        background-clip: padding-box;
+      }
+      *:hover::-webkit-scrollbar-thumb {
+        background-color: var(--border-input-hover);
+      }
+    }
+  }
+  @supports not selector(::-webkit-scrollbar) {
+    * {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(23, 33, 27, 0.14) transparent;
+    }
+  }
+
+  /* iOS zooms a focused field set under 16px; raise only editable controls
+     on touch, keep the 14px register on a desktop. */
+  @media (any-pointer: coarse) {
+    input,
+    textarea,
+    select {
+      font-size: 1rem;
+    }
+  }
+}
+
+@layer components {
+  /* -------------------------------------------------------------------------
+     The ruled sheet. Every section is a full-bleed row whose top rule runs
+     the width of the window; inside it, the sheet is the column, its two
+     side rules running unbroken from the nav to the footer because every
+     row draws them at the same x. Where a row's rule crosses a column rule
+     there is a registration mark, the crop mark of a printed run sheet.
+     ------------------------------------------------------------------------- */
+  .ruled {
+    position: relative;
+    border-top: 1px solid var(--rule);
+  }
+  .ruled-first {
+    border-top: 0;
+  }
+
+  /* The column's width, shared by the sheet and by the floating chrome that
+     lines up with it (the nav bar, the stage strip). */
+  .sheet,
+  .sheet-frame {
+    width: min(100% - 1.5rem, 80rem);
+    margin-inline: auto;
+  }
+  @media (min-width: 640px) {
+    .sheet,
+    .sheet-frame {
+      width: min(100% - 3rem, 80rem);
+    }
+  }
+  @media (min-width: 1024px) {
+    .sheet,
+    .sheet-frame {
+      width: min(100% - 5rem, 80rem);
+    }
+  }
+  .sheet {
+    position: relative;
+    border-inline: 1px solid var(--rule);
+  }
+
+  /* The marks sit on the row's top rule, centred on each column rule. */
+  .ruled > .sheet::before,
+  .ruled > .sheet::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    width: 13px;
+    height: 13px;
+    background: var(--mark);
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Cpath d='M6 0h1v6h6v1H7v6H6V7H0V6h6z'/%3E%3C/svg%3E")
+      center / 13px 13px no-repeat;
+    pointer-events: none;
+  }
+  .ruled > .sheet::before {
+    left: -7px;
+  }
+  .ruled > .sheet::after {
+    right: -7px;
+  }
+  .ruled-first > .sheet::before,
+  .ruled-first > .sheet::after {
     display: none;
   }
 
-  ::-webkit-scrollbar-corner {
-    background: var(--color-cream-sunken);
+  /* A cell grid inside the sheet: cells butt, and the rule between them is
+     the cell's own hairline so a cell can carry its own ground. */
+  .cell-rule-t {
+    border-top: 1px solid var(--rule);
+  }
+  .cell-rule-l {
+    border-left: 1px solid var(--rule);
   }
 
-  /* /bio is one Bottle flood, so the channel inverts with it. Keyed off <html>,
-     not <body>: the page scrollbar is painted from the root element, so a rule
-     hung on <body> never reaches it. */
-  html:has([data-ground="bottle"]) ::-webkit-scrollbar-track,
-  html:has([data-ground="bottle"])::-webkit-scrollbar-track {
-    background: var(--color-bottle-ink);
-    box-shadow: inset 1px 0 0 rgba(198, 255, 61, 0.24);
+  /* A Bottle band: the colour takes the whole row edge to edge, and the
+     rules and marks change ink with it so the sheet stays continuous. */
+  .band-bottle {
+    --rule: rgba(244, 244, 240, 0.14);
+    --mark: rgba(244, 244, 240, 0.6);
+    --focus: rgba(159, 232, 112, 0.7);
+    background: var(--bottle);
+    color: var(--on-dark);
+  }
+  /* The opaque Line all but vanishes on Panel, so a sunken row draws its
+     rules in ink instead. */
+  .band-panel {
+    --rule: rgba(23, 33, 27, 0.08);
+    background: var(--panel);
   }
 
-  html:has([data-ground="bottle"]) ::-webkit-scrollbar-thumb,
-  html:has([data-ground="bottle"])::-webkit-scrollbar-thumb {
-    background: var(--color-acid);
-    box-shadow: inset -3px 0 0 rgba(11, 64, 48, 0.35);
-  }
-
-  /* Firefox, which has no scrollbar pseudo-elements and only takes the two
-     standard properties. Scoped so it never lands in Chrome: setting
-     scrollbar-color there makes Chrome ignore everything above and paint its
-     own rounded thumb instead. */
-  @supports not selector(::-webkit-scrollbar) {
-    html {
-      scrollbar-color: var(--color-bottle) var(--color-cream-sunken);
+  /* A capture's phone close-up (CaptureFrame `focus`). Below 640px the frame
+     takes the close-up's own shape and the image is scaled and offset so only
+     that region shows, at a scale a phone can read; "Whole screen" turns it
+     off. Above 640px the whole frame always shows. */
+  @media (max-width: 639px) {
+    .capture-crop[data-crop="on"] {
+      aspect-ratio: var(--crop-aspect);
     }
+    .capture-crop[data-crop="on"] > .capture-canvas {
+      position: absolute;
+      width: var(--crop-w);
+      left: var(--crop-x);
+      top: var(--crop-y);
+      /* A highlight re-frames the close-up instead of zooming it. */
+      transform: none !important;
+      --ring: 2px !important;
+      --ring-radius: 4px !important;
+      transition-property: width, left, top;
+    }
+  }
 
-    html:has([data-ground="bottle"]) {
-      scrollbar-color: var(--color-acid) var(--color-bottle-ink);
+  /* -------------------------------------------------------------------------
+     Develop. A row arrives the way a print comes up in the tray: already
+     there as a ghost, then fuller as it scrolls into place. Content is
+     visible by default; only browsers with scroll timelines animate, and
+     reduced motion never does. --develop-at staggers cells in reading order
+     by starting each one a little later in the row's entry.
+     ------------------------------------------------------------------------- */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      /* `cover` rather than `entry`, so a short heading and a tall recording
+         develop over a similar stretch of scroll instead of the heading
+         snapping in over its own 40px. */
+      .develop {
+        animation: develop linear both;
+        animation-timeline: view();
+        animation-range: cover var(--develop-at, 0%) cover
+          calc(var(--develop-at, 0%) + 20%);
+        animation-timing-function: var(--curve-glide);
+      }
+      /* The row's top rule draws in from the left as the row arrives. A 1px
+         rule cannot drive its own timeline, so it reads the row's. */
+      .ruled.develop-rule {
+        border-top-color: transparent;
+        view-timeline: --row block;
+      }
+      .ruled.develop-rule::before {
+        content: "";
+        position: absolute;
+        inset: -1px 0 auto 0;
+        height: 1px;
+        background: var(--rule);
+        transform-origin: left center;
+        animation: draw linear both;
+        animation-timeline: --row;
+        animation-range: entry 0% entry 18%;
+      }
     }
   }
 }
 
-::selection {
-  background: var(--color-acid);
-  color: var(--color-bottle);
+/* ---------------------------------------------------------------------------
+   Reveal. The time-based partner to develop: a headline sets in word by
+   word the first time it comes on screen, each word rising out of a squash
+   on the overshoot curve, the way a value lands in the console. Blocks under
+   it rise after it (`reveal-rise`), and media wipes up into its frame
+   (`reveal-wipe`). Plays once.
+
+   `data-reveal` marks a trigger: RevealObserver sets `data-shown` on it when
+   it reaches the viewport. `reveal-now` plays on mount instead, for the fold
+   and for content that swaps in place. Words are only hidden once the inline
+   script in the layout has set `data-js`, so a page without JavaScript reads
+   as written, and reduced motion never hides anything.
+   --------------------------------------------------------------------------- */
+.split-word {
+  display: inline-block;
+  transform-origin: 0 100%;
 }
 
-:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--color-bottle) 55%, transparent);
-  outline-offset: 2px;
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-js]
+    [data-reveal]:not([data-shown])
+    :is(.split-word, .reveal-rise, .reveal-wipe),
+  :root[data-js]
+    [data-reveal]:is(.reveal-rise, .reveal-wipe):not([data-shown]) {
+    opacity: 0;
+  }
+
+  :is([data-reveal][data-shown], .reveal-now) .split-word {
+    animation: word-in 0.38s var(--curve-overshoot) both;
+    animation-delay: calc(var(--reveal-delay, 0ms) + var(--i, 0) * 42ms);
+  }
+  :is([data-reveal][data-shown], .reveal-now) .reveal-rise,
+  :is([data-reveal][data-shown], .reveal-now).reveal-rise {
+    animation: rise 0.5s var(--curve-glide) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+  :is([data-reveal][data-shown], .reveal-now) .reveal-wipe,
+  :is([data-reveal][data-shown], .reveal-now).reveal-wipe {
+    animation: wipe 0.7s var(--curve-glide) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
+  /* A pipeline's bars draw out from the left once their frame is in. */
+  :is([data-reveal][data-shown], .reveal-now) .pipe-bar {
+    transform-origin: left center;
+    animation: draw 0.6s var(--curve-glide) both;
+    animation-delay: calc(
+      var(--reveal-delay, 0ms) + 420ms + var(--i, 0) * 70ms
+    );
+  }
+  :is([data-reveal][data-shown], .reveal-now) .reveal-wipe img,
+  :is([data-reveal][data-shown], .reveal-now).reveal-wipe img {
+    animation: settle 1.1s var(--curve-glide) both;
+    animation-delay: var(--reveal-delay, 0ms);
+  }
 }
 
-/* On Bottle and Acid grounds the Bottle ring disappears, so invert it. */
-.on-dark :focus-visible {
-  outline-color: var(--color-acid);
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.4em) scaleY(0.78) rotate(2deg);
+  }
+  40% {
+    opacity: 1;
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* From the foot up, like a print lifted out of the tray. */
+@keyframes wipe {
+  from {
+    opacity: 1;
+    clip-path: inset(100% 0 0 0 round var(--radius));
+  }
+  to {
+    opacity: 1;
+    clip-path: inset(0 0 0 0 round var(--radius));
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: none;
+  }
 }
 
-@utility eyebrow {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+/* ---------------------------------------------------------------------------
+   The stage dock: the record's progress, floating at the foot of the window
+   while the five stages are on screen. It lifts in on the overshoot curve and
+   glides away, so the nav stays the only bar at the top.
+   --------------------------------------------------------------------------- */
+.stage-dock {
+  transform: translateY(calc(100% + 2rem));
+  opacity: 0;
+  transition:
+    transform var(--duration-pop) var(--curve-glide),
+    opacity var(--duration-base) var(--curve-glide);
+}
+.stage-dock[data-shown="true"] {
+  transform: none;
+  opacity: 1;
+  transition:
+    transform 380ms var(--curve-overshoot),
+    opacity var(--duration-base) var(--curve-glide);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stage-dock[data-shown="true"] li {
+    animation: rise 0.42s var(--curve-glide) both;
+    animation-delay: calc(80ms + var(--i, 0) * 45ms);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The timeline. Each date's dot blooms, its hairline draws toward the next,
+   and the copy rises under it, one entry after another. The date we are at
+   now keeps a slow Sprout ring going out from its dot: live, not loud.
+   --------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-js]
+    .timeline[data-reveal]:not([data-shown])
+    :is(.tl-dot, .tl-date, .tl-body) {
+    opacity: 0;
+  }
+  :root[data-js] .timeline[data-reveal]:not([data-shown]) .tl-line {
+    transform: scaleX(0);
+  }
+  .timeline[data-shown] .tl-dot {
+    animation: bloom var(--duration-pop) var(--curve-overshoot) both;
+    animation-delay: calc(var(--i) * 320ms);
+  }
+  .timeline[data-shown] .tl-date {
+    animation: word-in 0.38s var(--curve-overshoot) both;
+    animation-delay: calc(var(--i) * 320ms + 60ms);
+  }
+  .timeline[data-shown] .tl-line {
+    transform-origin: left center;
+    animation: draw 0.42s var(--curve-glide) both;
+    animation-delay: calc(var(--i) * 320ms + 140ms);
+  }
+  .timeline[data-shown] .tl-body {
+    animation: rise 0.5s var(--curve-glide) both;
+    animation-delay: calc(var(--i) * 320ms + 120ms);
+  }
+  .timeline .tl-now::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: var(--sprout);
+    animation: ping 2.4s var(--curve-glide) infinite;
+    animation-delay: 1.4s;
+  }
+}
+@keyframes ping {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  60%,
+  100% {
+    opacity: 0;
+    transform: scale(3.2);
+  }
+}
+
+@keyframes develop {
+  from {
+    opacity: 0.18;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Mono labels: always uppercase, always small. A label voice, never body. */
+@utility mono-label {
+  font-family: var(--face-mono);
+  font-size: 0.5625rem;
   line-height: 1.4;
-}
-
-@utility label-mono {
-  font-family: var(--font-mono);
-  font-size: 9px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+}
+@utility mono-eyebrow {
+  font-family: var(--face-mono);
+  font-size: 0.6875rem;
   line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-/* Letterpress, never a blurred drop shadow. */
-@utility press {
-  box-shadow: inset 0 -4px 0 rgb(11 64 48 / 0.4);
-}
-@utility press-lg {
-  box-shadow: inset 0 -5px 0 rgb(11 64 48 / 0.5);
-}
-@utility press-dark {
-  box-shadow: inset 0 -5px 0 rgb(0 0 0 / 0.45);
+/* Bricolage headlines: 800 only, no added spacing (the opsz axis tightens
+   the face at display sizes), balanced. */
+@utility headline {
+  font-family: var(--face-display);
+  font-weight: 800;
+  letter-spacing: normal;
+  text-wrap: balance;
 }
 
-/* Inset outlines. Every outline on the site is an inset ring in a brand
-   colour, drawn with box-shadow so it costs no layout. They read the tokens,
-   so a palette change in @theme reaches every field, chip and panel. */
-@utility edge-bottle {
-  box-shadow: inset 0 0 0 2px var(--color-bottle);
-}
-@utility edge-bottle-thin {
-  box-shadow: inset 0 0 0 1.5px var(--color-bottle);
-}
-@utility edge-acid {
-  box-shadow: inset 0 0 0 2px var(--color-acid);
-}
-@utility edge-acid-soft {
-  box-shadow: inset 0 0 0 1.5px rgb(198 255 61 / 0.4);
-}
-@utility edge-acid-faint {
-  box-shadow: inset 0 0 0 1.5px rgb(198 255 61 / 0.16);
-}
-@utility edge-coral-thin {
-  box-shadow: inset 0 0 0 1.5px var(--color-coral);
-}
-/* The Ink hairline the light panels sit inside. */
-@utility hairline {
-  box-shadow: inset 0 0 0 1px rgb(15 42 30 / 0.2);
-}
-/* A single Cream rule down the left edge, for butted tabs on Bottle. */
-@utility divider-cream {
-  box-shadow: inset 1px 0 0 0 rgb(255 251 239 / 0.25);
-}
-
+/* One global guarantee: keyframes park on their last frame, and transitions
+   shorten rather than vanish, so state changes still register. Anything
+   with a genuinely vestibular transition opts out on its own. */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -463,6 +751,7 @@ body:has([data-ground="bottle"]) {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 80ms !important;
+    transition-timing-function: linear !important;
   }
 }

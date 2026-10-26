@@ -1,19 +1,24 @@
 "use client";
 
 import { useState } from "react";
+import { Check } from "lucide-react";
 import { CONTACT_TOPIC_NAMES, CONTACT_TOPICS } from "@/content/contact";
 import { buttonClass } from "@/components/ui/button";
 
-const FIELD =
-  "w-full border-0 bg-acid-wash px-4.5 py-4 font-sans text-[17px] text-ink edge-bottle-thin placeholder:text-ink/65";
-
-const LABEL = "eyebrow mb-2.5 block opacity-70";
-
 /**
- * The topic buttons are square chips rather than a select, because the choice
- * routes the message and it should be one tap. Chosen topic floods Bottle, the
- * same way the pricing rows do.
+ * The console's field skin: a 6px corner, an input-strength border that
+ * darkens on hover, and on focus a Bottle border with the 3px ring. Labels
+ * are the 9px mono field label in Ink muted.
+ *
+ * The topic is a row of tags rather than a select, because the choice routes
+ * the message and should be one tap; the chosen tag fills Bottle, the same as
+ * the vendor tags on the home page.
  */
+const FIELD =
+  "w-full rounded-md border border-input bg-page px-3.5 text-ui text-ink transition-[border-color,box-shadow] duration-[var(--duration-base)] placeholder:text-ink-faint hover:border-input-hover focus-visible:border-bottle focus-visible:shadow-[0_0_0_3px_rgba(11,64,48,0.3)] focus-visible:outline-none";
+
+const LABEL = "mono-label mb-2 block text-ink-muted";
+
 export function ContactForm({ initialTopic }: { initialTopic?: string }) {
   const [topic, setTopic] = useState<string>(
     initialTopic && CONTACT_TOPIC_NAMES.includes(initialTopic)
@@ -62,12 +67,16 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
 
   if (status === "sent") {
     return (
-      <div className="flex flex-col gap-5 bg-acid p-8 text-bottle edge-bottle sm:p-11">
-        <span className="block h-7 w-7 origin-bottom animate-pop bg-bottle" />
-        <h2 className="m-0 font-display text-[clamp(30px,5vw,44px)] leading-[0.95] font-extrabold tracking-[-0.04em]">
+      <div className="animate-pop-in flex flex-col items-start gap-4 rounded-md border border-border-default bg-page p-6 sm:p-8">
+        {/* An output is a status region, so the change is announced. */}
+        <output className="mono-label inline-flex items-center gap-1.5 rounded-sm bg-sprout-wash px-2 py-1.5 font-semibold text-sprout-ink">
+          <Check aria-hidden className="size-3" />
+          Sent
+        </output>
+        <h2 className="headline m-0 text-[clamp(1.75rem,1.1rem+2vw,2.5rem)] leading-[0.98] text-ink">
           Sent. Now go and do something else.
         </h2>
-        <p className="m-0 max-w-[46ch] text-[16px] leading-relaxed">
+        <p className="m-0 max-w-[46ch] text-body text-ink-secondary">
           There is a copy in your inbox. One of us reads this, so the reply
           comes from a person. If it is a Saturday, it will be a slow one.
         </p>
@@ -76,10 +85,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
   }
 
   return (
-    <form
-      onSubmit={submit}
-      className="flex flex-col gap-7 bg-cream p-8 edge-bottle sm:p-11"
-    >
+    <form onSubmit={submit} className="flex flex-col gap-7">
       <fieldset className="m-0 border-0 p-0">
         <legend className={LABEL}>What is this about</legend>
         <div className="flex flex-wrap gap-2">
@@ -91,11 +97,16 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
                 type="button"
                 aria-pressed={on}
                 onClick={() => setTopic(name)}
-                className={`cursor-pointer border-0 px-3.5 py-3 font-sans text-sm font-semibold edge-bottle-thin transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1.5deg] ${
-                  on ? "bg-bottle text-acid" : "bg-transparent text-bottle"
+                className={`inline-flex min-h-10 items-center gap-2 rounded-md border px-3.5 py-2 text-left text-ui font-semibold transition-colors duration-[var(--duration-base)] ${
+                  on
+                    ? "border-transparent bg-bottle text-on-dark inset-shadow-depth-button"
+                    : "border-input bg-page text-ink hover:border-input-hover hover:bg-panel"
                 }`}
               >
                 {name}
+                {on ? (
+                  <Check aria-hidden className="-mr-0.5 size-3.5 shrink-0" />
+                ) : null}
               </button>
             );
           })}
@@ -115,7 +126,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
             maxLength={120}
             autoComplete="name"
             placeholder="Who is writing"
-            className={FIELD}
+            className={`${FIELD} h-11`}
           />
         </div>
         <div>
@@ -129,7 +140,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
             required
             autoComplete="email"
             placeholder="you@yourstudio.com.au"
-            className={FIELD}
+            className={`${FIELD} h-11`}
           />
         </div>
       </div>
@@ -146,7 +157,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
           maxLength={4000}
           rows={7}
           placeholder="What you run, what you are using now, and what you actually want to know."
-          className={`${FIELD} resize-y leading-relaxed`}
+          className={`${FIELD} min-h-40 resize-y py-3 leading-[1.5]`}
         />
       </div>
 
@@ -163,7 +174,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
       {error ? (
         <p
           role="alert"
-          className="bg-coral-wash px-4 py-3 text-sm text-ink edge-coral-thin"
+          className="m-0 rounded-md border border-coral/40 bg-coral-wash px-3.5 py-3 text-ui text-coral-ink"
         >
           {error}
         </p>
@@ -173,11 +184,12 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
         <button
           type="submit"
           disabled={status === "sending"}
-          className={buttonClass("bottle", "md")}
+          aria-busy={status === "sending" || undefined}
+          className={buttonClass("sprout", "lg")}
         >
           {status === "sending" ? "Sending" : "Send it"}
         </button>
-        <span className="label-mono max-w-[30ch] leading-relaxed opacity-65">
+        <span className="mono-label max-w-[30ch] text-ink-muted">
           Goes to two people · no ticket number
         </span>
       </div>

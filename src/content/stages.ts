@@ -2,6 +2,10 @@
  * The board. Five stages a job moves through, each carrying one real capture
  * of the console and the facts that stage is allowed to claim.
  *
+ * Fact regions and each stage's phone close-up are measured off the poster
+ * frames in public/product/demos/; re-measure them when a recording is
+ * refreshed, because the poster is the frame they point at.
+ *
  * The stage demos are Playwright recordings of the local seeded console.
  * Their posters, capture routes and provenance live in public/product/demos/.
  * Supporting facts are checked against the corresponding help articles.
@@ -21,14 +25,20 @@ export type Capture = {
     }
 );
 
+/** A box on a capture's poster frame, in percent of its width and height. */
+export type Region = { x: number; y: number; w: number; h: number };
+
 export type StageFact = {
   label: string;
   body: string;
+  /**
+   * Where the poster frame shows the claim, when it does. Hovering or
+   * focusing the claim holds the poster and rings these boxes. A claim the
+   * screen cannot show has none, rather than a box pointing at something
+   * nearby.
+   */
+  regions?: Region[];
 };
-
-export type Ground = "cream" | "bottle" | "acid" | "sunken";
-
-export type Accent = "cornflower" | "lilac" | "acid" | "coral";
 
 export type Stage = {
   id: string;
@@ -37,10 +47,9 @@ export type Stage = {
   name: string;
   short: string;
   title: string;
-  ground: Ground;
-  /** The stage's one accent: the square by the numeral, the rail's active edge, the caption mark. */
-  accent: Accent;
   capture: Capture;
+  /** The close-up a phone shows, in percent of the frame. */
+  focus: Region;
   facts: StageFact[];
 };
 
@@ -51,8 +60,6 @@ export const STAGES: Stage[] = [
     name: "Enquiry in",
     short: "Enquiry",
     title: "Every “are you free?” lands on the board.",
-    ground: "cream",
-    accent: "cornflower",
     capture: {
       src: "/product/demos/enquiries-board-poster.webp",
       recording: "/product/demos/enquiries-board.webp",
@@ -61,10 +68,12 @@ export const STAGES: Stage[] = [
       width: 2880,
       height: 1800,
     },
+    focus: { x: 3, y: 36, w: 34, h: 42 },
     facts: [
       {
         label: "A form on your site",
         body: "Hosted or embedded, one public link that never changes. A submission is a card on the board with every answer on it.",
+        regions: [{ x: 4, y: 43.3, w: 18.1, h: 33 }],
       },
       {
         label: "Your inbox, filed on the job",
@@ -73,6 +82,10 @@ export const STAGES: Stage[] = [
       {
         label: "Stages are yours",
         body: "Rename, reorder, add and remove them. Saved views, filters, assignees, and a custom field for anything we did not think of.",
+        regions: [
+          { x: 3, y: 38.6, w: 62.4, h: 4.9 },
+          { x: 76.3, y: 14.8, w: 11.4, h: 5.1 },
+        ],
       },
       {
         label: "Coming from somewhere else",
@@ -86,8 +99,6 @@ export const STAGES: Stage[] = [
     name: "Quote out",
     short: "Quote",
     title: "Quote, contract, deposit. One chain.",
-    ground: "bottle",
-    accent: "lilac",
     capture: {
       src: "/product/demos/quote-poster.webp",
       recording: "/product/demos/quote.webp",
@@ -96,10 +107,15 @@ export const STAGES: Stage[] = [
       width: 2880,
       height: 1800,
     },
+    focus: { x: 50, y: 15, w: 34, h: 42 },
     facts: [
       {
         label: "Fixed or flexible",
         body: "Send it take-it-or-leave-it, or let the client tick the optional lines. Packages copy in with their price and their description.",
+        regions: [
+          { x: 58.3, y: 17.6, w: 10.2, h: 4.6 },
+          { x: 15.6, y: 27.8, w: 39.4, h: 6.8 },
+        ],
       },
       {
         label: "The contract rides on the quote",
@@ -108,10 +124,15 @@ export const STAGES: Stage[] = [
       {
         label: "Deposit on acceptance",
         body: "Instalments come off a payment plan: a percentage on acceptance, the balance so many days before the event. Card through Stripe, or bank transfer.",
+        regions: [{ x: 15.6, y: 58.6, w: 67.8, h: 15 }],
       },
       {
         label: "Revisions, not resends",
         body: "Edit a sent quote and it becomes a revision. The client keeps seeing the published one until you send the new one.",
+        regions: [
+          { x: 15.6, y: 7, w: 38.4, h: 7.2 },
+          { x: 72.2, y: 87.6, w: 11.3, h: 4.8 },
+        ],
       },
     ],
   },
@@ -121,8 +142,6 @@ export const STAGES: Stage[] = [
     name: "Booked",
     short: "Booked",
     title: "Accepted. Same record, now a booking.",
-    ground: "acid",
-    accent: "acid",
     capture: {
       src: "/product/demos/booking-poster.webp",
       recording: "/product/demos/booking.webp",
@@ -131,14 +150,20 @@ export const STAGES: Stage[] = [
       width: 2880,
       height: 1800,
     },
+    focus: { x: 62, y: 16, w: 36, h: 27 },
     facts: [
       {
         label: "One private link per job",
         body: "Quotes, contracts, invoices, questionnaires, the run sheet and one conversation, under your logo and colours, on your own domain if you have one. No account, no password.",
+        regions: [
+          { x: 3.1, y: 81.9, w: 45.6, h: 16.1 },
+          { x: 63.4, y: 20, w: 8.8, h: 4.4 },
+        ],
       },
       {
         label: "The money, on the header",
         body: "Paid instalments ticked off, the next one dated, the outstanding figure in large type. Overdue turns red here, on the overview and in the portal.",
+        regions: [{ x: 73.6, y: 26.7, w: 22.7, h: 12 }],
       },
       {
         label: "Questionnaires",
@@ -156,8 +181,6 @@ export const STAGES: Stage[] = [
     name: "The day",
     short: "The day",
     title: "The book, the run sheet, and who is where.",
-    ground: "sunken",
-    accent: "coral",
     capture: {
       src: "/product/demos/calendar-poster.webp",
       recording: "/product/demos/calendar.webp",
@@ -166,10 +189,16 @@ export const STAGES: Stage[] = [
       width: 2880,
       height: 1800,
     },
+    focus: { x: 62, y: 36, w: 34, h: 42 },
     facts: [
       {
         label: "One calendar, every job",
         body: "Enquiries, bookings and unavailable time in one grid, by year, month, week or day. Subscribe from your phone. Bridge Google or Outlook so a dentist appointment blocks the date.",
+        regions: [
+          { x: 3.1, y: 31.7, w: 32.6, h: 3.7 },
+          { x: 73.5, y: 23.9, w: 22.8, h: 4.8 },
+          { x: 78.3, y: 12.2, w: 6.4, h: 4 },
+        ],
       },
       {
         label: "Run sheets the client can edit",
@@ -178,6 +207,7 @@ export const STAGES: Stage[] = [
       {
         label: "Crew on the job",
         body: "Assign members to a booking. Everyone sees the work that is theirs; roles decide who sees the money.",
+        regions: [{ x: 37.8, y: 31.4, w: 16.8, h: 3.9 }],
       },
       {
         label: "Reminders that count the days",
@@ -191,8 +221,6 @@ export const STAGES: Stage[] = [
     name: "Paid",
     short: "Paid",
     title: "The whole job, banked.",
-    ground: "bottle",
-    accent: "acid",
     capture: {
       src: "/product/demos/payments-poster.webp",
       recording: "/product/demos/payments.webp",
@@ -201,6 +229,7 @@ export const STAGES: Stage[] = [
       width: 2880,
       height: 1800,
     },
+    focus: { x: 3, y: 30, w: 34, h: 42 },
     facts: [
       {
         label: "Tax invoices with your numbering",
@@ -213,6 +242,10 @@ export const STAGES: Stage[] = [
       {
         label: "Reports, not a spreadsheet",
         body: "Enquiries, conversion, time to convert, booked revenue, outstanding, overdue, ageing. Export CSV from any card.",
+        regions: [
+          { x: 3.1, y: 33.6, w: 93.2, h: 11.1 },
+          { x: 89.2, y: 48.3, w: 7.1, h: 3.9 },
+        ],
       },
       {
         label: "Stripe under the hood",
@@ -227,6 +260,14 @@ export const AUTOMATION_CAPTURE: Capture = {
   src: "/product/automation.webp",
   alt: "An automation rule, When a quote is sent, move the enquiry: the trigger set to when something happens, the event quote.sent, and no conditions.",
   width: 2880,
+  height: 1800,
+};
+
+/** The Arby sheet, opened from the console's top bar. Portrait. */
+export const ARBY_CAPTURE: Capture = {
+  src: "/product/arby.webp",
+  alt: "The Arby sheet in the console: Ask about anything on the books, Arby reads what you can already see and changes nothing, with four starter questions and a composer.",
+  width: 896,
   height: 1800,
 };
 

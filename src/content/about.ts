@@ -44,33 +44,25 @@ export const LENSES = [
 ];
 
 /**
- * The real sequence, short because it is short. Four entries, two by two on a
- * tablet and four across on a laptop.
+ * The real sequence, short because it is short. Four entries on one ruled
+ * strip, the last one the stage Arbour is at now.
  */
 export const TIMELINE = [
   {
     year: "Apr 2025",
     body: "Met at uni. Ben had been shooting weddings for nine years by then, which came up in about the first ten minutes.",
-    chip: "bg-bottle animate-drop origin-bottom",
-    ground: "bg-cream",
   },
   {
     year: "Jun 2026",
     body: "Couple of industry products worked on together, now was the time to get serious. Where are Ben's main pain points? Software.",
-    chip: "bg-cornflower animate-unfold origin-left",
-    ground: "bg-cream",
   },
   {
     year: "Aug 2026",
     body: "In motion. Platform skeleton in production, the two of us running our own jobs through it.",
-    chip: "bg-lilac animate-tilt",
-    ground: "bg-cream",
   },
   {
     year: "Sep 2026",
     body: "Open. Sign up, pick a plan, fourteen days free. Support is still the two of us, and it will stay that way for a while.",
-    chip: "bg-bottle animate-spin-slow",
-    ground: "bg-acid",
   },
 ];
 
@@ -78,40 +70,26 @@ export const RULES = [
   {
     title: "We work weekends too",
     body: "Support will answer on a Saturday because that is when the job is. Anyone who has shot a wedding knows Monday help is no help.",
-    ground: "on-dark bg-bottle text-cream",
-    titleClass: "text-acid",
-    chip: "bg-acid animate-pop origin-bottom-left",
   },
   {
     title: "No feature that only a demo needs",
     body: "If it does not survive a real Saturday, it does not ship. We test on our own weddings first.",
-    ground: "bg-acid-wash text-bottle hairline",
-    chip: "bg-bottle animate-squash origin-bottom",
   },
   {
     title: "One thumb, or it is broken",
     body: "On the day you have one hand free at best. Every mobile screen is built for a thumb and a bad signal.",
-    // Cream on Coral is 3.3:1, so the tile carries ink like Lilac does.
-    ground: "bg-coral text-bottle-ink",
-    chip: "bg-cream animate-wob origin-top",
   },
   {
     title: "Your data leaves whenever you like",
     body: "Full export, one button, no phone call, no retention specialist. Lock-in is not a business model, it is a hostage situation.",
-    ground: "bg-cornflower-deep text-cream",
-    chip: "bg-cream animate-unfold origin-left",
   },
   {
     title: "Nobody gets charged per couple",
     body: "A busy season should not cost you more to record. Price is per seat, and a good year is yours.",
-    ground: "bg-lilac text-bottle",
-    chip: "bg-bottle animate-tilt",
   },
   {
     title: "Weddings first",
     body: "Arbour is built for weddings first, but versatile enough to use in a commercial setting.",
-    ground: "bg-acid text-bottle",
-    chip: "bg-bottle animate-drop origin-bottom",
   },
 ];
 
@@ -121,11 +99,9 @@ export const FOUNDERS = [
     role: "Co-founder · runs the business, answers the email",
     bio: "Ten years shooting weddings, mostly regional Victoria. Anywhere the love's strong and the coffee's good. Founded Love Poets in 2024, still shooting a few himself every season. Will answer support on a Saturday from a venue carpark with a camera in the opposite hand.",
     footnote: "Knows where the good light is at 5pm in March",
-    /** Shot on Bottle, so the panel behind it is Bottle and the two meet. */
+    /** Shot on Bottle, so the frame behind it is Bottle and the two meet. */
     photo: "/ben.png" as string | null,
     photoAlt: "Ben, shoulders up, against a bottle green backdrop",
-    ground: "bg-bottle",
-    chip: "bg-coral animate-wob origin-top",
   },
   {
     name: "Alex",
@@ -134,7 +110,5 @@ export const FOUNDERS = [
     footnote: "Has opinions about idempotency at parties",
     photo: "/alex.png" as string | null,
     photoAlt: "Alex, shoulders up, against a bottle green backdrop",
-    ground: "bg-bottle",
-    chip: "bg-cornflower animate-tilt",
   },
 ];

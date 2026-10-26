@@ -3,8 +3,8 @@
 <!-- impeccable:product-schema 1 -->
 
 Durable product truth for the Arbour marketing site (`usearbour.com`). Visual
-system, type, colour, wordmark and voice are canonical in [brand.md](brand.md)
-and are binding; this file does not repeat them. Product truth for the
+system, type, colour, wordmark and voice are canonical in
+[docs/brand.md](docs/brand.md) and are binding; this file does not repeat them. Product truth for the
 software itself lives in the main app repo (`arbourhq/arbour`, at
 `docs/PRODUCT.md`); this file records only what the site is, who it is for and
 what it may claim. Read both before designing anything a visitor sees.
@@ -97,10 +97,10 @@ Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
 - **Copy lives in `src/content/`**, not in components: site facts, nav,
   categories, the five stages, pricing, FAQ, about, bio, contact. Each file's
   header comment states what it may and may not claim.
-- **Category picker.** Choosing one of the eleven categories re-skins the hero
-  board (stage names and counts), the vendor chips and the automation
-  example. All of that data is illustrative, one vendor's book, and the panel
-  says so.
+- **Category picker.** Choosing one of the eleven categories, from the select
+  in the headline or the vendor tags, re-skins the hero pipeline (stage
+  names and counts), the vendor tags and the automation rule. All of that
+  data is illustrative, one vendor's book, and the panel says so.
 - **Product captures.** `public/product/*.webp` are help-centre screenshots
   of the seeded console from the main repo (`apps/web/public/help`), copied
   by hand. They are real screens with seed data (Acme Weddings, Ella & Jack)
@@ -130,9 +130,10 @@ Confirmed site facts:
   inclusive, yearly at ten months for twelve, extra Studio seats $19, House by
   arrangement. Trial is 14 days, no card, one per person. Solo and Studio
   route to sign-up; House routes to `/contact`.
-- **Captures are the only place Sprout, the neutral app ground and 6px
-  corners appear.** Inside the frame it is the product; outside it is
-  marketing.
+- **The site wears the product register.** Decided 26 October 2026: the
+  separate marketing look (Acid, Cream floods, square corners) is retired,
+  and the site uses the console's own grounds, greens and 6px corner
+  ceiling. A capture is still labelled as a real screen with seed data.
 - **Australian English throughout.** `lang="en-AU"`, `en_AU` Open Graph
   locale.
 - **Never em dashes in shipped copy.**
@@ -145,7 +146,7 @@ Undecided or deliberately absent:
 
 ## Brand Commitments
 
-[brand.md](brand.md) is fully binding: the wordmark, colour system, type
+[docs/brand.md](docs/brand.md) is fully binding: the wordmark, colour system, type
 stack, visual language, motion, voice and the product patterns in section 7.
 Do not restate or reinterpret it here; change it there first.
 
@@ -156,9 +157,9 @@ The commitments future site work must never loosen:
   raster versions at `public/arbour-wordmark-acid.png` and
   `public/arbour-wordmark-bottle.png`, icon at `public/arbour-icon-bottle.svg`.
   Never as live text, never on a photograph.
-- **Acid sells Arbour. Sprout runs it.** Acid is this site's green. Sprout
-  appears only inside a product mock.
-- **Loud brand, quiet product.** The site is the loud half.
+- **One register, site and product.** The site looks like the software it
+  sells: Sprout is the one lit action, Bottle is the structure, white and
+  panel are the grounds. Acid and Cream do not appear on this site.
 - **Voice.** Upbeat, dry, human, Australian. Weddings are parties, not
   projects. Wit lives in body copy; headings stay plain. No pitch-deck
   vocabulary, no stacked exclamation marks, no fake urgency.
@@ -185,8 +186,9 @@ Present:
   scroll companion follows the home page; a still standing bird is the
   reduced-motion fallback. Refresh the artwork from the kit.
 - Real console captures in `public/product/` (24 screens, WebP, captured 4
-  to 7 September 2026 from the seeded console). Provenance is recorded in
-  each file's metadata and in the header of `src/content/stages.ts`.
+  to 7 September 2026 from the seeded console, plus the Arby sheet copied
+  from the help centre on 26 October 2026). Provenance is recorded in each
+  file's `.json` sidecar and in the header of `src/content/stages.ts`.
 - Real facts about the founders in `src/content/about.ts`: Ben's decade of
   weddings and Love Poets, Alex's seven years writing software, the
   Apr 2025 / Jun 2026 / Aug 2026 timeline, zero investors.
@@ -220,8 +222,9 @@ Absent. Do not fabricate:
 - Reduced motion is honoured globally: `prefers-reduced-motion` in
   `src/app/globals.css` stops the looping square animations, the category
   cycle and the count tallies.
-- Text on Acid and Cream is always Bottle or Ink; text on Bottle is Cream or
-  Acid. Hairlines are Ink at low opacity, never grey, so contrast holds.
+- Text on white and panel grounds is Ink and its secondary steps, which all
+  clear 4.5:1; text on Bottle is On dark or Sprout. Hairlines are Ink at low
+  opacity, never grey, so contrast holds.
 - `/bio` is built for one thumb and a bad signal: no nav, no footer, large
   targets, no horizontal scroll.
 - The stage rail is a list of real anchors with `aria-current`, so keyboard

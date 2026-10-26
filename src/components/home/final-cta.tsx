@@ -1,41 +1,37 @@
-import { ArbourA } from "@/components/wordmark";
 import { TrialLink } from "@/components/trial-link";
+import { Row } from "@/components/ui/row";
+import { Split } from "@/components/motion/split";
 import { TRIAL_DAYS } from "@/content/site";
 
 /**
- * The A is the only piece of geometry the brand owns and it appears at 26px in
- * the nav and nowhere else at size, so the page signs off with it: Bottle mark
- * on an Acid ground, flat and at full strength.
- *
- * It is xl only, sized and offset so it starts clear of the 16ch headline.
- * Bottle type over a Bottle mark is invisible, so if the copy grows, move the
- * mark, do not fade it.
+ * The close. The sheet turns Bottle from here to the foot of the page, the
+ * way the console floods a booking's header: the last headline in on-dark,
+ * hard left, and the one Sprout action on the page's final screen. Nothing
+ * else in the row; the footer under it carries the mark.
  */
 export function FinalCta() {
   return (
-    <section className="relative overflow-hidden bg-acid px-6 py-20 text-bottle sm:px-10 sm:py-24">
-      <div className="pointer-events-none absolute inset-0 hidden xl:block">
-        <div className="relative mx-auto h-full max-w-[1180px]">
-          <ArbourA className="absolute top-1/2 right-[-40px] h-[420px] w-auto -translate-y-1/2 text-bottle" />
-        </div>
-      </div>
-
-      <div className="relative mx-auto max-w-[1180px]">
-        <h2 className="m-0 max-w-[16ch] font-display text-[clamp(40px,8.5vw,88px)] leading-[0.86] font-extrabold tracking-[-0.04em] text-bottle">
-          Have the Saturday. We&rsquo;ll take the rest.
+    <Row band="bottle" labelledBy="close-title">
+      <div
+        data-reveal
+        className="px-5 pt-16 pb-14 sm:px-8 sm:pt-24 sm:pb-20 lg:px-12"
+      >
+        <h2
+          id="close-title"
+          className="headline m-0 max-w-[14ch] text-[clamp(2.5rem,1rem+5.4vw,5.5rem)] leading-[0.9] text-on-dark"
+        >
+          <Split text="Have the Saturday. We’ll take the rest." />
         </h2>
-
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-5 pt-8">
-          <TrialLink
-            variant="bottle"
-            size="lg"
-            className="hover:rotate-[-1.5deg]"
-          />
-          <span className="label-mono max-w-[34ch] leading-relaxed">
+        <div
+          className="reveal-rise mt-10 flex flex-wrap items-center gap-x-5 gap-y-3"
+          style={{ "--reveal-delay": "420ms" } as React.CSSProperties}
+        >
+          <TrialLink variant="sprout" size="lg" />
+          <span className="mono-label text-on-dark/70">
             {TRIAL_DAYS} days free · no card · one of us on support
           </span>
         </div>
       </div>
-    </section>
+    </Row>
   );
 }

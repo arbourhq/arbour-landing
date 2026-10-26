@@ -8,13 +8,19 @@ import {
 import { AttributionCapture } from "@/components/attribution-capture";
 import { MetaPixel } from "@/components/meta-pixel";
 import { RedditPixel } from "@/components/reddit-pixel";
+import { RevealObserver } from "@/components/motion/reveal-observer";
 import { SITE } from "@/content/site";
 import "./globals.css";
 
 // Bricolage is only ever set at 800. Instrument Sans carries 400/600.
 // Martian Mono is uppercase labels only, never body copy.
+//
+// Bricolage loads its optical size axis as well as weight. Headlines carry no
+// added letter spacing (the console's rule), and opsz is what tightens the
+// face at 44 to 160px; without it the display sizes set loose.
 const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
+  axes: ["opsz"],
   variable: "--font-bricolage",
   display: "swap",
 });
@@ -69,9 +75,21 @@ export default function RootLayout({
     <html
       lang="en-AU"
       className={`${bricolage.variable} ${instrument.variable} ${martian.variable}`}
+      // The inline script below adds data-js before hydration.
+      suppressHydrationWarning
     >
+      <head>
+        {/* Before first paint: reveals may hide what they are about to play,
+            because something is now here to play it. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "document.documentElement.dataset.js=''",
+          }}
+        />
+      </head>
       <body>
         {children}
+        <RevealObserver />
         <Analytics />
         <MetaPixel />
         <RedditPixel />
