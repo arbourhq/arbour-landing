@@ -118,103 +118,93 @@ export function SiteNav() {
     !href.includes("#") && pathname === href ? "page" : undefined;
 
   return (
-    <>
-      {/* Off screen until focused. Not the button recipe: its fixed height
-          would beat sr-only and hold an invisible 40px in the flow. */}
-      <a
-        href="#main"
-        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-[60] focus-visible:inline-flex focus-visible:h-10 focus-visible:items-center focus-visible:rounded-md focus-visible:bg-bottle focus-visible:px-4 focus-visible:text-ui focus-visible:font-semibold focus-visible:text-on-dark"
+    <div className="pointer-events-none fixed inset-x-0 top-(--nav-gap) z-50">
+      <nav
+        ref={bar}
+        aria-label="Main"
+        data-open={menuOpen}
+        className="sheet-frame pointer-events-auto relative overflow-hidden rounded-md border border-line bg-page shadow-lifted"
       >
-        Skip to content
-      </a>
-      <div className="pointer-events-none fixed inset-x-0 top-(--nav-gap) z-50">
-        <nav
-          ref={bar}
-          aria-label="Main"
-          data-open={menuOpen}
-          className="sheet-frame pointer-events-auto relative overflow-hidden rounded-md border border-line bg-page shadow-lifted"
-        >
-          <div className="flex h-14 items-center gap-6 pr-2 pl-4 sm:pl-5">
-            <Link
-              href="/"
-              aria-label="Arbour, home"
-              className="-mx-1 rounded-sm px-1 py-1.5"
-            >
-              <Wordmark title={null} className="text-title sm:text-section" />
-            </Link>
+        <div className="flex h-14 items-center gap-6 pr-2 pl-4 sm:pl-5">
+          <Link
+            href="/"
+            aria-label="Arbour, home"
+            className="-mx-1 rounded-sm px-1 py-1.5"
+          >
+            <Wordmark title={null} className="text-title sm:text-section" />
+          </Link>
 
-            <ul className="m-0 ml-auto hidden list-none items-center gap-1 p-0 lg:flex">
+          <ul className="m-0 ml-auto hidden list-none items-center gap-1 p-0 lg:flex">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  aria-current={current(link.href)}
+                  onClick={(event) => onNavClick(event, link.href)}
+                  className={LINK}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="ml-auto flex items-center gap-1.5 lg:ml-0">
+            <a
+              href={APP.signIn}
+              className={buttonClass("ghost", "sm", "max-sm:hidden")}
+            >
+              Log in
+            </a>
+            <TrialLink size="sm" className="max-[379px]:hidden" />
+            <button
+              type="button"
+              onClick={() => setMenuOpen((open) => !open)}
+              aria-expanded={menuOpen}
+              aria-controls="site-menu"
+              className={buttonClass("secondary", "sm", "lg:hidden")}
+            >
+              {menuOpen ? <X aria-hidden /> : <Menu aria-hidden />}
+              {menuOpen ? "Close" : "Menu"}
+            </button>
+          </div>
+        </div>
+
+        {menuOpen ? (
+          <div
+            id="site-menu"
+            className="animate-swap border-t border-line px-2 pt-2 pb-3 lg:hidden"
+          >
+            <ul className="m-0 grid list-none gap-0.5 p-0">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
                     aria-current={current(link.href)}
                     onClick={(event) => onNavClick(event, link.href)}
-                    className={LINK}
+                    className={`${LINK} h-11 w-full`}
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <a href={APP.signIn} className={`${LINK} h-11 w-full`}>
+                  Log in
+                </a>
+              </li>
             </ul>
-
-            <div className="ml-auto flex items-center gap-1.5 lg:ml-0">
-              <a
-                href={APP.signIn}
-                className={buttonClass("ghost", "sm", "max-sm:hidden")}
-              >
-                Log in
-              </a>
-              <TrialLink size="sm" className="max-[379px]:hidden" />
-              <button
-                type="button"
-                onClick={() => setMenuOpen((open) => !open)}
-                aria-expanded={menuOpen}
-                aria-controls="site-menu"
-                className={buttonClass("secondary", "sm", "lg:hidden")}
-              >
-                {menuOpen ? <X aria-hidden /> : <Menu aria-hidden />}
-                {menuOpen ? "Close" : "Menu"}
-              </button>
-            </div>
+            {/* The bar already carries the trial from 380px up. */}
+            <TrialLink size="md" className="mt-2 w-full min-[380px]:hidden" />
           </div>
+        ) : null}
 
-          {menuOpen ? (
-            <div
-              id="site-menu"
-              className="animate-swap border-t border-line px-2 pt-2 pb-3 lg:hidden"
-            >
-              <ul className="m-0 grid list-none gap-0.5 p-0">
-                {NAV_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      aria-current={current(link.href)}
-                      onClick={(event) => onNavClick(event, link.href)}
-                      className={`${LINK} h-11 w-full`}
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <a href={APP.signIn} className={`${LINK} h-11 w-full`}>
-                    Log in
-                  </a>
-                </li>
-              </ul>
-              {/* The bar already carries the trial from 380px up. */}
-              <TrialLink size="md" className="mt-2 w-full min-[380px]:hidden" />
-            </div>
-          ) : null}
-
-          <span
-            ref={progress}
-            aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-sprout"
-          />
-        </nav>
-      </div>
-    </>
+        <span
+          ref={progress}
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-sprout"
+        />
+      </nav>
+    </div>
   );
 }
