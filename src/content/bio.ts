@@ -65,8 +65,8 @@ export const BIO_LINKS: BioLink[] = [
 export const SOCIALS = [
   {
     name: "Instagram",
-    handle: "@usearbour",
-    href: "https://www.instagram.com/usearbour",
+    handle: "@arbourcrm",
+    href: "https://www.instagram.com/arbourcrm",
   },
   {
     name: "TikTok",
