@@ -1,3 +1,11 @@
+/*
+ * Arby Help, drawn as the console draws its Arby sheet: floating chrome (a
+ * white panel, a Line border, 6px corners and the lifted shadow, the one
+ * kind of object allowed to blur), the Bottle square mark beside a Bricolage
+ * title, starter questions as bordered rows, the reader's own words in a
+ * sunken Panel bubble and the reply as plain column text, and the console's
+ * composer at the foot. Its top edge is Arby's perch while it is open.
+ */
 .arby-help {
   position: fixed;
   z-index: 60;
@@ -6,19 +14,21 @@
   top: auto;
   margin: 0;
   padding: 0;
-  border: 0;
   max-width: none;
   bottom: calc(
     max(24px, env(safe-area-inset-bottom)) + var(--help-keyboard-inset, 0px)
   );
   display: flex;
   flex-direction: column;
-  width: min(390px, calc(100vw - 24px));
+  width: min(400px, calc(100vw - 24px));
   height: min(660px, calc(var(--help-viewport-height, 100dvh) - 180px));
-  color: var(--color-ink);
-  background: var(--color-cream);
-  box-shadow: inset 0 0 0 1px var(--color-bottle);
-  animation: arby-help-open 280ms var(--ease-standard);
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--page);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lifted);
+  animation: arby-help-open var(--duration-pop) var(--curve-glide);
 }
 .arby-help[hidden] {
   display: none;
@@ -26,37 +36,49 @@
 @keyframes arby-help-open {
   from {
     opacity: 0;
-    clip-path: inset(0 0 100% 0);
+    transform: translateY(12px) scale(0.98);
   }
   to {
     opacity: 1;
-    clip-path: inset(0);
+    transform: none;
   }
 }
+
 .arby-help-header {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 20px;
-  border-top: 2px solid var(--color-acid);
-  background: var(--color-bottle);
-  color: var(--color-cream);
+  gap: 12px;
+  padding: 18px 16px 14px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.arby-help-mark {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--bottle);
+}
+.arby-help-header > div {
+  min-width: 0;
+  flex: 1;
 }
 .arby-help-header h2 {
   margin: 0;
-  font: 800 28px/1 var(--font-display);
-  letter-spacing: -0.04em;
-  color: var(--color-acid);
+  font: 800 1.25rem/1.05 var(--face-display);
+  color: var(--ink);
 }
 .arby-help-header p {
-  margin: 8px 0 0;
-  font-size: 13px;
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ink-secondary);
 }
 .arby-help button {
   cursor: pointer;
-  border-radius: 0;
+  font: inherit;
 }
 .arby-help button:disabled {
   cursor: default;
@@ -64,102 +86,133 @@
 .arby-help-close {
   display: grid;
   place-items: center;
-  min-width: 44px;
-  min-height: 44px;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
   background: transparent;
-  color: var(--color-cream);
-  border: 1px solid rgb(255 251 239 / 0.35);
+  color: var(--ink-secondary);
+  transition: background-color var(--duration-base) ease-out;
+}
+.arby-help-close svg {
+  width: 18px;
+  height: 18px;
 }
 .arby-help-close:hover {
-  background: var(--color-bottle-deep);
+  background: var(--panel);
+  color: var(--ink);
 }
-.arby-help-close:focus-visible {
-  outline-color: var(--color-acid);
-}
+
 .arby-help-log {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 24px 20px;
-  scrollbar-color: var(--color-bottle) var(--color-cream-sunken);
-  scrollbar-width: thin;
+  padding: 20px;
 }
 .arby-help-welcome h3 {
-  margin: 0 0 12px;
-  font: 800 24px/1.05 var(--font-display);
-  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+  font: 800 1.0625rem/1.2 var(--face-display);
 }
 .arby-help-welcome p {
-  margin: 0 0 12px;
-  font-size: 15px;
+  margin: 0 0 8px;
+  font-size: 0.9375rem;
   line-height: 1.5;
+  color: var(--ink-secondary);
 }
 .arby-help-welcome .arby-help-note {
-  font-size: 13px;
+  font-size: 0.8125rem;
+  color: var(--ink-muted);
 }
 .arby-help-starters {
-  margin-top: 24px;
-  border-top: 1px solid rgb(15 42 30 / 0.24);
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
 }
 .arby-help-starters button {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
   width: 100%;
-  min-height: 48px;
-  padding: 12px 0;
-  border: 0;
-  border-bottom: 1px solid rgb(15 42 30 / 0.24);
-  background: transparent;
-  color: var(--color-bottle);
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius);
+  background: var(--page);
+  color: var(--ink);
   text-align: left;
-  font-size: 14px;
+  font-size: 0.875rem;
+  transition:
+    background-color var(--duration-base) ease-out,
+    border-color var(--duration-base) ease-out;
 }
 .arby-help-starters button:hover {
-  background: var(--color-acid-wash);
+  border-color: var(--border-input-hover);
+  background: var(--panel);
 }
+
+/* The reply is the column's content; the reader's words sit back in a
+   sunken bubble short of the full width, so the two voices differ by shape. */
 .arby-help-message {
-  margin-top: 24px;
-  padding-top: 16px;
-  border-top: 1px solid rgb(15 42 30 / 0.24);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 20px;
+}
+.arby-help-message .mono-label {
+  color: var(--ink-muted);
 }
 .arby-help-message[data-role="user"] {
-  padding: 14px 16px;
-  border: 0;
-  background: var(--color-bottle-wash);
+  align-items: flex-end;
 }
 .arby-help-message p {
-  margin: 8px 0 0;
+  margin: 0;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
+.arby-help-message[data-role="user"] p {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+/* Thinking: the Bottle square squashes and pops, as the console's does. */
 .arby-help-pending {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 24px 0 0;
-  font-size: 14px;
+  margin: 20px 0 0;
+  font-size: 0.875rem;
+  color: var(--ink-secondary);
 }
 .arby-help-pending span {
-  width: 8px;
-  height: 8px;
-  background: var(--color-bottle);
-  animation: arby-help-thinking 1s ease-in-out infinite alternate;
+  width: 10px;
+  height: 10px;
+  background: var(--bottle);
+  animation: arby-help-thinking var(--duration-pop) var(--curve-overshoot)
+    infinite alternate;
 }
 @keyframes arby-help-thinking {
+  from {
+    transform: scale(1, 1);
+  }
   to {
-    opacity: 0.35;
+    transform: scale(1.12, 0.86);
   }
 }
+
 .arby-help-error {
   margin-top: 20px;
-  padding: 16px;
-  background: var(--color-coral-wash);
-  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgb(255 68 56 / 0.4);
+  border-radius: var(--radius);
+  background: var(--coral-wash);
+  color: var(--coral-ink);
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 .arby-help-error p {
@@ -170,55 +223,86 @@
   padding: 8px 12px 8px 0;
   border: 0;
   background: transparent;
+  color: var(--coral-ink);
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }
+
+/* One field, not a field with a button parked under it: the border belongs
+   to the whole composer and lights up whatever inside it has focus. */
 .arby-help-composer {
   display: flex;
-  align-items: stretch;
+  align-items: flex-end;
+  gap: 4px;
   margin: 0 16px;
-  box-shadow: inset 0 0 0 1px var(--color-bottle);
-  background: var(--color-cream-sunken);
+  padding: 6px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius);
+  background: var(--page);
+  transition:
+    border-color var(--duration-base) ease-out,
+    box-shadow var(--duration-base) ease-out;
+}
+.arby-help-composer:hover {
+  border-color: var(--border-input-hover);
+}
+.arby-help-composer:focus-within {
+  border-color: var(--bottle);
+  box-shadow: 0 0 0 3px rgba(11, 64, 48, 0.3);
 }
 .arby-help-composer textarea {
   width: 100%;
   min-width: 0;
   resize: none;
   border: 0;
-  padding: 12px;
+  padding: 6px 8px;
   background: transparent;
-  color: var(--color-ink);
-  caret-color: var(--color-bottle);
+  color: var(--ink);
+  caret-color: var(--bottle);
   font: inherit;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
 }
-.arby-help-composer textarea::placeholder {
-  color: var(--color-bottle);
-  opacity: 0.8;
+.arby-help-composer textarea:focus-visible {
+  outline: none;
 }
 .arby-help-composer button {
-  margin: 6px;
-  align-self: flex-end;
-  min-height: 44px;
-  padding: 10px 16px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: 0;
-  background: var(--color-acid);
-  color: var(--color-bottle);
-  font-weight: 600;
-  box-shadow: inset 0 -3px 0 rgb(11 64 48 / 0.25);
+  border-radius: var(--radius);
+  background: var(--bottle);
+  color: var(--on-dark);
+  box-shadow: var(--depth-button);
+  transition: transform var(--duration-pop) var(--curve-overshoot);
+}
+.arby-help-composer button svg {
+  width: 16px;
+  height: 16px;
+}
+.arby-help-composer button:not(:disabled):hover {
+  transform: translateY(-3px);
 }
 .arby-help-composer button:disabled {
-  background: var(--color-cream-inset);
+  border: 1px solid var(--border-input);
+  background: var(--panel);
+  color: var(--ink-faint);
   box-shadow: none;
 }
+
 .arby-help-footer {
-  padding: 12px 20px 8px;
+  padding: 10px 20px 6px;
 }
 .arby-help-footer p {
   margin: 0;
-  font-size: 11px;
-  line-height: 1.5;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ink-muted);
 }
 .arby-help-footer div {
   display: flex;
@@ -230,18 +314,29 @@
 .arby-help-footer button {
   display: inline-flex;
   align-items: center;
+  gap: 4px;
   min-height: 44px;
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--color-bottle);
-  font-size: 12px;
+  color: var(--bottle);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+.arby-help-footer a:hover,
+.arby-help-footer button:hover {
   text-decoration: underline;
-  text-underline-offset: 3px;
+}
+.arby-help-footer svg {
+  width: 14px;
+  height: 14px;
 }
 .arby-help-footer button {
   margin-left: auto;
 }
+
 @media (max-width: 639px) {
   .arby-help {
     right: 12px;
@@ -251,10 +346,10 @@
     height: min(640px, calc(var(--help-viewport-height, 100dvh) - 160px));
   }
   .arby-help-header {
-    padding: 16px;
+    padding: 14px 12px 12px 16px;
   }
   .arby-help-log {
-    padding: 20px 16px;
+    padding: 16px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -268,7 +363,7 @@
   height: calc(var(--help-viewport-height, 100dvh) - 92px);
 }
 .arby-help[data-compact="true"] .arby-help-header {
-  padding: 8px 16px;
+  padding-block: 8px;
 }
 .arby-help[data-compact="true"] .arby-help-header p {
   display: none;

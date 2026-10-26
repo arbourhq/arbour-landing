@@ -1,389 +1,413 @@
 ---
 name: Arbour marketing site
-description: The loud half of "loud brand, quiet product": a pipeline board read top to bottom in Bottle, Acid and Cream floods, letterpress depth, overshoot motion.
+description: The site for the wedding industry CRM, drawn in the console's own register as one ruled sheet.
 colors:
   bottle: "#0b4030"
-  bottle-deep: "#083023"
   bottle-ink: "#052117"
-  acid: "#c6ff3d"
-  acid-wash: "#f0ffce"
-  cream: "#fffbef"
-  cream-sunken: "#f6f0dc"
-  ink: "#0f2a1e"
+  bottle-wash: "#e9f1eb"
+  sprout: "#9fe870"
+  sprout-ink: "#2a5a1d"
+  sprout-wash: "#eafadd"
   cornflower: "#4e6df5"
-  cornflower-deep: "#3a57dc"
+  cornflower-ink: "#2438a8"
+  cornflower-wash: "#e7ebfe"
   lilac: "#b9a7ff"
   coral: "#ff4438"
+  coral-ink: "#9e1d14"
   coral-wash: "#ffe5e2"
-  app: "#f4f4f1"
-  bottle-wash: "#e9f1eb"
+  ochre-ink: "#7a5510"
+  ochre-wash: "#fbf1d6"
+  page: "#ffffff"
+  panel: "#f5f6f2"
+  panel-hover: "#edeee9"
+  line: "#efefec"
+  track: "#ddded8"
+  ink: "#17211b"
+  ink-secondary: "#57574f"
+  ink-muted: "#61615a"
+  ink-faint: "#6a6a62"
+  on-dark: "#f4f4f0"
+  border-default: "rgba(23, 33, 27, 0.1)"
+  border-input: "rgba(23, 33, 27, 0.12)"
+  border-input-hover: "rgba(23, 33, 27, 0.28)"
+  mark: "rgba(23, 33, 27, 0.5)"
+  focus: "rgba(11, 64, 48, 0.55)"
 typography:
-  display:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
-    fontSize: "clamp(34px, 8.4vw, 96px)"
+  statement:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(3.5rem, 0.25rem + 8.6vw, 8rem)"
+    fontWeight: 800
+    lineHeight: 0.85
+    letterSpacing: "normal"
+  hero:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.25rem, 0.9rem + 5.6vw, 6rem)"
     fontWeight: 800
     lineHeight: 0.92
-    letterSpacing: "-0.045em"
-  statement:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
-    fontSize: "clamp(40px, 8.5vw, 88px)"
+    letterSpacing: "normal"
+  readout:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(3.25rem, 1.5rem + 4.6vw, 6rem)"
     fontWeight: 800
-    lineHeight: 0.86
-    letterSpacing: "-0.04em"
-  numeral:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
-    fontSize: "clamp(56px, 9vw, 120px)"
-    fontWeight: 800
-    lineHeight: 0.8
-    letterSpacing: "-0.05em"
-  headline:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
-    fontSize: "clamp(32px, 6vw, 60px)"
+    lineHeight: 0.85
+    letterSpacing: "normal"
+  close:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2.5rem, 1rem + 5.4vw, 5.5rem)"
     fontWeight: 800
     lineHeight: 0.9
-    letterSpacing: "-0.04em"
-  title:
-    fontFamily: "Bricolage Grotesque, system-ui, sans-serif"
-    fontSize: "24px"
+    letterSpacing: "normal"
+  headline:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(2rem, 1.25rem + 2.6vw, 3.5rem)"
     fontWeight: 800
-    lineHeight: 1
-    letterSpacing: "-0.03em"
+    lineHeight: 0.95
+    letterSpacing: "normal"
+  stage:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(1.75rem, 1.1rem + 2vw, 2.75rem)"
+    fontWeight: 800
+    lineHeight: 0.95
+    letterSpacing: "normal"
+  page-title:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "2rem"
+    fontWeight: 800
+    lineHeight: 0.95
+  section:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 800
+    lineHeight: 1.05
+  title:
+    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 800
+    lineHeight: 1.05
   lead:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
-    fontSize: "17px"
+    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.0625rem"
     fontWeight: 400
-    lineHeight: 1.625
+    lineHeight: 1.5
   body:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
-    fontSize: "15px"
+    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.9375rem"
     fontWeight: 400
-    lineHeight: 1.625
+    lineHeight: 1.5
   ui:
-    fontFamily: "Instrument Sans, system-ui, sans-serif"
-    fontSize: "15px"
+    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.875rem"
     fontWeight: 600
-    lineHeight: 1.375
-  label:
+    lineHeight: 1.4
+  caption:
+    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "0.75rem"
+    fontWeight: 400
+    lineHeight: 1.4
+  mono-eyebrow:
     fontFamily: "Martian Mono, ui-monospace, monospace"
-    fontSize: "9px"
+    fontSize: "0.6875rem"
+    fontWeight: 400
+    lineHeight: 1.4
+    letterSpacing: "0.14em"
+  mono-label:
+    fontFamily: "Martian Mono, ui-monospace, monospace"
+    fontSize: "0.5625rem"
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: "0.16em"
-  eyebrow:
-    fontFamily: "Martian Mono, ui-monospace, monospace"
-    fontSize: "10px"
-    fontWeight: 400
-    lineHeight: 1.4
-    letterSpacing: "0.2em"
 rounded:
-  none: "0px"
+  tiny: "2px"
+  small: "4px"
+  base: "6px"
+  dot: "9999px"
 spacing:
-  cell: "12px"
-  stack: "20px"
-  gutter: "24px"
-  gutter-wide: "40px"
-  row: "28px"
-  column-gap: "48px"
-  section: "80px"
-  section-wide: "96px"
-  container: "1180px"
+  gutter-phone: "20px"
+  gutter-tablet: "32px"
+  gutter-desktop: "48px"
+  row-top-phone: "64px"
+  row-top: "96px"
+  row-foot-phone: "40px"
+  row-foot: "48px"
+  cell: "40px"
+  sheet-max: "1280px"
+  nav-gap: "12px"
+  nav-height: "56px"
+  strip-height: "48px"
 components:
-  button-acid:
-    backgroundColor: "{colors.acid}"
+  button-sprout:
+    backgroundColor: "{colors.sprout}"
     textColor: "{colors.bottle}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "16px 24px"
-  button-acid-xl:
-    backgroundColor: "{colors.acid}"
-    textColor: "{colors.bottle}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "24px 36px"
-  button-bottle:
-    backgroundColor: "{colors.bottle}"
-    textColor: "{colors.acid}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "16px 24px"
-  button-outline-acid:
-    backgroundColor: "transparent"
-    textColor: "{colors.acid}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "16px 24px"
-  button-outline-bottle:
-    backgroundColor: "transparent"
-    textColor: "{colors.bottle}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "16px 24px"
-  button-cream:
-    backgroundColor: "{colors.cream}"
-    textColor: "{colors.cornflower}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "16px 24px"
-  chip-cell:
-    backgroundColor: "{colors.cream}"
-    textColor: "{colors.bottle}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "12px 16px"
-    height: "56px"
-  mascot-panel:
-    backgroundColor: "{colors.bottle-wash}"
-    rounded: "{rounded.none}"
-    padding: "4px 16px 0"
-  chip-cell-selected:
-    backgroundColor: "{colors.bottle}"
-    textColor: "{colors.acid}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "12px 16px"
-    height: "56px"
-  rail-cell:
-    backgroundColor: "{colors.acid}"
-    textColor: "{colors.bottle}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "0 16px"
-    height: "64px"
-  rail-cell-active:
-    backgroundColor: "{colors.bottle}"
-    textColor: "{colors.acid}"
-    typography: "{typography.ui}"
-    rounded: "{rounded.none}"
-    padding: "0 16px"
-    height: "64px"
-  field:
-    backgroundColor: "{colors.acid-wash}"
-    textColor: "{colors.ink}"
-    typography: "{typography.lead}"
-    rounded: "{rounded.none}"
-    padding: "16px 18px"
-  ledger-row:
-    backgroundColor: "{colors.cream}"
-    textColor: "{colors.ink}"
     typography: "{typography.body}"
-    rounded: "{rounded.none}"
-    padding: "20px 12px"
-  capture-frame:
-    backgroundColor: "{colors.app}"
-    rounded: "{rounded.none}"
-    padding: "2px"
+    rounded: "{rounded.base}"
+    height: "48px"
+    padding: "0 22px"
+  button-primary:
+    backgroundColor: "{colors.bottle}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.ui}"
+    rounded: "{rounded.base}"
+    height: "40px"
+    padding: "0 16px"
+  button-secondary:
+    backgroundColor: "{colors.page}"
+    textColor: "{colors.ink}"
+    typography: "{typography.ui}"
+    rounded: "{rounded.base}"
+    height: "40px"
+    padding: "0 16px"
+  button-secondary-hover:
+    backgroundColor: "{colors.panel}"
+  button-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.bottle}"
+    rounded: "{rounded.base}"
+    height: "36px"
+    padding: "0 14px"
+  button-ghost-hover:
+    backgroundColor: "{colors.panel}"
+  button-on-dark:
+    backgroundColor: "rgba(244, 244, 240, 0.1)"
+    textColor: "{colors.on-dark}"
+    rounded: "{rounded.base}"
+    height: "40px"
+    padding: "0 16px"
+  input-field:
+    backgroundColor: "{colors.page}"
+    textColor: "{colors.ink}"
+    typography: "{typography.ui}"
+    rounded: "{rounded.base}"
+    height: "44px"
+    padding: "0 14px"
+  nav-bar:
+    backgroundColor: "{colors.page}"
+    rounded: "{rounded.base}"
+    height: "{spacing.nav-height}"
+  nav-link-current:
+    backgroundColor: "{colors.bottle}"
+    textColor: "{colors.on-dark}"
+    rounded: "{rounded.small}"
+    height: "36px"
+  stage-strip:
+    backgroundColor: "{colors.page}"
+    rounded: "{rounded.base}"
+    height: "{spacing.strip-height}"
+  stage-chip-current:
+    backgroundColor: "{colors.bottle}"
+    textColor: "{colors.on-dark}"
+    typography: "{typography.mono-eyebrow}"
+    rounded: "{rounded.small}"
+  badge-enterprise:
+    backgroundColor: "{colors.cornflower-wash}"
+    textColor: "{colors.cornflower-ink}"
+    typography: "{typography.mono-label}"
+    rounded: "{rounded.small}"
+    padding: "6px 8px"
+  claim-pointing:
+    backgroundColor: "{colors.sprout-wash}"
+    padding: "24px 32px"
+  capture-cell:
+    backgroundColor: "{colors.panel}"
+    rounded: "{rounded.base}"
+    padding: "32px"
+  segmented-thumb:
+    backgroundColor: "{colors.page}"
+    textColor: "{colors.ink}"
+    typography: "{typography.ui}"
+    rounded: "{rounded.small}"
+    padding: "8px 14px"
 ---
 
 # Design System: Arbour marketing site
 
-## Arby Help
-
-The home-page support panel extends the existing brand with a Bottle header,
-Cream conversation area, Acid controls and square corners. Its top Acid rule is
-Arby's temporary perch. The same companion lands there when opened and resumes
-page flight only after the panel closes. Reduced motion uses direct placement.
-The chat is non-modal so the visitor can keep reading the page. Its independent
-scroll area, composer and founder-contact links stay inside the visual viewport.
-Use the existing 13px dense-copy and 11px micro-copy steps from `docs/brand.md`;
-the question field is 16px to avoid mobile focus zoom. Inset button edges follow
-the site's letterpress treatment. This is the AI product-help chat, distinct
-from the account-aware assistant inside Arbour.
-
 ## Overview
 
-**Creative North Star: "The Board"**
+**Creative North Star: "The Ruled Sheet"**
 
-The site is a pipeline board read top to bottom. Every section is a whole colour, edge to edge, and no two neighbours share a ground: Bottle, Acid, Cream and Cream sunken take turns, with Cornflower, Lilac and Coral admitted one at a time as a single stage's accent. Inside each flood a real capture of the console sits in a two-pixel square frame, and everything else is type and hairlines. There are no cards. The layout work is done by rules, butted cells and oversized numerals, and the reader always knows which stage they are on because the sticky rail says so. The hero is headline, one lead and one button at natural height, and the stage rail sits straight under it: five 64px Acid cells as the board's column headers, which then stick under the nav for the length of the five stages, so the page reads headline, ask, board.
+The site is one printed run sheet, nav to footer, set in the console's own register. Every section is a full-bleed row whose top rule crosses the window; inside it the sheet is a single column whose two side rules run unbroken from the top of the window to the foot of the page, with a small ink registration cross wherever a row rule meets a column rule. Cells butt against each other inside that column and draw their own hairlines, so a claim always sits in a cell beside the real console screen that proves it.
 
-This is the loud half of "loud brand, quiet product". Bricolage Grotesque at 800 is set hard left and tightened to -0.04em; the biggest word on the page is a control (the category slab inside the h1) rather than an ornament. Depth is letterpress: filled buttons carry an inset bottom edge, panels sit inside an inset hairline ring, the active rail cell has an inset edge in its stage's accent. Nothing floats on a blurred shadow. Motion is short and slightly cartoon: one overshoot curve at 260 to 320ms, hovers that lift a few pixels and tilt a degree, one small square per section that pops, drops or squashes on a loop.
+The register is the software's, deliberately. White page, grey-green Panel cells, near-black Ink, Bottle for structure and one lit Sprout action per view. Corners are 6px, buttons carry a letterpress bottom edge, and only floating chrome casts a shadow. A visitor should finish the page thinking "that is my console", because the tokens here are the console kit's own (arbour/packages/ui/src/styles/globals.css) and the site only adds what a long marketing page needs: fluid display steps, the ruled sheet, the stage strip and the capture frame.
 
-Confirmed rejections, all evidenced by the build: no gradients, no blurred drop shadows, no rounded corners on marketing surfaces, no grey borders, no Sprout outside a product capture, no em dashes in copy, no emoji, no glyph icon sets (the only icons are two hand-drawn 16px strokes: a plus and an outbound arrow).
+The world refuses the feature-card grid and the retired marketing look (Acid, Cream floods, square corners, the Acid stage rail). Colour arrives in whole rows or cells, never as tinted cards on white.
 
 **Key Characteristics:**
-- Whole-section colour floods that alternate Bottle / Acid / Cream / Cream sunken, never two alike in a row.
-- One accent per stage (Cornflower, Lilac, Acid, Coral), carried by the square beside the numeral, the rail's active edge and the caption mark.
-- Bricolage Grotesque 800 hard left at -0.04em; Instrument Sans body at 15px; Martian Mono uppercase labels at 9px.
-- Letterpress depth: inset bottom edges and inset hairline rings, drawn with box-shadow, never blur.
-- Hairline ledgers instead of cards: rows separated by Ink at 0.20 alpha, flooding Acid on hover.
-- Square everything, including the scrollbar, the selection highlight and the focus ring; nothing sits off axis at rest, rotation is a hover.
-- Overshoot motion, cubic-bezier(.34,1.8,.45,1), 200 to 320ms, lifts of 2 to 8px with a degree or so of rotate.
+- One continuous ruled column, 1280px maximum, with registration marks at every crossing.
+- White by default; Panel for sunken cells; Bottle only for the close.
+- Bricolage 800 hard left at fluid sizes, with optical size doing the tightening.
+- Martian Mono as a small uppercase label voice: captions, field labels, indices, block heads.
+- Real screens as proof, with claims that point at measured regions of them.
+- 6px corners, letterpress depth on content, blur only on floating chrome.
 
 ## Colors
 
-Three grounds and one ink do almost all of the work; three chromatic accents appear one at a time, and each has a deep or wash step for when contrast demands it.
+A neutral console palette with one structural green, one lit green, and status colours that never decorate.
 
 ### Primary
-- **Bottle** (`bottle`): the house green. Nav bar, hero, stages 02 and 05, pricing and footer flood with it; on light grounds it is the filled button, the selected chip, the capture frame border and the display numeral. **Bottle deep** is the hover step (scrollbar thumb, category list rows) and **Bottle ink** is the deepest: the category popover and the active scrollbar thumb.
-- **Acid** (`acid`): the marketing green and the site's only loud colour. It floods the stage rail, stage 03, the automation section and the final CTA; on Bottle it is every headline, every label and every primary button; on Cream it is the hover flood of every ledger row and chip. **Acid wash** is the form field ground.
+- **Bottle** (`{colors.bottle}`): structure. The default solid button, the current nav link, the current stage chip, stage numbers, the pressed crosshair, the Arby mark square, and the Bottle band that floods the close and the footer.
+- **Bottle Ink** (`{colors.bottle-ink}`): hover on Bottle text links.
+- **Bottle Wash** (`{colors.bottle-wash}`): the ground for Arby placements that need one.
 
 ### Secondary
-- **Cornflower** (`cornflower`): stage 01's accent and the enterprise colour. Its square sits beside the "01" numeral and its edge under the active rail cell. **Cornflower deep** carries Cream text at 5.7:1 for the Enterprise badge, because Cream on plain Cornflower is only 4.2:1.
-- **Lilac** (`lilac`): stage 02's accent, the tentative colour. Numeral square and rail edge only.
-- **Coral** (`coral`): stage 04's accent and the error colour. Numeral square, rail edge, the recording dot on About, and the 1.5px inset ring on the contact form's error panel, whose ground is **Coral wash**.
+- **Sprout** (`{colors.sprout}`): the one lit thing. The trial button, the reading-progress line under the nav, passed stage dots and their joining hairlines, the playing caption leaf, and the rings round claim regions on a capture.
+- **Sprout Ink** (`{colors.sprout-ink}`): check marks in plan feature lists and text on Sprout Wash.
+- **Sprout Wash** (`{colors.sprout-wash}`): the console's selected-row wash; a claim cell while it points, a success badge, text selection.
+
+### Tertiary
+- **Cornflower** (`{colors.cornflower}`), **Cornflower Ink** and **Wash**: enterprise and info. The House plan's Enterprise badge, info badges in the Needs you fragment, a category leaf.
+- **Lilac** (`{colors.lilac}`): a category leaf; tentative state in illustrative product fragments.
+- **Coral** (`{colors.coral}`), **Coral Ink**, **Coral Wash**: danger only. Form errors and overdue badges.
+- **Ochre Ink** and **Ochre Wash** (`{colors.ochre-wash}`): warning badges only.
 
 ### Neutral
-- **Cream** (`cream`): the page ground and the ground of stages 01 and 04's neighbours, the FAQ and the vendor section. On Bottle it is body copy at 0.60 to 0.85 alpha (the hero lead sits at 0.85).
-- **Cream sunken** (`cream-sunken`): stage 04's flood, the "More at sign-up" cell and the scrollbar channel. The one step down from Cream when two light sections would otherwise touch.
-- **Ink** (`ink`): all text on light grounds, and every hairline on them at 0.15 to 0.25 alpha. Body copy on Cream runs Ink at 0.75 to 0.80 alpha, labels at 0.65.
-- **App** (`app`): the neutral in-product ground, legal only as the fill behind a product capture while it loads.
+- **Page** (`{colors.page}`): the ground everywhere, and the raised plan cells inside the Panel band.
+- **Panel** (`{colors.panel}`): sunken cells (the capture cell, the hero pipeline cell), the pricing band, segmented tracks, hover on secondary and ghost controls. **Panel Hover** (`{colors.panel-hover}`) is hover on Panel and the segmented track.
+- **Line** (`{colors.line}`): the opaque hairline. Every rule, divider and the sheet's column rules.
+- **Track** (`{colors.track}`): idle leaves and dots.
+- **Ink** (`{colors.ink}`), **Ink Secondary** (`{colors.ink-secondary}`), **Ink Muted** (`{colors.ink-muted}`), **Ink Faint** (`{colors.ink-faint}`): text, body under a title, mono labels and meta, placeholders and unpassed stage dots.
+- **On Dark** (`{colors.on-dark}`): text on Bottle, at full strength for headlines and 60 to 75% for body and labels.
+- **Borders** (`{colors.border-default}`, `{colors.border-input}`, `{colors.border-input-hover}`): translucent Ink, never a grey hex. Default frames captures and panels; input frames fields and secondary buttons.
+- **Mark** (`{colors.mark}`): the registration crosses on white rows.
+- **Focus** (`{colors.focus}`): the focus outline. Bottle at 55%, where the kit uses 30%, because the lighter ring falls under 3:1 on white.
 
 ### Named Rules
-**The Acid Sells, Sprout Runs Rule.** Sprout (#9fe870) is the product's action colour and appears on this site only inside a product capture. It is defined in the theme and used in zero lines of markup; keep it that way.
+**The One Lit Action Rule.** Sprout marks the single thing to do next in any view: the trial button. Every other button is Bottle, secondary or ghost. Two Sprout buttons in one view means there is no headline action.
 
-**The No Two Alike Rule.** Adjacent sections never share a ground. The home page runs Bottle, Acid (rail), Cream, Bottle, Acid, Cream sunken, Bottle, Acid, Cream, Bottle, Cream, Acid, Bottle. When two light sections would touch, the second drops to Cream sunken.
+**The Status Is Not Decoration Rule.** Coral and Ochre speak only for danger and warning. Category leaves use Bottle, Sprout, Cornflower and Lilac only.
 
-**The One Accent Rule.** A stage gets exactly one of Cornflower, Lilac, Acid or Coral, and it appears in exactly three places: the square beside the numeral, the inset edge under the active rail cell, and the mark before the capture caption. On an Acid ground the square and the mark turn Bottle.
+**The Bottle Close Rule.** The Bottle band is reserved for the close: the final call to action and the footer under it. Inside a Bottle band the rules turn On Dark at 14%, the marks On Dark at 60%, and the focus ring Sprout at 70%.
 
-**The Ink Hairline Rule.** Rules and dividers are Ink on light grounds and Cream or Acid on Bottle, always at low alpha (0.15 subtle, 0.20 default, 0.25 for dashed sub-rules and butted-cell grout). Never a grey.
+**The One Panel Band Rule.** Pricing is the one full Panel band on the home page. Elsewhere Panel lives in cells, not rows.
+
+**The No Acid, No Cream Rule.** Acid and Cream are print and social colours. Neither appears on a screen; Acid survives only as the A on the app icon.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque (with system-ui, sans-serif)
-**Body Font:** Instrument Sans (with system-ui, sans-serif)
-**Label/Mono Font:** Martian Mono (with ui-monospace, monospace)
+**Display Font:** Bricolage Grotesque (with ui-sans-serif, system-ui), loaded with its `opsz` axis.
+**Body Font:** Instrument Sans (with ui-sans-serif, system-ui).
+**Label/Mono Font:** Martian Mono (with ui-monospace).
 
-**Character:** Bricolage at 800 and tight tracking is the whole personality: chunky, confident, set hard left and often the biggest object on screen. Instrument Sans sits underneath it at reading sizes with generous leading, and Martian Mono in small caps-height uppercase handles every label, index and meta line without ever becoming body copy.
+**Character:** A heavy, slightly quirky grotesque that the optical size axis tightens at display sizes, over a plain, even sans for reading, with a wide mono doing the small print of a run sheet.
 
 ### Hierarchy
-- **Display** (800, clamp(34px, 8.4vw, 96px), 0.92, -0.045em): the home h1 only, run across the full container width as a flex-wrap row of four nowrap groups with the Acid category slab inside the last. The floor is set by the longest category name on a 375px phone; the cap is 96px, which at 1440 sets the h1 as two lines with the rail and the start of stage 01 still inside a 900px viewport.
-- **Statement** (800, clamp(40px, 8.5vw, 88px), 0.86): the final CTA and secondary-page h1s (which run to clamp(40px, 9vw, 104px) and 112px at -0.05em).
-- **Numeral** (800, clamp(56px, 9vw, 120px), 0.8, -0.05em, tabular): the stage index, "01" to "05". It is the same numeral the rail carries, not decoration. Prices use the same face at clamp(44px, 6vw, 60px). A count is always a numeral, never label-mono.
-- **Headline** (800, clamp(32px, 6vw, 60px), 0.9): every section h2, max-width 16 to 22ch, `text-balance`.
-- **Title** (800, 24px, 1, -0.03em): ledger row titles, footer tagline, contact facts (22px). Between 22 and 30px tracking eases to -0.03em.
-- **Lead** (400, 17px, 1.625; 19px from sm): the paragraph beside or under a headline, 44 to 52ch (44ch in the hero, Cream at 0.85).
-- **Body** (400, 15px, 1.625): the default reading size, 29 call sites. Ledger facts, tier copy, footer copy, 30 to 58ch.
-- **UI** (600, 15px, 1.375): buttons, rail and chip labels, stage names, FAQ questions (17 to 20px).
-- **Dense** (400, 13px, 1.375): the automation panel's When / Then lines.
-- **Label** (400, 9px, 0.16em, UPPERCASE): the `label-mono` utility. Stage fact labels, capture captions, rail indices (from sm), nav links (10px in the bar, 11px in the phone menu), meta lines beside or under buttons (the hero's "14 days free · no card" in Acid 0.7), footer column heads.
-- **Eyebrow** (400, 10px, 0.2em, UPPERCASE): the `eyebrow` utility. Form field labels on the contact form, and section index labels on About.
+- **Statement** (800, `{typography.statement}`, 0.85): one per page, sized to hold one line from a laptop up.
+- **Hero** (800, `{typography.hero}`, 0.92): the home h1 only, with the vendor category set inside it as a live select.
+- **Readout** (800, `{typography.readout}`, 0.85): the number that matters, for example the plan price. Tabular figures.
+- **Close** (800, `{typography.close}`, 0.9): the last headline on a Bottle band, on the home and about pages.
+- **Headline** (800, `{typography.headline}`, 0.95): section heads, held to 16 to 18ch.
+- **Stage** (800, `{typography.stage}`, 0.95): stage titles and the Bottle stage numbers beside them.
+- **Page title / Section / Title** (800, 32px, 24px, 20px): plan names, legal headings and footer lines, panel and card titles.
+- **Lead** (400, 17px, 1.5; 19px from 640px in the hero): the paragraph under a headline, held to 44 to 52ch.
+- **Body** (400, 15px, 1.5): all reading text and claim bodies, held to 40 to 68ch. Claim labels are body at 600.
+- **UI** (600, 14px, 1.4): buttons, nav links, chips, fields.
+- **Mono eyebrow** (11px, +0.14em, uppercase): stage names in the strip, legal section indices, the head of a console block such as "Needs you".
+- **Mono label** (9px, +0.16em, uppercase): captions under captures, field labels, meta under prices and buttons, plan limits.
 
 ### Named Rules
-**The 800 Only Rule.** Bricolage Grotesque is loaded and set at one weight, 800. No other weight of it exists on the site.
+**The Eight Hundred Rule.** Bricolage is set at 800 and nothing else, with no added letter spacing and balanced wrapping. The `opsz` axis does the tightening.
 
-**The Tighten at Size Rule.** Bricolage tracks -0.03em up to 30px, -0.04em from 32px, -0.045em at the display (to 96px), and -0.05em at the numeral and the secondary-page statement (104 to 112px). Leading falls with size: 1 at title, 0.92 at display, 0.9 at headline, 0.86 at statement, 0.8 at numeral.
+**The Label Voice Rule.** Mono is always uppercase and always small. It captions, labels fields, indexes and heads the console's blocks. It never sits above a heading as a kicker and never carries a sentence of body copy.
 
-**The Label Voice Rule.** Martian Mono is always uppercase and always 9 to 11px. It names data (a stage index, a caption, a column head, a form field); it never runs as a sentence of body copy and it never sits above a headline as a kicker on the home page.
+**The Numbers Are Display Rule.** Prices, counts and stage numbers are Bricolage 800, never body.
 
 ## Layout
 
-A single 1180px container, centred, inside 24px gutters (40px from 640px). Sections stack as full-bleed floods with 80px of vertical padding (96px from 640px); stage sections run tighter at the top (40/48px) so the numeral lands close under the rail, and 56/80px at the bottom.
+The page is a stack of full-bleed rows. Each row's top rule runs the window's width; the sheet inside is `min(100% - 1.5rem, 80rem)` on a phone, `- 3rem` from 640px and `- 5rem` from 1024px, with its own left and right rules. The floating nav and the stage strip share the sheet's width so the column rules carry straight through them. The first row drops its top rule and its marks and starts under the nav.
 
-Every section head is a two-column grid, headline left (1.15fr) and lead right (1fr) with 48px between, collapsing to one column below 1024px. Each stage has one recording spanning the full 1180px container. The fact ledger sits 32 to 40px beneath it in four columns on desktop, two on tablet and one on mobile. The recording keeps a 16:10 ratio at every width. The hero is a natural-height section, not a viewport fill: 56px top and 64px bottom padding (80px and 96px from 640px), the rail straight under it. Its h1 runs the full container width as a flex-wrap row of four nowrap groups ("Book it. Run it." / "Bank it." / "Built for" / the category slab and its full stop) with a 0.24em gap, so a line breaks only between groups; at 1440 it falls as "Book it. Run it. Bank it." / "Built for Photographers.". The lead (44ch, Cream 0.85) sits 40px under the h1 (48px from 640px); the button and the label-mono trial line share one wrapped row, 24px apart, 32px under the lead (40px from 640px). At 1440x900 the hero, the rail and the top of stage 01 all sit inside the first viewport.
+Inside a row, a heading block sits on a 12-column grid (headline across 7, supporting copy across 5, aligned to the foot), then a cell rule, then butted cells. Cells draw their own top or left hairline so any cell can carry its own ground: stacked on a phone, two by two from 640px, three or four across from 1024px.
 
-Ledgers (stage facts, vendor claims, pricing tiers, FAQ) are single-column lists of rows separated by hairlines, bled 12px past the container (24px from 640px) so a row's hover flood has room either side. Row padding is 20px for facts, 28px for claims and FAQ, 36px for pricing tiers. Butted cell grids (the stage rail, the vendor chips, the category popover) are `gap-px` on a low-alpha ground so the grout is the hairline; cells are 56px tall (chips) or 64px (rail).
+Rhythm: gutters 20, 32 and 48px by breakpoint; a row head opens 64px from the rule on a phone and 96px from 640px, and closes 40 or 48px above the cell rule; cells pad 32 to 40px vertically. Nothing is centred by default. Headlines sit hard left, and the stage rows swap the recording and its claims from side to side (recording across 8 columns, claims across 4).
 
-Breakpoints as used: 640px (sm) is the main step for padding, type and grids; 1024px (lg) is where two-column layouts turn on; 768px (md) is used only by the nav to swap the phone menu for links; 1280px (xl) shows the large A behind the final CTA.
+On a desktop the recording sticks in view beside a claim column taller than it. On a phone the claims stack under the recording, and the capture shows its close-up.
 
-Section anchors clear the sticky nav through `scroll-padding-top: var(--nav-h)` on `<html>`, and stage sections additionally clear the sticky rail through a constant `scroll-margin-top` of 64px (`RAIL_PX`), the rail's one height. The rail is that one height wherever it is, so sticking never moves its own top edge; that constancy is load-bearing, because a rail that changed size as it stuck un-stuck itself and flickered. The hero and the five stages share one `#board` wrapper so the rail is sticky for exactly their combined height.
+Rows develop as they scroll in: content is fully visible by default, and where scroll timelines exist and motion is allowed, a row rises 14px from 18% opacity over a stretch of its cover range, with cells staggered by `--develop-at`, and the row's top rule draws in from the left. A row that sits at the fold on load keeps its rule still.
 
 ## Elevation & Depth
 
-No blurred shadows anywhere. Depth is letterpress: a solid inset edge along the bottom of a filled object makes it read as pressed into the page, and an inset one-pixel ring makes a light panel read as set into its ground. Everything is drawn with `box-shadow: inset ...` so it costs no layout. Floating chrome (the sticky nav and rail) is flat, separated from content by a hairline only.
+Content is flat and pressed, never lifted. Depth on content comes from letterpress: an inset bottom edge on solid buttons and an inset hairline on fields and sunken controls. Only floating chrome may blur: the nav bar, the stage strip while stuck, the category menu and the Arby Help panel.
 
 ### Shadow Vocabulary
-- **Press** (`box-shadow: inset 0 -4px 0 rgb(11 64 48 / 0.4)`): the bottom edge on Acid and Cream filled buttons and on the category slab.
-- **Press large** (`box-shadow: inset 0 -5px 0 rgb(11 64 48 / 0.5)`): the same edge on a large Acid surface.
-- **Press dark** (`box-shadow: inset 0 -5px 0 rgb(0 0 0 / 0.45)`): the bottom edge on Bottle filled buttons, the selected vendor chip and the automation panel.
-- **Hairline ring** (`box-shadow: inset 0 0 0 1px rgb(15 42 30 / 0.2)`): the inset outline on light panels.
-- **Edge Bottle / Edge Acid** (`box-shadow: inset 0 0 0 2px var(--color-bottle|acid)`): outline buttons, the contact form's two panels, the billing toggle.
-- **Edge thin** (`box-shadow: inset 0 0 0 1.5px ...`): form fields and topic chips (Bottle), the error panel (Coral).
-- **Accent edge** (`box-shadow: inset 0 -4px 0 var(--color-<accent>)`): the active rail cell, in its stage's accent.
-- **Cell divider** (`box-shadow: inset 1px 0 0 rgba(11,64,48,0.25)`): the rule between butted rail cells; the rail's own bottom is `inset 0 -1px 0 rgba(11,64,48,0.3)`.
+- **Letterpress button** (`box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4)`): Bottle and Sprout buttons, and the selected category chip.
+- **Inset panel** (`box-shadow: inset 0 0 0 1px rgba(23, 33, 27, 0.1)`): the category select field in the hero.
+- **Thumb** (`box-shadow: 0 1px 2px rgba(23, 33, 27, 0.28)`): the chosen segment of a segmented control.
+- **Lifted** (`box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07)`): floating chrome only.
 
 ### Named Rules
-**The Letterpress Rule.** Depth is an inset edge on the object itself, never a shadow cast onto the ground. If a surface needs to sit forward, give it a bottom edge; if it needs to sit back, give it a ring.
+**The Lift Is For Chrome Rule.** A blurred shadow means the object floats over the page. Content cells, captures and plan cells never cast one; they sit in the sheet.
+
+**The Lift On Hover Rule.** Solid buttons rise 3px on the overshoot curve, with a 6px hover bridge under them so the cursor never drops off mid-lift, and settle back on press.
 
 ## Shapes
 
-Square corners, everywhere, with no radius token other than zero. Buttons, panels, chips, fields, the capture frame, the scrollbar thumb, the selection highlight and the focus ring are all hard-cornered. Product captures carry the app's 6px corners inside their artwork, which is fine because the frame around them is square.
-
-The recurring silhouette is the small solid square: 10px before a caption, 16 to 28px beside a numeral or above a panel heading, in the stage accent or Bottle, and carrying the section's loop of ambient motion. Nothing on the site is rotated at rest; tilt is a hover or a loop. The only circles on the site are two 10 to 12px Coral "recording" dots on the About page, which the brand allows as an illustration badge.
-
-Outlines are inset rings drawn with box-shadow (see Elevation), so an outline never changes an element's box. Rules are single-pixel borders at low alpha; dashed rules (Ink at 0.25) separate sub-lines within a ledger row. Capture frames are a 2px solid border in the ground's ink (Bottle on light, Acid on Bottle).
-
-The wordmark is fixed artwork: an open A with no crossbar and a flat apex, then RBOUR in Bricolage 800 at +0.04em, supplied as a PNG in Acid or Bottle and set at 22 to 26px in the nav, 18px in the footer. The bare A is an SVG (`viewBox="333 372 528 494"`, stroke 122, round caps) and appears once at size, 420px behind the final CTA.
+One small radius scale, borrowed whole from the kit. 6px for buttons, fields, captures, the nav bar, the stage strip, menus and panels; 4px for small controls (nav links, stage chips, badges, menu items, segments, the crosshair button); 2px for leaves. Every larger Tailwind radius maps back to 6px. Circles are kept for status and stage dots only. The ruled sheet itself is square: rules and cells have no corners. The registration mark is a 13px hairline cross.
 
 ## Components
 
 ### Buttons
-Square, filled, with a letterpress bottom edge; they lift on hover with the overshoot curve and tilt a degree when they are the section's main action.
-- **Shape:** square (0px), Instrument Sans 600, no border.
-- **Sizes:** sm 11px/16px at 14px type (nav); md 16px/24px at 15px (forms); lg 17px/28px at 16 to 17px (section CTAs); xl 20px/32px at 17px, 24px/36px at 19px from 640px (the hero's one ask, used nowhere else).
-- **Acid** (on Bottle): Acid ground, Bottle text, Press edge. The trial CTA everywhere the ground is dark.
-- **Bottle** (on Acid or Cream): Bottle ground, Acid text, Press dark edge.
-- **Outline Acid / Outline Bottle:** transparent with a 2px inset ring in Acid or Bottle, matching text. The secondary action beside a filled button.
-- **Cream** (on Cornflower): Cream ground, Cornflower text, Press edge. Defined for enterprise surfaces.
-- **Hover / Active / Focus:** `translateY(-4px)` over 300ms on the overshoot curve, often with `rotate(-1deg)` to `rotate(-1.5deg)` for the primary and `rotate(1deg)` for the secondary; active returns to 0; disabled sits at 0.6 opacity with no lift. Focus is the global ring: 3px Bottle at 55% with 2px offset, switching to solid Acid inside any `.on-dark` section. A transparent 10px "skirt" is drawn behind any lifted element while hovered so the cursor is not left behind by the lift.
+Pressed letterpress, lifting on the overshoot.
+- **Shape:** 6px corners.
+- **Sprout (the trial):** Sprout ground, Bottle text, 48px tall at 22px padding with 15px semibold text. One per view.
+- **Primary:** Bottle ground, On Dark text. The default solid button.
+- **Secondary:** white with an input-strength border; hover darkens the border and floods Panel.
+- **Ghost:** no box, Bottle text, Panel on hover. "Log in" in the nav.
+- **On dark:** On Dark at 10% with a 40% border, for secondary actions on a Bottle band.
+- **Sizes:** 36px (dense, 14px padding), 40px (UI, 16px), 48px (body, 22px).
+- **Hover / Focus:** colours ease out over 180ms; the lift uses the overshoot at 260ms. Focus is the 3px Bottle 55% outline, offset 1px, composing with the letterpress edge. Disabled is 45% opacity.
 
-### Chips (vendor category cells)
-- **Style:** butted cells in a `gap-px` grid whose ground is Ink at 0.20, so the grout is the hairline. Cream cell, Bottle text, Instrument Sans 600 at 15px, 56px tall, left-aligned.
-- **State:** hover lifts 2px and floods Acid; selected inverts to Bottle with Acid text and a Press dark edge. The trailing cell ("More at sign-up") is Cream sunken with a label-mono line. Contact topic chips are the smaller cousin: 1.5px Bottle inset ring, 14px type, selected fills Bottle.
+### Chips
+- **Style:** 40px, 6px corners, UI text, a 7px leaf in front. Unselected sits on white with an input border.
+- **State:** selected turns Bottle with the letterpress edge, a Sprout leaf and a check. A dashed-border mono chip ends the list as "and more".
 
 ### Cards / Containers
-There are no cards. The three container patterns are:
-- **Ledger row:** a full-width row between Ink 0.20 hairlines (Cream 0.20 on Bottle, Bottle 0.30 on Acid), bled past the container by 12 to 24px, that floods Acid and shifts 4px right on hover. Titles inside are Title or Headline size; sub-lines are separated by dashed Ink 0.25 rules.
-- **Automation panel:** butted Bottle cells on an Acid 0.25 `gap-px` grout with a Press dark edge, each cell a label-mono When / Then key in Acid beside 13px Cream copy, a Cream 0.6 11px footnote cell below; the whole panel `swap`s when the category changes.
-- **Capture frame:** a 2px square border in Bottle (light grounds) or Acid (Bottle), App ground behind the image, followed 12px below by a label-mono caption with a 10px accent square in front of it, at 0.8 opacity. The hero carries no capture. Each of the five stages carries one full-width, 2880 × 1800 animated WebP console recording with its four facts in a ledger underneath. Recordings play only while visible, with a square Stop demo / Play demo control below the frame. Static posters reserve the same space, cover load failures and remain visible for reduced motion or hidden tabs.
-Form panels on Contact are Acid or Cream blocks with a 2px Bottle inset ring and 32 to 44px padding.
-- **Mascot panel:** a Bottle wash block inside the Ink 0.20 hairline, fit to the bird (16px sides, 4px top, no bottom: the bird's canvas already carries the floor under its feet). It is the ground the standing Arby needs, because the bird's cream body vanishes on the Acid flood. Sits hard left in the Arby block of the quiet section. This panel is the still fallback when the scroll companion is disabled or unavailable.
+- **Corner Style:** square inside the sheet; 6px on captures and floating panels.
+- **Background:** Page, or Panel for a sunken cell.
+- **Shadow Strategy:** none on content (see Elevation & Depth).
+- **Border:** the cell's own Line hairline; captures use Border default.
+- **Internal Padding:** 20/32/48px gutters, 32 to 40px vertical.
 
 ### Inputs / Fields
-- **Style:** Acid wash ground, 1.5px Bottle inset ring, no border, square, Instrument Sans at 17px, 16px/18px padding, placeholder Ink at 0.65. Labels are the eyebrow utility at 0.7 opacity, 10px above the field.
-- **Focus:** the global focus ring only (3px Bottle 55%, 2px offset); the field itself does not change.
-- **Error:** a separate Coral wash panel with a 1.5px Coral inset ring and 14px Ink copy. Disabled buttons drop to 0.6 opacity.
-- **Toggle (billing interval):** a two-cell fieldset inside a 2px Acid ring; the on cell fills Acid with Bottle text, the off cell is transparent Acid text that tints Acid 0.15 on hover. 200ms colour transition, no lift.
+- **Style:** white, input-strength border, 6px corners, 44px tall, 14px horizontal padding, UI text. Mono label above.
+- **Focus:** the border turns Bottle with a 3px Bottle 30% halo, the kit's field treatment. Hover darkens the border.
+- **Error:** a Coral Wash block with a Coral border at 40% and Coral Ink text.
 
 ### Navigation
-- **Bar:** sticky, Bottle on every page, Acid text, 14px vertical padding, 24/40px gutters. Wordmark left at 22/26px; links right in label-mono at 10px/0.16em with underline on hover (Product targets `#stage-enquiry`, the first stage, not the hero); "Log in" as a link; a small Acid trial button. A 2px Acid line along the bottom scales from the left with scroll progress.
-- **Phone:** below 768px the links collapse behind a label-mono "Menu / Close" toggle into a Bottle drawer under an Acid 0.20 hairline, links at 11px with 12px vertical padding, trial button full width. Escape closes it.
-- **Footer:** Bottle, four columns (1.7fr then three 1fr) with label-mono column heads in Acid 0.7, 15px Cream 0.7 links that turn Acid on hover, then a Cream 0.15 hairline bar carrying the wordmark at 18px and three label-mono facts.
+The console's floating bar, moved to the top of the window: fixed 12px from the top, the sheet's width, white, a Line border, 6px corners and the lifted shadow, 56px tall. The wordmark sits left; links are 14px semibold Ink secondary, Panel on hover, and the current page is a Bottle 4px chip. A 2px Sprout line along its foot fills with reading progress. Below 1024px the links fold into a Menu button that opens a ruled list inside the bar.
 
-### Stage rail (signature)
-The board's column headers: one element, one height. Five butted Acid cells, 64px tall, across the full container (16px side gutter from 640px), divided by inset 1px Bottle 0.25 rules and closed by a Bottle 0.30 hairline along the bottom. Each cell is its label-mono index in Bottle 0.6 (hidden on phones) beside the stage name at 12/15px 600 (short name on phones), vertically centred, with 10px side padding (16px from 640px). It sits straight under the hero, with no cell active while the hero is on screen, then is sticky under the nav for the length of the five stages. The cell whose stage is under the reader inverts to Bottle with Acid text (index at Acid 0.7) and takes a 4px inset bottom edge in that stage's accent; the others lift 2px and tint Bottle 0.10 on hover, colour and transform on the overshoot curve at 300ms. Active is decided on scroll (from the stage's top edge crossing the rail's bottom), so the hand-off is exact, and a click smooth-scrolls to the stage.
+### Segmented Control
+A Panel Hover track with 3px gaps and 4px padding; the chosen segment is white with the thumb shadow. Used for the billing interval, where the price flips in place on change.
 
-### Category slab (signature)
-The vendor category is a button inside the h1: an Acid block at headline size with a Press edge, 0.2em side padding, Bottle text, animating its width between names. Left alone it flips to the next category every 2.6s (a 0.34s one-shot `flip`, squashing on the way in), stops while hovered, open or off screen, and holds for 30s after a touch. Clicking opens a portalled two-column listbox on Bottle ink (Acid 0.25 grout) of label-mono options, selected in Acid. Choosing a category reskins the vendor chips and the automation example.
+### Signature Component: the Stage Strip
+The booking header's progress, lifted from the console. A 48px white bar with 6px corners that sits at the head of stage 01 and sticks under the nav through the five stages, gaining the lifted shadow only while stuck. Five mono eyebrow stage names, each behind a dot, joined by hairlines. Passed stages fill their dot Sprout (with a bloom) and their following hairline Sprout over 320ms on the glide; the current stage sits in a Bottle chip; unpassed dots are Ink faint rings. On a phone only the current name shows.
 
-### Reveal and ambient motion
-Blocks enter with a 320ms overshoot fade from 4px below, at 12% visibility, staggered no more than 0.04s apart. Each section carries one small square on a 3.2 to 3.5s loop (`drop`, `tilt`, `squash`, `wob`, `pop`, in stage order) with demo recordings playing only in visible frames; the hero carries no square, the category slab is the only thing that moves in it. Data swaps inside a panel use `swap` (0.28s, 7px) not an entrance; in-place value changes use `flip`. The companion rests once it has landed. `prefers-reduced-motion` collapses every animation and transition to 0.01ms and stops the slab cycle.
+### Signature Component: the Capture Frame
+A real console screen at 16:10 inside a 6px frame with a Border default hairline, held in a Panel cell. Under it a mono label caption ("Screen recording, seed data") with a 7px leaf that turns Sprout while the recording plays. Recordings play only on screen, in a front tab, with motion allowed; otherwise the poster holds the box. When a claim points, the frame holds the poster, rings each measured region in a 2px Sprout ring over Sprout at 15%, and glides in on them up to 2.4 times over 320ms. Below 640px the frame shows a close-up shaped to the stage's focus region, a highlight re-frames that close-up instead of zooming, and a "Whole screen" button opens it out.
 
-### Arby, the mascot
+### Signature Component: the Claim Cell
+Four claims beside each recording, each a ruled cell: a 600 body label, a body paragraph, and, where the screen can show it, a 28px crosshair button. Hovering the claim or focusing the crosshair points it; pressing pins it (the crosshair turns Bottle). A pointing claim takes Sprout Wash. A claim the screen cannot show has no crosshair.
 
-The home page has one scroll companion, implemented by `src/components/arby/scroll-companion.tsx`. It replaces the standing block and FAQ peeking bird during ordinary browsing. The flying and standing artwork comes unchanged from the platform kit, with branch paths extracted from its perched pose. No new animation dependency is required.
+### Signature Component: the Category Select
+The hero's category word is a select at headline size: the field skin (Panel inside the inset hairline, 6px corners) with a chevron at 0.34em, its width animating on the overshoot between names and each name flipping in. It opens the kit's menu surface (white, Line border, lifted shadow, 4px items, a mono label head). It cycles every 2.6 seconds while on screen and untouched.
 
-Arby takes off when the document scrolls, joins varied swoops, climbs, hooked turns and brief glides near the right edge, and approaches a clear frame or ledger edge when scrolling ends. A small branch attached to the viewport edge supplies a perch when no suitable page element is visible. Flight and landing can be interrupted by further scrolling. A landing gets one 280ms compression, then rests without an idle loop. The bird has a keyboard-accessible hit area that opens Arby Help. There are no separate bottom-right launcher or hide controls.
-
-The sprite canvas is 120px on larger screens and 80px below 640px. A crisp Cream silhouette outline with a finer Ink outer edge separates it from both light and dark colour floods. Clear page edges always take priority over the branch, with landing points sampled across wide desktop ledges. Reduced motion, disabled animation and unavailable JavaScript show one still standing bird in the Bottle-wash panel beside the Arby description. The old FAQ peeking pose is removed. The home-page companion may cross marketing grounds under the specific exception in `docs/brand.md`; its paths and colours remain fixed.
-
-See `docs/arby-scroll-companion.md` for the renderer comparison, landing rules, timing, limitations and verification commands.
-
-### Browser surfaces
-The scrollbar on fine pointers is a 10px square Bottle thumb (inset -3px edge, Bottle deep on hover, Bottle ink active) in a Cream sunken channel with an Ink 0.24 hairline on its left; on the Bottle-flooded /bio page the channel inverts to Bottle ink with an Acid thumb. Text selection is Acid with Bottle text.
+### Arby Help Panel
+Floating chrome drawn like the console's Arby sheet: white, Line border, 6px corners, lifted shadow, a 40px Bottle square mark beside a 20px Bricolage title, starter questions as bordered 44px rows, the reader's words in a Panel bubble and replies as plain text. The send button is Bottle and goes flat to Panel when there is nothing to send. No Sprout anywhere in it.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** flood the whole section with one ground and pick the next ground so it differs from both neighbours (The No Two Alike Rule).
-- **Do** set every Bricolage headline at 800, hard left, -0.04em, with a `max-w` of 16 to 22ch and `text-balance`.
-- **Do** give filled buttons a Press edge (`inset 0 -4px 0 rgb(11 64 48 / 0.4)`, or Press dark on Bottle) and lift them 4px on `cubic-bezier(.34,1.8,.45,1)` over 300ms.
-- **Do** draw outlines and panel rings as inset box-shadows in Bottle or Acid, 1px for hairline rings, 1.5px for fields, 2px for outline buttons.
-- **Do** build lists as hairline ledgers (Ink 0.20 rules, rows that flood Acid on hover) rather than as cards.
-- **Do** use butted `gap-px` cells on a low-alpha ground for any set of equal choices (rail, chips, toggle, category list, automation panel).
-- **Do** keep Martian Mono uppercase at 9 to 11px and use it for indices, captions, column heads and form labels.
-- **Do** give each stage or section one accent square (16 to 28px) and one ambient loop, and put every hairline in Ink, Cream or Acid at low alpha.
-- **Do** frame product captures in a 2px square border, App ground, with a label-mono caption and accent mark below.
-- **Do** show the product only as a real capture in a frame; nothing on the site is a mock or illustrated data.
-- **Do** switch focus rings to Acid inside any section marked `.on-dark`.
+- **Do** put every new section in a ruled row inside the sheet, so the column rules and registration marks stay continuous from nav to footer.
+- **Do** set a claim in a cell beside the real screen that proves it, and give it measured regions when the screen can show it.
+- **Do** keep one Sprout action per view; make every other button Bottle, secondary or ghost.
+- **Do** set headlines in Bricolage 800 hard left with no added tracking, using the fluid steps (stage, headline, readout, hero, statement).
+- **Do** use mono labels to caption, to label fields, to index and to head a console block.
+- **Do** use 6px corners, 4px for small controls, 2px for leaves.
+- **Do** use the 3px Bottle 55% focus outline on white and the Sprout 70% outline on Bottle.
+- **Do** let motion pop on the overshoot (`cubic-bezier(0.34, 1.8, 0.45, 1)`, 260ms) and slide on the glide (`cubic-bezier(0.16, 0.84, 0.36, 1)`, 180 to 320ms), and keep content visible when motion is reduced.
 
 ### Don't:
-- **Don't** use Sprout (#9fe870) anywhere in marketing markup; it lives only inside product captures.
-- **Don't** add a border-radius on any marketing surface; the only permitted circles are illustration badges such as the recording dot.
-- **Don't** cast blurred drop shadows, gradients, glassmorphism or soft rounded cards.
-- **Don't** use grey for rules or borders; hairlines are Ink at 0.15 to 0.25, or Cream / Acid at 0.15 to 0.25 on Bottle.
-- **Don't** set Bricolage at any weight other than 800, or use it for body copy.
-- **Don't** run Martian Mono as body copy, at more than 11px, or as a kicker above a home page headline.
-- **Don't** put Cream body copy on plain Cornflower or Coral; step to Cornflower deep, or carry Bottle ink on Coral.
-- **Don't** use slow or cinematic motion: nothing longer than 320ms for a transition, no reveal larger than 4px, no stagger beyond 0.04s. The companion's landing flight is distance-based, 300 to 780ms; its final compression lasts 280ms.
-- **Don't** import an icon set or use emoji; the two stroke icons in use (16px plus, 14px outbound arrow) are inline SVG with square caps.
-- **Don't** redraw the wordmark: the A has no crossbar and a flat top, and the viewBox top edge at y=372 is what makes it flat.
-- **Don't** recolour Arby or change its fixed paths. The home-page scroll companion is the only exception to the original placement and background rules, as recorded in `docs/brand.md`.
+- **Don't** build a feature-card grid or flood a mid-page section with colour; the Bottle band is the close and Pricing is the one Panel band.
+- **Don't** put Acid or Cream on a screen.
+- **Don't** use Coral or Ochre for anything but danger and warning.
+- **Don't** set a mono kicker or eyebrow above a heading.
+- **Don't** cast a blurred shadow from content; only floating chrome lifts.
+- **Don't** use a radius above 6px, a pill, a gradient or glassmorphism.
+- **Don't** use a grey hex for a border; borders are translucent Ink and rules are Line.
+- **Don't** put Sprout in the Arby Help panel.

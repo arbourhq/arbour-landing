@@ -8,6 +8,8 @@ import {
   type RefObject,
 } from "react";
 import Link from "next/link";
+import { ArrowUpRight, Send, X } from "lucide-react";
+import { Mark } from "@/components/wordmark";
 import { APP } from "@/content/site";
 import {
   HISTORY_LIMIT,
@@ -195,6 +197,11 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
       }}
     >
       <header className="arby-help-header">
+        {/* The console's Arby mark: the white A on a Bottle square, square
+            because it is the brand, not a person. */}
+        <span className="arby-help-mark" aria-hidden="true">
+          <Mark tone="white" className="size-5" />
+        </span>
         <div>
           <h2 id="arby-help-title">Arby Help</h2>
           <p id="arby-help-description">A little help from Arbour's AI.</p>
@@ -207,19 +214,7 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
           aria-label="Close Arby Help"
           disabled={closing}
         >
-          <svg
-            viewBox="0 0 20 20"
-            width="20"
-            height="20"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="m5 5 10 10M15 5 5 15"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-          </svg>
+          <X aria-hidden />
         </button>
       </header>
       <div
@@ -254,7 +249,6 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
             {starters.map((text) => (
               <button key={text} type="button" onClick={() => void send(text)}>
                 {text}
-                <span aria-hidden="true">+</span>
               </button>
             ))}
           </div>
@@ -265,7 +259,7 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
             data-role={message.role}
             key={index}
           >
-            <span className="label-mono">
+            <span className="mono-label">
               {message.role === "user" ? "You" : "Arby Help"}
             </span>
             <p>{message.content}</p>
@@ -322,8 +316,12 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
             }
           }}
         />
-        <button type="submit" disabled={!draft.trim() || pending || !!error}>
-          Send
+        <button
+          type="submit"
+          disabled={!draft.trim() || pending || !!error}
+          aria-label="Send"
+        >
+          <Send aria-hidden />
         </button>
       </form>
       <footer className="arby-help-footer">
@@ -331,6 +329,7 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
         <div>
           <a href={APP.help} target="_blank" rel="noreferrer">
             Help centre
+            <ArrowUpRight aria-hidden />
           </a>
           <Link href="/contact">Contact us</Link>
           {messages.length > 0 && (

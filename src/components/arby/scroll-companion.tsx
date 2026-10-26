@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { ArbyBranch } from "./branch";
 import { flying } from "./poses/flying";
 import { standing } from "./poses/standing";
@@ -23,6 +23,25 @@ import "./scroll-companion.css";
 
 type Phase = "perched" | "flying" | "landing";
 
+/**
+ * What Arby says on landing, by the kind of perch: a nudge that the bird is
+ * the way into Arby Help, in the voice of whatever the reader is looking at.
+ * The second line is the instruction, set as a mono label.
+ */
+const LINES: Record<string, [string, string]> = {
+  hello: ["G'day. I'm Arby.", "me with any question"],
+  capture: ["Want a screen explained?", "me and ask"],
+  facts: ["Want the long version?", "me and ask"],
+  vendors: ["Not sure it fits your trade?", "me and ask"],
+  pricing: ["Doing the plan maths?", "me, I'll help"],
+  faq: ["Not on the list?", "me and ask"],
+  branch: ["Questions? I'm right here.", "the bird"],
+};
+
+/** Landings that may speak per page view, the hello included. */
+const MAX_SAYS = 4;
+const SAY_MS = 5200;
+
 function visible(rect: DOMRect) {
   return (
     rect.width > 0 &&
@@ -41,51 +60,14 @@ function pad(rect: DOMRect): Rect {
   };
 }
 
-/** Two hard silhouette edges preserve the artwork on light and dark grounds. */
-function ArbyOutline({ id }: { id: string }) {
-  return (
-    <defs>
-      <filter
-        id={id}
-        x="-20%"
-        y="-20%"
-        width="140%"
-        height="140%"
-        colorInterpolationFilters="sRGB"
-      >
-        <feMorphology
-          in="SourceAlpha"
-          operator="dilate"
-          radius="28"
-          result="outer"
-        />
-        <feFlood floodColor="#0F2A1E" />
-        <feComposite in2="outer" operator="in" result="ink" />
-        <feMorphology
-          in="SourceAlpha"
-          operator="dilate"
-          radius="18"
-          result="inner"
-        />
-        <feFlood floodColor="#FFFBEF" />
-        <feComposite in2="inner" operator="in" result="cream" />
-        <feMerge>
-          <feMergeNode in="ink" />
-          <feMergeNode in="cream" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
-      </filter>
-    </defs>
-  );
-}
-
 /** One bird for the home page. React mounts the art; the controller moves it. */
 export function ScrollCompanion() {
-  const outlineId = `arby-outline-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`;
   const actor = useRef<HTMLDivElement>(null);
   const branch = useRef<HTMLDivElement>(null);
   const helpTrigger = useRef<HTMLButtonElement | null>(null);
   const helpPanel = useRef<HTMLDialogElement>(null);
+  const sayLead = useRef<HTMLSpanElement>(null);
+  const sayCue = useRef<HTMLSpanElement>(null);
   const setHelpPerch = useRef<((open: boolean) => void) | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
 
@@ -126,7 +108,11 @@ export function ScrollCompanion() {
     let size = 120;
     let viewport: Rect = { left: 0, top: 0, right: 0, bottom: 0 };
     let helping = false;
+    let says = 0;
+    let lastSaid = "";
+    let sayTimer = 0;
     const supportsScrollEnd = "onscrollend" in document;
+    const verb = matchMedia("(pointer: coarse)").matches ? "Tap" : "Click";
 
     const enabled = () =>
       (helping || !preference.matches) &&
@@ -214,7 +200,13 @@ export function ScrollCompanion() {
             return;
           // Reveal transforms can still be settling. Their final point is checked
           // again at touchdown and after layout changes.
-          candidates.push(...perchesOnEdge(rect, size, String(index)));
+          candidates.push(
+            ...perchesOnEdge(
+              rect,
+              size,
+              `${element.dataset.arbyPerch || "perch"}:${index}`,
+            ),
+          );
         });
       const edgeX = viewport.right - size * 0.6;
       for (
@@ -272,6 +264,67 @@ export function ScrollCompanion() {
       }
     }
 
+    /**
+     * What the reader is looking at: the perch the bird is on, or on the edge
+     * branch, the perch-marked block nearest the middle of the window.
+     */
+    function context() {
+      const own = destination?.id.split(/[:-]/)[0];
+      if (own && own !== "branch") return own;
+      const middle = innerHeight / 2;
+      let best = "branch";
+      let distance = innerHeight * 0.35;
+      document
+        .querySelectorAll<HTMLElement>("[data-arby-perch]")
+        .forEach((element) => {
+          const rect = element.getBoundingClientRect();
+          const d =
+            rect.top > middle
+              ? rect.top - middle
+              : rect.bottom < middle
+                ? middle - rect.bottom
+                : 0;
+          if (d < distance) {
+            distance = d;
+            best = element.dataset.arbyPerch || "branch";
+          }
+        });
+      return best;
+    }
+
+    /** Where the bubble sits, measured whenever the bird settles. */
+    function placeSay() {
+      bird.dataset.side = position.x > innerWidth / 2 ? "right" : "left";
+      bird.dataset.place =
+        position.y - size * 0.95 - 76 < viewport.top ? "beside" : "above";
+    }
+
+    function hush() {
+      clearTimeout(sayTimer);
+      bird.dataset.say = "false";
+    }
+
+    /**
+     * A speech bubble on landing, at most MAX_SAYS times a page and never the
+     * same kind of perch twice running, so it reads as a nudge, not a nag.
+     * Above the head unless the nav is in the way, then beside it, always on
+     * the side toward the page.
+     */
+    function speak(kind?: string) {
+      const perch = kind ?? context();
+      if (helping || perch === "help" || says >= MAX_SAYS) return;
+      if (perch === lastSaid) return;
+      const [lead, cue] = LINES[perch] ?? LINES.branch;
+      if (sayLead.current) sayLead.current.textContent = lead;
+      if (sayCue.current) sayCue.current.textContent = `${verb} ${cue}`;
+      says += 1;
+      lastSaid = perch;
+      placeSay();
+      clearTimeout(sayTimer);
+      bird.dataset.say = "true";
+      sayTimer = window.setTimeout(hush, SAY_MS);
+    }
+
     function park() {
       cancelAnimationFrame(frame);
       frame = 0;
@@ -285,6 +338,7 @@ export function ScrollCompanion() {
       phase = "perched";
       bank = 0;
       facing = position.x > innerWidth / 2 ? -1 : 1;
+      placeSay();
       draw();
     }
 
@@ -333,6 +387,9 @@ export function ScrollCompanion() {
           facing = position.x > innerWidth / 2 ? -1 : 1;
           // A short, finite landing compression. No idle loop while reading.
           bird.dataset.landed = String(now);
+          window.setTimeout(() => {
+            if (phase === "perched") speak();
+          }, 360);
           if (!preference.matches)
             bird
               .querySelector(".arby-rest")
@@ -435,6 +492,7 @@ export function ScrollCompanion() {
       lastScroll = now;
       clearTimeout(stopTimer);
       if (phase !== "flying") {
+        hush();
         variation = flightVariation();
         beginFlightLeg();
         phase = "flying";
@@ -514,6 +572,9 @@ export function ScrollCompanion() {
       const wasVisible = enabled();
       helping = open;
       bird.dataset.help = String(open);
+      hush();
+      // Once someone has found the chat, the bird has made its point.
+      if (open) says = MAX_SAYS;
       clearTimeout(stopTimer);
       clearTimeout(layoutTimer);
       document.documentElement.toggleAttribute(
@@ -533,8 +594,14 @@ export function ScrollCompanion() {
       land();
     };
     refresh();
+    // The hello, once the page has settled and the bird is on its perch.
+    const helloTimer = window.setTimeout(() => {
+      if (enabled() && phase === "perched") speak("hello");
+    }, 1400);
 
     return () => {
+      clearTimeout(helloTimer);
+      clearTimeout(sayTimer);
       cancelAnimationFrame(frame);
       clearTimeout(stopTimer);
       clearTimeout(layoutTimer);
@@ -566,9 +633,6 @@ export function ScrollCompanion() {
 
   return (
     <>
-      <noscript>
-        <style>{`.arby-copy { opacity: 1 !important; transform: none !important; }`}</style>
-      </noscript>
       <div ref={branch} className="arby-branch" aria-hidden="true" data-arby-ui>
         <ArbyBranch />
       </div>
@@ -580,16 +644,10 @@ export function ScrollCompanion() {
       >
         <div className="arby-direction" aria-hidden="true">
           <svg className="arby-flight" viewBox="0 0 1000 1000" fill="none">
-            <ArbyOutline id={`${outlineId}-flight`} />
-            <g filter={`url(#${outlineId}-flight)`}>
-              {flying.render("companion-flight")}
-            </g>
+            {flying.render("companion-flight")}
           </svg>
           <svg className="arby-rest" viewBox="0 0 1000 1000" fill="none">
-            <ArbyOutline id={`${outlineId}-rest`} />
-            <g filter={`url(#${outlineId}-rest)`}>
-              {standing.render("companion-rest")}
-            </g>
+            {standing.render("companion-rest")}
           </svg>
         </div>
         <button
@@ -599,9 +657,20 @@ export function ScrollCompanion() {
           aria-haspopup="dialog"
           aria-expanded={helpOpen}
           aria-controls="arby-help"
-          title="Ask Arby"
           onClick={openHelp}
-        />
+        >
+          {/* The speech bubble lives inside the hit area, so hovering it
+              keeps it up and clicking it opens the chat. The button's label
+              already says what it does, so the bubble is not read out. */}
+          <span className="arby-say" aria-hidden="true">
+            <span ref={sayLead} className="arby-say-lead">
+              {LINES.hello[0]}
+            </span>
+            <span ref={sayCue} className="arby-say-cue mono-label">
+              Click {LINES.hello[1]}
+            </span>
+          </span>
+        </button>
       </div>
       <HelpPanel open={helpOpen} panelRef={helpPanel} onClose={closeHelp} />
     </>

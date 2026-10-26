@@ -4,10 +4,14 @@ import Link from "next/link";
 import { TrialLink } from "@/components/trial-link";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
-import { ArbourA } from "@/components/wordmark";
+import { ArbyWave } from "@/components/arby/arby-wave";
 import { Lenses } from "@/components/about/lenses";
+import { Scramble } from "@/components/motion/scramble";
+import { Split } from "@/components/motion/split";
 import { AboutStats } from "@/components/about/counter";
 import { buttonClass } from "@/components/ui/button";
+import { Row } from "@/components/ui/row";
+import { quadRules } from "@/components/ui/rules";
 import { FOUNDERS, RULES, TIMELINE } from "@/content/about";
 
 export const metadata: Metadata = {
@@ -22,240 +26,261 @@ export default function AboutPage() {
       <SiteNav />
 
       <main id="main">
-        <section className="bg-acid px-6 pt-16 pb-20 sm:px-10 sm:py-22">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-6 text-bottle">About</p>
-            <h1 className="m-0 max-w-[19ch] font-display text-[clamp(44px,9vw,112px)] leading-[0.95] font-extrabold tracking-[-0.05em] text-balance text-bottle">
-              The ultimate collab.
+        {/* The same sheet as the home page: a first row under the nav, then
+            ruled rows down to the Bottle close. */}
+        <Row
+          first
+          labelledBy="about-title"
+          className="pt-[calc(var(--nav-h)+var(--nav-gap))]"
+        >
+          {/* The headline hard left, Arby waving hello off to the right,
+              standing on the cell rule. */}
+          <div className="reveal-now flex items-end justify-between gap-6 px-5 pt-14 sm:px-8 sm:pt-20 lg:px-12 lg:pt-24">
+            <h1
+              id="about-title"
+              className="headline m-0 max-w-[14ch] pb-12 text-hero text-ink sm:pb-14 lg:pb-16"
+            >
+              <Split text="The ultimate collab." />
             </h1>
-            <p className="m-0 max-w-[46ch] pt-8 text-[17px] leading-relaxed text-bottle sm:text-[19px]">
-              What do you get when you cross a wedding videographer with a
-              software engineer? This.
-            </p>
+            {/* The canvas leaves 28% of itself under the feet; the negative
+                margin stands the bird on the rule. */}
+            <ArbyWave className="pointer-events-none relative z-10 -mb-[45px] hidden size-40 sm:block md:-mb-[58px] md:size-52 lg:mr-8 lg:-mb-[81px] lg:size-72" />
           </div>
-        </section>
-
-        <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-65">01 · The two brains</p>
-            {/* Wide enough to hold "Ask each of us what a wedding is." on one
-                line at the 60px cap. At 22ch the measure cut after "wedding"
-                and left "is." stranded on its own. */}
-            <h2 className="m-0 mb-4 max-w-[30ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
-              Ask each of us what a wedding is.
-            </h2>
-            <p className="m-0 mb-9 max-w-[52ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
-              You get two completely different answers, and Arbour needed both
-              of them. Flip it.
-            </p>
-            <Lenses />
+          <div className="reveal-now cell-rule-t grid lg:grid-cols-12">
+            <div
+              className="reveal-rise px-5 py-8 sm:px-8 sm:py-10 lg:col-span-6 lg:px-12 lg:py-12"
+              style={{ "--reveal-delay": "300ms" } as React.CSSProperties}
+            >
+              <p className="m-0 max-w-[40ch] text-lead text-ink-secondary sm:text-[1.1875rem] sm:leading-[1.5]">
+                What do you get when you cross a wedding videographer with a
+                software engineer? This.
+              </p>
+            </div>
+            <div
+              className="reveal-rise cell-rule-t px-5 py-4 sm:px-8 lg:col-span-6 lg:border-t-0 lg:border-l lg:border-rule lg:px-12 lg:py-6"
+              style={{ "--reveal-delay": "420ms" } as React.CSSProperties}
+            >
+              <AboutStats />
+            </div>
           </div>
-        </section>
+        </Row>
 
-        <section className="bg-cream px-6 pb-20 sm:px-10 sm:pb-24">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-65">02 · The history</p>
-            <h2 className="m-0 mb-4 max-w-[20ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
-              How we got here.
+        <Row labelledBy="brains-title">
+          <Lenses />
+        </Row>
+
+        <Row labelledBy="history-title">
+          <div
+            data-reveal
+            className="grid gap-x-12 gap-y-4 px-5 pt-16 pb-10 sm:px-8 sm:pt-24 sm:pb-12 lg:grid-cols-12 lg:items-end lg:px-12"
+          >
+            <h2
+              id="history-title"
+              className="headline m-0 text-headline text-ink lg:col-span-7"
+            >
+              <Split text="How we got here." />
             </h2>
-            <p className="m-0 mb-10 max-w-[52ch] text-[17px] leading-relaxed opacity-80 sm:text-lg">
+            <p
+              className="reveal-rise m-0 max-w-[44ch] text-lead text-ink-secondary lg:col-span-5"
+              style={{ "--reveal-delay": "260ms" } as React.CSSProperties}
+            >
               Seventeen months, a couple of industry projects together, then the
               real one.
             </p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4">
-              {TIMELINE.map((entry) => (
-                <div
+          </div>
+          {/* The record's strip again: dates joined by a hairline, the ones
+              behind us filled Sprout, the one we are at in a Bottle chip.
+              It plays in order once (globals.css, "The timeline"): each dot
+              blooms, its date lands, its hairline draws on toward the next,
+              and the one we are at now keeps a slow Sprout ring going. */}
+          <ol
+            data-reveal
+            className="timeline cell-rule-t m-0 grid list-none p-0 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {TIMELINE.map((entry, i) => {
+              const now = i === TIMELINE.length - 1;
+              return (
+                <li
                   key={entry.year}
-                  className={`flex min-h-[280px] flex-col justify-between gap-5 p-6 hairline transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${entry.ground}`}
+                  className={`group flex flex-col gap-4 px-5 py-8 transition-colors duration-[var(--duration-base)] hover:bg-panel sm:px-8 lg:px-8 lg:py-10 ${quadRules(i)}`}
+                  style={{ "--i": i } as React.CSSProperties}
                 >
-                  <span className={`block h-[26px] w-[26px] ${entry.chip}`} />
-                  <div>
-                    <h3 className="m-0 mb-2.5 font-display text-[30px] font-extrabold tracking-[-0.03em] text-bottle">
-                      {entry.year}
-                    </h3>
-                    <div className="text-[15px] leading-snug text-ink">
-                      {entry.body}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <AboutStats />
-
-        <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-65">03 · Our values</p>
-            <h2 className="m-0 mb-10 max-w-[22ch] font-display text-[clamp(32px,6vw,60px)] leading-[0.9] font-extrabold tracking-[-0.04em] text-ink">
-              Six rules, written on a napkin, still true.
-            </h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3">
-              {RULES.map((rule) => (
-                <div
-                  key={rule.title}
-                  // Not justify-between: the copy is bottom-anchored under that,
-                  // so a card with a shorter body drops its title below the
-                  // titles either side of it. Chip top, copy straight under it,
-                  // slack at the foot, and every title in a row lines up.
-                  className={`flex min-h-[240px] flex-col gap-5 p-8 transition-transform duration-300 ease-overshoot hover:-translate-y-2 ${rule.ground}`}
-                >
-                  <span className={`block h-7 w-7 ${rule.chip}`} />
-                  <div>
-                    <h3
-                      className={`m-0 mb-2 font-display text-2xl font-extrabold tracking-[-0.03em] ${rule.titleClass ?? ""}`}
+                  <div className="flex items-center gap-3">
+                    <span
+                      className={`tl-date inline-flex items-center gap-2 rounded-sm px-2 py-1.5 transition-transform duration-[var(--duration-pop)] ease-overshoot group-hover:-translate-y-[3px] ${
+                        now ? "bg-bottle text-on-dark" : "text-ink"
+                      }`}
                     >
-                      {rule.title}
-                    </h3>
-                    <div className="text-[15px] leading-relaxed opacity-90">
-                      {rule.body}
-                    </div>
+                      <span
+                        aria-hidden="true"
+                        className={`tl-dot relative size-2 shrink-0 rounded-full bg-sprout ${now ? "tl-now" : ""}`}
+                      />
+                      <span className="headline text-title">{entry.year}</span>
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className={`tl-line h-px flex-1 ${now ? "bg-line" : "bg-sprout"}`}
+                    />
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+                  <div className="tl-body text-body text-ink-secondary">
+                    {entry.body}
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </Row>
 
-        <section className="bg-cream px-6 pb-20 sm:px-10 sm:pb-24">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-5 opacity-65">
-              04 · Who you are actually emailing
-            </p>
-            <div className="grid gap-px bg-ink/20 lg:grid-cols-2">
-              {FOUNDERS.map((person) => (
-                <div
+        <Row labelledBy="rules-title">
+          <div
+            data-reveal
+            className="px-5 pt-16 pb-10 sm:px-8 sm:pt-24 sm:pb-12 lg:px-12"
+          >
+            <h2
+              id="rules-title"
+              className="headline m-0 max-w-[22ch] text-headline text-ink"
+            >
+              <Split text="Six rules, written on a napkin, still true." />
+            </h2>
+          </div>
+          <dl className="cell-rule-t m-0">
+            {RULES.map((rule, i) => (
+              <div
+                key={rule.title}
+                data-reveal
+                className={`reveal-rise group grid gap-x-12 gap-y-2 px-5 py-6 transition-colors duration-[var(--duration-base)] hover:bg-panel sm:px-8 lg:grid-cols-12 lg:px-12 lg:py-7 ${
+                  i > 0 ? "border-t border-rule" : ""
+                }`}
+                style={
+                  {
+                    "--reveal-delay": `${(i % 2) * 70}ms`,
+                  } as React.CSSProperties
+                }
+              >
+                <dt className="flex items-baseline gap-4 lg:col-span-5">
+                  <span className="mono-label shrink-0 text-ink-muted tabular-nums transition-colors duration-[var(--duration-base)] group-hover:text-bottle">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="headline text-title text-ink transition-transform duration-[var(--duration-pop)] ease-overshoot group-hover:translate-x-[3px]">
+                    {rule.title}
+                  </span>
+                </dt>
+                <dd className="m-0 max-w-[60ch] text-body text-ink-secondary lg:col-span-7">
+                  {rule.body}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Row>
+
+        <Row labelledBy="founders-title">
+          <div
+            data-reveal
+            className="px-5 pt-16 pb-10 sm:px-8 sm:pt-24 sm:pb-12 lg:px-12"
+          >
+            <h2
+              id="founders-title"
+              className="headline m-0 max-w-[20ch] text-headline text-ink"
+            >
+              <Split text="Who you are actually emailing" />
+            </h2>
+          </div>
+          <div className="cell-rule-t grid lg:grid-cols-2">
+            {FOUNDERS.map((person, i) => {
+              return (
+                <article
                   key={person.name}
-                  className="flex flex-col bg-cream transition-transform duration-300 ease-overshoot hover:-translate-y-2"
+                  data-reveal
+                  className={`flex flex-col px-5 py-8 sm:px-8 sm:py-10 lg:px-12 ${
+                    i > 0
+                      ? "border-t border-rule lg:border-t-0 lg:border-l"
+                      : ""
+                  }`}
+                  style={
+                    { "--reveal-delay": `${i * 140}ms` } as React.CSSProperties
+                  }
                 >
-                  <div
-                    className={`relative aspect-square w-full overflow-hidden ${person.ground}`}
-                  >
+                  {/* The portrait wipes up into its frame and settles. */}
+                  <div className="reveal-wipe relative aspect-square w-full overflow-hidden rounded-md bg-bottle">
                     {person.photo ? (
-                      // Both headshots are shot on Bottle, so the panel behind
-                      // them is Bottle too and the edge of the frame vanishes.
-                      // Square panel because the source files are square and
-                      // the subject sits centred: any letterbox crop here eats
-                      // the shoulders and leaves dead backdrop above the head.
                       <Image
                         src={person.photo}
                         alt={person.photoAlt}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 590px"
+                        sizes="(max-width: 1024px) calc(100vw - 48px), 540px"
                         className="object-cover"
                       />
-                    ) : (
-                      // Until a photo is dropped in, the block would be a flat
-                      // slab of colour and read as unfinished. The mark makes
-                      // it deliberate.
-                      <div
-                        aria-hidden="true"
-                        className="absolute inset-0 flex items-center justify-center"
-                      >
-                        <ArbourA className="h-[45%] w-auto animate-drift text-cream/15" />
-                      </div>
-                    )}
-
-                    {person.name === "Ben" ? (
-                      <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2.5 bg-bottle/85 px-3 py-2">
-                        <span className="block h-2.5 w-2.5 animate-rec rounded-full bg-coral" />
-                        <span className="label-mono text-[8px] text-cream">
-                          Rec · 04:12
-                        </span>
-                      </div>
-                    ) : (
-                      <div className="pointer-events-none absolute top-4 left-4 flex items-center gap-2 bg-bottle/85 px-3 py-2">
-                        <span className="label-mono text-[8px] text-acid">
-                          deploy · ok
-                        </span>
-                        <span className="block h-3 w-[7px] animate-cursor bg-acid" />
-                      </div>
-                    )}
+                    ) : null}
                   </div>
-
-                  <div className="flex flex-1 flex-col gap-4 p-8">
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <span
-                          className={`block h-[22px] w-[22px] shrink-0 ${person.chip}`}
-                        />
-                        <h3 className="m-0 font-display text-[30px] font-extrabold tracking-[-0.03em]">
-                          {person.name}
-                        </h3>
-                      </div>
-                      <div className="label-mono mt-2 opacity-65">
-                        {person.role}
-                      </div>
-                    </div>
-                    <p className="m-0 text-[16px] leading-relaxed opacity-80">
+                  <div className="reveal-rise">
+                    <h3 className="headline m-0 mt-8 text-page-title text-ink">
+                      {person.name}
+                    </h3>
+                    <Scramble
+                      text={person.role}
+                      delay={300 + i * 140}
+                      className="mono-label m-0 mt-2 block text-ink-muted"
+                    />
+                    <p className="m-0 mt-5 max-w-[52ch] text-lead text-ink-secondary">
                       {person.bio}
                     </p>
-                    <div className="label-mono mt-auto animate-slide opacity-65">
+                    <p className="mono-label m-0 mt-6 border-t border-line pt-4 text-ink-muted">
                       {person.footnote}
-                    </div>
+                    </p>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="on-dark mt-px flex flex-wrap items-center gap-6 bg-bottle p-8 text-cream">
-              <span className="block h-7 w-7 shrink-0 animate-pop bg-acid" />
-              <p className="m-0 max-w-[62ch] text-[17px] leading-relaxed">
-                Want a word with us? Tell us your deepest desires about custom
-                wedding software, the field nobody else will add, the automation
-                you have been faking with a spreadsheet. It lands with Ben or
-                Alex, because there is nobody else here. Yet.
-              </p>
-              <Link
-                href="/contact"
-                className={buttonClass(
-                  "acid",
-                  "lg",
-                  "shrink-0 hover:rotate-[-1.5deg] sm:ms-auto",
-                )}
-              >
-                Hit the button
-              </Link>
-            </div>
+                </article>
+              );
+            })}
           </div>
-        </section>
+          <div className="cell-rule-t flex flex-wrap items-center gap-x-10 gap-y-6 bg-bottle-wash px-5 py-8 sm:px-8 lg:px-12 lg:py-10">
+            <p className="m-0 max-w-[62ch] flex-1 text-lead text-ink">
+              Want a word with us? Tell us your deepest desires about custom
+              wedding software, the field nobody else will add, the automation
+              you have been faking with a spreadsheet. It lands with Ben or
+              Alex, because there is nobody else here. Yet.
+            </p>
+            <Link href="/contact" className={buttonClass("primary", "lg")}>
+              Hit the button
+            </Link>
+          </div>
+        </Row>
 
-        <section className="overflow-hidden bg-acid px-6 py-20 text-bottle sm:px-10 sm:py-24">
-          <div className="mx-auto max-w-[1180px]">
-            <h2 className="m-0 max-w-[17ch] font-display text-[clamp(38px,8vw,96px)] leading-[0.86] font-extrabold tracking-[-0.05em] text-bottle">
-              Come and run your season on it.
+        <Row band="bottle" labelledBy="about-close-title">
+          <div
+            data-reveal
+            className="px-5 pt-16 pb-14 sm:px-8 sm:pt-24 sm:pb-20 lg:px-12"
+          >
+            <h2
+              id="about-close-title"
+              className="headline m-0 max-w-[16ch] text-[clamp(2.5rem,1rem+5.4vw,5.5rem)] leading-[0.9] text-on-dark"
+            >
+              <Split text="Come and run your season on it." />
             </h2>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-5 pt-8">
-              <TrialLink
-                variant="bottle"
-                size="lg"
-                className="hover:rotate-[-1.5deg]"
-              />
+            <div
+              className="reveal-rise mt-10 flex flex-wrap items-center gap-x-3 gap-y-4"
+              style={{ "--reveal-delay": "380ms" } as React.CSSProperties}
+            >
+              <TrialLink variant="sprout" size="lg" />
               <Link
                 href="/#stage-enquiry"
-                className={buttonClass(
-                  "outlineBottle",
-                  "lg",
-                  "hover:rotate-[1.5deg]",
-                )}
+                className={buttonClass("onDark", "lg")}
               >
                 See the product
               </Link>
-              <span className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
+              <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1 sm:ml-4">
                 <Link
                   href="/contact"
-                  className="inline-block py-2.5 text-[15px] font-semibold underline underline-offset-4"
+                  className="py-2.5 text-body font-semibold text-on-dark underline underline-offset-4 hover:text-sprout"
                 >
                   Or write to one of us
                 </Link>
-                <span className="label-mono">
+                <span className="mono-label text-on-dark/70">
                   We do reply, usually on a Sunday
                 </span>
               </span>
             </div>
           </div>
-        </section>
+        </Row>
       </main>
 
       <SiteFooter />

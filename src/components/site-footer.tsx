@@ -1,171 +1,154 @@
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 import { Wordmark } from "./wordmark";
+import { buttonClass } from "./ui/button";
 import { APP, NAV_LINKS, SITE, TRIAL_DAYS } from "@/content/site";
 import { SOCIALS } from "@/content/bio";
 
 /**
- * The footer used to be a single 40px row of 9px mono links. Now it is a real
- * block: what Arbour is, where to go, and how to reach a human, over four
- * columns closed by a hairline bottom bar.
+ * The foot of the sheet, on the Bottle band the closing row starts: what
+ * Arbour is, where to go, how to reach a person, in ruled cells. The column
+ * rules carry on down through it in on-dark ink.
  *
  * Everything here has to be true. No customers, no traction, no legal pages
- * that do not exist as routes, no socials that are not live: Facebook has no
- * href in content/bio.ts, so it renders as a dead label rather than a link.
- * The product links go to the console host, which is a separate deployment.
+ * that are not routes, no socials that are not live: Facebook has no href in
+ * content/bio.ts, so it renders as a label rather than a link.
  */
 
-/** In-page anchors are the product story, the rest is the company. */
 const SITE_LINKS = NAV_LINKS.filter((link) => link.href.includes("#"));
 const COMPANY_LINKS = NAV_LINKS.filter((link) => !link.href.includes("#"));
 
-function ColumnHeading({ children }: { children: React.ReactNode }) {
-  return <p className="label-mono mb-5 text-acid/70">{children}</p>;
-}
-
 const LINK =
-  "inline-block py-0.5 text-[15px] leading-snug text-cream/70 transition-colors hover:text-acid";
+  "inline-block py-1 text-body text-on-dark/75 underline-offset-4 transition-colors duration-[var(--duration-base)] hover:text-on-dark hover:underline";
+
+function Column({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="cell-rule-t px-5 py-8 sm:px-8 lg:border-t-0 lg:border-l lg:border-rule">
+      <h2 className="mono-label m-0 mb-4 text-on-dark/60">{title}</h2>
+      <ul className="m-0 grid list-none gap-1.5 p-0">{children}</ul>
+    </div>
+  );
+}
 
 export function SiteFooter() {
   return (
-    <footer className="on-dark overflow-hidden bg-bottle pt-16 text-cream">
-      <div className="px-6 sm:px-10">
-        <div className="mx-auto max-w-[1180px]">
-          <div className="grid gap-x-10 gap-y-12 lg:grid-cols-[minmax(0,1.7fr)_repeat(3,minmax(0,1fr))]">
-            <div>
-              <p className="m-0 max-w-[34ch] font-display text-[24px] leading-tight font-extrabold tracking-[-0.03em] text-acid">
-                {SITE.tagline}.
-              </p>
-              <p className="mt-3.5 max-w-[42ch] text-[15px] leading-relaxed text-cream/70">
-                Sales CRM and project management in one, built for nothing
-                except the wedding industry. One record carries a job from
-                &ldquo;are you free?&rdquo; to the final invoice.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  href={APP.signUp}
-                  className="inline-flex items-center gap-2 bg-acid px-4 py-3 text-[15px] font-semibold text-bottle press transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[-1deg]"
-                >
-                  Start free trial
-                </a>
-                <a
-                  href={APP.help}
-                  className="inline-flex items-center gap-2 bg-transparent px-4 py-3 text-[15px] font-semibold text-acid edge-acid transition-transform duration-300 ease-overshoot hover:-translate-y-1 hover:rotate-[1deg]"
-                >
-                  Help centre
-                  <svg
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    focusable="false"
-                    className="h-3.5 w-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="square"
-                  >
-                    <path d="M3.5 12.5 12.5 3.5M5.5 3.5h7v7" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            <div>
-              <ColumnHeading>The site</ColumnHeading>
-              <ul className="m-0 grid list-none gap-3.5 p-0">
-                {SITE_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className={LINK}>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div>
-              <ColumnHeading>Company</ColumnHeading>
-              <ul className="m-0 grid list-none gap-3.5 p-0">
-                {COMPANY_LINKS.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className={LINK}>
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <a href={`mailto:${SITE.contactEmail}`} className={LINK}>
-                    {SITE.contactEmail}
-                  </a>
-                </li>
-                <li>
-                  <a href={APP.signIn} className={LINK}>
-                    Log in
-                  </a>
-                </li>
-                <li>
-                  <Link href="/terms" className={LINK}>
-                    Terms and Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy" className={LINK}>
-                    Privacy Policy
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <ColumnHeading>Follow</ColumnHeading>
-              <ul className="m-0 grid list-none gap-3.5 p-0">
-                {SOCIALS.map((social) =>
-                  social.href ? (
-                    <li key={social.name}>
-                      <a
-                        href={social.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={LINK}
-                      >
-                        {social.name}
-                        <span className="ml-2 text-cream/60">
-                          {social.handle}
-                        </span>
-                      </a>
-                    </li>
-                  ) : (
-                    <li
-                      key={social.name}
-                      className="text-[15px] leading-snug text-cream/60"
-                    >
-                      {social.name}
-                      <span className="label-mono ml-2 text-cream/60">
-                        Not yet
-                      </span>
-                    </li>
-                  ),
-                )}
-              </ul>
-            </div>
-          </div>
-
-          {/* The mark lives down here rather than at the top of the first
-              column: the column leads with the tagline, and the bar is the
-              sign-off, the home link and the trial facts in one row. */}
-          <div className="mt-14 flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-cream/15 pt-7 pb-11">
-            <Link href="/" className="shrink-0 text-acid">
-              <Wordmark className="text-lg" />
+    <footer className="ruled band-bottle">
+      <div className="sheet">
+        <div className="grid lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
+          <div className="px-5 py-10 sm:px-8">
+            <Link href="/" aria-label="Arbour, home" className="inline-block">
+              <Wordmark tone="white" title={null} className="text-section" />
             </Link>
-            <p className="label-mono text-cream/60">
-              &copy; {new Date().getFullYear()} Arbour
+            <p className="headline m-0 mt-8 max-w-[18ch] text-section text-on-dark">
+              {SITE.tagline}.
             </p>
-            <p className="label-mono text-acid/70">
-              Open · {TRIAL_DAYS} days free · no card
+            <p className="m-0 mt-3 max-w-[42ch] text-body text-on-dark/75">
+              Sales CRM and project management in one, built for nothing except
+              the wedding industry. One record carries a job from &ldquo;are you
+              free?&rdquo; to the final invoice.
             </p>
-            <p className="label-mono ml-auto text-cream/60">
-              Made in Australia for people who work weekends
-            </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              <a href={APP.signUp} className={buttonClass("onDark", "md")}>
+                Start free trial
+              </a>
+              <a href={APP.help} className={buttonClass("onDark", "md")}>
+                Help centre
+                <ArrowUpRight aria-hidden />
+              </a>
+            </div>
           </div>
+
+          <Column title="The site">
+            {SITE_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={LINK}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </Column>
+
+          <Column title="Company">
+            {COMPANY_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={LINK}>
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a href={`mailto:${SITE.contactEmail}`} className={LINK}>
+                {SITE.contactEmail}
+              </a>
+            </li>
+            <li>
+              <a href={APP.signIn} className={LINK}>
+                Log in
+              </a>
+            </li>
+            <li>
+              <Link href="/terms" className={LINK}>
+                Terms and Conditions
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className={LINK}>
+                Privacy Policy
+              </Link>
+            </li>
+          </Column>
+
+          <Column title="Follow">
+            {SOCIALS.map((social) =>
+              social.href ? (
+                <li key={social.name}>
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={LINK}
+                  >
+                    {social.name}
+                    <span className="ml-2 text-on-dark/60">
+                      {social.handle}
+                    </span>
+                  </a>
+                </li>
+              ) : (
+                <li
+                  key={social.name}
+                  className="flex items-center gap-2 py-1 text-body text-on-dark/60"
+                >
+                  {social.name}
+                  <span className="mono-label rounded-sm bg-on-dark/10 px-1.5 py-1 text-on-dark/70">
+                    Not yet
+                  </span>
+                </li>
+              ),
+            )}
+          </Column>
+        </div>
+
+        <div className="cell-rule-t flex flex-wrap items-center gap-x-8 gap-y-3 px-5 py-6 sm:px-8">
+          <p className="mono-label m-0 text-on-dark/60">
+            &copy; {new Date().getFullYear()} Arbour
+          </p>
+          <p className="mono-label m-0 flex items-center gap-2 text-on-dark/75">
+            <span
+              aria-hidden="true"
+              className="size-[7px] rounded-xs bg-sprout"
+            />
+            Open · {TRIAL_DAYS} days free · no card
+          </p>
+          <p className="mono-label m-0 text-on-dark/60 lg:ml-auto">
+            Made in Australia for people who work weekends
+          </p>
         </div>
       </div>
     </footer>

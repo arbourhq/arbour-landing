@@ -33,7 +33,7 @@ The landing site previously used the standing pose in the Arby description and t
 
 The platform workspace at `/Users/alexlai/conductor/workspaces/arbour/whitehorse/packages/ui/src/components/arby/` contains twelve SVG poses and corresponding React artwork. Its flying pose already separates the near wing, far wing and tail into groups with joint transforms. The standing pose supplies the resting bird. The perched pose supplies the branch. Those existing assets remove the need to redraw Arby or introduce an animation-authoring pipeline for this version.
 
-The site has no animation-library dependency. It already writes scroll-driven transforms directly to DOM nodes for the navigation progress indicator and stage rail. The companion follows that approach and keeps per-frame values outside React state.
+The site has no animation-library dependency. It already writes scroll-driven transforms directly to DOM nodes for the navigation progress indicator and the stage strip. The companion follows that approach and keeps per-frame values outside React state.
 
 ## Rendering options
 
@@ -62,7 +62,7 @@ The two poses overlap briefly through opacity during the change. This is a pose 
 
 Candidate page edges are explicitly marked with `data-arby-perch`. They currently include product-frame tops and the stage facts, vendor, pricing and FAQ ledgers. Landing points are spaced across the edge, with room for the bird at both ends. This lets wide desktop ledges offer a clear landing between occupied corners. The feet, rather than the SVG box centre, define the landing coordinate.
 
-Candidates are rejected when the bird would be clipped, appear under the navigation, or overlap nearby text, images or controls. Text uses its rendered line rectangles, so empty space after a short desktop heading remains available. Controls, images and the sticky stage rail exclude their full boxes. Any clear real page edge wins over the branch, even across a wide desktop viewport. Distance breaks ties within those groups. A final check catches an edge that moved while its reveal animation settled.
+Candidates are rejected when the bird would be clipped, appear under the navigation, or overlap nearby text, images or controls. Text uses its rendered line rectangles, so empty space after a short desktop heading remains available. Controls, images and the sticky stage strip exclude their full boxes. Any clear real page edge wins over the branch, even across a wide desktop viewport. Distance breaks ties within those groups. A final check catches an edge that moved while its develop animation settled.
 
 A finite list of document edges cannot guarantee a visible landing spot at every possible scroll offset. A screen might contain only the middle of a tall screenshot or a long paragraph. The viewport branch supplies that missing physical support. Its artwork comes from the platform's perched pose and its far end reaches beyond the right edge, so it reads as attached to something.
 
@@ -82,7 +82,7 @@ On a crowded phone screen, there may be no completely empty patch large enough f
 
 The user approved free flight across marketing grounds and the edge-branch fallback on 17 September 2026. `docs/brand.md` records that narrow home-page exception. The fixed paths and colours remain unchanged. Other mascot placements still follow the original background rules.
 
-The moving bird has a crisp Cream silhouette outline with a finer Ink outer edge. Cream separates the dark plumage from Bottle backgrounds; Ink separates the cream body from light backgrounds. The treatment follows the wings in flight and avoids a backing panel or blurred shadow. SVG `feMorphology` dilates the combined artwork alpha before merging the original artwork over it. The filter is limited to the small character; it does add paint work during wing animation, so transform-only performance claims would be inaccurate. [MDN feMorphology](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Element/feMorphology)
+The moving bird carries a 1px Cream keyline: four unblurred 1px CSS `drop-shadow` offsets on `.arby-direction`, set in px so it stays 1px at every bird size. It keeps the dark plumage's edge on the Bottle footer and all but vanishes on white. It replaced the heavier SVG `feMorphology` Cream and Ink silhouette outline on 26 October 2026. No backing panel and no blurred shadow.
 
 ## Maintenance and verification
 
@@ -91,3 +91,14 @@ The controller is `src/components/arby/scroll-companion.tsx`, its geometry is `f
 Run `bun run test:arby`, `bun run typecheck`, `bun run lint`, `bun run format:check` and `bun run build`. The geometry tests cover obstructed and clipped perches, desktop ledge sampling and priority over the branch, narrow ledges, branch fallback, landing endpoints, non-repeating manoeuvres, interrupted-flight continuity and bounded randomness.
 
 Browser acceptance checks should include desktop and phone layouts, both scroll directions, stopping mid-section, new input during a landing, anchor navigation, FAQ changes, chat open and close, returning from another tab and reduced motion. Real iOS and Android hardware should also be checked before claiming a device performance target. No production deployment is part of this change.
+
+## Speech bubble
+
+The bird is the only way into Arby Help, so it says so. `.arby-say` lives inside the hit-area button (hovering it keeps it up, clicking it opens the chat, and it is `aria-hidden` because the button's label already says what it does). The controller in `scroll-companion.tsx` decides when it speaks:
+
+- a hello 1.4s after load if the bird is perched;
+- on each landing, a line chosen from `LINES` by context: the perch's own `data-arby-perch` name, or on the edge branch, the perch-marked block nearest the middle of the window;
+- at most `MAX_SAYS` (4) a page, never the same context twice running, hidden after `SAY_MS` or on the next scroll, and never again once the chat has been opened;
+- placed above the head unless the nav is in the way (then beside it), always on the side toward the page.
+
+Hovering or focusing the bird shows the last line at any time.

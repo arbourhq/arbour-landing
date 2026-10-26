@@ -3,14 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
 import { Wordmark } from "./wordmark";
 import { TrialLink } from "./trial-link";
+import { buttonClass } from "./ui/button";
 import { APP, NAV_LINKS } from "@/content/site";
 
-// Anchor links have to be driven by hand. Left to the router they land at the
-// wrong offset, because the section heights change under a smooth scroll as
-// the Reveal blocks in between resolve. scrollIntoView honours the
-// scroll-padding-top on <html>, so the nav never covers the heading.
+// Anchor links are driven by hand. Left to the router they land at the wrong
+// offset while the rows between are still developing; scrollIntoView honours
+// the scroll-padding-top on <html>, so the bar never covers the heading.
 function scrollToId(id: string) {
   const target = document.getElementById(id);
   if (!target) return false;
@@ -18,27 +19,33 @@ function scrollToId(id: string) {
   return true;
 }
 
+const LINK =
+  "inline-flex h-9 items-center rounded-sm px-3 text-ui font-semibold text-ink-secondary transition-colors duration-[var(--duration-base)] hover:bg-panel hover:text-ink aria-[current=page]:bg-bottle aria-[current=page]:text-on-dark";
+
 /**
- * One ground on every page. It used to flip to Acid on About and Thanks so the
- * bar matched the flood beneath it, but that read as two different navs, so the
- * bar is Bottle everywhere and the flood starts under it.
+ * The console's floating bar, at the top of the window instead of the foot:
+ * white, a Line border, 6px corners and the lifted shadow, the one kind of
+ * object allowed to cast it. It lines up with the sheet's column rules, so
+ * the page's construction carries straight through it.
+ *
+ * Fixed rather than sticky, so the first row's column rules can start at the
+ * top of the window and run behind it. A 2px Sprout line along its foot
+ * fills with reading progress.
  */
 export function SiteNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const bar = useRef<HTMLElement>(null);
   const progress = useRef<HTMLSpanElement>(null);
-  const bar = useRef<HTMLDivElement>(null);
 
-  // scroll-padding-top has to be the exact height of the bar, or an anchor
-  // lands with a strip of Bottle above the section it jumped to. The bar
-  // changes height between breakpoints and when the mobile menu opens, so it
-  // is measured rather than hard-coded.
+  // scroll-padding-top has to clear the bar exactly. It changes height when
+  // the phone menu opens, so it is measured rather than hard-coded; the open
+  // menu is excluded so anchors do not jump while it is down.
   useEffect(() => {
     const el = bar.current;
     if (!el) return;
-    // offsetHeight, not contentRect: contentRect is the content box and would
-    // drop the bar's vertical padding.
     const observer = new ResizeObserver(() => {
+      if (el.dataset.open === "true") return;
       document.documentElement.style.setProperty(
         "--nav-h",
         `${el.offsetHeight}px`,
@@ -48,8 +55,8 @@ export function SiteNav() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll progress, drawn as a hairline of Acid across the bottom of the bar.
-  // Written straight to the node so a scroll does not re-render the nav.
+  // Reading progress, written straight to the node so a scroll does not
+  // re-render the nav.
   useEffect(() => {
     let frame = 0;
     const update = () => {
@@ -63,7 +70,6 @@ export function SiteNav() {
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(update);
     };
-
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -83,7 +89,6 @@ export function SiteNav() {
     return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
-  // Escape closes the phone menu, the same as it closes everything else.
   useEffect(() => {
     if (!menuOpen) return;
     const onKey = (event: KeyboardEvent) => {
@@ -98,98 +103,118 @@ export function SiteNav() {
     href: string,
   ) {
     setMenuOpen(false);
-
     const [path, id] = href.split("#");
-    // Only same-page anchors. Everything else is an ordinary navigation, and a
-    // modified click is the user asking for a new tab.
     if (!id) return;
     if ((path || "/") !== pathname) return;
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
       return;
-
     if (scrollToId(id)) {
       event.preventDefault();
       history.replaceState(null, "", `#${id}`);
     }
   }
 
+  const current = (href: string) =>
+    !href.includes("#") && pathname === href ? "page" : undefined;
+
   return (
-    <nav className="on-dark sticky top-0 z-50 bg-bottle text-acid">
-      {/* Keyboard users get past the links and the buttons in one press.
-          Off screen until focused, then a solid Acid block over the bar. */}
+    <>
+      {/* Off screen until focused. Not the button recipe: its fixed height
+          would beat sr-only and hold an invisible 40px in the flow. */}
       <a
         href="#main"
-        className="sr-only bg-acid px-4 py-3 text-[15px] font-semibold text-bottle focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]"
+        className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-[60] focus-visible:inline-flex focus-visible:h-10 focus-visible:items-center focus-visible:rounded-md focus-visible:bg-bottle focus-visible:px-4 focus-visible:text-ui focus-visible:font-semibold focus-visible:text-on-dark"
       >
         Skip to content
       </a>
-      {/* Scaled from the left so it reads as a hairline filling in. Inside the
-          bar, so it does not add height the anchor offset would have to clear. */}
-      <span
-        ref={progress}
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-acid"
-      />
-      <div ref={bar} className="flex items-center gap-8 px-6 py-3.5 sm:px-10">
-        <Link href="/" className="shrink-0">
-          <Wordmark className="text-[22px] sm:text-[26px]" priority />
-        </Link>
-
-        <div className="ml-auto hidden items-center gap-6 md:flex">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={(event) => onNavClick(event, link.href)}
-              className="label-mono py-3 text-[10px] tracking-[0.16em] hover:underline"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <a
-            href={APP.signIn}
-            className="label-mono py-3 text-[10px] tracking-[0.16em] hover:underline"
-          >
-            Log in
-          </a>
-          <TrialLink variant="acid" size="sm" />
-        </div>
-
-        <button
-          type="button"
-          onClick={() => setMenuOpen((open) => !open)}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          className="label-mono ml-auto cursor-pointer border-0 bg-transparent px-3 py-3 text-[10px] tracking-[0.16em] text-current md:hidden"
+      <div className="pointer-events-none fixed inset-x-0 top-(--nav-gap) z-50">
+        <nav
+          ref={bar}
+          aria-label="Main"
+          data-open={menuOpen}
+          className="sheet-frame pointer-events-auto relative overflow-hidden rounded-md border border-line bg-page shadow-lifted"
         >
-          {menuOpen ? "Close" : "Menu"}
-        </button>
+          <div className="flex h-14 items-center gap-6 pr-2 pl-4 sm:pl-5">
+            <Link
+              href="/"
+              aria-label="Arbour, home"
+              className="-mx-1 rounded-sm px-1 py-1.5"
+            >
+              <Wordmark title={null} className="text-title sm:text-section" />
+            </Link>
+
+            <ul className="m-0 ml-auto hidden list-none items-center gap-1 p-0 lg:flex">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={current(link.href)}
+                    onClick={(event) => onNavClick(event, link.href)}
+                    className={LINK}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            <div className="ml-auto flex items-center gap-1.5 lg:ml-0">
+              <a
+                href={APP.signIn}
+                className={buttonClass("ghost", "sm", "max-sm:hidden")}
+              >
+                Log in
+              </a>
+              <TrialLink size="sm" className="max-[379px]:hidden" />
+              <button
+                type="button"
+                onClick={() => setMenuOpen((open) => !open)}
+                aria-expanded={menuOpen}
+                aria-controls="site-menu"
+                className={buttonClass("secondary", "sm", "lg:hidden")}
+              >
+                {menuOpen ? <X aria-hidden /> : <Menu aria-hidden />}
+                {menuOpen ? "Close" : "Menu"}
+              </button>
+            </div>
+          </div>
+
+          {menuOpen ? (
+            <div
+              id="site-menu"
+              className="animate-swap border-t border-line px-2 pt-2 pb-3 lg:hidden"
+            >
+              <ul className="m-0 grid list-none gap-0.5 p-0">
+                {NAV_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      aria-current={current(link.href)}
+                      onClick={(event) => onNavClick(event, link.href)}
+                      className={`${LINK} h-11 w-full`}
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <a href={APP.signIn} className={`${LINK} h-11 w-full`}>
+                    Log in
+                  </a>
+                </li>
+              </ul>
+              {/* The bar already carries the trial from 380px up. */}
+              <TrialLink size="md" className="mt-2 w-full min-[380px]:hidden" />
+            </div>
+          ) : null}
+
+          <span
+            ref={progress}
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-sprout"
+          />
+        </nav>
       </div>
-
-      {menuOpen ? (
-        <div
-          id="mobile-nav"
-          className="flex flex-col gap-1 border-t border-acid/20 bg-bottle px-6 pt-4 pb-6 text-acid md:hidden"
-        >
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={(event) => onNavClick(event, link.href)}
-              className="label-mono py-3 text-[11px] tracking-[0.16em]"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <a
-            href={APP.signIn}
-            className="label-mono py-3 text-[11px] tracking-[0.16em]"
-          >
-            Log in
-          </a>
-          <TrialLink variant="acid" size="sm" className="mt-3 w-full" />
-        </div>
-      ) : null}
-    </nav>
+    </>
   );
 }

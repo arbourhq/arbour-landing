@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { TrialLink } from "@/components/trial-link";
 import { ContactForm } from "@/components/contact/contact-form";
+import { Row } from "@/components/ui/row";
 import { CONTACT_FACTS } from "@/content/contact";
 import { SITE } from "@/content/site";
 
@@ -25,70 +26,87 @@ export default async function ContactPage({
       <SiteNav />
 
       <main id="main">
-        <section className="bg-acid px-6 pt-16 pb-20 text-bottle sm:px-10 sm:py-22">
-          <div className="mx-auto max-w-[1180px]">
-            <p className="eyebrow mb-6">Contact · one of two people</p>
-            <h1 className="m-0 mb-4 max-w-[15ch] font-display text-[clamp(40px,9vw,104px)] leading-[0.86] font-extrabold tracking-[-0.05em] text-bottle">
+        <Row
+          first
+          labelledBy="contact-title"
+          className="pt-[calc(var(--nav-h)+var(--nav-gap))]"
+        >
+          <div className="grid gap-x-12 gap-y-6 px-5 pt-14 pb-12 sm:px-8 sm:pt-20 sm:pb-14 lg:grid-cols-12 lg:items-end lg:px-12 lg:pt-24 lg:pb-16">
+            <h1
+              id="contact-title"
+              className="headline m-0 max-w-[12ch] text-hero text-ink lg:col-span-7"
+            >
               Ask us something hard.
             </h1>
-            <p className="m-0 max-w-[52ch] text-[17px] leading-relaxed sm:text-[19px]">
-              What it costs, what it will not do, whether it survives a
-              two-hundred cover Saturday. It is our software and our names on
-              it, so there is nothing to be cagey about.
-            </p>
+            <div className="flex flex-col items-start gap-4 lg:col-span-5">
+              <p className="m-0 max-w-[46ch] text-lead text-ink-secondary">
+                What it costs, what it will not do, whether it survives a
+                two-hundred cover Saturday. It is our software and our names on
+                it, so there is nothing to be cagey about.
+              </p>
+              {/* The console's presence dot: someone is actually there. */}
+              <p className="mono-label m-0 flex items-center gap-2 text-ink-muted">
+                <span
+                  aria-hidden="true"
+                  className="size-[7px] rounded-full bg-sprout"
+                />
+                Contact · one of two people
+              </p>
+            </div>
           </div>
-        </section>
 
-        <section className="bg-cream px-6 py-20 sm:px-10 sm:py-24">
-          <div className="mx-auto grid max-w-[1180px] items-start gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
-            <ContactForm initialTopic={topic} />
+          <div className="cell-rule-t grid lg:grid-cols-12">
+            <div className="px-5 py-8 sm:px-8 sm:py-10 lg:col-span-7 lg:px-12 lg:py-12">
+              <ContactForm initialTopic={topic} />
+            </div>
 
-            <div className="flex flex-col gap-10">
-              <div>
-                <p className="eyebrow mb-5 opacity-65">
-                  Or skip the form entirely
+            <aside className="cell-rule-t bg-panel lg:col-span-5 lg:border-t-0 lg:border-l lg:border-rule">
+              <div className="px-5 py-8 sm:px-8 sm:py-10 lg:px-10 lg:py-12">
+                <p className="m-0 text-lead text-ink">
+                  Or skip the form entirely:{" "}
+                  <a
+                    href={`mailto:${SITE.contactEmail}`}
+                    className="font-semibold break-all text-bottle underline underline-offset-4 hover:text-bottle-ink"
+                  >
+                    {SITE.contactEmail}
+                  </a>
                 </p>
-                <a
-                  href={`mailto:${SITE.contactEmail}`}
-                  className="font-display text-[clamp(24px,3.4vw,34px)] leading-none font-extrabold tracking-[-0.035em] break-all text-bottle underline decoration-2 underline-offset-[6px]"
-                >
-                  {SITE.contactEmail}
-                </a>
-                <p className="mt-4 max-w-[38ch] text-[15px] leading-relaxed opacity-75">
+                <p className="m-0 mt-3 max-w-[38ch] text-body text-ink-secondary">
                   Same inbox, same two people. Attach the spreadsheet you are
                   trying to escape if it helps.
                 </p>
               </div>
 
-              <div className="grid gap-px bg-ink/20">
-                {CONTACT_FACTS.map((fact) => (
-                  <div key={fact.index} className="bg-cream py-6 pr-2">
-                    <p className="label-mono mb-2.5 opacity-65">{fact.index}</p>
-                    <h2 className="m-0 mb-1.5 font-display text-[22px] leading-none font-extrabold tracking-[-0.03em]">
+              <dl className="m-0 border-t border-rule">
+                {CONTACT_FACTS.map((fact, i) => (
+                  <div
+                    key={fact.index}
+                    className={`px-5 py-6 sm:px-8 lg:px-10 ${i > 0 ? "border-t border-rule" : ""}`}
+                  >
+                    <dt className="headline text-title text-ink">
                       {fact.title}
-                    </h2>
-                    <p className="m-0 max-w-[42ch] text-[15px] leading-relaxed opacity-80">
+                    </dt>
+                    <dd className="m-0 mt-2 max-w-[42ch] text-body text-ink-secondary">
                       {fact.body}
-                    </p>
+                    </dd>
                   </div>
                 ))}
-              </div>
-            </div>
+              </dl>
+            </aside>
           </div>
-        </section>
+        </Row>
 
-        <section className="bg-acid px-6 py-20 text-bottle sm:px-10 sm:py-24">
-          <div className="mx-auto flex max-w-[1180px] flex-wrap items-end justify-between gap-x-12 gap-y-8">
-            <h2 className="m-0 max-w-[16ch] font-display text-[clamp(32px,6vw,64px)] leading-[0.88] font-extrabold tracking-[-0.045em] text-bottle">
+        <Row band="bottle" labelledBy="contact-close-title">
+          <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-8 px-5 pt-16 pb-14 sm:px-8 sm:pt-24 sm:pb-20 lg:px-12">
+            <h2
+              id="contact-close-title"
+              className="headline m-0 max-w-[14ch] text-[clamp(2.25rem,1rem+4.4vw,4.5rem)] leading-[0.9] text-on-dark"
+            >
               Not a question, just want in?
             </h2>
-            <TrialLink
-              variant="bottle"
-              size="lg"
-              className="hover:rotate-[-1.5deg]"
-            />
+            <TrialLink variant="sprout" size="lg" />
           </div>
-        </section>
+        </Row>
       </main>
 
       <SiteFooter />

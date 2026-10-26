@@ -1,0 +1,98 @@
+/*
+ * The waving pose's motion, from the console kit (arbour, packages/ui
+ * globals.css, "Arby, the mascot"). Every moving part is three groups: the
+ * outer names the part and places it, the middle is animated, the inner puts
+ * the joint at the origin, so a rotate pivots at the shoulder with no
+ * transform-origin arithmetic. Transforms and opacity only; the master
+ * colours stay literal. Each loop ends on the master frame, so reduced
+ * motion parks the bird exactly as drawn.
+ */
+.arby-wave {
+  --arby-delay: 520ms;
+  --arby-idle-delay: calc(var(--arby-delay) + 520ms);
+}
+
+/* A hop in, landing on the feet. */
+.arby-wave [data-part="bird"] > g {
+  animation: arby-hop 520ms var(--curve-overshoot) var(--arby-delay) both;
+}
+/* The strokes wait for the bird, so the bird is seen first and the hello second. */
+.arby-wave [data-part="wave-marks"] {
+  animation: arby-hold var(--arby-idle-delay) linear backwards;
+}
+
+.arby-wave [data-part="waving-wing"] > g {
+  animation: arby-rock 4.5s var(--curve-overshoot) var(--arby-idle-delay)
+    infinite;
+}
+.arby-wave [data-part="wave-stroke"] > g {
+  animation: arby-pulse 4.5s var(--curve-glide) var(--arby-idle-delay) infinite;
+}
+.arby-wave [data-part="wave-stroke"]:nth-child(2) > g {
+  animation-delay: calc(var(--arby-idle-delay) + 180ms);
+}
+.arby-wave [data-part="body"] > g {
+  animation: arby-lean 4.5s var(--curve-glide) var(--arby-idle-delay) infinite;
+}
+
+@keyframes arby-hop {
+  0% {
+    opacity: 0;
+    transform: translateY(90px) scale(0.86);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes arby-hold {
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes arby-rock {
+  0%,
+  42%,
+  100% {
+    transform: rotate(0deg);
+  }
+  6%,
+  20%,
+  34% {
+    transform: rotate(-14deg);
+  }
+  13%,
+  27% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes arby-pulse {
+  0%,
+  15.5%,
+  31%,
+  46.6%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  7.7%,
+  23%,
+  38.9% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+@keyframes arby-lean {
+  0%,
+  42%,
+  100% {
+    transform: rotate(0deg);
+  }
+  21% {
+    transform: rotate(2deg);
+  }
+}
