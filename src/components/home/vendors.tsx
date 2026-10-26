@@ -80,7 +80,7 @@ export function Vendors() {
           id="vendors-title"
           className="headline m-0 max-w-[18ch] text-headline text-ink lg:col-span-7"
         >
-          <Split text="Built for the whole wedding, not photographers first." />
+          <Split text="Built for the whole industry." />
         </h2>
         <p
           className="reveal-rise m-0 max-w-[52ch] self-end text-lead text-ink-secondary lg:col-span-5"
