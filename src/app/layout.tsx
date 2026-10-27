@@ -9,7 +9,10 @@ import { AttributionCapture } from "@/components/attribution-capture";
 import { MetaPixel } from "@/components/meta-pixel";
 import { RedditPixel } from "@/components/reddit-pixel";
 import { RevealObserver } from "@/components/motion/reveal-observer";
+import { StructuredData } from "@/components/structured-data";
+import { SOCIALS } from "@/content/bio";
 import { SITE } from "@/content/site";
+import { pageMetadata, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 // Bricolage is only ever set at 800. Instrument Sans carries 400/600.
@@ -38,30 +41,26 @@ const martian = Martian_Mono({
 });
 
 export const metadata: Metadata = {
+  ...pageMetadata({
+    title: "Australian wedding CRM",
+    description: SITE.description,
+    path: "/",
+  }),
   metadataBase: new URL(SITE.url),
+  applicationName: "Arbour",
   title: {
-    default: `Arbour · ${SITE.tagline}`,
+    default: "Arbour · Australian wedding CRM",
     template: "%s · Arbour",
-  },
-  description: SITE.description,
-  openGraph: {
-    title: `Arbour · ${SITE.tagline}`,
-    description: SITE.description,
-    url: SITE.url,
-    siteName: "Arbour",
-    locale: "en_AU",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `Arbour · ${SITE.tagline}`,
-    description: SITE.description,
   },
   // Meta Business domain verification. Must be in the server-rendered head,
   // and Next renders each verification.other key as <meta name=key>.
   verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
     other: {
       "facebook-domain-verification": "47swubvxinxgxxljjync0rcdkyblkw",
+      ...(process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : {}),
     },
   },
 };
@@ -88,6 +87,40 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <StructuredData
+          data={{
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": siteUrl("/#organization"),
+                name: "Arbour",
+                url: siteUrl("/"),
+                description: SITE.description,
+                logo: siteUrl("/arbour-icon-bottle-2000.png"),
+                email: SITE.contactEmail,
+                sameAs: SOCIALS.flatMap((social) =>
+                  social.href ? [social.href] : [],
+                ),
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  contactType: "customer support",
+                  email: SITE.contactEmail,
+                  availableLanguage: "English",
+                },
+              },
+              {
+                "@type": "WebSite",
+                "@id": siteUrl("/#website"),
+                name: "Arbour",
+                url: siteUrl("/"),
+                description: SITE.description,
+                inLanguage: "en-AU",
+                publisher: { "@id": siteUrl("/#organization") },
+              },
+            ],
+          }}
+        />
         {children}
         <RevealObserver />
         <Analytics />

@@ -6,12 +6,14 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { Row } from "@/components/ui/row";
 import { CONTACT_FACTS } from "@/content/contact";
 import { SITE } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact the Arbour team",
   description:
-    "Ask about the product, the House plan or moving across. There are two of us and one of us answers.",
-};
+    "Ask Ben or Alex about Arbour, the Australian wedding CRM. Get help with the product, the House plan or moving across from another CRM.",
+  path: "/contact",
+});
 
 export default async function ContactPage({
   searchParams,

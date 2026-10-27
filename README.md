@@ -32,6 +32,16 @@ src/app/
   globals.css   # Tailwind + theme tokens
 ```
 
+## Search visibility
+
+Canonical URLs, search metadata, robots rules and the sitemap use the production
+`www` host. The Australian wedding CRM page is at `/wedding-crm-australia`.
+Structured data uses the same product facts, FAQs and prices as the visible site.
+
+See [docs/seo.md](docs/seo.md) for Google and Bing verification, sitemap submission,
+AI crawler access and measurement. After starting the production server, check the
+initial HTML with `node scripts/check-seo.mjs http://localhost:3100`.
+
 ## Arby Help
 
 Click Arby on the home page to open support chat. The same bird

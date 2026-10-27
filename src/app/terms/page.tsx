@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal-page";
 
 import { TERMS_SECTIONS, TERMS_EFFECTIVE_DATE } from "@/content/terms";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms and Conditions",
   description: "The terms that apply when you use Arbour.",
-};
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

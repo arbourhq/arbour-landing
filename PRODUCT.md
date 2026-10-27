@@ -82,7 +82,8 @@ Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
   five-stage board with a real capture per stage, the quiet section with
   automations and Arby, every vendor, pricing, FAQ, final call, and one
   scroll companion), `/about`,
-  `/contact`, `/bio` (phone-only link stack for Instagram, no nav or footer),
+  `/contact`, `/wedding-crm-australia` (Australian buying questions, real screens,
+  current plans and migration details), `/bio` (phone-only link stack for Instagram, no nav or footer),
   `/privacy`, `/terms`.
 - **Call to action.** Every CTA is `src/components/trial-link.tsx`, a plain
   link to the console's sign-up. There is no form of our own, no dialog and

@@ -2,7 +2,13 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Wordmark } from "./wordmark";
 import { buttonClass } from "./ui/button";
-import { APP, NAV_LINKS, SITE, TRIAL_DAYS } from "@/content/site";
+import {
+  APP,
+  NAV_LINKS,
+  SITE,
+  TRIAL_DAYS,
+  WEDDING_CRM_LINK,
+} from "@/content/site";
 import { SOCIALS } from "@/content/bio";
 
 /**
@@ -65,6 +71,11 @@ export function SiteFooter() {
           </div>
 
           <Column title="The site">
+            <li>
+              <Link href={WEDDING_CRM_LINK.href} className={LINK}>
+                {WEDDING_CRM_LINK.label}
+              </Link>
+            </li>
             {SITE_LINKS.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className={LINK}>

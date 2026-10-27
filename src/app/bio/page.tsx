@@ -6,14 +6,14 @@ import { BioSocials } from "@/components/bio/bio-socials";
 import { TrialLink } from "@/components/trial-link";
 import { BIO_LINKS } from "@/content/bio";
 import { SITE, TRIAL_DAYS } from "@/content/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Link in bio",
   description: SITE.description,
-  // Everything here exists elsewhere on the site. No sense competing with the
-  // home page for the same terms, and nobody arrives at this page from search.
-  robots: { index: false, follow: true },
-};
+  path: "/bio",
+  noIndex: true,
+});
 
 /**
  * The link in the Instagram bio. Built for a phone and nothing else: on a

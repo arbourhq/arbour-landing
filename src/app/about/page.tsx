@@ -13,12 +13,14 @@ import { buttonClass } from "@/components/ui/button";
 import { Row } from "@/components/ui/row";
 import { quadRules } from "@/components/ui/rules";
 import { FOUNDERS, RULES, TIMELINE } from "@/content/about";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMetadata({
+  title: "About our Australian wedding CRM",
   description:
-    "Arbour is built by two people: a wedding videographer and a software engineer. Here is what each of them thinks a wedding is.",
-};
+    "Meet Ben and Alex, the wedding videographer and software engineer building Arbour in Australia. The founders answer support themselves.",
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

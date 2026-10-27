@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "bounce-easing",
+        "value": "cubic-bezier(0.34, 1.8, 0.45, 1)",
+        "createdAt": "2026-10-27T13:55:45.531Z",
+        "reason": "Project brand reference docs/brand.md section 5 explicitly specifies this overshoot curve for pops and lifts; DESIGN.md repeats it. Preserve the established brand motion."
+      },
+      {
+        "rule": "layout-transition",
+        "value": "*",
+        "files": [
+          "src/app/globals.css"
+        ],
+        "createdAt": "2026-10-27T13:56:23.221Z",
+        "reason": "Project design reference DESIGN.md Capture Frame specifies mobile screenshot reframing. The absolutely positioned canvas animates inside a fixed-aspect crop without moving surrounding content; preserve the demo interaction and constant highlight ring sizes."
+      }
+    ]
+  }
+}

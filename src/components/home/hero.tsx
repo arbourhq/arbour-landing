@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { TRIAL_DAYS } from "@/content/site";
+import Link from "next/link";
+import { SITE, TRIAL_DAYS, WEDDING_CRM_LINK } from "@/content/site";
 import { CategorySelect } from "@/components/home/category-select";
 import { PipelineFragment } from "@/components/home/pipeline-fragment";
 import { TrialLink } from "@/components/trial-link";
@@ -86,10 +87,14 @@ export function Hero() {
           style={{ "--reveal-delay": "380ms" } as React.CSSProperties}
         >
           <p className="m-0 max-w-[44ch] text-lead text-ink-secondary sm:text-[1.1875rem] sm:leading-[1.5]">
-            The sales CRM and project manager that wedding vendors keep open all
-            day. One record carries a job from &ldquo;are you free?&rdquo; to
-            the final invoice.
+            {SITE.introduction}
           </p>
+          <Link
+            href={WEDDING_CRM_LINK.href}
+            className="self-start text-ui font-semibold text-bottle underline underline-offset-4 hover:text-bottle-deep"
+          >
+            {WEDDING_CRM_LINK.label}
+          </Link>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
             <TrialLink variant="sprout" size="lg" />
             <Scramble

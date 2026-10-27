@@ -1,3 +1,13 @@
+const siteOrigin = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.usearbour.com",
+);
+// Production redirects to www. Keep old environment values from publishing
+// a different canonical host; other preview/test origins remain configurable.
+if (["usearbour.com", "www.usearbour.com"].includes(siteOrigin.hostname)) {
+  siteOrigin.protocol = "https:";
+  siteOrigin.hostname = "www.usearbour.com";
+}
+
 /**
  * Single place for the facts the site asserts about itself.
  *
@@ -7,10 +17,12 @@
  * product to point at now, so the copy points at it instead.
  */
 export const SITE = {
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://usearbour.com",
+  url: siteOrigin.origin,
   tagline: "Wedding Industry CRM",
   description:
-    "Sales CRM and project management in one, built for nothing except the wedding industry. One record from first enquiry to final invoice. 14 days free, no card.",
+    "Australian wedding CRM for every vendor. Manage enquiries, quotes, contracts, invoices and run sheets in one place. AUD pricing, 14 days free, no card.",
+  introduction:
+    "Arbour is the Australian wedding CRM and project manager that vendors keep open all day. One record carries a job from 'are you free?' to the final invoice.",
 
   // One address, one inbox. Both founders read it, so there is no second
   // "email Ben directly" address to keep alive.
@@ -30,6 +42,11 @@ export const APP = {
 
 /** From packages/core/src/plans.ts in the main repo. */
 export const TRIAL_DAYS = 14;
+
+export const WEDDING_CRM_LINK = {
+  href: "/wedding-crm-australia",
+  label: "Wedding CRM in Australia",
+} as const;
 
 export const NAV_LINKS = [
   { href: "/#stage-enquiry", label: "Product" },
