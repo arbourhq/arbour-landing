@@ -1,0 +1,99 @@
+{
+  "slug": "australian-wedding-industry-report",
+  "title": "The Australian wedding industry in 2026, with the numbers explained",
+  "description": "Read the latest Australian marriage figures and wedding survey findings, with clear limits on what the numbers mean for your vendor business in 2026.",
+  "category": "Industry research",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "Australia recorded 118,804 registered marriages in 2025, according to the Australian Bureau of Statistics release published on 28 July 2026. That was 1.7% fewer than in 2024. It is the latest complete national annual release available at the time of writing, not a count of weddings held so far in 2026. [1]",
+    "For vendors, the useful question is what those figures can tell you about the season ahead. Marriage registrations, wedding spending surveys and your own booking records measure different things. Read them together, while keeping their limits clear."
+  ],
+  "sections": [
+    {
+      "id": "what-the-official-count-measures",
+      "heading": "What the official count measures",
+      "paragraphs": [
+        "The ABS collects administrative marriage records from state and territory registries. Its scope includes overseas visitors who marry here and excludes Australian residents who marry overseas. Registration and reporting delays also mean the reference year can differ from the year a ceremony happened. [2]",
+        "A marriage registration does not tell you whether anyone hired a photographer, booked a reception or ordered flowers. A registry ceremony and a three-day celebration each contribute one marriage to the count. Some celebrations take place separately from the legal ceremony. That is why multiplying registered marriages by an average wedding budget does not produce a reliable estimate of Australian wedding-industry revenue.",
+        "Use registrations to understand the broad volume of legal marriages. Use a wedding spending survey to investigate buying behaviour among its respondents. Use your own jobs to establish the work your business can actually win."
+      ]
+    },
+    {
+      "id": "national-demand-is-not-local-demand",
+      "heading": "National demand is not local demand",
+      "paragraphs": [
+        "The national decline hides different state results. Victorian registrations fell 5.7% in 2025, while South Australia recorded a 4.6% increase. The ABS allocates state figures by registration, rather than the couple's usual residence. [1][2]",
+        "A national headline therefore cannot settle whether a regional venue should hire another coordinator or a metropolitan florist should reduce its Saturday capacity. The work available to either business also depends on its travel area, pricing, referral relationships and the dates it can service.",
+        "Compare your enquiries with the same period last year, using the date the enquiry arrived. Then compare booked jobs by event month. Keeping those views separate helps you see whether demand has slowed, clients are booking later, or the work has simply shifted to another part of the calendar."
+      ]
+    },
+    {
+      "id": "read-spending-surveys-with-the-sample-attached",
+      "heading": "Read spending surveys with the sample attached",
+      "paragraphs": [
+        "Easy Weddings' February 2026 budget summary reports an average wedding budget of $38,252 and an average guest count of 85. Another article from the publisher says its 2026 annual industry report surveyed more than 4,000 Australian couples. These are findings from Easy Weddings' research, rather than ABS population estimates. [3][4]",
+        "The public summaries do not establish that every Australian wedding had the same chance of appearing in the survey. They also do not give the response count for each budget question. A large overall sample does not resolve those questions. Keep the publisher and edition beside any figure you repeat.",
+        "An average is useful context for a conversation about scope. It is a poor instruction for setting your prices. A short weekday booking and an all-day Saturday job with travel involve different costs. Calculate your labour, materials and overheads before deciding whether a package earns enough. A national spending figure cannot do that calculation for you."
+      ]
+    },
+    {
+      "id": "separate-a-full-calendar-from-a-profitable-one",
+      "heading": "Separate a full calendar from a profitable one",
+      "paragraphs": [
+        "Revenue, booking volume and workload need separate attention. If average job value rises because each booking includes more hours or more crew, you may have increased commitments without improving the return on your time.",
+        "Review completed jobs by service type. Record the quoted amount, approved variations, direct costs and time actually spent. Include preparation and pack-down. Where figures are estimates, label them so you can replace them later.",
+        "Then inspect the jobs you declined. Date clashes, unsuitable scope and price objections are different problems. A long list of enquiries for dates you cannot service is not evidence that you need more advertising. It may point to a capacity limit, or a referral arrangement worth discussing."
+      ]
+    },
+    {
+      "id": "build-a-report-you-can-use-next-month",
+      "heading": "Build a report you can use next month",
+      "paragraphs": [
+        "Keep your monthly review small enough to repeat. Write the reporting period at the top and use the same stage definitions each time. Include the number of records behind a percentage. Two bookings from four enquiries should not carry the same weight as twenty from forty.",
+        "These measures make a practical starting point. Add detail only when it changes a decision."
+      ],
+      "bullets": [
+        "Count enquiries by arrival month and source, with duplicates removed.",
+        "Track bookings by event month, alongside the dates and resources still available.",
+        "Record the stated reason a job was lost or declined. Leave it unknown when you do not know.",
+        "Compare quoted value with completed-job costs, and list overdue client decisions separately."
+      ]
+    },
+    {
+      "id": "keep-the-evidence-beside-the-decision",
+      "heading": "Keep the evidence beside the decision",
+      "paragraphs": [
+        "Save the source, publication date and reference period when you use external research. Note what you changed because of it. A package revision based on repeated enquiries for shorter coverage is a test you can review later. A package revision based only on a national average is harder to defend.",
+        "Arbour keeps enquiries and delivery on the same job record, so a booking can retain its quote, conversation and payment history. The [Australian wedding CRM overview](/wedding-crm-australia) explains that workflow. Whatever system you use, keep the history consistent enough to answer next month's question without rebuilding this month's spreadsheet."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Marriages and Divorces, Australia, 2025",
+      "url": "https://www.abs.gov.au/statistics/people/people-and-communities/marriages-and-divorces-australia/2025",
+      "publisher": "Australian Bureau of Statistics"
+    },
+    {
+      "id": 2,
+      "title": "Marriages and Divorces, Australia methodology, 2025",
+      "url": "https://www.abs.gov.au/methodologies/marriages-and-divorces-australia-methodology/2025",
+      "publisher": "Australian Bureau of Statistics"
+    },
+    {
+      "id": 3,
+      "title": "The 2026 wedding budget pivot: couples are spending more on expertise",
+      "url": "https://www.easyweddings.com.au/pro-education/2026-wedding-budget/",
+      "publisher": "Easy Weddings"
+    },
+    {
+      "id": 4,
+      "title": "Are Australian couples using AI to plan their wedding?",
+      "url": "https://www.easyweddings.com.au/pro-education/using-ai-to-plan-their-wedding/",
+      "publisher": "Easy Weddings"
+    }
+  ]
+}

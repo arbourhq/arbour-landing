@@ -1,0 +1,15 @@
+{
+  "name": "reception",
+  "source": "https://unsplash.com/photos/a-table-set-up-for-a-wedding-reception-i3rFV6ULk-o",
+  "photographer": "engin akyurt",
+  "license": "https://unsplash.com/license",
+  "download": "https://images.unsplash.com/photo-1632316962873-47ee3d309f02?fm=jpg&q=90",
+  "original": [8192, 5464],
+  "dimensions": [1600, 1068],
+  "published": "2021-09-22",
+  "camera": "Canon EOS R5",
+  "alt": "Wedding reception tables with flowers beneath a garden pavilion.",
+  "kind": "licensed stock photograph",
+  "conversion": "cwebp -q 84 -resize 1600 0; no retouching, generative edits or permanent colour treatment",
+  "prompt": "Origin: genuine licensed stock photograph by engin akyurt. Source https://unsplash.com/photos/a-table-set-up-for-a-wedding-reception-i3rFV6ULk-o. Licence https://unsplash.com/license. Downloaded unchanged and resized to WebP with cwebp, no AI image generation. Brand colour filters, where used, are applied only in CSS."
+}

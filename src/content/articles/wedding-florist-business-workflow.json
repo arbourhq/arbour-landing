@@ -1,0 +1,95 @@
+{
+  "slug": "wedding-florist-business-workflow",
+  "title": "A wedding florist workflow, from quote to pack-down",
+  "description": "Organise wedding floral quotes, stem orders, substitutions, installation and pack-down with a clear approval trail and a practical workflow for every job.",
+  "category": "Business guides",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "A floral quote can be approved months before the grower confirms what will be ready that week. Between those dates, guest numbers change, a ceremony moves indoors and someone adds flowers for the welcome sign. The job needs a record of what the client approved, what the studio ordered and what the crew must install.",
+    "Our recommended workflow separates client approval from flower purchasing and on-site work. Each stage has an owner and a document that another person can use without searching a message thread. It works for a studio doing wedding flowers alongside corporate arrangements and private events."
+  ],
+  "sections": [
+    {
+      "id": "record-the-brief",
+      "heading": "Record the brief before designing the quote",
+      "paragraphs": [
+        "Start with the event date, venue, available budget, access window and the pieces required. Record who can approve the design and who can approve extra spending. If those are different people, keep both contacts on the job. Ask which details are essential, such as a particular colour, and which are references rather than promises.",
+        "The national floristry training package's unit on coordinating products for special occasions covers client briefs, design proposals and operational plans for production and staging. [1] Use that sequence when setting up your enquiry form and job record. A moodboard needs notes about scale and placement. A photograph of a suspended installation does not explain the venue's fixing rules or the labour needed to build it."
+      ]
+    },
+    {
+      "id": "quote-the-work",
+      "heading": "Quote the labour and logistics as well as the flowers",
+      "paragraphs": [
+        "List arrangements by location and quantity. Describe their approximate size, palette and design approach in words the client can check. Separate hire items, delivery, installation and collection. Price the return visit even when it happens after the guests have left. Include a date for final quantities and explain how later changes will be priced.",
+        "Keep the approved quote intact when a revision arrives. Issue a new version and identify what changed, including the total. The ACCC says product descriptions must be accurate and that services carry guarantees, including due care and skill. [2] Clear paperwork helps establish what was agreed. It does not remove those rights. Have your terms reviewed for your own business rather than borrowing another florist's substitution clause."
+      ]
+    },
+    {
+      "id": "approve-substitutions",
+      "heading": "Agree on substitutions before the market order",
+      "paragraphs": [
+        "Write down the design qualities a substitute must preserve. Colour alone is a poor brief if the replacement has a different scale or shape. Record any flower the client specifically requires, then confirm with your supplier whether you can make that commitment. If you cannot, discuss a different design before taking approval.",
+        "Set an approval route for changes. A move to a different palette or a reduction in an agreed installation deserves a direct conversation and a written response. Keep the original request, the proposed alternative and the client's decision together. Give the production lead the latest approved version. A supplier's shortage message should never become an undocumented change to the client brief."
+      ]
+    },
+    {
+      "id": "turn-design-into-order",
+      "heading": "Turn the design into a checked purchasing list",
+      "paragraphs": [
+        "Create stem recipes and a purchasing list from the approved quantities. Keep supplier, order status, collection date and any outstanding confirmation against each order. The florist responsible for buying should reconcile the list with what arrives, then flag shortages while there is still time to act. Keep this stock and costing work in the dedicated tool or worksheet your studio uses.",
+        "Allow production time for preparation and conditioning rather than treating delivery as the start of assembly. The Royal Horticultural Society recommends clean water, removing submerged foliage and appropriate conditioning before display. [3] Apply species-specific handling advice and your supplier's instructions. Record who is receiving the flowers and where they will be stored, particularly when several jobs share the studio."
+      ]
+    },
+    {
+      "id": "confirm-installation",
+      "heading": "Give the installation crew an actual site plan",
+      "paragraphs": [
+        "Confirm the loading entrance, parking, stairs, water access and the venue contact who will be present. Identify who authorises the wet-weather arrangement and when that decision must happen. The Sustainable Floristry Network recommends realistic set-up time, accessible loading areas and facilities for water-based floral work. [4] Check these details with the venue before finalising the crew schedule.",
+        "Put arrival times, arrangement locations, responsibilities and the handover contact on the run sheet. Assess handling risks before loading heavy vessels or structures. Safe Work Australia's manual-task guidance covers identifying hazards and reducing the risks of lifting, carrying and related work. It is a model code, so check its legal effect with your state or territory regulator. [5] Arrange suitable equipment and competent help where needed. A note saying 'two people required' is useful only if two people are rostered."
+      ]
+    },
+    {
+      "id": "close-the-job",
+      "heading": "Plan collection before leaving the venue",
+      "paragraphs": [
+        "Record which vessels belong to the studio, what guests may take home and who will collect the remaining pieces. Confirm the collection window and access contact. Count hired items out and back in, document damage and reconcile the final invoice against approved changes. Arrange waste separation with the venue. The Sustainable Floristry Network advises keeping floral foam out of green-waste and compost streams. [4]",
+        "Arbour can keep the quote, contract, payment plan, contacts and run sheet on the same job record. Its custom fields let a florist record details such as an access window or approval deadline. It does not replace a stem-ordering or inventory system. Test that division with one completed booking in the [Arbour workflow](/#stage-enquiry), including the collection and final payment. Those last tasks belong in the job too."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "SFL Floristry Training Package",
+      "url": "https://training.gov.au/TrainingComponentFiles/SFL/SFL_R1.0.pdf",
+      "publisher": "Australian Government, National Training Register"
+    },
+    {
+      "id": 2,
+      "title": "Consumer rights and guarantees",
+      "url": "https://www.accc.gov.au/consumers/buying-products-and-services/consumer-rights-and-guarantees",
+      "publisher": "Australian Competition and Consumer Commission"
+    },
+    {
+      "id": 3,
+      "title": "Cut flowers: cutting and conditioning",
+      "url": "https://www.rhs.org.uk/plants/for-places/cut-flowers-conditioning",
+      "publisher": "Royal Horticultural Society"
+    },
+    {
+      "id": 4,
+      "title": "Advice for event venues",
+      "url": "https://www.sustainablefloristry.org/resources/event-advice/",
+      "publisher": "Sustainable Floristry Network"
+    },
+    {
+      "id": 5,
+      "title": "Model Code of Practice: Hazardous manual tasks",
+      "url": "https://www.safeworkaustralia.gov.au/doc/model-code-practice-hazardous-manual-tasks",
+      "publisher": "Safe Work Australia"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "slug": "marriage-celebrant-booking-workflow",
+  "title": "A booking workflow for Australian marriage celebrants",
+  "description": "Organise celebrant enquiries, bookings and ceremony preparation, with clear boundaries between your CRM and Australia's legal marriage requirements.",
+  "category": "Business guides",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "A celebrant booking has two kinds of work running together. There is the business side, including availability, fees and ceremony preparation. Then there are the legal requirements you personally assess and carry out as an authorised celebrant. A useful workflow makes the next action clear without treating a paid invoice as proof that the marriage paperwork is ready.",
+    "Use your CRM for the booking and a separate, appropriate process for regulated documents and registration. The workflow below is an operating guide for that division of work. For legal requirements, use the current Attorney-General's Department guidance and the registry in the jurisdiction where the ceremony takes place. [1]"
+  ],
+  "sections": [
+    {
+      "id": "qualify-the-enquiry",
+      "heading": "Check the date before sending the package",
+      "paragraphs": [
+        "Start with the ceremony date, location, approximate start time and the service requested. Check travel as well as the ceremony itself. Two bookings may fit the diary on paper and still be impossible once parking, setup and a late arrival enter the picture.",
+        "Ask whether the enquiry is for a legal marriage or another ceremony, and record that distinction. A vow renewal needs different preparation. Give the enquiry an owner and a next contact date, even when you are the only person in the business. Keep early questions short. An availability form does not need to collect the couple's full personal history."
+      ]
+    },
+    {
+      "id": "confirm-the-commercial-booking",
+      "heading": "Make the booking terms specific",
+      "paragraphs": [
+        "The agreement should describe the ceremony service, inclusions and payment dates. Spell out travel, equipment, rehearsal arrangements and the process for changes. The Attorney-General's Department recommends clear service agreements and identifies an easily missed ambiguity: receiving a Notice of Intended Marriage is different from lodging marriage documents with a registry. Use the correct event when describing your terms. [2]",
+        "Keep quote acceptance, contract signature and payment status distinct. A client may have completed one and still owe you a response on another. [Arbour's booking workflow](/#stage-booked) keeps the quote, contract and invoices with the job. That commercial record does not replace your assessment of whether the marriage can lawfully proceed."
+      ]
+    },
+    {
+      "id": "track-legal-milestones-separately",
+      "heading": "Give legal milestones their own checks",
+      "paragraphs": [
+        "The Attorney-General's Department says the authorised celebrant must receive the Notice of Intended Marriage at least one month and no more than 18 months before the wedding. Shorter notice requires approval from a prescribed authority. Do not promise an exception in a sales email. [1]",
+        "Record the date you actually received the notice, then schedule the checks you need to carry out. A reminder prompts your review. It cannot decide that a notice, identity evidence or other document satisfies the requirements.",
+        "Remote witnessing of a notice and the pre-marriage meetings are different matters. Current federal guidance requires the celebrant to meet separately and in person with each party before solemnising the marriage. Plan those meetings explicitly, especially for interstate clients. A joint video call does not stand in for them. [1]"
+      ]
+    },
+    {
+      "id": "prepare-the-ceremony",
+      "heading": "Keep ceremony preparation easy to review",
+      "paragraphs": [
+        "Once booked, collect the information needed to prepare the ceremony. Separate preferences about tone, readings and music from the legal assessment. Give each draft a date and ask clients to confirm changes in one place. If a client phones with a correction, write down what changed and send a brief confirmation.",
+        "Your final preparation record should cover arrival, access, equipment, the wet-weather location and the person making the weather call. Confirm the ceremony start time with the venue rather than relying on an old enquiry form. For any change close to the day, identify who else needs the revised timing. A corrected run sheet is useful only if the people working from it receive it."
+      ]
+    },
+    {
+      "id": "limit-personal-information",
+      "heading": "Keep sensitive material out of general notes",
+      "paragraphs": [
+        "A shared booking record is a poor place for copied identity documents or private explanations about a previous marriage. The OAIC includes names, signatures and dates of birth within personal information. It also identifies religious beliefs, sexual orientation and health information as sensitive information, which generally receives greater privacy protection. [3]",
+        "Decide what each system needs before collecting it. General job notes can track that you need to review a document without reproducing its contents. Use an appropriate document-handling process and restrict access to the people who need it. Check the actual storage, access and retention arrangements of any service you use. A client portal or a password alone does not establish that the service suits regulated records."
+      ]
+    },
+    {
+      "id": "close-the-job-after-lodgement",
+      "heading": "Finish the paperwork before closing the job",
+      "paragraphs": [
+        "The ceremony finishing is one milestone. Submitting the required marriage paperwork is another. Federal guidance requires submission to the registry in the state or territory of the marriage within 14 days. Put that deadline in your own post-ceremony process. [1]",
+        "Use the relevant registry's instructions, particularly when working interstate. NSW, for example, has an official celebrant eRegistry and separate guidance for interstate celebrants. It distinguishes the notification received after document submission from final registration. Record the submission reference accurately rather than marking the marriage registered because an upload finished. [4]",
+        "Reconcile the commercial record separately, including any outstanding invoice or agreed follow-up. Then apply your record-retention process. The Attorney-General's Department requires retention of the Official Certificate of Marriage, celebrant copy, for six years from the marriage date. The separate Form 15 Record of Use must be kept for six years from its last entry. Archiving a CRM job does not fulfil either responsibility. [2]"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Get married",
+      "url": "https://www.ag.gov.au/families-and-marriage/marriage/get-married",
+      "publisher": "Australian Government Attorney-General's Department"
+    },
+    {
+      "id": 2,
+      "title": "Your responsibilities as a marriage celebrant",
+      "url": "https://www.ag.gov.au/families-and-marriage/marriage/resources-marriage-celebrants/your-responsibilities-marriage-celebrant",
+      "publisher": "Australian Government Attorney-General's Department"
+    },
+    {
+      "id": 3,
+      "title": "What is personal information?",
+      "url": "https://www.oaic.gov.au/privacy/your-privacy-rights/your-personal-information/what-is-personal-information",
+      "publisher": "Office of the Australian Information Commissioner"
+    },
+    {
+      "id": 4,
+      "title": "Marriage celebrants",
+      "url": "https://www.nsw.gov.au/departments-and-agencies/births-deaths-marriages/business-partners/marriage-celebrants",
+      "publisher": "NSW Government"
+    }
+  ]
+}

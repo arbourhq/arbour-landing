@@ -1,0 +1,95 @@
+{
+  "slug": "wedding-planner-client-management",
+  "title": "Wedding planner client management without the approval chase",
+  "description": "A practical workflow for Australian wedding planners to control scope, record client approvals and coordinate suppliers before the final run sheet goes out.",
+  "category": "Business guides",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "A client approves the floor plan by email. Their partner requests another table by text. The venue still has last Tuesday's version. None of those messages is difficult on its own. The work is deciding which instruction now applies, who agreed to it and which suppliers need to know.",
+    "Wedding planner client management works better when each decision has an owner, an approval record and a deadline. Your CRM should hold that history against the job. The working routine matters as much as the software. Here is a practical way to organise it."
+  ],
+  "sections": [
+    {
+      "id": "define-what-you-are-managing",
+      "heading": "Define what you are managing before you book it",
+      "paragraphs": [
+        "Write the scope in terms another planner could deliver. Full planning, partial planning and coordination mean different things between businesses. State which supplier searches, meetings, site visits and event-day hours the fee includes. Record who books and pays each supplier, and who can approve changes on the client's behalf.",
+        "Business.gov.au's guide for contractors recommends documenting the work, payment arrangements and the process for changing a contract. Those are useful questions for a planning service agreement too. The guide also explains that agreed changes can have legal effect without a formal new document. A tidy CRM record does not replace an appropriate contract or legal advice. [1]",
+        "Give each enquiry a named next action. Ask for the event date, location, service required and the client's next decision before sending a proposal. Keep the answer on the job so another person can pick up the conversation."
+      ]
+    },
+    {
+      "id": "create-a-client-decision-list",
+      "heading": "Give clients a short list of decisions",
+      "paragraphs": [
+        "A client does not need your whole production checklist. They need to know what requires their decision, what it will cost and when the answer is due. Separate those decisions from tasks your team can complete without asking them.",
+        "For each approval, record the item, document version, person deciding and response deadline. Show the consequence of a late answer in plain language. A menu deadline may affect the caterer's final order. A late layout change may need the venue to check access and capacity again. Confirm those dependencies with the supplier rather than guessing.",
+        "Send one consolidated update at an agreed interval. Put overdue decisions first, then the next deadlines. Keep suggestions clearly separate from approved instructions. A client opening the update on their phone should not have to reconstruct the last month of emails."
+      ]
+    },
+    {
+      "id": "record-changes-before-issuing-instructions",
+      "heading": "Record changes before issuing new instructions",
+      "paragraphs": [
+        "Suppose a client asks to move the ceremony outdoors. Treat that as a request while you check the venue's approval, furniture movement, sound requirements and wet-weather decision time. The example is a workflow, not a promise that every change can wait for paperwork.",
+        "Record the proposed change, affected documents, additional cost and any decision still outstanding. Follow the variation process in your contract and obtain the required agreement. Business.gov.au advises keeping changes in writing and recording both parties' agreement. Do not assume that calling a message provisional removes any legal effect. [1]",
+        "Once agreed, update the job and tell the affected suppliers what changed. Name the current file and withdraw the superseded version from circulation. Keep the earlier approval as history rather than overwriting it."
+      ]
+    },
+    {
+      "id": "coordinate-independent-suppliers",
+      "heading": "Coordinate suppliers without confusing their responsibilities",
+      "paragraphs": [
+        "Create a supplier register with the business contact, event-day contact, booked service, arrival time and unresolved dependencies. Record who holds each contract. Your coordination role does not automatically give you authority to change another supplier's booking.",
+        "NSW's Event Starter Guide recommends including key contacts, a production schedule, run sheet and site plan in an event plan. It addresses public and outdoor events, so adapt its documentation habits to the wedding rather than treating every listed requirement as mandatory for every job. [2]",
+        "Ask suppliers to confirm the details that affect others. The florist's installation window depends on venue access. The band's soundcheck may affect speeches or photography. Keep those confirmations with the job, then issue each supplier the information they need through an agreed channel. They do not all need an account in your internal system."
+      ]
+    },
+    {
+      "id": "share-only-the-needed-information",
+      "heading": "Share only the information each person needs",
+      "paragraphs": [
+        "A seating plan, dietary list and client invoice serve different purposes. Avoid forwarding an entire planning folder when a supplier needs one schedule. Check recipients and access before sending, especially when documents contain guest details or private family arrangements.",
+        "The OAIC explains that most businesses with annual turnover of $3 million or less are outside the Privacy Act, but exceptions apply. Check its small-business guidance rather than assuming your turnover settles the question. Limit collection and sharing as a working practice regardless of which rules apply to your business. [4]",
+        "In Arbour, contacts link to jobs and roles control what your team can see. The client portal supports quotes, contracts and invoices. Keep supplier distribution and any broader approval process explicit instead of assuming the portal grants every supplier shared planning access. See [Arbour's sales and delivery workflow](/wedding-crm-australia)."
+      ]
+    },
+    {
+      "id": "close-planning-with-a-briefing",
+      "heading": "Close planning with a briefing, then manage exceptions",
+      "paragraphs": [
+        "Before issuing the final run sheet, reconcile it against approved timing, supplier confirmations and the venue's instructions. Give the document a version and issue date. Name the person who makes event-day decisions and the contact route for urgent changes.",
+        "NSW's guidance recommends a pre-event briefing so staff and contractors understand their roles, communication arrangements and relevant plans. It also recommends keeping essential documents accessible on the day. [3] Ask each supplier to acknowledge the details that affect their work rather than relying on a distribution email alone.",
+        "After the event, close outstanding supplier questions and record which decisions caused rework. Use that record to revise the next job's approval deadlines. A useful improvement is specific, such as asking the venue to confirm access before booking the installation crew."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Prepare a contract",
+      "url": "https://business.gov.au/people/contractors/prepare-a-contract",
+      "publisher": "business.gov.au"
+    },
+    {
+      "id": 2,
+      "title": "Documentation for your public and outdoor event",
+      "url": "https://www.nsw.gov.au/departments-and-agencies/premiers-department/community-engagement/event-starter-guide/documentation",
+      "publisher": "NSW Government"
+    },
+    {
+      "id": 3,
+      "title": "Lead-up and on the day",
+      "url": "https://www.nsw.gov.au/departments-and-agencies/premiers-department/community-engagement/event-starter-guide/lead-up-and-on-day",
+      "publisher": "NSW Government"
+    },
+    {
+      "id": 4,
+      "title": "Small business",
+      "url": "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/small-business",
+      "publisher": "Office of the Australian Information Commissioner"
+    }
+  ]
+}

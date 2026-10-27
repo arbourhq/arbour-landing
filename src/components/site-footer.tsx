@@ -72,6 +72,11 @@ export function SiteFooter() {
 
           <Column title="The site">
             <li>
+              <Link href="/articles" className={LINK}>
+                Articles
+              </Link>
+            </li>
+            <li>
               <Link href={WEDDING_CRM_LINK.href} className={LINK}>
                 {WEDDING_CRM_LINK.label}
               </Link>

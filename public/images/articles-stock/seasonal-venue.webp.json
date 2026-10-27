@@ -1,0 +1,15 @@
+{
+  "name": "seasonal-venue",
+  "source": "https://unsplash.com/photos/wedding-ceremony-beside-fall-trees-during-daytime-y4bE8ST_CTg",
+  "photographer": "Redd Francisco",
+  "license": "https://unsplash.com/license",
+  "download": "https://images.unsplash.com/photo-1507915977619-6ccfe8003ae6?fm=jpg&q=90",
+  "original": [2667, 4000],
+  "dimensions": [1600, 2400],
+  "published": "2017-10-13",
+  "camera": "Canon EOS 5D",
+  "alt": "An outdoor wedding ceremony beneath autumn trees.",
+  "kind": "licensed stock photograph",
+  "conversion": "cwebp -q 84 -resize 1600 0; no retouching, generative edits or permanent colour treatment",
+  "prompt": "Origin: genuine licensed stock photograph by Redd Francisco. Source https://unsplash.com/photos/wedding-ceremony-beside-fall-trees-during-daytime-y4bE8ST_CTg. Licence https://unsplash.com/license. Downloaded unchanged and resized to WebP with cwebp, no AI image generation. Brand colour filters, where used, are applied only in CSS."
+}

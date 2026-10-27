@@ -1,0 +1,100 @@
+{
+  "slug": "wedding-seasonality-australia",
+  "title": "Wedding seasonality in Australia: plan for your own busy months",
+  "description": "Read Australian wedding seasonality data, account for regional weather and use your own booking history to plan crew, cash flow and quieter months.",
+  "category": "Industry research",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "Australia has a national wedding pattern. Your business has a local one. Use the first to ask better questions, then use your own enquiries and bookings to decide when to hire crew, take leave or put money aside.",
+    "A photographer working in Darwin and a florist working in Hobart should not build the same annual plan. Nor should two businesses in the same city if one books destination weddings and the other mostly works at indoor venues. The useful question is which dates consume your capacity, and how far ahead the work arrives."
+  ],
+  "sections": [
+    {
+      "id": "national-pattern",
+      "heading": "What the national numbers show",
+      "paragraphs": [
+        "The Australian Bureau of Statistics recorded 118,804 marriages registered in 2025. Its date-of-occurrence analysis shows more marriages in spring and autumn, with fewer in winter and around Easter and Christmas. Saturday remained the most common day, with more than 52,000 marriages. [1]",
+        "Those are marriage figures, not a count of catered receptions, full-day photography bookings or floral installations. A legal ceremony can have a small supplier spend, and a celebration can happen on another day. Treat the ABS series as context for demand rather than a forecast of the number of jobs available to your business.",
+        "A popular date also does not promise a busy month for you. Your service area, referral relationships, price point and remaining availability decide which enquiries you can convert."
+      ]
+    },
+    {
+      "id": "registration-and-event-dates",
+      "heading": "Check which date the data counts",
+      "paragraphs": [
+        "Marriage registration and the ceremony date are different measures. The ABS explains that some marriages occurring in a year are registered later. Its occurrence series uses the marriage records received for that release, so it can miss ceremonies reported afterwards. Keep the measure and reference year beside any figures you use. [2]",
+        "Victoria's Registry of Births, Deaths and Marriages makes the same distinction in its monthly table. It counts marriages in the month the registry registers them, which may differ from the ceremony month. A spike in that table is not enough evidence to claim Victorian venues had their busiest month then. [3]",
+        "In your own records, keep the enquiry date, confirmation date and event date separate. An April enquiry for a November job belongs in April's sales workload and November's delivery workload. Combining them into one monthly total hides the work you need to schedule."
+      ]
+    },
+    {
+      "id": "regional-weather",
+      "heading": "Build around the region you actually serve",
+      "paragraphs": [
+        "The Bureau of Meteorology's climate maps distinguish summer-dominant rainfall, winter-dominant rainfall and areas with rainfall spread more evenly through the year. A single national description of 'good wedding weather' cannot cover those conditions. [4]",
+        "Northern Australia's wet and dry seasons are a particularly clear example. The Bureau describes the dry season broadly as May to September and the wet season as October to April, with local variation and a build-up period. Those climate patterns help explain why a southern winter can be a useful planning period for outdoor work in the north. They do not prove wedding demand for a particular town. [5]",
+        "Record the conditions that change your delivery plan. For florists that may mean cooled transport and installation timing. For photographers it may mean daylight and a workable indoor location. A venue may need a named person to make the rain call and enough time to move the setup. Confirm the actual forecast closer to the job."
+      ]
+    },
+    {
+      "id": "capacity-calendar",
+      "heading": "Count the work on either side of the event",
+      "paragraphs": [
+        "Start with completed jobs across several normal trading years, where you have them. Group by event month and region, then add preparation hours, travel, pack-down and delivery work. Keep unusual closures and one-off disruptions visible rather than treating them as a new seasonal rule.",
+        "For example, imagine a studio that can photograph two events on a Saturday but has only one editor available the following week. Booking every available Saturday may create a delivery backlog. This is a capacity example, not an industry benchmark. The relevant limit is the work the team can finish, not the number of empty calendar squares.",
+        "Keep tentative dates distinct from confirmed jobs. In [Arbour's booking workflow](/#stage-booked), the job carries the booking details forward. Use the calendar and crew records to check the delivery workload before you accept another job."
+      ]
+    },
+    {
+      "id": "cash-flow-and-quieter-months",
+      "heading": "Plan cash flow separately from job volume",
+      "paragraphs": [
+        "A busy event month and a strong cash month need not coincide. Deposits may arrive well before the job, while final payments, supplier bills and payroll fall on other dates. Build a monthly cash schedule from actual payment plans and expected costs, alongside the event calendar.",
+        "Before discounting quieter dates, calculate the contribution left after the extra costs of taking that work. A midweek booking still needs preparation and delivery. Filling a date at a low margin can also consume the hours you reserved for repairs, leave or training.",
+        "Give each quieter period a job. Schedule equipment servicing before the next run of events. Review quote templates while there is time to read them. Book leave while you can still protect it."
+      ]
+    },
+    {
+      "id": "monthly-review",
+      "heading": "Review the next season each month",
+      "paragraphs": [
+        "Compare confirmed jobs for each future month with the position you held at the same point last year. Then inspect new enquiries, lost dates and jobs you declined because capacity was full. A nearly empty October calendar means something different twelve months out than it does six weeks out.",
+        "Write down the decision that follows. That might be securing another crew member for a specific weekend, reducing travel bookings or leaving one week clear for delivery. Revisit that decision when bookings change. Your own dated record will be more useful next season than another national claim about the busiest month."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Marriages and Divorces, Australia, 2025",
+      "url": "https://www.abs.gov.au/statistics/people/people-and-communities/marriages-and-divorces-australia/2025",
+      "publisher": "Australian Bureau of Statistics"
+    },
+    {
+      "id": 2,
+      "title": "Marriages and Divorces, Australia methodology, 2025",
+      "url": "https://www.abs.gov.au/methodologies/marriages-and-divorces-australia-methodology/2025",
+      "publisher": "Australian Bureau of Statistics"
+    },
+    {
+      "id": 3,
+      "title": "Marriages registered per month",
+      "url": "https://www.bdm.vic.gov.au/marriages-registered-month",
+      "publisher": "Births, Deaths and Marriages Victoria"
+    },
+    {
+      "id": 4,
+      "title": "Climate classification maps",
+      "url": "https://www.bom.gov.au/climate/maps/averages/climate-classification/",
+      "publisher": "Bureau of Meteorology"
+    },
+    {
+      "id": 5,
+      "title": "The wet and the dry: seasons in the tropics",
+      "url": "https://media.bom.gov.au/social/blog/1989/the-wet-and-the-dry-seasons-in-the-topics/",
+      "publisher": "Bureau of Meteorology"
+    }
+  ]
+}

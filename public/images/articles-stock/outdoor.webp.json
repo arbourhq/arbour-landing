@@ -1,0 +1,13 @@
+{
+  "name": "outdoor",
+  "source": "https://www.pexels.com/photo/a-couple-getting-married-8582710/",
+  "photographer": "Huynh Van",
+  "license": "https://www.pexels.com/license/",
+  "download": "https://images.pexels.com/photos/8582710/pexels-photo-8582710.jpeg?cs=srgb&dl=pexels-huynh-van-75710069-8582710.jpg&fm=jpg",
+  "original": [6720, 4480],
+  "dimensions": [1600, 1067],
+  "alt": "A wedding couple walking beneath an umbrella in the rain.",
+  "kind": "licensed stock photograph",
+  "conversion": "cwebp -q 84 -resize 1600 0; no retouching, generative edits or permanent colour treatment",
+  "prompt": "Origin: genuine licensed stock photograph by Huynh Van. Source https://www.pexels.com/photo/a-couple-getting-married-8582710/. Licence https://www.pexels.com/license/. Downloaded unchanged and resized to WebP with cwebp, no AI image generation. Brand colour filters, where used, are applied only in CSS."
+}

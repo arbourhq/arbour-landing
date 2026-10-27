@@ -94,6 +94,16 @@ typography:
     fontSize: "0.9375rem"
     fontWeight: 400
     lineHeight: 1.5
+  article-body:
+    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.0625rem"
+    fontWeight: 400
+    lineHeight: 1.75
+  article-intro:
+    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "1.25rem"
+    fontWeight: 400
+    lineHeight: 1.65
   ui:
     fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
@@ -301,6 +311,7 @@ A neutral console palette with one structural green, one lit green, and status c
 - **UI** (600, 14px, 1.4): buttons, nav links, chips, fields.
 - **Mono eyebrow** (11px, +0.14em, uppercase): stage names in the strip, legal section indices, the head of a console block such as "Needs you".
 - **Mono label** (9px, +0.16em, uppercase): captions under captures, field labels, meta under prices and buttons, plan limits.
+- **Article body / Intro** (400, `{typography.article-body}` / `{typography.article-intro}`): long-form reading, capped at 70ch. Body uses Ink secondary; the opening paragraphs use Ink. Paragraph gaps are 20px.
 
 ### Named Rules
 **The Eight Hundred Rule.** Bricolage is set at 800 and nothing else, with no added letter spacing and balanced wrapping. The `opsz` axis does the tightening.
@@ -320,6 +331,8 @@ Rhythm: gutters 20, 32 and 48px by breakpoint; a row head opens 64px from the ru
 On a desktop the recording sticks in view beside a claim column taller than it. On a phone the claims stack under the recording, and the capture shows its close-up.
 
 Rows develop as they scroll in: content is fully visible by default, and where scroll timelines exist and motion is allowed, a row rises 14px from 18% opacity over a stretch of its cover range, with cells staggered by `--develop-at`, and the row's top rule draws in from the left. A row that sits at the fold on load keeps its rule still.
+
+Article reading keeps the sheet and its rules, with a contents rail beside a single prose column. Below 1024px the contents become a native, initially collapsed details control above the text. The desktop rail is 15rem, increasing to 18rem from 1280px, and sticks below the floating nav. Sections open after 48px on phones and 56px from 640px. A short takeaway block precedes the intro; captioned figures follow the sections they explain, with 40px vertical margins. These are Read-mode patterns; the Articles composition is recorded in its surface brief.
 
 ## Elevation & Depth
 
@@ -389,6 +402,18 @@ The hero's category word is a select at headline size: the field skin (Panel ins
 
 ### Arby Help Panel
 Floating chrome drawn like the console's Arby sheet: white, Line border, 6px corners, lifted shadow, a 40px Bottle square mark beside a 20px Bricolage title, starter questions as bordered 44px rows, the reader's words in a Panel bubble and replies as plain text. The send button is Bottle and goes flat to Panel when there is nothing to send. No Sprout anywhere in it.
+
+### Article rows
+A story is a ruled row with one link and one keyboard stop. A 3:2 photo or actual product cover sits beside a Bricolage title and small mono reading time; collection headings supply the category. The thumbnail is 88px on phones, 160px from 640px and 208px from 1024px, with 4px corners. Description and arrow appear from 640px. Hover and keyboard focus put Panel behind the row; hover turns the title Bottle and moves the arrow. Reduced motion removes the arrow transform. The same row serves the collection and related reading.
+
+### Article reading
+The contents use ordinary section anchors, small Instrument Sans links and a mono block heading on desktop. On phones a Bottle summary opens the native details control. Sources are a ruled numbered list; inline citations are small Bottle links to the matching source. Body links stay underlined. Neither the prose nor the contents casts a shadow. The article typography and paragraph gaps above preserve the reading rhythm across every story.
+
+The takeaway block is Panel with the inset hairline, 6px corners, 20px padding on phones and 24px from 640px. Its Bricolage heading sits over a 15px list with 12px item gaps; 32px separates it from the intro. Figure headings use Bricolage, with plain-text captions below. Real product captures stay unfiltered. Photography alone uses the Bottle colour treatment and carries credit. Article media never uses AI-generated raster images.
+
+HTML/CSS figures use real text, Bottle ink, Panel grounds and ruled divisions. Processes are ordered lists; comparison tables retain row and column headings in a keyboard-focusable horizontal scroll region. Charts show text values, begin bars at zero and link measured data to sources. Captions state whether a figure is measured, forecast or an example. Keep product demonstrations visibly distinct from research results; never imitate a product screen in CSS.
+
+Screenshot figures have a 6px frame with a translucent Ink border. Configured previews crop the unchanged source with CSS, using a closer phone crop below 640px. A native details control with a Panel summary reveals the original full screen; the summary changes to Show close-up while open. A separate full-size image link and demonstration-data label sit beneath the frame. Screens without a preview retain the original view.
 
 ## Do's and Don'ts
 

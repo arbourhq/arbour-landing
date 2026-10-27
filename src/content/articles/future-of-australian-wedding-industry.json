@@ -1,0 +1,106 @@
+{
+  "slug": "future-of-australian-wedding-industry",
+  "title": "Where the Australian wedding industry could go by 2031",
+  "description": "An evidence-led view of Australian weddings through 2031, with practical scenarios for demand, budgets, weather, AI and wedding vendor operations.",
+  "category": "Industry research",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "A five-year plan for a wedding business needs a few plausible versions of the future. One prediction about guest counts or spending will not tell you whether to hire another editor, buy more stock or take on a second venue.",
+    "Our view for 2026 to 2031 starts with official marriage data, household finances and changes already visible in climate and business technology. The scenarios below are Arbour's interpretation of that evidence. They are planning tools, not forecasts of wedding numbers or vendor revenue."
+  ],
+  "sections": [
+    {
+      "id": "plan-for-demand-without-a-boom",
+      "heading": "Plan for demand without assuming a boom",
+      "paragraphs": [
+        "The ABS recorded 118,804 marriages in 2025, down 1.7% from 120,844 in 2024. That was close to 2023's total of 118,439. The post-restriction peak of 127,161 in 2022 is a poor default for a capacity plan. These figures count registered marriages, not reception bookings or spending with suppliers. [1]",
+        "National totals also hide local differences. South Australia registered more marriages in 2025 while Victoria registered fewer. A vendor's postcode, service and price bracket can behave differently again. [1]",
+        "For the next five years, use steady demand as one working scenario. Keep a weaker-demand version beside it. Decide what each would mean for fixed costs before signing a bigger lease. Review your own enquiries by event month, source and location. A national headline cannot tell you how many Saturdays your business will sell."
+      ]
+    },
+    {
+      "id": "make-scope-easier-to-understand",
+      "heading": "Make scope easier to understand",
+      "paragraphs": [
+        "Household finances do not support a single story about what every client can afford. The RBA's October 2026 review found household and business borrowers generally resilient, despite increasing financial pressure from inflation and higher interest rates. It expected cash flow pressures to persist. It did not forecast wedding budgets. [2]",
+        "A useful planning scenario is that clients keep spending on the parts they value and question the rest. You can prepare without guessing whether average wedding spending will rise. Make inclusions clear, separate optional additions and record why a quote changes.",
+        "For a photographer, that might mean stating coverage hours and the cost of extending them. For a florist, it means recording the approved design and substitution process. Measure accepted scope and delivery cost together. A larger booking can leave less profit if the extra work was never priced."
+      ]
+    },
+    {
+      "id": "put-weather-decisions-in-the-booking",
+      "heading": "Put weather decisions in the booking",
+      "paragraphs": [
+        "The Bureau of Meteorology and CSIRO's State of the Climate 2024 reports more frequent extreme heat, more intense short-duration heavy rainfall and longer fire seasons across large parts of Australia. These are long-term observations. They cannot predict conditions on a particular wedding date in 2031. [3]",
+        "The operational response is concrete. Record the wet-weather space, the decision deadline and who can make the call. Include the cost and labour needed to move an installation. Check access routes and the venue's emergency arrangements before the final week.",
+        "Treat this as a capacity question too. An outdoor booking that needs a possible early load-in may occupy more crew time than the event hours suggest. Agree on any contingency charges with the client and record who must approve the extra work."
+      ]
+    },
+    {
+      "id": "use-ai-with-defined-limits",
+      "heading": "Give AI a defined job and a reviewer",
+      "paragraphs": [
+        "The National AI Centre tracks AI adoption across Australian small and medium enterprises. That evidence covers many industries and does not establish how many wedding vendors use AI or what it saves them. [4]",
+        "Our working scenario is that routine drafting and information retrieval become common parts of business software. That makes clear records more useful. An assistant cannot answer an availability question reliably if tentative holds and confirmed bookings share the same status.",
+        "Start with work you can check, such as drafting a general questionnaire or finding a recorded invoice. Keep a person responsible for promises to clients. The OAIC recommends avoiding personal, particularly sensitive, information in publicly available generative AI tools as a matter of best practice. Check the product and your obligations before sharing client records. [5]"
+      ]
+    },
+    {
+      "id": "keep-proof-of-environmental-claims",
+      "heading": "Keep proof of environmental claims",
+      "paragraphs": [
+        "We cannot establish that every wedding business will face growing demand for sustainability by 2031. There is already a reason to keep better evidence when you make environmental claims. The ACCC's guidance asks businesses to make claims that are accurate, clear and supported. [6]",
+        "If you advertise locally grown flowers, keep supplier records and explain exceptions. If you describe hire stock as reusable, state what that means for the service you sell. Avoid promising a lower-impact wedding on the strength of one material choice. Record the claim, its evidence and when someone last checked it."
+      ]
+    },
+    {
+      "id": "make-the-next-review-useful",
+      "heading": "Make the next review useful",
+      "paragraphs": [
+        "Choose a quarterly review date and keep the same measures each time. Count qualified enquiries, confirmed jobs, booked delivery hours and overdue balances. Keep event dates separate from enquiry dates so a quiet inbox does not disguise a full production month.",
+        "Then test one decision against your scenarios. Would another crew member still make sense with fewer bookings? Can the current team deliver a weather-related change without cancelling other work? What would you stop paying for first if demand weakened?",
+        "Arbour keeps sales and delivery on one job record. That gives you somewhere to organise the information behind those decisions. [See how Arbour handles the booking workflow](/wedding-crm-australia), then put a real job through it before changing how you run the season."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Marriages and Divorces, Australia, 2025",
+      "url": "https://www.abs.gov.au/statistics/people/people-and-communities/marriages-and-divorces-australia/2025",
+      "publisher": "Australian Bureau of Statistics"
+    },
+    {
+      "id": 2,
+      "title": "Financial Stability Review, October 2026: Resilience of Australian Households and Businesses",
+      "url": "https://www.rba.gov.au/publications/fsr/2026/oct/resilience-of-australian-households-and-businesses.html",
+      "publisher": "Reserve Bank of Australia"
+    },
+    {
+      "id": 3,
+      "title": "State of the Climate 2024: Report at a glance",
+      "url": "https://www.bom.gov.au/weather-and-climate/past-weather-and-climate/state-of-the-climate-2024/report-at-a-glance",
+      "publisher": "Bureau of Meteorology and CSIRO"
+    },
+    {
+      "id": 4,
+      "title": "AI adoption tracker",
+      "url": "https://www.ai.gov.au/news-and-insights/reports/ai-adoption-tracker",
+      "publisher": "National AI Centre"
+    },
+    {
+      "id": 5,
+      "title": "Guidance on privacy and the use of commercially available AI products",
+      "url": "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products",
+      "publisher": "Office of the Australian Information Commissioner"
+    },
+    {
+      "id": 6,
+      "title": "A guide to making environmental claims for business",
+      "url": "https://www.accc.gov.au/about-us/publications/a-guide-to-making-environmental-claims-for-business",
+      "publisher": "Australian Competition and Consumer Commission"
+    }
+  ]
+}

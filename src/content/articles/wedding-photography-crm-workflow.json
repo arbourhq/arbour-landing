@@ -1,0 +1,100 @@
+{
+  "slug": "wedding-photography-crm-workflow",
+  "title": "A wedding photography CRM workflow that keeps working after the booking",
+  "description": "Build a wedding photography workflow for enquiries, bookings, shoot preparation, editing and delivery, with clear handovers and fewer loose ends.",
+  "category": "Business guides",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "A list of sold dates leaves a fair bit unanswered. Whose questionnaire is missing? Which gallery is due? Did that album proof come back? A useful wedding photography CRM workflow follows the job through delivery, with a named owner and a next action at every stage.",
+    "Keep the administration on one job record. Keep image editing, gallery delivery and image backups in the tools built for them. The connection is a clear handover, with the relevant links, dates and completion checks recorded against the job."
+  ],
+  "sections": [
+    {
+      "id": "capture-the-enquiry",
+      "heading": "Capture enough to answer the enquiry",
+      "paragraphs": [
+        "Start with the event date, locations, contact details and the coverage the client has in mind. Record how they found you if that informs your marketing decisions. Ask for the information you need to check availability and recommend the next step. The full family-photo list can wait.",
+        "Check the calendar before sending a confident yes. Include travel, an existing hold and recovery time after another booking. Assign the enquiry to a person and give it a follow-up date. An acknowledgement can confirm that the message arrived, but it should not promise availability that nobody has checked."
+      ]
+    },
+    {
+      "id": "make-the-booking-specific",
+      "heading": "Make the booking specific",
+      "paragraphs": [
+        "The quote should identify the coverage hours, photographer numbers, travel, deliverables and payment schedule. State whether an engagement session, album or additional editing is included. business.gov.au recommends written quotes with a clear service description, itemised costs, payment terms and an expiry date. [1]",
+        "Document when your business marks a date confirmed. Your process might require the agreed contract and initial payment. An accepted quote can itself form a binding contract, as business.gov.au notes, so your status labels need to match your actual terms. [1] Have those terms checked for your business rather than borrowing another studio's wording. When the booking qualifies, move the existing job forward instead of rebuilding it in a second spreadsheet.",
+        "Arbour keeps quotes, contracts, invoices and payment plans with the job. Its [sales and booking workflow](/#stage-booked) shows how those records stay together. The workflow still needs your decision about when a tentative date becomes a commitment."
+      ]
+    },
+    {
+      "id": "prepare-the-shoot",
+      "heading": "Prepare the shoot around actual decisions",
+      "paragraphs": [
+        "Work backwards from the event. Set deadlines for the questionnaire, planning conversation, balance review and final run sheet according to your contract and workload. Use separate fields for information you search or sort, such as ceremony location. Put the longer discussion in the job notes.",
+        "Confirm access times, parking, ceremony restrictions, family groupings and the person who can gather those groups. Record the wet-weather portrait option. Where another photographer joins you, make the brief explicit about arrival, coverage responsibilities, file naming and the image handover.",
+        "Keep publication permissions separate from the booking status. The OAIC says identifiable images can be personal information and recommends express consent for publication as good practice. Its guidance explains the obligations for organisations covered by the Privacy Act. [2] A paid booking does not tell your editor which images the client is comfortable seeing on Instagram."
+      ]
+    },
+    {
+      "id": "issue-one-working-run-sheet",
+      "heading": "Issue one working run sheet",
+      "paragraphs": [
+        "Give the working run sheet a version date and a clear owner. Include addresses, practical contact numbers, coverage times and travel allowances. Put the portrait plan beside the available time, so an ambitious list is visible before the day.",
+        "A second shooter needs the information required to do the job, including relevant access and safety details. They do not automatically need the client's invoice history or every private planning note. Check the permissions and the exported document before sharing it. Save a copy that remains accessible if mobile reception fails."
+      ]
+    },
+    {
+      "id": "track-editing-and-backups",
+      "heading": "Track editing and backups separately",
+      "paragraphs": [
+        "After the shoot, confirm image ingestion and backups before marking that handover complete. Record who holds the files, where the working catalogue lives and when the next editing step is due. A task marked 'editing' for six weeks does not tell anyone whether the job is waiting for culling or final review.",
+        "Adobe states that Lightroom Classic's catalogue backup contains the catalogue file, while photographs and exports need their own backups. Adobe also recommends keeping backup copies separate from working files and considering an offsite location. [3] A completed CRM task records that someone checked the backup. It does not make the backup."
+      ]
+    },
+    {
+      "id": "test-the-delivery",
+      "heading": "Test the delivery the client will receive",
+      "paragraphs": [
+        "Keep the promised delivery date visible while the job moves through editing. If that date needs to change, contact the client before it passes and record the revised agreement.",
+        "Upload the finished photographs to your gallery service, then test the invitation, access settings and download instructions. Pixieset, for example, provides photo downloads, password and PIN controls, proofing and download activity tracking. [4] These are gallery functions. Arbour manages the job administration; it is not the photo gallery.",
+        "Record the gallery URL and delivery date against the job. If an album is included, create a separate selection and proof-approval sequence. Gallery delivery should not quietly close work you still owe."
+      ]
+    },
+    {
+      "id": "close-the-job-with-a-record",
+      "heading": "Close the job with a usable record",
+      "paragraphs": [
+        "Before archiving, reconcile the invoices, check that the agreed deliverables went out and record any outstanding print or album orders. Note the image-retention arrangement you gave the client and the location of the archive. Do not promise indefinite storage unless you have planned and priced it.",
+        "Review one completed job before copying this workflow across the season. Find the step that relied on memory, give it an owner and a completion check, then test it on the next booking."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Prepare quotes",
+      "url": "https://business.gov.au/people/contractors/prepare-quotes",
+      "publisher": "business.gov.au"
+    },
+    {
+      "id": 2,
+      "title": "Posting photos and videos",
+      "url": "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/handling-personal-information/posting-photos-and-videos",
+      "publisher": "Office of the Australian Information Commissioner"
+    },
+    {
+      "id": 3,
+      "title": "Back up a catalog",
+      "url": "https://helpx.adobe.com/au/lightroom-classic/desktop/manage-catalogs-and-files/back-catalog.html",
+      "publisher": "Adobe"
+    },
+    {
+      "id": 4,
+      "title": "Pixieset Client Gallery",
+      "url": "https://pixieset.com/client-gallery/",
+      "publisher": "Pixieset"
+    }
+  ]
+}

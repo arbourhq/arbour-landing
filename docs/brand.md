@@ -174,6 +174,7 @@ About page hello, approved 26 October 2026: the waving pose stands on the hero's
 - **MOTION: playful overshoot.** `cubic-bezier(.34,1.8,.45,1)` at 260ms for pops and lifts; `cubic-bezier(.16,.84,.36,1)` glide at 180 to 260ms for slides and fades. Hovers lift 3px. Motion should feel confident and slightly cartoon, never slow or cinematic.
 - No gradients. No glassmorphism. No soft rounded shadow cards.
 - Emoji: no.
+- Article media uses genuine stock photography and actual product captures. No AI-generated raster images. Apply colour filters to photography only, keep product screens legible, and use HTML/CSS for diagrams and charts.
 
 ## 6. Tone of voice
 

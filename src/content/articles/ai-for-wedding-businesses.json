@@ -1,0 +1,101 @@
+{
+  "slug": "ai-for-wedding-businesses",
+  "title": "AI for wedding businesses: useful tasks and sensible limits",
+  "description": "Use AI in your wedding business for drafts and record searches, with practical checks for client privacy, accuracy, permissions and human review.",
+  "category": "Industry research",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "AI can help a wedding business with ordinary desk work. A first draft of a venue FAQ, a clearer questionnaire or a search through booking records can be useful. The harder question is what information the tool needs, what it can change and who checks its answer.",
+    "Start with a task you can inspect. Keep the original records, give someone responsibility for the result and measure the time spent correcting it. A fast draft that needs a full rewrite has not saved the afternoon."
+  ],
+  "sections": [
+    {
+      "id": "choose-one-bounded-task",
+      "heading": "Choose one task you can check",
+      "paragraphs": [
+        "Drafting public information is a sensible first experiment. Give a tool your published package details and ask it to shorten an FAQ answer. Compare the result with the source. Did it invent an inclusion, turn an optional extra into a promise or remove an important limit?",
+        "Another useful exercise is improving a blank questionnaire. Ask for clearer wording for a load-in question, without providing a real client's answers. You still decide which questions belong in the form. These are suggested trial tasks, not measured claims about time savings.",
+        "Business.gov.au advises businesses to check AI output before using or sharing it, including its accuracy, relevance and language. That review needs to be part of the task, rather than something squeezed in after sending. [1]"
+      ]
+    },
+    {
+      "id": "keep-client-information-out-of-casual-prompts",
+      "heading": "Keep client information out of casual prompts",
+      "paragraphs": [
+        "Wedding records can contain home addresses, family circumstances, photographs and health or religious information. A whole email thread often includes far more than the sentence you want rewritten. Removing a name alone may leave enough detail to identify someone.",
+        "The Office of the Australian Information Commissioner recommends, as best practice, keeping personal information, particularly sensitive information, out of publicly available generative AI tools. Its guidance also calls for checking the intended use, access arrangements and privacy risks before choosing a product. [2]",
+        "For a draft, use invented details or a blank template. Before approving a tool for real records, check its retention settings, model-training terms, subprocessors and deletion process. Record what you checked. A paid account needs the same questions as a free one."
+      ]
+    },
+    {
+      "id": "check-your-privacy-position",
+      "heading": "Check your privacy position",
+      "paragraphs": [
+        "Australian privacy obligations depend on the business and its activities. The OAIC says most small businesses with annual turnover of $3 million or less are not covered by the Privacy Act, but exceptions apply. Use its small-business checklist or seek advice about your circumstances. [3]",
+        "For businesses covered by the Australian Privacy Principles, the OAIC's AI guidance explains that using personal information for a secondary purpose needs a permitted basis. It also recommends clear privacy notices and identifying customer-facing AI tools as AI. An updated privacy policy alone does not settle every consent question. [2]",
+        "Regardless of that legal assessment, decide what your staff may upload and explain relevant uses to clients. A celebrant's client identity documents and a florist's published package descriptions deserve different handling. A publicly visible address can still be personal information. Check the actual contents before sharing."
+      ]
+    },
+    {
+      "id": "check-against-the-job-record",
+      "heading": "Check answers against the job record",
+      "paragraphs": [
+        "A plausible answer can still name the wrong date or omit a changed access time. For anything that affects delivery or money, open the original record before acting. Check the latest approved version, not an earlier email that happens to be easier to find.",
+        "Keep a clear review step for client messages. The sender checks names, dates, amounts, inclusions and promises. An AI draft should never invent a refund decision, confirm an unverified date or explain a contract clause as though it were legal advice.",
+        "The Australian Cyber Security Centre's small-business AI guidance recommends verifying generated outputs, keeping human oversight for important decisions and training staff in responsible use. Put those responsibilities beside the actual workflow, including who takes over when the tool is unavailable. [4]"
+      ]
+    },
+    {
+      "id": "separate-answers-from-actions",
+      "heading": "Separate answers from actions",
+      "paragraphs": [
+        "Searching records and changing records need different controls. A tool that reports overdue invoices has a smaller task than one that can send reminders or alter payment plans. Ask what it can read, what it can write and whose permissions it follows before connecting it to your business.",
+        "In Arbour, Arby can answer questions such as who is booked in March or which invoices are overdue. It reads only what the user's role can already see and changes nothing. That is its stated scope. It does not replace checking the booking before contacting a client.",
+        "[See how Arbour keeps sales and delivery on one job record](/wedding-crm-australia), then test the assistant with a question whose answer you already know. Check access using the relevant staff role, rather than assuming an administrator's view represents everyone."
+      ]
+    },
+    {
+      "id": "run-a-small-measured-trial",
+      "heading": "Run a small, measured trial",
+      "paragraphs": [
+        "Choose a fortnight of one repeatable task. Write down the approved inputs, the reviewer and what a usable result looks like. Track total minutes, including checking and correction, alongside errors and rejected drafts. Compare that with doing the same work without AI.",
+        "The National AI Centre's foundations guidance recommends a named accountable person, an AI policy and human oversight suited to the use and its risks. It also calls for ways to intervene and keep critical work going if an AI system fails. A small studio can express those decisions in a short working document. [5]",
+        "At the end of the trial, keep the task only if the checked result is useful. Retest when the tool or workflow changes. Your next run sheet still needs the right bump-in time, however convincing the paragraph sounds."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "Artificial intelligence (AI)",
+      "url": "https://business.gov.au/online-and-digital/artificial-intelligence",
+      "publisher": "business.gov.au"
+    },
+    {
+      "id": 2,
+      "title": "Guidance on privacy and the use of commercially available AI products",
+      "url": "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/guidance-on-privacy-and-the-use-of-commercially-available-ai-products",
+      "publisher": "Office of the Australian Information Commissioner"
+    },
+    {
+      "id": 3,
+      "title": "Small business",
+      "url": "https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/small-business",
+      "publisher": "Office of the Australian Information Commissioner"
+    },
+    {
+      "id": 4,
+      "title": "Artificial intelligence for small business",
+      "url": "https://www.cyber.gov.au/publication/artificial-intelligence-for-small-business",
+      "publisher": "Australian Signals Directorate's Australian Cyber Security Centre"
+    },
+    {
+      "id": 5,
+      "title": "Guidance for AI adoption: foundations",
+      "url": "https://www.ai.gov.au/staying-safe-and-responsible/essential-ai-practices/guidance-ai-adoption-foundations",
+      "publisher": "National AI Centre"
+    }
+  ]
+}

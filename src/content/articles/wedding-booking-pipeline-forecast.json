@@ -1,0 +1,87 @@
+{
+  "slug": "wedding-booking-pipeline-forecast",
+  "title": "How to forecast your wedding booking pipeline",
+  "description": "Build a wedding booking forecast with clear stages, realistic conversion assumptions and separate views of event capacity, booking value and cash coming in.",
+  "category": "Business guides",
+  "author": "Arbour Research Team",
+  "publishedAt": "2026-10-28",
+  "updatedAt": "2026-10-28",
+  "intro": [
+    "A full enquiry list can still leave a quiet season. Some contacts want a date you cannot cover. Others have a quote but no decision. A useful wedding booking forecast separates those possibilities from the work you have actually secured.",
+    "Start with clear pipeline stages, then check dates, delivery capacity and payment timing. You can do this in a spreadsheet or a CRM. The quality of the forecast depends on the records you keep and the assumptions you are prepared to explain."
+  ],
+  "sections": [
+    {
+      "id": "define-stages",
+      "heading": "Give each stage an entry rule",
+      "paragraphs": [
+        "Salesforce describes pipeline stages as steps with specific exit criteria. That principle is useful for wedding businesses even when the stages themselves differ. Moving a job should mean something happened, rather than that somebody feels optimistic. [1]",
+        "Use stages that match your actual sales process. Keep a next action and an owner beside every open job. A venue might include a site visit. A celebrant may go straight from an availability check to a meeting and quote."
+      ],
+      "bullets": [
+        "New enquiry means you have received a request but have not checked its fit.",
+        "Qualified means the date, location and requested service are workable.",
+        "Quote sent means the client has a current offer with a decision or follow-up date.",
+        "Booking pending means the client wants to proceed but your confirmation requirements remain incomplete.",
+        "Confirmed means your business's documented booking requirements are complete. Track signed documents and payments separately so the reason is visible.",
+        "Lost or withdrawn means the opportunity is closed, with a reason recorded."
+      ]
+    },
+    {
+      "id": "keep-dates-separate",
+      "heading": "Keep booking dates separate from event dates",
+      "paragraphs": [
+        "Record when the enquiry arrived, when you expect a booking decision and when you will deliver the job. Those dates answer different questions. This month's sales activity may fill next autumn's calendar while doing little for next week's bank balance.",
+        "Review open quotes by expected decision month. Review confirmed work by event month. Then check the practical limit on each date. Two enquiries for the same Saturday do not give a solo photographer two available Saturdays.",
+        "For a team, count the resources that genuinely limit delivery. That might be available crew, venue spaces, vehicles or installation hours. Keep tentative work visible without treating it as committed capacity. An expired hold needs a decision, not another week in the forecast."
+      ]
+    },
+    {
+      "id": "use-historical-conversion",
+      "heading": "Use your own conversion history",
+      "paragraphs": [
+        "A stage called 'quote sent' does not make a job 50 per cent likely to book. Compare a completed group of past enquiries with their final outcomes. Count how many reached the stage and how many eventually confirmed. Exclude duplicates, and keep unavailable-date enquiries identifiable.",
+        "As a hypothetical example, imagine 20 comparable quotes from a completed period produced eight bookings. That observed conversion rate is 40 per cent. Applying it to ten current quotes worth $4,000 each gives a weighted scenario of $16,000, provided you can deliver the work if it books. It does not promise four bookings or $16,000 in receipts. Where several quotes compete for the same available date, model the booking you could actually accept rather than adding them as independent opportunities.",
+        "Check whether those quotes resemble the current ones. A change in package price, lead source or season can make the old rate less useful. With little history, show a cautious case and a stronger case with written assumptions. Business Queensland recommends alternative forecasts when outcomes are uncertain. [2]"
+      ]
+    },
+    {
+      "id": "separate-cash-and-value",
+      "heading": "Separate booking value from incoming cash",
+      "paragraphs": [
+        "Keep the full agreed job value, payments already received and remaining scheduled payments in separate fields. A $4,000 confirmed job does not put $4,000 into this month's account if the balance falls due later. Ask your accountant how to recognise revenue in your accounts.",
+        "For another hypothetical example, three confirmed $4,000 jobs have $12,000 in agreed booking value. If each has a $1,000 payment due this month, the scheduled cash inflow is $3,000. Payments due are still estimates until the money arrives. Do not add deposits to full job values and call the result sales.",
+        "Business.gov.au's cash flow template separates incoming and outgoing cash by period. It also asks you to state whether figures include GST. Use one consistent basis, include supplier and crew payments when you expect to pay them, and show the opening bank balance. [3]"
+      ]
+    },
+    {
+      "id": "weekly-review",
+      "heading": "Review the exceptions each week",
+      "paragraphs": [
+        "Give the review a short, repeatable agenda. Check jobs without a next action, overdue quote decisions, expired holds and payments that have missed their expected date. Close jobs you have lost so they stop inflating the open total. Keep the reason, even when it is simply that the client chose somebody else.",
+        "At month end, compare the forecast with actual bookings and receipts. Was a payment late, or did the booking disappear? Business Queensland distinguishes timing differences from changes that affect the underlying forecast. That distinction helps you decide whether to move an expected receipt or remove it. [2]",
+        "In Arbour, the pipeline, quotes, contracts and payment plans stay with the same job record. Use the [product workflow](/#stage-enquiry) to check whether that suits your process. Keep your forecast calculation explicit, even when the records sit in one place. The next review should explain what changed and which decision needs a person."
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "title": "What is a Sales Pipeline? And How Do You Build One?",
+      "url": "https://www.salesforce.com/sales/pipeline/",
+      "publisher": "Salesforce"
+    },
+    {
+      "id": 2,
+      "title": "Budgets and forecasts",
+      "url": "https://www.business.qld.gov.au/running-business/finance/essentials/budgets-forecasts",
+      "publisher": "Business Queensland"
+    },
+    {
+      "id": 3,
+      "title": "Set up a cash flow statement",
+      "url": "https://business.gov.au/finance/cash-flow/set-up-a-cash-flow-statement",
+      "publisher": "business.gov.au"
+    }
+  ]
+}
