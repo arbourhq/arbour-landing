@@ -166,7 +166,7 @@ export function Stage({
                       }}
                       onFocus={() => setHovered(i)}
                       onBlur={() => setHovered(null)}
-                      className="-mt-1 -mr-1.5 inline-flex size-7 shrink-0 items-center justify-center rounded-sm text-ink-muted transition-colors duration-[var(--duration-base)] hover:bg-panel-hover hover:text-ink aria-pressed:bg-bottle aria-pressed:text-on-dark"
+                      className="-mt-1 -mr-1.5 inline-flex size-7 shrink-0 items-center justify-center rounded-sm text-ink-muted transition-colors duration-[var(--duration-base)] hover:bg-panel-hover hover:text-ink aria-pressed:bg-bottle aria-pressed:text-on-dark max-lg:-my-2 max-lg:-mr-2 max-lg:size-11"
                     >
                       <Crosshair aria-hidden className="size-4" />
                     </button>

@@ -351,6 +351,10 @@
   .arby-help-log {
     padding: 16px;
   }
+  .arby-help-composer button {
+    width: 44px;
+    height: 44px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .arby-help,

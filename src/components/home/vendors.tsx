@@ -104,7 +104,7 @@ export function Vendors() {
                 aria-pressed={on}
                 aria-controls="vendor-setup"
                 onClick={() => setIndex(i)}
-                className={`inline-flex h-10 items-center gap-2 rounded-md border px-3.5 text-ui font-semibold transition-[background-color,border-color,color,transform] [transition-duration:var(--duration-base),var(--duration-base),var(--duration-base),var(--duration-pop)] [transition-timing-function:ease-out,ease-out,ease-out,var(--curve-overshoot)] hover:-translate-y-[3px] active:translate-y-0 ${
+                className={`inline-flex h-10 items-center gap-2 rounded-md border px-3.5 text-ui font-semibold transition-[background-color,border-color,color,transform] [transition-duration:var(--duration-base),var(--duration-base),var(--duration-base),var(--duration-pop)] [transition-timing-function:ease-out,ease-out,ease-out,var(--curve-overshoot)] hover:-translate-y-[3px] active:translate-y-0 max-lg:min-h-11 ${
                   on
                     ? "border-transparent bg-bottle text-on-dark inset-shadow-depth-button"
                     : "border-input bg-page text-ink hover:border-input-hover hover:bg-panel"
@@ -167,7 +167,7 @@ export function Vendors() {
                       } as React.CSSProperties
                     }
                   >
-                    <span className="flex w-32 shrink-0 flex-col gap-1 sm:min-h-[2.75rem] sm:w-auto">
+                    <span className="flex w-[44%] shrink-0 flex-col gap-1 sm:min-h-[2.75rem] sm:w-auto">
                       <span className="mono-label text-ink-muted tabular-nums">
                         {String(i + 1).padStart(2, "0")}
                       </span>

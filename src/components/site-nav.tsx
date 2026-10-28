@@ -129,7 +129,7 @@ export function SiteNav() {
           <Link
             href="/"
             aria-label="Arbour, home"
-            className="-mx-1 rounded-sm px-1 py-1.5"
+            className="-mx-1 rounded-sm px-1 py-1.5 max-lg:inline-flex max-lg:min-h-11 max-lg:items-center"
           >
             <Wordmark title={null} className="text-title sm:text-section" />
           </Link>
@@ -173,7 +173,7 @@ export function SiteNav() {
         {menuOpen ? (
           <div
             id="site-menu"
-            className="animate-swap border-t border-line px-2 pt-2 pb-3 lg:hidden"
+            className="max-h-[calc(100dvh-var(--nav-gap)*2-3.5rem-2px)] animate-swap overflow-y-auto overscroll-contain border-t border-line px-2 pt-2 pb-3 lg:hidden"
           >
             <ul className="m-0 grid list-none gap-0.5 p-0">
               {NAV_LINKS.map((link) => (

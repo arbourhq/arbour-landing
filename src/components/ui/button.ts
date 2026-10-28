@@ -24,7 +24,7 @@ export type ButtonSize = "sm" | "md" | "lg";
 // a class merger two utilities on one property resolve by stylesheet order,
 // not by which was written last.
 const BASE =
-  "relative inline-flex items-center justify-center gap-2 rounded-md border font-sans font-semibold whitespace-nowrap select-none " +
+  "relative inline-flex items-center justify-center gap-2 rounded-md border font-sans font-semibold whitespace-nowrap select-none max-lg:min-h-11 max-lg:min-w-11 " +
   // The overshoot curve is for the lift only; colours ease plainly, or the
   // hover overshoots into a flash before the real colour lands.
   "transition-[background-color,color,border-color,transform] [transition-duration:var(--duration-base),var(--duration-base),var(--duration-base),var(--duration-pop)] [transition-timing-function:ease-out,ease-out,ease-out,var(--curve-overshoot)] motion-reduce:transition-none " +

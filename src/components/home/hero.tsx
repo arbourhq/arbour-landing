@@ -55,13 +55,13 @@ export function Hero() {
       labelledBy="hero-title"
       className="pt-[calc(var(--nav-h)+var(--nav-gap))]"
     >
-      <div className="reveal-now px-5 pt-12 pb-10 sm:px-8 sm:pt-16 sm:pb-12 lg:px-12 lg:pt-16 lg:pb-12">
+      <div className="reveal-now px-5 pt-8 pb-7 sm:px-8 sm:pt-16 sm:pb-12 lg:px-12 lg:pt-16 lg:pb-12">
         {/* Four groups that never break inside, so a line only ever breaks
             between them and the select is never split from its stop. */}
         <h1
           ref={heading}
           id="hero-title"
-          className="headline m-0 flex flex-wrap items-baseline gap-x-[0.24em] gap-y-[0.08em] text-hero text-ink"
+          className="headline m-0 flex flex-wrap items-baseline gap-x-[0.24em] gap-y-[0.08em] text-hero text-ink max-sm:text-[clamp(1.875rem,9.2vw,3.5rem)]"
         >
           <span className="whitespace-nowrap">
             <Split text="Book it. Run it." />
@@ -73,7 +73,7 @@ export function Hero() {
             <Split text="Built for" from={6} />
           </span>
           <span
-            className="split-word whitespace-nowrap"
+            className="split-word whitespace-nowrap max-sm:basis-full max-sm:text-[min(1em,8.6vw)]"
             style={{ "--i": 8 } as React.CSSProperties}
           >
             <CategorySelect onScreen={onScreen} />.
@@ -83,7 +83,7 @@ export function Hero() {
 
       <div className="reveal-now cell-rule-t grid lg:grid-cols-12">
         <div
-          className="reveal-rise flex flex-col gap-8 px-5 py-8 sm:px-8 sm:py-10 lg:col-span-7 lg:px-12 lg:py-10"
+          className="reveal-rise flex flex-col gap-5 px-5 py-7 sm:gap-8 sm:px-8 sm:py-10 lg:col-span-7 lg:px-12 lg:py-10"
           style={{ "--reveal-delay": "380ms" } as React.CSSProperties}
         >
           <p className="m-0 max-w-[44ch] text-lead text-ink-secondary sm:text-[1.1875rem] sm:leading-[1.5]">
@@ -91,11 +91,11 @@ export function Hero() {
           </p>
           <Link
             href={WEDDING_CRM_LINK.href}
-            className="self-start text-ui font-semibold text-bottle underline underline-offset-4 hover:text-bottle-deep"
+            className="self-start text-ui font-semibold text-bottle underline underline-offset-4 hover:text-bottle-deep max-sm:order-2"
           >
             {WEDDING_CRM_LINK.label}
           </Link>
-          <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 max-sm:flex-col max-sm:items-stretch max-sm:gap-y-2">
             <TrialLink variant="sprout" size="lg" />
             <Scramble
               text={`${TRIAL_DAYS} days free · no card`}

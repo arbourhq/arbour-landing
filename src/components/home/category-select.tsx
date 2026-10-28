@@ -200,7 +200,7 @@ export function CategorySelect({ onScreen }: { onScreen: boolean }) {
         onMouseLeave={() => setHovered(false)}
         onFocus={() => setHovered(true)}
         onBlur={() => setHovered(false)}
-        className={`group inline-flex touch-manipulation items-center gap-[0.14em] rounded-md bg-panel pt-[0.06em] pr-[0.16em] pb-[0.16em] pl-[0.14em] align-baseline inset-shadow-depth-panel transition-[background-color,box-shadow] duration-[var(--duration-base)] hover:bg-panel-hover ${
+        className={`group inline-flex touch-manipulation items-center gap-[0.14em] rounded-md bg-panel pt-[0.06em] pr-[0.16em] pb-[0.16em] pl-[0.14em] align-baseline inset-shadow-depth-panel transition-[background-color,box-shadow] duration-[var(--duration-base)] hover:bg-panel-hover max-lg:min-h-11 ${
           // Open borrows the field's focus treatment, as the console's
           // pickers do: a Bottle edge and the 3px ring.
           open ? "ring-3 ring-bottle/30 inset-ring-1 inset-ring-bottle" : ""
@@ -258,7 +258,7 @@ export function CategorySelect({ onScreen }: { onScreen: boolean }) {
                     setIndex(i);
                     setOpen(false);
                   }}
-                  className="flex min-h-9 w-full touch-manipulation items-center justify-between gap-2 rounded-sm px-2 py-1.5 text-left font-sans text-ui text-ink outline-none hover:bg-panel focus-visible:bg-panel"
+                  className="flex min-h-9 w-full touch-manipulation items-center justify-between gap-2 rounded-sm px-2 py-1.5 text-left font-sans text-ui text-ink outline-none hover:bg-panel focus-visible:bg-panel max-lg:min-h-11"
                 >
                   {c.name}
                   {selected ? (

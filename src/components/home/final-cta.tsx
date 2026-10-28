@@ -23,7 +23,7 @@ export function FinalCta() {
           <Split text="Have the Saturday. We’ll take the rest." />
         </h2>
         <div
-          className="reveal-rise mt-10 flex flex-wrap items-center gap-x-5 gap-y-3"
+          className="reveal-rise mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 max-sm:flex-col max-sm:items-stretch"
           style={{ "--reveal-delay": "420ms" } as React.CSSProperties}
         >
           <TrialLink variant="sprout" size="lg" />

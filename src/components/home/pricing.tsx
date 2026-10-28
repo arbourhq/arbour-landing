@@ -88,7 +88,7 @@ export function Pricing() {
                   type="button"
                   aria-pressed={on}
                   onClick={() => setInterval(option.key)}
-                  className={`rounded-sm px-3.5 py-2 text-ui font-semibold transition-colors duration-[var(--duration-base)] ${
+                  className={`rounded-sm px-3.5 py-2 text-ui font-semibold transition-colors duration-[var(--duration-base)] max-lg:min-h-11 ${
                     on
                       ? "bg-page text-ink shadow-thumb"
                       : "text-ink-secondary hover:text-ink"

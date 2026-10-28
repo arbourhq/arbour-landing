@@ -436,3 +436,7 @@ Screenshot figures have a 6px frame with a translucent Ink border. Shared profil
 - **Don't** use a radius above 6px, a pill, a gradient or glassmorphism.
 - **Don't** use a grey hex for a border; borders are translucent Ink and rules are Line.
 - **Don't** put Sprout in the Arby Help panel.
+
+### Mobile landing page
+
+Below 640px the hero uses tighter vertical spacing, a dedicated category line sized for every vendor name at 320px, and a full-width trial action above the secondary article link. Its pipeline uses proportional label and bar columns with wrapping stage labels. Below 1024px primary controls, category options, claim crosshairs and stage links have at least 44px touch targets. The stage dock names only the active stage until desktop width; phone connectors shrink so all five links fit. The menu scrolls within short viewports. Desktop composition and product close-ups stay as specified above.

@@ -28,3 +28,16 @@ FIRST VIEWPORT: Floating nav. h1 hard left at 96px, category as an inline select
 FORM: The Ruled Sheet, sixth of seven. Seed d7ddbaa4. Signature: the booking header's stage strip sticks through the stages, dots filling Sprout.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
+
+## Mobile refinement, 28 October 2026
+
+Preserve the desktop composition and all copy. Below 640px the hero has less
+vertical padding, its category occupies a dedicated line at a size that fits
+every name at 320px, and the full-width trial action precedes the secondary
+article link. Its pipeline uses proportional label and bar columns, a narrow
+count column, and wrapping labels rather than truncation.
+
+Below 1024px controls have at least 44px touch targets. The stage dock names
+only the active stage and keeps every stage directly accessible; phone
+connectors shrink to fit. The mobile menu scrolls within short viewports.
+Product close-ups and their whole-screen controls remain unchanged.

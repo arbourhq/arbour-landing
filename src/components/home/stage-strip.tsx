@@ -97,7 +97,7 @@ export function StageStrip() {
     >
       <nav
         aria-label="Stages"
-        className="sheet-frame pointer-events-auto px-3 sm:px-5 lg:px-8"
+        className="sheet-frame pointer-events-auto sm:px-5 lg:px-8"
       >
         <ol
           className="m-0 flex list-none items-center rounded-md border border-line bg-page px-2 shadow-lifted sm:px-3"
@@ -112,14 +112,14 @@ export function StageStrip() {
             return (
               <li
                 key={stage.id}
-                className={`flex min-w-0 items-center ${i < STAGES.length - 1 ? "flex-1" : ""}`}
+                className={`flex min-w-0 items-center ${i < STAGES.length - 1 ? "flex-1 max-lg:flex-auto" : ""}`}
                 style={{ "--i": i } as React.CSSProperties}
               >
                 <a
                   href={`#stage-${stage.id}`}
                   onClick={(event) => jump(event, stage.id)}
                   aria-current={current ? "step" : undefined}
-                  className={`flex shrink-0 items-center gap-2 rounded-sm px-2 py-1.5 transition-colors duration-[var(--duration-base)] ${
+                  className={`flex shrink-0 items-center gap-2 rounded-sm px-2 py-1.5 transition-colors duration-[var(--duration-base)] max-lg:min-h-11 max-lg:min-w-11 ${
                     current
                       ? "bg-bottle text-on-dark"
                       : passed
@@ -136,10 +136,10 @@ export function StageStrip() {
                     }`}
                   />
                   <span
-                    className={`mono-eyebrow whitespace-nowrap ${named ? "" : "sr-only sm:not-sr-only"}`}
+                    className={`mono-eyebrow whitespace-nowrap ${named ? "" : "sr-only lg:not-sr-only"}`}
                   >
-                    <span className="sm:hidden">{stage.short}</span>
-                    <span className="hidden sm:inline">{stage.name}</span>
+                    <span className="lg:hidden">{stage.short}</span>
+                    <span className="hidden lg:inline">{stage.name}</span>
                   </span>
                   <span className="sr-only">
                     {passed ? ", passed" : current ? ", you are here" : ""}
@@ -148,7 +148,7 @@ export function StageStrip() {
                 {i < STAGES.length - 1 ? (
                   <span
                     aria-hidden="true"
-                    className="relative mx-1.5 h-px min-w-3 flex-1 overflow-hidden bg-line sm:mx-3"
+                    className="relative h-px min-w-0 flex-1 overflow-hidden bg-line sm:mx-3 sm:min-w-3"
                   >
                     <span
                       className="absolute inset-0 origin-left bg-sprout transition-transform duration-[320ms] ease-glide motion-reduce:transition-none"
