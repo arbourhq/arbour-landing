@@ -17,6 +17,15 @@
         ],
         "createdAt": "2026-10-27T13:56:23.221Z",
         "reason": "Project design reference DESIGN.md Capture Frame specifies mobile screenshot reframing. The absolutely positioned canvas animates inside a fixed-aspect crop without moving surrounding content; preserve the demo interaction and constant highlight ring sizes."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "src/lib/article-visuals.test.ts"
+        ],
+        "createdAt": "2026-10-28T01:41:48.020Z",
+        "reason": "Test fixture: this regular expression inspects server-rendered image tags; it is not image markup and cannot produce a broken image. Scope limited to the article visual test file."
       }
     ]
   }

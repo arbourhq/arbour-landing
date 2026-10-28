@@ -413,7 +413,7 @@ The takeaway block is Panel with the inset hairline, 6px corners, 20px padding o
 
 HTML/CSS figures use real text, Bottle ink, Panel grounds and ruled divisions. Processes are ordered lists; comparison tables retain row and column headings in a keyboard-focusable horizontal scroll region. Charts show text values, begin bars at zero and link measured data to sources. Captions state whether a figure is measured, forecast or an example. Keep product demonstrations visibly distinct from research results; never imitate a product screen in CSS.
 
-Screenshot figures have a 6px frame with a translucent Ink border. Configured previews crop the unchanged source with CSS, using a closer phone crop below 640px. A native details control with a Panel summary reveals the original full screen; the summary changes to Show close-up while open. A separate full-size image link and demonstration-data label sit beneath the frame. Screens without a preview retain the original view.
+Screenshot figures have a 6px frame with a translucent Ink border. Shared profiles may show labelled pairs or stacks of genuine extracts, with separate layouts below and above 640px. A figure's explicit focus takes precedence over the shared profile. Every crop uses the unchanged source; its alternative text combines the figure title and the selected detail. A native details control with a Panel summary reveals the original full screen; the summary changes to Show close-up while open. A separate full-size image link and demonstration-data label sit beneath the frame. Screens without a preview retain the original view.
 
 ## Do's and Don'ts
 

@@ -29,7 +29,6 @@ export const RESEARCH_VISUALS: Record<string, ArticleVisuals> = {
         afterSection: "separate-a-full-calendar-from-a-profitable-one",
         title: "Read sales and finances together",
         image: ARTICLE_ASSETS.reports,
-        focus: { x: 2, y: 24, w: 96, h: 64 },
         caption:
           "Arbour separates sales measures from revenue and outstanding invoices. Real Arbour console, seed data. The values shown are not industry results.",
       },

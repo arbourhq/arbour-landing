@@ -23,7 +23,7 @@ FIRST VIEWPORT: The index opens with the hard-left Articles heading, purpose and
 
 FORM: One lead story, then category-grouped ruled lists. The reading page pairs a narrow contents rail with a comfortable prose measure. Three takeaways precede the opening paragraphs; three captioned figures follow the sections they explain. Sources, publisher disclosure, three chosen related stories and a quiet product link finish the page.
 
-FINISH: Pending independent finish review for this media revision. The previous `ship` verdict covers the superseded illustration version and does not establish approval of the new media or reading rhythm.
+FINISH: The media revision completed a fresh full review in `.impeccable/review/articles-media-finish-review.md`. Its one screenshot-framing finding was corrected across all five affected presets. The reviewer scored that fix list resolved and returned `ship` in `.impeccable/review/articles-media-verdict.md`; that verdict is limited to the listed fixes.
 
 ## Implemented behaviour
 
@@ -47,8 +47,8 @@ The three stock photographs and their credit, licence and source sidecars live i
 
 Tables retain semantic column and row headings inside a keyboard-focusable horizontal scroll region. Processes are ordered lists. The bar chart starts at zero and includes text values and a source link. Figures use Panel, Bottle, the existing corner scale and inset depth.
 
-Screenshot figures use `article-screenshot.tsx`. Where a preview is configured, CSS crops the unchanged capture to a legible close-up, with separate crops below and above 640px. A native details control switches between Show full screen and Show close-up. Captures without a configured preview display the original. Every screenshot figure also offers a full-size image link and a demonstration-data label. The controls work without JavaScript.
+Screenshot figures use `article-screenshot.tsx` and the shared profiles in `article-screenshot-crops.ts`. Known screens may show labelled pairs or stacks of genuine extracts, with separate selections below and above 640px. A figure-specific focus overrides the shared profile and uses that selected crop at both sizes. CSS crops the unchanged source; crop alternative text derives from the figure title and the selected part. A native details control switches between Show full screen and Show close-up. Captures without a configured preview display the original. Every screenshot figure also offers a full-size image link and a demonstration-data label. The controls work without JavaScript.
 
 ## Documentation evidence
 
-The values above come from the current route templates, article components and visual catalogue. They are source-derived values, not a new computed-style measurement. Finish-review evidence for this media revision is pending.
+The values above come from the current route templates, article components and visual catalogue. They are source-derived values, not a new computed-style measurement. The full review and fix-list verdict above record the evidence and their respective verification limits.

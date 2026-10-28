@@ -254,6 +254,42 @@ describe("article figure semantics", () => {
     expect(html).not.toContain("/images/articles/");
   });
 
+  test("a figure's framing overrides shared screenshot crops without losing full-screen access", () => {
+    const figure: Extract<Figure, { kind: "screenshot" }> = {
+      kind: "screenshot",
+      afterSection: "rule",
+      title: "Chosen trigger detail",
+      caption: "The selected rule configuration, with demonstration data.",
+      image: {
+        src: "/product/automation.webp",
+        alt: "The complete automation editor.",
+        width: 2880,
+        height: 1800,
+        kind: "product",
+      },
+      focus: { x: 10, y: 15, w: 25, h: 25 },
+    };
+    const html = renderFigure(figure);
+    const croppedImages = [...html.matchAll(/<img\b[^>]*>/g)]
+      .map((match) => match[0])
+      .filter((tag) => /\bstyle="[^"]*\bleft:/.test(tag));
+    expect(croppedImages.length).toBeGreaterThan(0);
+    for (const image of croppedImages) {
+      const style = image.match(/\bstyle="([^"]*)"/)?.[1] ?? "";
+      const percentage = (property: string) =>
+        Number.parseFloat(
+          style.match(new RegExp(`(?:^|;)${property}:([^;]+)`))?.[1] ?? "",
+        );
+      expect(percentage("width")).toBeCloseTo(400);
+      expect(percentage("left")).toBeCloseTo(-40);
+      expect(percentage("top")).toBeCloseTo(-60);
+      expect(image.match(/\balt="([^"]*)"/)?.[1]).toContain(figure.title);
+    }
+    expect(html).toMatch(/<details\b[\s\S]*?<summary\b/);
+    expect(html).toContain("Show full screen");
+    expect(html).toContain(`href="${figure.image.src}"`);
+  });
+
   test("bars keep their values readable and name the source", () => {
     const html = renderFigure({
       kind: "bars",
