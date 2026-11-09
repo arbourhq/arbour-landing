@@ -1,0 +1,8 @@
+{
+  "prompt": "Origin: rendered, not generated. A frame of the home page's own real-time three.js book (src/components/book) drawn by its engine in Chromium on the Apple GPU with a transparent background, then cropped to its content and encoded with cwebp -q 88: the season's whole pile with the job's book on top, for the House plan (unlimited organisations). The cover's category pressing is left blank so the still fits every category. Spine titles on the pile are the seed console's jobs plus two that are not weddings, all illustrative. Re-render with the capture script whenever the book's model, materials or light change.",
+  "createdAt": "2026-11-07T13:32:41Z",
+  "source": "src/components/book",
+  "sha256": "a31c90a202440548",
+  "width": 605,
+  "height": 409
+}

@@ -186,7 +186,6 @@ export function HelpPanel({ open, panelRef, onClose }: Props) {
       className="arby-help"
       open={open}
       hidden={!open}
-      data-arby-ui
       aria-labelledby="arby-help-title"
       aria-describedby="arby-help-description"
       onKeyDown={(event) => {

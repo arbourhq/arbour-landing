@@ -1,11 +1,12 @@
-import { ScrollCompanion } from "@/components/arby/scroll-companion";
+import { ArbyLauncher } from "@/components/arby/arby-launcher";
 import { CategoryProvider } from "@/components/category-context";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { Hero } from "@/components/home/hero";
 import { StageStrip } from "@/components/home/stage-strip";
 import { Stage } from "@/components/home/stage";
-import { Quiet } from "@/components/home/quiet";
+import { Quiet, Statement } from "@/components/home/quiet";
+import { BookCanvas, BookStory } from "@/components/book/story";
 import { Vendors } from "@/components/home/vendors";
 import { Pricing } from "@/components/home/pricing";
 import { Faq } from "@/components/home/faq";
@@ -68,17 +69,21 @@ export default function Home() {
       />
       <SiteNav />
       {/* One ruled sheet from the nav to the footer: every row draws the
-          column rules at the same x, so they read as two unbroken lines. */}
+          column rules at the same x, so they read as two unbroken lines.
+          The story (hero, five stages, statement) is the book: one job,
+          bound, its pages turned by the scroll from enquiry to paid. */}
       <main id="main">
-        <Hero />
-        {/* The strip docks at the foot of the window while this wrapper,
-            the five stages, fills it. */}
-        <div id="board" className="relative">
+        <BookStory>
+          <Hero />
+          <BookCanvas />
+          {/* The strip docks at the foot of the window while the five
+              stages fill it. */}
           <StageStrip />
           {STAGES.map((stage, i) => (
             <Stage key={stage.id} stage={stage} index={i} />
           ))}
-        </div>
+          <Statement />
+        </BookStory>
         <Quiet />
         <Vendors />
         <Pricing />
@@ -86,7 +91,7 @@ export default function Home() {
         <FinalCta />
       </main>
       <SiteFooter />
-      <ScrollCompanion />
+      <ArbyLauncher />
     </CategoryProvider>
   );
 }

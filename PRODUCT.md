@@ -78,13 +78,19 @@ Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
   has no customers it can name and no usage numbers, so it claims what the
   product does (with real captures) and never traction (who uses it, how much
   runs through it).
-- **Routes.** `/` (hero with category picker and the category's board, the
-  five-stage board with a real capture per stage, the quiet section with
-  automations and Arby, every vendor, pricing, FAQ, final call, and one
-  scroll companion), `/about`,
-  `/contact`, `/wedding-crm-australia` (Australian buying questions, real screens,
-  current plans and migration details), `/bio` (phone-only link stack for Instagram, no nav or footer),
-  `/privacy`, `/terms`.
+- **Routes.** `/` (the book: one job bound in Bottle cloth, shut beside the
+  hero with the chosen category pressed into its cover, then opened by the
+  scroll, one spread per stage with the copy set on the left-hand page and
+  the stage's real screen and recording on the right, and the book shut
+  and laid on the season's pile under "Nothing needs you."; the quiet
+  section with automations and Arby, every vendor, pricing as leaves under
+  the volumes each plan holds, FAQ, final call, and a small Arby launcher
+  for Arby Help at the bottom right),
+  `/about`, `/contact`, `/wedding-crm-australia` (Australian buying
+  questions, real screens, current plans and migration details; About,
+  Contact and Wedding CRM each carry one small live book), `/bio`
+  (phone-only link stack for Instagram, no nav or footer), `/privacy`,
+  `/terms`.
 - **Call to action.** Every CTA is `src/components/trial-link.tsx`, a plain
   link to the console's sign-up. There is no form of our own, no dialog and
   no waitlist; the product owns sign-up. The nav also carries Log in.
@@ -115,7 +121,10 @@ Named competitors: Studio Ninja, HoneyBook, Iris Works, Táve.
 ## Capabilities and Constraints
 
 Stack: Next.js 16 App Router, React 19, TypeScript, Tailwind CSS v4 with the
-brand tokens declared in `src/app/globals.css`, bun, oxlint and oxfmt. Fonts
+brand tokens declared in `src/app/globals.css`, bun, oxlint and oxfmt. The
+home page's book is plain three.js (`src/components/book/`), loaded after
+the page has and never on the server; the same engine draws the small books
+on About, Contact and Wedding CRM. Fonts
 are self-hosted through `next/font`. No CMS, no cookie banner. Analytics is
 Vercel Analytics plus the Meta Pixel (`src/components/meta-pixel.tsx`, off
 unless `NEXT_PUBLIC_META_PIXEL_ID` is set), its twin the Reddit Pixel
@@ -181,15 +190,26 @@ Present:
   signatures; the site code does not reference them).
 - Brand artwork: wordmark and icon PNG/SVG in `public/`, `src/app/icon.svg`,
   `src/app/apple-icon.png`, `public/arbour-squares.png`.
-- Arby, the mascot: the standing and flying poses, vendored from the main
+- Arby, the mascot: the standing and waving poses, vendored from the main
   repo's kit (`packages/ui/src/components/arby`) into
-  `src/components/arby/poses/`, plus the perched pose's branch paths. One
-  scroll companion follows the home page; a still standing bird is the
-  reduced-motion fallback. Refresh the artwork from the kit.
+  `src/components/arby/poses/`. On the home page a still standing Arby is
+  the launcher for Arby Help at the bottom right, and another stands in the
+  Arby block; the waving pose says hello on the About page. The scroll
+  companion and its flying pose were retired on 7 November 2026. Refresh the
+  artwork from the kit.
 - Real console captures in `public/product/` (24 screens, WebP, captured 4
   to 7 September 2026 from the seeded console, plus the Arby sheet copied
   from the help centre on 26 October 2026). Provenance is recorded in each
   file's `.json` sidecar and in the header of `src/content/stages.ts`.
+- The book's material, all derived from those captures and recordings or
+  drawn by the book itself, each raster with a provenance sidecar: MP4
+  transcodes of the five stage recordings in `public/product/demos/` (1920
+  and 1280 wide), 2048px phone posters in `public/book/posters/`, stills
+  rendered from the book's own engine in `public/book/stills/` (the flat
+  page's hero and pile, and the pricing volumes), and the static Bricolage
+  800 instance at `public/book/bricolage-800.woff` for the printed
+  numerals. The cloth, paper and page edges are drawn in code at load.
+  Nothing in the scene is generated imagery.
 - Real facts about the founders in `src/content/about.ts`: Ben's decade of
   weddings and Love Poets, Alex's seven years writing software, the
   Apr 2025 / Jun 2026 / Aug 2026 timeline, zero investors.
@@ -222,11 +242,19 @@ Absent. Do not fabricate:
 
 - Reduced motion is honoured globally: `prefers-reduced-motion` in
   `src/app/globals.css` stops the looping square animations, the category
-  cycle and the count tallies.
+  cycle and the count tallies, and the home page's 3D book never loads. The
+  flat page it gets instead (also what a browser without hardware WebGL2 or
+  JavaScript gets) carries the same real screens and claims, with stills of
+  the book rendered from the scene.
+- The book is decoration over a complete page: the canvas is `aria-hidden`,
+  every stage's title and all four claims stay in the DOM in reading order
+  (the stepped claims only collapse visually), each screen keeps its
+  description as text, the claims' crosshairs stay keyboard buttons, and
+  every recording has a stop control.
 - Text on white and panel grounds is Ink and its secondary steps, which all
   clear 4.5:1; text on Bottle is On dark or Sprout. Hairlines are Ink at low
   opacity, never grey, so contrast holds.
 - `/bio` is built for one thumb and a bad signal: no nav, no footer, large
   targets, no horizontal scroll.
-- The stage rail is a list of real anchors with `aria-current`, so keyboard
+- The stage strip is a list of real anchors with `aria-current`, so keyboard
   and screen-reader users get the same five stops.

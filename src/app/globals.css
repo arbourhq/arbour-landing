@@ -641,59 +641,6 @@
   }
 }
 
-/* ---------------------------------------------------------------------------
-   The timeline. Each date's dot blooms, its hairline draws toward the next,
-   and the copy rises under it, one entry after another. The date we are at
-   now keeps a slow Sprout ring going out from its dot: live, not loud.
-   --------------------------------------------------------------------------- */
-@media (prefers-reduced-motion: no-preference) {
-  :root[data-js]
-    .timeline[data-reveal]:not([data-shown])
-    :is(.tl-dot, .tl-date, .tl-body) {
-    opacity: 0;
-  }
-  :root[data-js] .timeline[data-reveal]:not([data-shown]) .tl-line {
-    transform: scaleX(0);
-  }
-  .timeline[data-shown] .tl-dot {
-    animation: bloom var(--duration-pop) var(--curve-overshoot) both;
-    animation-delay: calc(var(--i) * 320ms);
-  }
-  .timeline[data-shown] .tl-date {
-    animation: word-in 0.38s var(--curve-overshoot) both;
-    animation-delay: calc(var(--i) * 320ms + 60ms);
-  }
-  .timeline[data-shown] .tl-line {
-    transform-origin: left center;
-    animation: draw 0.42s var(--curve-glide) both;
-    animation-delay: calc(var(--i) * 320ms + 140ms);
-  }
-  .timeline[data-shown] .tl-body {
-    animation: rise 0.5s var(--curve-glide) both;
-    animation-delay: calc(var(--i) * 320ms + 120ms);
-  }
-  .timeline .tl-now::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    background: var(--sprout);
-    animation: ping 2.4s var(--curve-glide) infinite;
-    animation-delay: 1.4s;
-  }
-}
-@keyframes ping {
-  0% {
-    opacity: 0.7;
-    transform: scale(1);
-  }
-  60%,
-  100% {
-    opacity: 0;
-    transform: scale(3.2);
-  }
-}
-
 @keyframes develop {
   from {
     opacity: 0.18;
@@ -754,4 +701,558 @@
     transition-duration: 80ms !important;
     transition-timing-function: linear !important;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   The book (src/components/book). The hero, the five stages and the
+   statement share one canvas: on a desktop it fills the story behind the
+   page and sticks for its length, transparent over the page's own white so
+   the book's shadow falls on the page itself; on a phone it is a band that
+   sticks under the nav while the stages scroll beneath it.
+   `html[data-book="3d"]` is set before first paint by the head script when
+   motion is allowed and WebGL2 exists, so the flat page and the book never
+   swap in front of the reader; a failed start sets it back to "flat".
+   --------------------------------------------------------------------------- */
+.book-holder {
+  display: none;
+}
+:root[data-book="3d"] .book-holder {
+  display: block;
+}
+.book-frame {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+.book-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 420ms var(--curve-glide);
+}
+.book-canvas[data-live] {
+  opacity: 1;
+}
+
+/* The resting screen, handed over to HTML: the frame loop lays it exactly
+   over the screen printed on the right-hand page, so the swap is a sharpening,
+   not a cut. It only shows while the camera rests. */
+.book-plate {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 160ms var(--curve-glide);
+}
+.book-plate[data-on="true"] {
+  opacity: 1;
+}
+.book-plate-canvas {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+  transition: transform 320ms var(--curve-glide);
+}
+.book-plate-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: var(--panel);
+}
+.book-ring {
+  position: absolute;
+  border-radius: var(--ring-radius, 4px);
+  background: rgb(159 232 112 / 0.15);
+  box-shadow: 0 0 0 var(--ring, 2px) var(--sprout);
+  pointer-events: none;
+}
+/* The recording's stop control: floating chrome in the screen's corner. */
+.book-demo-toggle {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 30px;
+  padding: 0 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--page);
+  box-shadow: var(--shadow-lifted);
+  color: var(--ink);
+  font-family: var(--face-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    translate var(--duration-pop) var(--curve-overshoot),
+    border-color var(--duration-base) var(--curve-glide);
+}
+.book-plate[data-on="true"] .book-demo-toggle {
+  pointer-events: auto;
+}
+.book-demo-toggle:hover {
+  translate: 0 -3px;
+  border-color: var(--border-input-hover);
+}
+.book-demo-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: var(--radius-tiny);
+  background: var(--track);
+}
+.book-demo-dot[data-playing="true"] {
+  background: var(--sprout);
+}
+
+/* A phone's band: the plate's controls under the page, full touch size. */
+.book-band-controls {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: flex;
+  gap: 8px;
+  transition: opacity var(--duration-base) var(--curve-glide);
+}
+/* Only while the screen rests: the controls belong to the plate. */
+.book-plate[data-on="false"] ~ .book-band-controls {
+  opacity: 0;
+  pointer-events: none;
+}
+.book-band-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--border-input);
+  border-radius: var(--radius);
+  background: var(--page);
+  color: var(--ink);
+  font-size: var(--text-ui);
+  font-weight: 600;
+}
+.book-band-button > svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Which page the reader gets: the flat page's frames, or the book. */
+:root[data-book="3d"] .flat-only,
+:root[data-book="3d"] .stage-frame {
+  display: none;
+}
+:root:not([data-book="3d"]) .book-only {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+   A stage. On the flat page (and a phone) it is a row of the sheet: the
+   numeral and title, the four claims, the screen in its frame beside them.
+   In the book (a desktop with the 3D running) the copy is set on the
+   left-hand page instead: see the media block below.
+   --------------------------------------------------------------------------- */
+.stage-turn,
+.stage-hold {
+  height: 0;
+}
+.stage-grid {
+  display: grid;
+}
+.stage-head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 3.5rem 1.25rem 2rem;
+}
+.stage-numeral {
+  font-size: var(--text-stage);
+  line-height: var(--text-stage--line-height);
+  color: var(--bottle);
+}
+.stage-title {
+  max-width: 18ch;
+  font-size: var(--text-stage);
+  line-height: var(--text-stage--line-height);
+  color: var(--ink);
+}
+.stage-claims {
+  border-top: 1px solid var(--rule);
+}
+.stage-claim {
+  padding: 1.5rem 1.25rem;
+  transition: background-color var(--duration-base) var(--curve-glide);
+}
+.stage-claim + .stage-claim {
+  border-top: 1px solid var(--rule);
+}
+.stage-claim[data-pointed="true"] {
+  background: var(--sprout-wash);
+}
+.claim-label {
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  font-weight: 600;
+  color: var(--ink);
+}
+.claim-body > p {
+  max-width: 52ch;
+  margin-top: 0.5rem;
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  color: var(--ink-secondary);
+}
+.claim-point {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin: -0.625rem -0.625rem -0.625rem 0;
+  border-radius: var(--radius-small);
+  color: var(--ink-muted);
+  transition:
+    background-color var(--duration-base) var(--curve-glide),
+    color var(--duration-base) var(--curve-glide);
+}
+.claim-point:hover {
+  background: var(--panel-hover);
+  color: var(--ink);
+}
+.claim-point[aria-pressed="true"] {
+  background: var(--bottle);
+  color: var(--on-dark);
+}
+.stage-frame {
+  border-top: 1px solid var(--rule);
+  background: var(--panel);
+  padding: 0.75rem;
+}
+@media (min-width: 640px) {
+  .stage-head {
+    gap: 1.5rem;
+    padding: 5rem 2rem 2.5rem;
+  }
+  .stage-claims {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .stage-claim {
+    padding-inline: 2rem;
+  }
+  .stage-claim + .stage-claim {
+    border-top: 0;
+  }
+  .stage-claim:nth-child(n + 3) {
+    border-top: 1px solid var(--rule);
+  }
+  .stage-claim:nth-child(even) {
+    border-left: 1px solid var(--rule);
+  }
+  .stage-frame {
+    padding: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .stage-grid {
+    grid-template-columns: 5fr 7fr;
+  }
+  .stage-row[data-flip] .stage-copy {
+    order: 2;
+  }
+  .stage-head {
+    padding-inline: 3rem;
+  }
+  .stage-claims {
+    display: block;
+  }
+  .stage-claim {
+    padding-inline: 3rem;
+  }
+  .stage-claim:nth-child(even) {
+    border-left: 0;
+  }
+  .stage-claim + .stage-claim {
+    border-top: 1px solid var(--rule);
+  }
+  .stage-frame {
+    border-top: 0;
+    border-left: 1px solid var(--rule);
+    padding: 2rem;
+  }
+  .stage-row[data-flip] .stage-frame {
+    border-left: 0;
+    border-right: 1px solid var(--rule);
+  }
+  .stage-frame > figure {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--nav-gap) * 2 + 1.5rem);
+  }
+}
+
+/* A screen tipped in on a page (CaptureFrame): white stock round it and
+   its figure caption under it, as the book prints a plate. */
+.plate {
+  padding: 10px 10px 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+.plate-caption {
+  padding: 9px 2px 10px;
+}
+.plate-caption .mono-label > .text-ink::after {
+  content: " ·";
+}
+
+@media (min-width: 1024px) {
+  [data-book-story] > .book-holder {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  [data-book-story] > .book-holder > .book-frame {
+    position: sticky;
+    top: 0;
+    height: 100svh;
+  }
+  :root[data-book="3d"] [data-book-story] > section {
+    position: relative;
+    z-index: 1;
+  }
+  :root[data-book="3d"] .hero-row {
+    min-height: 100svh;
+  }
+  :root[data-book="3d"] .statement-row {
+    min-height: 100svh;
+  }
+  /* Inside the story the page is the book's table: the sheet's rules and
+     marks step aside so no hairline slides across a page or a screen. */
+  :root[data-book="3d"] [data-book-story] > .ruled {
+    border-top-color: transparent;
+  }
+  :root[data-book="3d"] [data-book-story] > .ruled > .sheet {
+    border-inline-color: transparent;
+  }
+  :root[data-book="3d"] [data-book-story] > .ruled.develop-rule::before,
+  :root[data-book="3d"] [data-book-story] > .ruled > .sheet::before,
+  :root[data-book="3d"] [data-book-story] > .ruled > .sheet::after {
+    display: none;
+  }
+  :root[data-book="3d"] .hero-row .cell-rule-t {
+    border-top-color: transparent;
+  }
+
+  /* The stage, set on the left-hand page. The turn's spacer lets the leaf
+     go over before the copy sticks; the hold gives each claim a stretch of
+     scroll while the spread rests. */
+  :root[data-book="3d"] .stage-row > .stage-sheet {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+  :root[data-book="3d"] .stage-turn {
+    height: 36svh;
+  }
+  :root[data-book="3d"] .stage-hold {
+    height: calc(var(--claims, 4) * 22svh);
+  }
+  :root[data-book="3d"] .stage-grid {
+    display: contents;
+  }
+  :root[data-book="3d"] .stage-copy {
+    position: sticky;
+    top: var(--copy-top);
+    display: flex;
+    flex-direction: column;
+    width: var(--copy-width);
+    height: var(--copy-height);
+    margin-left: var(--copy-left);
+  }
+  :root[data-book="3d"] .stage-head {
+    padding: 0;
+  }
+  :root[data-book="3d"] .stage-numeral,
+  :root[data-book="3d"] .stage-frame {
+    display: none;
+  }
+  :root[data-book="3d"] .stage-title {
+    max-width: none;
+    font-size: clamp(1.25rem, calc(var(--page-k) * 0.6px), 2.75rem);
+    text-wrap: balance;
+  }
+  :root[data-book="3d"] .stage-claims {
+    margin-top: calc(var(--page-k) * 0.42px);
+    border-top: 1px solid var(--line);
+  }
+  :root[data-book="3d"] .stage-claim.develop {
+    animation: none;
+  }
+  :root[data-book="3d"] .stage-copy {
+    transition: opacity 120ms linear;
+  }
+  :root[data-book="3d"] .stage-claim {
+    padding: calc(var(--page-k) * 0.17px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  :root[data-book="3d"] .stage-claim + .stage-claim {
+    border-top: 0;
+  }
+  :root[data-book="3d"] .stage-claim[data-pointed="true"] {
+    background: transparent;
+  }
+  :root[data-book="3d"] .claim-label {
+    font-size: clamp(0.8125rem, calc(var(--page-k) * 0.27px), 0.9375rem);
+    color: var(--ink-muted);
+    transition: color var(--duration-base) var(--curve-glide);
+  }
+  :root[data-book="3d"] .stage-claim[data-open="true"] .claim-label {
+    color: var(--ink);
+  }
+  :root[data-book="3d"] .claim-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 320ms var(--curve-glide),
+      opacity 220ms var(--curve-glide);
+  }
+  :root[data-book="3d"] .stage-claim[data-open="true"] .claim-body {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  :root[data-book="3d"] .claim-body > p {
+    overflow: hidden;
+    min-height: 0;
+    font-size: clamp(0.8125rem, calc(var(--page-k) * 0.26px), 0.9375rem);
+  }
+  :root[data-book="3d"] .claim-point {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin: -0.25rem -0.375rem -0.25rem 0;
+  }
+  /* Jumping to a stage lands on its spread at rest, not mid-turn. */
+  :root[data-book="3d"] .stage-row {
+    scroll-margin-top: calc(var(--copy-top) - 36svh);
+  }
+}
+
+@media (max-width: 1023px) {
+  /* The band: the book at the size of its spread, never more than a third
+     of the window, so the reading area under it stays the larger part. */
+  [data-book-story] > .book-holder {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--nav-gap) * 2);
+    z-index: 20;
+    height: min(calc((100vw - 16px) * 0.625 + 64px), 40svh);
+    border-block: 1px solid var(--rule);
+    background: var(--page);
+  }
+  :root[data-book="3d"] [data-book-story] > .ruled.develop-rule::before {
+    display: none;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   The leaf (src/components/ui/leaf.tsx): a page of the book, flat on the
+   page. White stock, a hairline edge, the 6px corner, a running head in mono
+   small print over a hairline, and a foot with its folio. Pointed at, a leaf
+   lifts toward the reader, as paper does; it never washes with colour.
+   --------------------------------------------------------------------------- */
+.leaf {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius);
+  background: var(--page);
+}
+.leaf-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-inline: 20px;
+  padding: 13px 0 11px;
+  border-bottom: 1px solid var(--line);
+}
+.leaf-body {
+  flex: 1;
+}
+.leaf-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 20px 12px;
+  color: var(--ink-muted);
+}
+.leaf-folio {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.leaf-lift {
+  transition:
+    translate var(--duration-pop) var(--curve-overshoot),
+    border-color var(--duration-base) var(--curve-glide);
+}
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .leaf-lift:hover,
+  .leaf-lift:focus-within {
+    translate: 0 -3px;
+    border-color: var(--border-input-hover);
+  }
+}
+
+/* A volume over a plan: the books that plan holds, rendered from the home
+   page's 3D book. Decorative. */
+.leaf-volume {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 9.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.leaf-volume > img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+/* A small live book (src/components/book/mini-book.tsx): a page's one 3D
+   moment, on whatever ground the page gives it. */
+.mini-book {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+.mini-book-canvas,
+.mini-book-still {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mini-book-still {
+  object-fit: contain;
+}
+.mini-book-canvas {
+  opacity: 0;
+  transition: opacity 420ms var(--curve-glide);
+}
+.mini-book-canvas[data-live] {
+  opacity: 1;
 }

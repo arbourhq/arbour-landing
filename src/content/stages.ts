@@ -43,7 +43,7 @@ export type StageFact = {
 export type Stage = {
   id: string;
   index: string;
-  /** Rail label, full and short. */
+  /** The stage's name, full and short. */
   name: string;
   short: string;
   title: string;

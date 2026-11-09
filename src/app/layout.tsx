@@ -79,10 +79,14 @@ export default function RootLayout({
     >
       <head>
         {/* Before first paint: reveals may hide what they are about to play,
-            because something is now here to play it. */}
+            because something is now here to play it. The home page's book
+            (src/components/book) is promised here too when motion is
+            allowed and WebGL2 exists, so its layout never swaps in view; a
+            failed start sets data-book back to "flat". */}
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.dataset.js=''",
+            __html:
+              "var d=document.documentElement;d.dataset.js='';if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&'WebGL2RenderingContext'in window)d.dataset.book='3d'",
           }}
         />
       </head>

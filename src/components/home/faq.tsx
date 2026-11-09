@@ -31,10 +31,7 @@ export function Faq() {
         </div>
 
         <div className="cell-rule-t lg:col-span-8 lg:border-t-0 lg:border-l lg:border-rule lg:pt-12 lg:pb-16">
-          <ul
-            data-arby-perch="faq"
-            className="m-0 list-none p-0 lg:border-y lg:border-rule"
-          >
+          <ul className="m-0 list-none p-0 lg:border-y lg:border-rule">
             {FAQS.map((faq, i) => {
               const isOpen = open === i;
               return (
@@ -60,7 +57,6 @@ export function Faq() {
                   </h3>
                   <div
                     id={`faq-answer-${i}`}
-                    data-arby-avoid
                     hidden={!isOpen}
                     className="animate-swap px-5 pb-7 sm:px-8 lg:px-10"
                   >

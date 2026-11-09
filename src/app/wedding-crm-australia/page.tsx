@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteNav } from "@/components/site-nav";
 import { StructuredData } from "@/components/structured-data";
 import { TrialLink } from "@/components/trial-link";
+import { Leaf } from "@/components/ui/leaf";
+import { MiniBook } from "@/components/book/mini-book";
 import { Row } from "@/components/ui/row";
 import { TIERS } from "@/content/pricing";
 import { STAGES } from "@/content/stages";
@@ -102,6 +104,7 @@ export default function WeddingCrmPage() {
               {COPY.heading}
             </h1>
             <div className="flex flex-col items-start gap-6 lg:col-span-5">
+              <MiniBook pressing="Australia" className="max-w-[24rem]" />
               <p className="m-0 max-w-[46ch] text-lead text-ink-secondary">
                 {COPY.introduction}
               </p>
@@ -150,19 +153,23 @@ export default function WeddingCrmPage() {
                   {stage.name}
                 </Link>
               </div>
-              <figure className="cell-rule-t m-0 bg-panel p-4 sm:p-6 lg:col-span-8 lg:border-t-0 lg:border-l lg:border-rule">
-                <Image
-                  src={stage.capture.src}
-                  alt={stage.capture.alt}
-                  width={stage.capture.width}
-                  height={stage.capture.height}
-                  sizes="(min-width: 1024px) 65vw, 100vw"
-                  className="h-auto w-full rounded-md border border-border-default"
-                />
-                <figcaption className="mono-label mt-3 text-ink-muted">
-                  Real console screen · seed data
-                </figcaption>
-              </figure>
+              <div className="cell-rule-t bg-panel p-4 sm:p-6 lg:col-span-8 lg:border-t-0 lg:border-l lg:border-rule">
+                <Leaf
+                  as="figure"
+                  label={`Fig. ${stage.index} · ${stage.name}`}
+                  note="This job"
+                  foot="Real console screen · seed data"
+                >
+                  <Image
+                    src={stage.capture.src}
+                    alt={stage.capture.alt}
+                    width={stage.capture.width}
+                    height={stage.capture.height}
+                    sizes="(min-width: 1024px) 65vw, 100vw"
+                    className="mx-3 mt-3 block h-auto w-[calc(100%-1.5rem)] rounded-xs border border-border-default sm:mx-4 sm:w-[calc(100%-2rem)]"
+                  />
+                </Leaf>
+              </div>
             </div>
           ))}
         </Row>

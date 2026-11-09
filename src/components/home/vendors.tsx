@@ -207,16 +207,16 @@ export function Vendors() {
             className="reveal-rise"
             style={{ "--reveal-delay": "160ms" } as React.CSSProperties}
           >
-            <p className="mono-eyebrow m-0 text-ink-muted">
-              Automation · written for {category.name}
-            </p>
-            <p className="headline m-0 mt-4 text-section text-ink">
+            <p className="headline m-0 text-section text-ink">
               {rule(category.automation)}
             </p>
             <p className="m-0 mt-3 max-w-[44ch] text-body text-ink-secondary">
               Your pipeline, fields and enquiry form start in your trade&rsquo;s
               words at sign-up, and all of it can be renamed. Rules like this
               one run on their own once they are on.
+            </p>
+            <p className="mono-label m-0 mt-4 text-ink-muted">
+              An automation written for {category.name}. Illustrative.
             </p>
           </div>
           <div
@@ -228,10 +228,7 @@ export function Vendors() {
         </div>
       </div>
 
-      <div
-        data-arby-perch="vendors"
-        className="cell-rule-t grid lg:grid-cols-3"
-      >
+      <div className="cell-rule-t grid lg:grid-cols-3">
         {CLAIMS.map((claim, i) => (
           <div
             key={claim.title}

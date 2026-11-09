@@ -1,0 +1,7 @@
+{
+  "prompt": "Origin: the same real Playwright screen recording of the local seeded Arbour console as booking.webp (sha256 d46a0ec882fef45b), not generated. Transcoded unchanged in content with ffmpeg 9.0.2: webp_anim decode, 30 fps constant, lanczos scale to 1280x800, H.264 high CRF 20, no audio. Used as the video texture on the 3D docket. Re-transcode whenever booking.webp is re-recorded.",
+  "createdAt": "2026-11-07T03:06:00.000Z",
+  "source": "public/product/demos/booking.webp",
+  "width": 1280,
+  "height": 800
+}

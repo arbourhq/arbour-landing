@@ -67,7 +67,7 @@ export function ContactForm({ initialTopic }: { initialTopic?: string }) {
 
   if (status === "sent") {
     return (
-      <div className="animate-pop-in flex flex-col items-start gap-4 rounded-md border border-border-default bg-page p-6 sm:p-8">
+      <div className="animate-pop-in flex flex-col items-start gap-4">
         {/* An output is a status region, so the change is announced. */}
         <output className="mono-label inline-flex items-center gap-1.5 rounded-sm bg-sprout-wash px-2 py-1.5 font-semibold text-sprout-ink">
           <Check aria-hidden className="size-3" />

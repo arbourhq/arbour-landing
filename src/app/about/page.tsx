@@ -10,8 +10,9 @@ import { Scramble } from "@/components/motion/scramble";
 import { Split } from "@/components/motion/split";
 import { AboutStats } from "@/components/about/counter";
 import { buttonClass } from "@/components/ui/button";
+import { Leaf } from "@/components/ui/leaf";
+import { MiniBook } from "@/components/book/mini-book";
 import { Row } from "@/components/ui/row";
-import { quadRules } from "@/components/ui/rules";
 import { FOUNDERS, RULES, TIMELINE } from "@/content/about";
 import { pageMetadata } from "@/lib/seo";
 
@@ -82,55 +83,47 @@ export default function AboutPage() {
             >
               <Split text="How we got here." />
             </h2>
-            <p
-              className="reveal-rise m-0 max-w-[44ch] text-lead text-ink-secondary lg:col-span-5"
-              style={{ "--reveal-delay": "260ms" } as React.CSSProperties}
-            >
-              Seventeen months, a couple of industry projects together, then the
-              real one.
-            </p>
+            <div className="lg:col-span-5">
+              <MiniBook
+                pressing="Ben & Alex"
+                className="mb-4 max-w-[26rem] lg:-mt-10"
+              />
+              <p
+                className="reveal-rise m-0 max-w-[44ch] text-lead text-ink-secondary"
+                style={{ "--reveal-delay": "260ms" } as React.CSSProperties}
+              >
+                Seventeen months, a couple of industry projects together, then
+                the real one.
+              </p>
+            </div>
           </div>
-          {/* The record's strip again: dates joined by a hairline, the ones
-              behind us filled Sprout, the one we are at in a Bottle chip.
-              It plays in order once (globals.css, "The timeline"): each dot
-              blooms, its date lands, its hairline draws on toward the next,
-              and the one we are at now keeps a slow Sprout ring going. */}
-          <ol
-            data-reveal
-            className="timeline cell-rule-t m-0 grid list-none p-0 sm:grid-cols-2 lg:grid-cols-4"
-          >
-            {TIMELINE.map((entry, i) => {
-              const now = i === TIMELINE.length - 1;
-              return (
-                <li
-                  key={entry.year}
-                  className={`group flex flex-col gap-4 px-5 py-8 transition-colors duration-[var(--duration-base)] hover:bg-panel sm:px-8 lg:px-8 lg:py-10 ${quadRules(i)}`}
-                  style={{ "--i": i } as React.CSSProperties}
-                >
-                  <div className="flex items-center gap-3">
-                    <span
-                      className={`tl-date inline-flex items-center gap-2 rounded-sm px-2 py-1.5 transition-transform duration-[var(--duration-pop)] ease-overshoot group-hover:-translate-y-[3px] ${
-                        now ? "bg-bottle text-on-dark" : "text-ink"
-                      }`}
-                    >
-                      <span
-                        aria-hidden="true"
-                        className={`tl-dot relative size-2 shrink-0 rounded-full bg-sprout ${now ? "tl-now" : ""}`}
-                      />
-                      <span className="headline text-title">{entry.year}</span>
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className={`tl-line h-px flex-1 ${now ? "bg-line" : "bg-sprout"}`}
-                    />
-                  </div>
-                  <div className="tl-body text-body text-ink-secondary">
+          {/* The dates as leaves of the book, in order, the one we are at
+              now marked in its running head and each with its folio. They
+              develop in as the row scrolls up and lift when pointed at. */}
+          <div className="cell-rule-t bg-panel px-3 pt-8 pb-10 sm:px-6 lg:px-10 lg:pt-12 lg:pb-12">
+            <ol className="m-0 grid list-none gap-4 p-0 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+              {TIMELINE.map((entry, i) => {
+                const isLast = i === TIMELINE.length - 1;
+                return (
+                  <Leaf
+                    key={entry.year}
+                    as="li"
+                    lift
+                    label={entry.year}
+                    note={isLast ? "Now" : undefined}
+                    folio={String(i + 1).padStart(2, "0")}
+                    bodyClassName="px-5 pt-5 pb-6 text-body text-ink-secondary"
+                    className="develop"
+                    style={
+                      { "--develop-at": `${i * 1.5}%` } as React.CSSProperties
+                    }
+                  >
                     {entry.body}
-                  </div>
-                </li>
-              );
-            })}
-          </ol>
+                  </Leaf>
+                );
+              })}
+            </ol>
+          </div>
         </Row>
 
         <Row labelledBy="rules-title">

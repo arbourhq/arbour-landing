@@ -3,6 +3,8 @@ import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { TrialLink } from "@/components/trial-link";
 import { ContactForm } from "@/components/contact/contact-form";
+import { Leaf } from "@/components/ui/leaf";
+import { MiniBook } from "@/components/book/mini-book";
 import { Row } from "@/components/ui/row";
 import { CONTACT_FACTS } from "@/content/contact";
 import { SITE } from "@/content/site";
@@ -59,7 +61,15 @@ export default async function ContactPage({
 
           <div className="cell-rule-t grid lg:grid-cols-12">
             <div className="px-5 py-8 sm:px-8 sm:py-10 lg:col-span-7 lg:px-12 lg:py-12">
-              <ContactForm initialTopic={topic} />
+              {/* The form is a leaf of the book: a new enquiry, the first
+                  line every job's record starts with. */}
+              <Leaf
+                label="New enquiry"
+                note="To Ben and Alex"
+                bodyClassName="px-5 pt-6 pb-6 sm:px-7 sm:pt-7 sm:pb-7"
+              >
+                <ContactForm initialTopic={topic} />
+              </Leaf>
             </div>
 
             <aside className="cell-rule-t bg-panel lg:col-span-5 lg:border-t-0 lg:border-l lg:border-rule">
@@ -94,6 +104,13 @@ export default async function ContactPage({
                   </div>
                 ))}
               </dl>
+              {/* Every job's book starts with this line. */}
+              <div className="border-t border-rule px-5 py-6 sm:px-8 lg:px-10">
+                <MiniBook
+                  pressing="New enquiry"
+                  className="mx-auto max-w-[26rem]"
+                />
+              </div>
             </aside>
           </div>
         </Row>

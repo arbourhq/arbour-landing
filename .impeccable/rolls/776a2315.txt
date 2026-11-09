@@ -1,0 +1,134 @@
+# Direction roll for src/app/page.tsx, 7 November 2026
+# Command: impeccable concept-seed --scope direction --mode persuade
+# Decision page key 29dd49fa (.impeccable/questions/29dd49fa.log); ANSWER: {"optionId":"assigned","buildPath":"code"}
+# Grounded list, in resonance order: 1 The Floor Plan, 2 The Suite, 3 The Docket Rail, 4 The Binder, 5 The Load-In, 6 The Arbour, 7 The Departures Board
+
+DIRECTION CONCEPT SEED (key: 776a2315; mode: persuade; source: api; approved pool: c3b204a1eed6; 306/564 human-approved; rerun with --scope direction --mode persuade --from 776a2315 --candidate-count 7 to reproduce this roll against this catalog revision)
+ASSIGNED INDEX: 3
+  After ordering the grounded directions by resonance, build candidate
+  3 of your own grounded list; the assignment never points at a
+  challenger. The assignment is the roll, not a suggestion: your top-ranked
+  direction is what every run would ship, so the script decides which grounded
+  direction gets built. Each direction joins a durable visual system to a
+  concrete expression for the requested first surface, decided as one. It must
+  survive the current task plus navigation, quiet and dense content,
+  interaction and state, and a substantially different future surface. In an
+  attended run, present the assigned direction fully committed and offer
+  re-roll. You may add ONE card for your top-ranked grounded candidate when
+  it is not the assigned direction, kicker IMPECCABLE’S PICK, with an honest risk line
+  naming its familiarity; one pick card, never a ranked lineup, and the pick
+  never takes the lead position. When the assignment IS your top candidate,
+  there is no pick card. Re-roll yourself only
+  on named factual grounds, when the assignment cannot carry the product's
+  truth or task; taste is never grounds.
+  The assignment exists to refuse the model's ranking rut, never to outrank
+  the user or the brief. Never expose assignment metadata in user-facing labels.
+CHALLENGERS:
+  1. a dial-up bulletin board at 2 a.m., where ANSI title screens in sixteen colors, block-character art, and one phone line make a neighborhood out of text
+     SOURCE ID: medium-native-ansi-bbs-nightboard
+     CREATIVE SPARK: The title screen pours in line by line at modem speed, cyan on black, and being the only caller connected feels like owning the night.
+     SYSTEM GRAMMAR:
+       - Palette/material: sixteen ANSI colors on terminal black, cyan and magenta block art as chrome, blinking white on blue reserved for new mail and live presence
+       - Type/composition: CP437 block glyphs and box-drawing rules composing all chrome on an 80 by 25 cell grid, centered title art over numbered menu lines
+       - Topology/navigation: everything is a text screen with numbered exits; the character grid is the only geometry.
+       - Controls/state: presence is scarce and precious; who is online, new posts, and mail land as textmode events.
+       - Responsive/motion: the grid rescales by character cell; the pour-in reveal respects
+     WEB LEVERAGE: A true character-grid renderer with line-by-line streamed arrival and complete keyboard operation.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/medium-native-ansi-bbs-nightboard.webp · hero https://impeccable.style/worlds/cards/medium-native-ansi-bbs-nightboard-hero.webp
+  2. a collider event display, particle tracks curving out of one frozen collision through onion rings of detector and into stacked calorimeter wedges
+     SOURCE ID: scientific-notation-particle-detector-event-display
+     CREATIVE SPARK: The event lands and the cross-section blooms: yellow tracks curl through the inner rings, two stiff blue lines punch straight to the muon chambers, and red energy bars stack in the calorimeter wedges like a sudden bar chart of violence.
+     SYSTEM GRAMMAR:
+       - Palette/material: near-black vacuum ground, detector rings in muted steel blue, tracks in signal yellow and cyan by particle type, red calorimeter bars for deposited energy
+       - Type/composition: spare technical grotesk labels pinned to tracks and wedges, momentum figures in tabular digits; the concentric ring section is the compositional law
+       - Topology/navigation: space is concentric, beamline at center; you move outward through detector layers and along individual tracks, one event held at a time
+       - Controls/state: select a track to isolate it and dim the rest; competing reconstruction hypotheses overlay as ghost tracks, confidence written as line weight
+       - Responsive/motion: the ring section stays whole on phones while wedges and figures move to drawers; rotation is inertial 3D
+     WEB LEVERAGE: WebGL renders thousands of curved tracks in one 3D scene, with drag rotation, zoom into detector layers, and picked tracks reporting momentum
+     QUALITY BAR: board https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display.webp · hero https://impeccable.style/worlds/cards/scientific-notation-particle-detector-event-display-hero.webp
+  3. a steel-framed glass partition wall from a glazier's workshop, rectilinear panes of hand-rolled sheet glass in a black glazing grid, mostly clear and seeded white with a few saturated color fields placed like notes in a score
+     SOURCE ID: craft-making-glazier-colorfield-partition
+     CREATIVE SPARK: Down the corridor the wall reads almost clear, then one cobalt pane lights from behind and holds, a single saturated note in a grid of black bars and watery white glass.
+     SYSTEM GRAMMAR:
+       - Palette/material: matte black glazing bars as the only line ink, clear and seeded-white panes as the calm ground, cobalt, amber and oxblood glass reserved for what matters now
+       - Type/composition: a quiet grotesque set inside a pane and never across a bar, one pane one statement, hierarchy carried by pane size and glass color rather than type weight
+       - Topology/navigation: the wall elevation is the map read left to right, heavier mullions bound the sections, and each pane is one destination you step up to
+       - Controls/state: daylight is rest, hover backlights a pane, selection floods it with its assigned color, and disabled panes frost to translucent white
+       - Responsive/motion: bays restack into a single column keeping true bar thickness, and motion is the slow brightening of glass, nothing slides
+     WEB LEVERAGE: css grid draws the glazing bars at true thickness while backdrop-filter and background transitions light the panes
+     QUALITY BAR: board https://impeccable.style/worlds/cards/craft-making-glazier-colorfield-partition.webp · hero https://impeccable.style/worlds/cards/craft-making-glazier-colorfield-partition-hero.webp
+  4. an alphabet storm, where letters condense into words, break into weather, and reshape the landscape according to grammar
+     SOURCE ID: dream-surreal-impossible-worlds-alphabet-storm
+     CREATIVE SPARK: Black letters gather into CLOUD, burst into rain, and carve the word RIVER across white ground; changing one vowel turns the current into a field of silver ravens.
+     SYSTEM GRAMMAR:
+       - Palette/material: paper white ground, storm-letter black as both body ink and weather mass, one silver flash for words mid-transformation, rain gray for spent grammar
+       - Type/composition: a single monumental grotesk behaving as matter, kerning loosening into wind, words breaking across lines as literal weather fronts on an open field
+       - Topology/navigation: Travel between letter fronts, word formations, grammatical forces, and the landscapes they produce.
+       - Controls/state: Type, split, conjugate, and recombine language while physical consequences remain reversible.
+       - Responsive/motion: Use one word-weather event per phone viewport and preserve readable text throughout transformation.
+     WEB LEVERAGE: Text parsing, procedural particles, and semantic rules turn typed language into deterministic weather with accessible narrative descriptions.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-alphabet-storm.webp · hero https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-alphabet-storm-hero.webp
+  5. a polish film poster, one painted surreal metaphor swallowing the whole sheet, hand-lettered title bent to fit the image's anatomy
+     SOURCE ID: posters-covers-sleeves-polish-film-poster
+     CREATIVE SPARK: Behind the Iron Curtain a cabaret dancer's face dissolves into a wolf's, painted in feverish gouache, because the censor read words but never learned to read pictures.
+     SYSTEM GRAMMAR:
+       - Palette/material: feverish gouache on cheap poster stock, bruise violet and blood crimson over muddy ochre, the hottest red reserved for the element in focus
+       - Type/composition: hand-lettered strokes sharing the brush of the painting, the title bent to the figure's anatomy, no grid and no typeface anywhere
+       - Topology/navigation: one metaphorical image per sheet is the entire territory, secondary matter rides inside the image's own contours rather than beside it
+       - Controls/state: moods change by repainting the metaphor, a warning is a wound in the image, success blooms out of it; lettering flexes to follow the new anatomy
+       - Responsive/motion: the image composes around one dominant axis that survives any crop; motion is paint bleeding into paper
+     WEB LEVERAGE: SVG clip-paths let hand-lettered titles flow along the painted figure's contours at any size.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/posters-covers-sleeves-polish-film-poster.webp · hero https://impeccable.style/worlds/cards/posters-covers-sleeves-polish-film-poster-hero.webp
+  6. a harper's bazaar spread under brodovitch, didot hairlines floating in white space, photograph and headline choreographed across the gutter like paired dancers
+     SOURCE ID: brand-identity-canon-brodovitch-bazaar-spread
+     CREATIVE SPARK: you open the magazine flat and a dancer's arc on the left page is answered by a didot headline curving down the right, the gutter between them holding the beat like a breath
+     SYSTEM GRAMMAR:
+       - Palette/material: warm white paper as luxury ground, charcoal photogravure grays, didot ink black, a single lipstick red accent for the live element
+       - Type/composition: didot hairline contrast at display size, sparse text set ragged around images, the layout law is mirrored gesture across the gutter
+       - Topology/navigation: content moves in two-page spreads, the left page poses and the right page answers, you travel by turning, never by scrolling a column
+       - Controls/state: the active element steps over the gutter seam, captions sit as small ranked lines, selection is a hairline rule drawn under the didot
+       - Responsive/motion: narrow screens stack pose then answer in sequence keeping the seam as a horizontal rule; motion is a dancer's ease
+     WEB LEVERAGE: css scroll snap paginates spreads two panels at a time; the gutter is a fixed grid seam type and image cross
+     QUALITY BAR: board https://impeccable.style/worlds/cards/brand-identity-canon-brodovitch-bazaar-spread.webp · hero https://impeccable.style/worlds/cards/brand-identity-canon-brodovitch-bazaar-spread-hero.webp
+Fuse each challenger before judging it: the challenger supplies the form
+  and its system grammar, the product supplies every fact, and clarity wins
+  conflicts. Weigh the fused result against the assigned direction on exactly
+  two axes, audience identification and product clarity. Losing to strong
+  grounded material is a valid outcome; beating a thin or tool-monoculture
+  list is the point. A fused challenger that wins both axes becomes the build.
+  Close the weighing with a verdict per challenger, decided before any
+  borrowing is considered: wins (beats the assigned direction on both axes),
+  competitive (holds one axis), or declined (loses both). A declined
+  challenger is not spent: name the one discipline of its system the assigned
+  direction lacks, and raise the assigned direction to match before
+  presenting it. A donation transfers ambition and system discipline, never
+  the challenger's clothes; one world owns the page. Write each raise as its
+  own named line on the presented direction, and carry every verdict, kept
+  line, and raise into the decision page payload.
+When you can view images, open the QUALITY BAR board and hero for any
+challenger you weigh seriously and for the world you build. They exist as a
+craft bar, the finish level and commitment the build is expected to reach,
+never as a mockup to copy; your surface serves this product, not that render.
+PRODUCT.md and explicit incumbent brand commitments constrain every direction.
+The seed never chooses exact colors, fonts, tokens, or a user preference, and
+it never permits the world and first surface to be selected independently.
+The CREATIVE SPARK is a complete visual system, not a theme or decorative
+reference. Translate every supplied system rule into the product: palette and
+material, type and composition, topology, controls and states, and adaptation.
+Keep the source's visible character, scale, rhythm, and interaction instead of
+reducing vivid grammar to generic nouns. When the source is already a credible
+interface language, commit to it across navigation, content, controls, and
+states. Otherwise keep a literal carrier only when it becomes functional.
+Ambitious motion, spatial media, or interaction is welcome when it strengthens
+the product without weakening semantics, performance, or fallback behavior.
+TELEMETRY: after the user's choice resolves, rerun this script once with
+  --kind <assigned|pick|challenger|canon> --from 776a2315 --scope direction --mode persuade,
+  adding --chosen <challenger-id> when a dealt challenger won and keeping
+  --register <safer|bolder> when the resolved round came from a steered hand.
+  One ping per resolved attended round. The ping is anonymous, the card kind
+  plus the catalog id when one won; your grounded candidates' names never
+  leave the machine, and the ping is skipped automatically when DO_NOT_TRACK
+  or IMPECCABLE_NO_TELEMETRY is set.
+A user- or brief-pinned decision beats the roll, always.
+ASSIGNED INDEX (restated for truncated readers): 3. Build candidate
+3 of your own grounded list; seed key 776a2315.

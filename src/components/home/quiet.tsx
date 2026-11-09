@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCategory } from "@/components/category-context";
 import { ArbySheet } from "@/components/home/arby-sheet";
 import { CaptureFrame } from "@/components/home/capture-frame";
@@ -14,15 +15,48 @@ import { standing } from "@/components/arby/poses/standing";
 
 /**
  * The page's one statement, and the punchline to the five stages above it:
- * that is what the product does, this is what is left for you. Under it, in
- * three ruled rows, the three things that make the line true, each beside the
- * screen that proves it: the overview's Needs you block running down to
- * empty, an automation rule (written for the chosen category) beside the real
- * automations screen, and Arby beside the real Arby sheet, shown whole
- * (see ArbySheet).
+ * that is what the product does, this is what is left for you. In the book
+ * it closes the story: the job's book shuts, paid, and is laid on the pile
+ * with the season's others, its ribbon hanging out of the tail.
+ */
+export function Statement() {
+  return (
+    <Row id="statement" labelledBy="quiet-title" className="statement-row">
+      <div
+        data-reveal
+        className="px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16 lg:px-12"
+      >
+        <h2
+          id="quiet-title"
+          className="headline m-0 text-statement text-ink [text-wrap:initial]"
+        >
+          <Split text="Nothing needs you." />
+        </h2>
+        {/* The flat page's ending: the same pile the book is laid on,
+            rendered from the book itself. Decorative. */}
+        <Image
+          src="/book/stills/pile.webp"
+          alt=""
+          aria-hidden="true"
+          width={1416}
+          height={1010}
+          sizes="(min-width: 1024px) 832px, 100vw"
+          className="flat-only mt-8 ml-auto block h-auto w-full max-w-[52rem] sm:mt-10"
+        />
+      </div>
+    </Row>
+  );
+}
+
+/**
+ * Under the statement, in three ruled rows, the three things that make the
+ * line true, each beside the screen that proves it: the overview's Needs you
+ * block running down to empty, an automation rule (written for the chosen
+ * category) beside the real automations screen, and Arby beside the real
+ * Arby sheet, shown whole (see ArbySheet).
  *
- * The standing bird is the still fallback for the page's scroll companion,
- * shown only when motion is reduced, disabled or unavailable.
+ * The standing bird in the Arby row opens Arby Help, the same chat as the
+ * launcher at the foot of the window (src/components/arby/arby-launcher).
  */
 
 const AUTOMATION_WHENS = CATEGORIES.map((c) => c.automation.when);
@@ -36,20 +70,8 @@ export function Quiet() {
   const { category } = useCategory();
 
   return (
-    <Row labelledBy="quiet-title">
-      <div
-        data-reveal
-        className="px-5 pt-16 pb-12 sm:px-8 sm:pt-24 sm:pb-16 lg:px-12"
-      >
-        <h2
-          id="quiet-title"
-          className="headline m-0 text-statement text-ink [text-wrap:initial]"
-        >
-          <Split text="Nothing needs you." />
-        </h2>
-      </div>
-
-      <div className="cell-rule-t grid lg:grid-cols-12">
+    <Row still>
+      <div className="grid lg:grid-cols-12">
         <div className={`develop ${CELL_TEXT}`}>
           <p className="m-0 max-w-[46ch] text-lead text-ink-secondary">
             {PRODUCT.overview}
@@ -111,6 +133,7 @@ export function Quiet() {
             capture={AUTOMATION_CAPTURE}
             sizes="(max-width: 1024px) calc(100vw - 48px), 720px"
             caption="Real screen, seed data · Automations"
+            figure="Fig. 06"
           />
         </div>
       </div>

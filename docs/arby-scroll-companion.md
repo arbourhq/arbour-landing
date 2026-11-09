@@ -1,5 +1,7 @@
 # Arby follows the reader
 
+> **Retired 7 November 2026.** The scroll companion was removed when the home page gained its 3D pass: two moving things at once was too much. Arby Help now opens from a small still launcher at the bottom right (`src/components/arby/arby-launcher.tsx`) and from the bird in the Arby block; `docs/brand.md` records the decision. The controller, `flight.ts` and their tests are gone from the codebase (see git history before that date). This note is kept as the record of how the companion worked.
+
 Research and implementation decision, 17 September 2026.
 
 ## Recommendation

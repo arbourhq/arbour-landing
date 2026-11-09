@@ -1,0 +1,7 @@
+{
+  "prompt": "Origin: the same real Playwright screen recording of the local seeded Arbour console as quote.webp (sha256 4262f45963e2b9b8), not generated. Transcoded unchanged in content with ffmpeg 9.0.2: webp_anim decode, 30 fps constant, lanczos scale to 1920x1200, H.264 high CRF 20, no audio. Used as the video texture on the 3D docket. Re-transcode whenever quote.webp is re-recorded.",
+  "createdAt": "2026-11-07T03:06:00.000Z",
+  "source": "public/product/demos/quote.webp",
+  "width": 1920,
+  "height": 1200
+}

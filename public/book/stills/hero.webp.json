@@ -1,0 +1,8 @@
+{
+  "prompt": "Origin: rendered, not generated. A frame of the home page's own real-time three.js book (src/components/book) drawn by its engine in Chromium on the Apple GPU with a transparent background, then cropped to its content and encoded with cwebp -q 88: the book shut, cover up, three-quarter view, for the flat page's hero. The cover's category pressing is left blank so the still fits every category. Spine titles on the pile are the seed console's jobs plus two that are not weddings, all illustrative. Re-render with the capture script whenever the book's model, materials or light change.",
+  "createdAt": "2026-11-07T13:32:41Z",
+  "source": "src/components/book",
+  "sha256": "6a49bcd6beb19876",
+  "width": 1273,
+  "height": 755
+}

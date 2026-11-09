@@ -10,20 +10,32 @@ import { trackMetaEvent } from "@/components/meta-pixel";
 import { trackRedditEvent } from "@/components/reddit-pixel";
 import { TrialLink } from "@/components/trial-link";
 import { buttonClass } from "@/components/ui/button";
+import Image from "next/image";
+import { Leaf } from "@/components/ui/leaf";
 import { Row } from "@/components/ui/row";
 import { Split } from "@/components/motion/split";
 
 /**
- * A sunken Panel row with the three plans as white cells raised out of it,
- * ruled into the sheet rather than floated as cards. The price is the
- * readout, Bricolage 800 at the largest size it reaches outside the
- * statement, because a number that matters is never body copy.
+ * A sunken Panel row with the three plans as leaves of the book, each under
+ * the volumes it holds, rendered from the home page's 3D book: one for Solo's
+ * one organisation, three for Studio's three, the season's whole pile for
+ * House's unlimited. The plan's name is printed in the running head, what it
+ * holds in the small print at its foot, and a leaf lifts when pointed at.
+ * The price is the readout, Bricolage 800 at the largest size it reaches
+ * outside the statement, because a number that matters is never body copy.
  *
  * The interval switch is the console's segmented control: a Panel track, the
  * chosen segment white with the thumb shadow. Solo and Studio route to
  * sign-up, where the plan is picked and the trial starts; House is arranged
  * by hand, so it routes to a conversation.
  */
+
+/** The volumes over each plan, one book per organisation it holds. */
+const VOLUMES = [
+  { src: "/book/stills/volume-solo.webp", width: 729, height: 383 },
+  { src: "/book/stills/volume-studio.webp", width: 685, height: 393 },
+  { src: "/book/stills/volume-house.webp", width: 605, height: 409 },
+] as const;
 
 const INTERVALS: { key: Interval; label: string }[] = [
   { key: "monthly", label: "Monthly" },
@@ -102,89 +114,109 @@ export function Pricing() {
         </div>
       </div>
 
-      <div
-        data-arby-perch="pricing"
-        className="cell-rule-t grid lg:grid-cols-3"
-      >
-        {TIERS.map((tier, i) => (
-          <div
-            key={tier.name}
-            className={`develop flex flex-col bg-page px-5 py-8 sm:px-8 sm:py-10 lg:px-8 xl:px-10 ${
-              i > 0 ? "border-t border-rule lg:border-t-0 lg:border-l" : ""
-            }`}
-            style={{ "--develop-at": `${i * 1.5}%` } as React.CSSProperties}
-          >
-            <div className="flex flex-wrap items-center gap-3">
-              <h3 className="headline m-0 text-page-title text-ink">
-                {tier.name}
-              </h3>
-              {tier.enterprise ? (
-                <span className="mono-label rounded-sm bg-cornflower-wash px-2 py-1.5 font-semibold text-cornflower-ink">
-                  Enterprise
-                </span>
-              ) : null}
-            </div>
-            <p className="m-0 mt-3 max-w-[34ch] text-body text-ink-secondary lg:min-h-[4.5em]">
-              {tier.who}
-            </p>
+      <div className="cell-rule-t px-3 pt-8 pb-10 sm:px-6 lg:px-10 lg:pt-12 lg:pb-14">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-3">
+          {TIERS.map((tier, i) => (
+            <Leaf
+              key={tier.name}
+              as="article"
+              lift
+              head={
+                <>
+                  {/* The name and the interval share a baseline; the group
+                      takes its baseline from the name. */}
+                  <div className="flex items-center gap-3 self-baseline">
+                    <h3 className="headline m-0 text-page-title text-ink">
+                      {tier.name}
+                    </h3>
+                    {tier.enterprise ? (
+                      <span className="mono-label rounded-sm bg-cornflower-wash px-2 py-1.5 font-semibold text-cornflower-ink">
+                        Enterprise
+                      </span>
+                    ) : null}
+                  </div>
+                  {tier.enterprise ? null : (
+                    <span className="mono-label self-baseline text-ink-muted">
+                      {yearly ? "Yearly" : "Monthly"}
+                    </span>
+                  )}
+                </>
+              }
+              foot={tier.limits.join(" · ")}
+              folio={String(i + 1).padStart(2, "0")}
+              className="develop"
+              style={{ "--develop-at": `${i * 1.5}%` } as React.CSSProperties}
+              bodyClassName="flex flex-col px-5 pt-6 pb-7 sm:pt-7 sm:pb-8"
+            >
+              <div className="leaf-volume -mt-3 mb-6 sm:-mt-4">
+                <Image
+                  src={VOLUMES[i].src}
+                  alt=""
+                  aria-hidden="true"
+                  width={VOLUMES[i].width}
+                  height={VOLUMES[i].height}
+                  sizes="(min-width: 1024px) 360px, 80vw"
+                />
+              </div>
+              <p className="m-0 max-w-[34ch] text-body text-ink-secondary lg:min-h-[4.5em]">
+                {tier.who}
+              </p>
 
-            <div className="mt-8 flex flex-col justify-end lg:min-h-[6.25rem]">
-              {tier.price === null ? (
-                <span className="headline text-page-title text-ink">
-                  By arrangement
+              <div className="mt-8 flex flex-col justify-end lg:min-h-[6.25rem]">
+                {tier.price === null ? (
+                  <span className="headline text-page-title text-ink">
+                    By arrangement
+                  </span>
+                ) : (
+                  <span
+                    key={interval}
+                    className="headline animate-flip text-readout text-ink tabular-nums"
+                  >
+                    $
+                    {yearly
+                      ? tier.price.yearly.toLocaleString("en-AU")
+                      : tier.price.monthly}
+                  </span>
+                )}
+                <span className="mono-label mt-2 text-ink-muted">
+                  {tier.price === null
+                    ? "email us"
+                    : yearly
+                      ? "AUD a year"
+                      : "AUD a month"}
                 </span>
-              ) : (
-                <span
-                  key={interval}
-                  className="headline animate-flip text-readout text-ink tabular-nums"
-                >
-                  $
-                  {yearly
-                    ? tier.price.yearly.toLocaleString("en-AU")
-                    : tier.price.monthly}
-                </span>
-              )}
-              <span className="mono-label mt-2 text-ink-muted">
-                {tier.price === null
-                  ? "email us"
-                  : yearly
-                    ? "AUD a year"
-                    : "AUD a month"}
-              </span>
-            </div>
+              </div>
 
-            <div className="mt-6">
-              {tier.enterprise ? (
-                <Link
-                  href={`/contact?topic=${encodeURIComponent(CONTACT_TOPICS[1])}`}
-                  className={buttonClass("secondary", "md", "w-full")}
-                >
-                  Talk to us
-                </Link>
-              ) : (
-                <TrialLink size="md" className="w-full" />
-              )}
-            </div>
+              <div className="mt-6">
+                {tier.enterprise ? (
+                  <Link
+                    href={`/contact?topic=${encodeURIComponent(CONTACT_TOPICS[1])}`}
+                    className={buttonClass("secondary", "md", "w-full")}
+                  >
+                    Talk to us
+                  </Link>
+                ) : (
+                  <TrialLink size="md" className="w-full" />
+                )}
+              </div>
 
-            <p className="mono-label m-0 mt-6 text-ink-muted">
-              {tier.limits.join(" · ")}
-            </p>
-            <ul className="m-0 mt-3 list-none p-0">
-              {tier.features.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-start gap-2.5 border-t border-line py-2.5 text-body text-ink"
-                >
-                  <Check
-                    aria-hidden
-                    className="mt-[0.2em] size-4 shrink-0 text-sprout-ink"
-                  />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+              <ul className="m-0 mt-6 list-none p-0">
+                {tier.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-start gap-2.5 border-t border-line py-2.5 text-body text-ink"
+                  >
+                    <Check
+                      aria-hidden
+                      className="mt-[0.2em] size-4 shrink-0 text-sprout-ink"
+                    />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </Leaf>
+          ))}
+        </div>
       </div>
 
       <p className="cell-rule-t m-0 px-5 py-6 text-body text-ink-secondary sm:px-8 lg:px-12">

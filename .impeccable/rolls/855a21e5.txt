@@ -1,0 +1,136 @@
+# Direction roll for src/app/page.tsx, 7 November 2026 (second 3D direction; the Docket Rail, roll 776a2315, was rejected by the user on concept, flat render, scale and motion)
+# Command: impeccable concept-seed --scope direction --mode persuade
+# Grounded list, final resonance order decided before the roll: 1 The Flat-lay, 2 The Model, 3 The Long Table, 4 The Arbour, 5 The Book, 6 The Festoon, 7 The Board
+# (A first draft written to the scratchpad before reordering read: 1 Flat-lay, 2 Long Table, 3 Model, 4 Book, 5 Board, 6 Arbour, 7 Festoon. The final order above was settled before the script ran; The Board was also judged unviable against the user's stated failure, 'doesn't feel like weddings, parties or Arbour'.)
+# Assigned: 5, The Book. Pick card: 1, The Flat-lay. Hand: automata, toy-aisle, ikebana (all declined, each donating a raise). Re-roll pool: suminagashi basin, phosphor terminal, silkscreen loft.
+# Build path: code-led (no image generation on this machine).
+
+DIRECTION CONCEPT SEED (key: 855a21e5; mode: persuade; source: api; approved pool: c3b204a1eed6; 306/564 human-approved; rerun with --scope direction --mode persuade --from 855a21e5 --candidate-count 7 to reproduce this roll against this catalog revision)
+ASSIGNED INDEX: 5
+  After ordering the grounded directions by resonance, build candidate
+  5 of your own grounded list; the assignment never points at a
+  challenger. The assignment is the roll, not a suggestion: your top-ranked
+  direction is what every run would ship, so the script decides which grounded
+  direction gets built. Each direction joins a durable visual system to a
+  concrete expression for the requested first surface, decided as one. It must
+  survive the current task plus navigation, quiet and dense content,
+  interaction and state, and a substantially different future surface. In an
+  attended run, present the assigned direction fully committed and offer
+  re-roll. You may add ONE card for your top-ranked grounded candidate when
+  it is not the assigned direction, kicker IMPECCABLE’S PICK, with an honest risk line
+  naming its familiarity; one pick card, never a ranked lineup, and the pick
+  never takes the lead position. When the assignment IS your top candidate,
+  there is no pick card. Re-roll yourself only
+  on named factual grounds, when the assignment cannot carry the product's
+  truth or task; taste is never grounds.
+  The assignment exists to refuse the model's ranking rut, never to outrank
+  the user or the brief. Never expose assignment metadata in user-facing labels.
+CHALLENGERS:
+  1. a tokonoma alcove holding an ikebana arrangement of one weathered pine branch, three irises, and an off-center bronze suiban, where line, asymmetry, season, and ma make the surrounding emptiness active
+     SOURCE ID: growth-metamorphosis-branching-ikebana-ma-arrangement
+     CREATIVE SPARK: One pine branch rises through the quiet alcove, bends toward three blue irises, and leaves a charged triangle of empty plaster more vivid than another flower could fill.
+     SYSTEM GRAMMAR:
+       - Palette/material: pale plaster alcove as ground, weathered gray-brown pine for body, three iris-blue stems marking the active accent, a dark bronze suiban at the base
+       - Type/composition: a few vertical characters set off-center, primary secondary and supporting lines forming an asymmetric triangle, empty plaster left charged as ma
+       - Topology/navigation: Move among primary, secondary, and supporting lines while vessel, viewing front, seasonal material, and active emptiness remain related.
+       - Controls/state: Trim, angle, rotate, place, and remove stems with budding, open, balanced, crowded, fading, and renewed states.
+       - Responsive/motion: Preserve the arrangement's viewing front and proportional emptiness on small screens; use plan and elevation views instead of decorative reflow.
+     WEB LEVERAGE: Direct manipulation can preserve stem-angle, balance, and negative-space constraints, while a time scrub connects each plant's seasonal and fading state to the whole composition.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/growth-metamorphosis-branching-ikebana-ma-arrangement.webp · hero https://impeccable.style/worlds/cards/growth-metamorphosis-branching-ikebana-ma-arrangement-hero.webp
+  2. a hand-cranked paper menagerie of tabs, bellows, and pinned joints, where humble folds produce a surprising procession of motion
+     SOURCE ID: kinetic-sculpture-automata-crank-paper-menagerie
+     CREATIVE SPARK: The crank turns; a white fox bows, a crimson bird opens concertina wings, and their shadows cross on the paper wall behind them.
+     SYSTEM GRAMMAR:
+       - Palette/material: cut white paper on kraft board as the ground, charcoal cast shadow as body ink, one crimson fold reserved for the figure currently in motion
+       - Type/composition: hand-cut letterpress caps with visible tab and slot marks, captions on folded paper strips beneath each figure, one crank line ruling the base
+       - Topology/navigation: Advance through a procession while each figure opens into its own linkage and supporting details.
+       - Controls/state: Turn, pause, reverse, and inspect joints with folded, tensioned, extended, and resting states.
+       - Responsive/motion: Reduce the procession to one figure per viewport and provide illustrated keyframes beside every control.
+     WEB LEVERAGE: Pointer and keyboard input can drive a common crank timeline, synchronizing SVG cut-paper layers with accessible step descriptions.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/kinetic-sculpture-automata-crank-paper-menagerie.webp · hero https://impeccable.style/worlds/cards/kinetic-sculpture-automata-crank-paper-menagerie-hero.webp
+  3. a shallow basin of suminagashi ink, where a fingertip drags marbled currents across the surface and every swirl obeys real fluid law rather than decoration
+     SOURCE ID: medium-native-fluid-ink-basin
+     CREATIVE SPARK: One drop of indigo lands, the fan passes, and the surface writes chrysanthemums; a fingertip's slow drag pulls the whole pattern into feathered rain.
+     SYSTEM GRAMMAR:
+       - Palette/material: indigo and carbon sumi ink marbling on paper-white water, dye thinning to gray where it has spread, the newest drop always the darkest region
+       - Type/composition: a quiet humanist sans held to a still margin outside the basin, the surface itself composing only as current, whorl, and feathered rain
+       - Topology/navigation: the basin is one continuous surface; regions are dye colors that remember where they have flowed.
+       - Controls/state: stir, drop, fan, and still are the verbs; viscosity and vorticity are dials with honest physical names.
+       - Responsive/motion: simulation grid scales to GPU budget
+     WEB LEVERAGE: A GPU fluid solver in WebGL answers the pointer at sixty frames, making the page itself a liquid material.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/medium-native-fluid-ink-basin.webp · hero https://impeccable.style/worlds/cards/medium-native-fluid-ink-basin-hero.webp
+  4. a green-phosphor terminal in a midnight machine room, where a blinking cursor, scanline glow, and afterimage trails make text feel alive on glass
+     SOURCE ID: signals-instruments-phosphor-terminal-midnight
+     CREATIVE SPARK: The cursor breathes; each typed line lands with a faint bloom and its ghost lingers a half-second after the scroll.
+     SYSTEM GRAMMAR:
+       - Palette/material: P1 phosphor green on near-black curved glass, dimmer green afterimage for history, bright bloom for the cursor line; the tube's dark ground holds all
+       - Type/composition: one monospaced bitmap face in a fixed 80-column field, no other type exists; hierarchy is made of indentation, case, and full-width rules
+       - Topology/navigation: the surface is one continuous scrolling transcript; place is position in the conversation's history.
+       - Controls/state: input is a first-class typed dialogue; system states print themselves rather than appearing as chrome.
+       - Responsive/motion: phosphor bloom and trails scale with capability
+     WEB LEVERAGE: A live transcript log with CSS phosphor glow, searchable history, and full keyboard-first operation.
+     QUALITY BAR: board https://impeccable.style/worlds/cards/signals-instruments-phosphor-terminal-midnight.webp · hero https://impeccable.style/worlds/cards/signals-instruments-phosphor-terminal-midnight-hero.webp
+  5. a silver-foiled loft where celebrity portraits are silkscreened in off-register repeats, drying racks turning one image into thirty deliberate variations
+     SOURCE ID: design-canon-factory-silkscreen-loft
+     CREATIVE SPARK: Under tinfoil ceilings and one bare red bulb, the same famous face dries thirty times on a rope line, each copy wrong in a slightly more beautiful way.
+     SYSTEM GRAMMAR:
+       - Palette/material: silver-foil ground, one dense black halftone pass as body ink, fluorescent pink and marigold pulled per edition to mark the active print
+       - Type/composition: headline caps silkscreened slightly off register, halftone dots visible at reading distance, the layout a drying rack of equal repeated frames
+       - Topology/navigation: content presents as editioned repeats on a rack grid; you browse variations of one subject rather than single views of many
+       - Controls/state: each action pulls a fresh print; states appear as ink shifts, misregistration, and color swaps across otherwise identical frames
+       - Responsive/motion: the edition grid reflows from thirty-up sheets to single pulls on small screens; motion is the squeegee wipe
+     WEB LEVERAGE: canvas filters and CSS blend modes generate off-register color separations procedurally, so every repeat is a genuine variant
+     QUALITY BAR: board https://impeccable.style/worlds/cards/design-canon-factory-silkscreen-loft.webp · hero https://impeccable.style/worlds/cards/design-canon-factory-silkscreen-loft-hero.webp
+  6. a toy-aisle wall of window-box sets, die-cut cellophane windows opening onto tiny illustrated dioramas, warm cream board trimmed in gingham with a friendly rounded logotype on every lid
+     SOURCE ID: pop-culture-shelf-window-box-toy-shelf
+     CREATIVE SPARK: You crouch to the third shelf and a thumb-sized kitchen glows behind cellophane, its gingham trim matching the lid, and the whole row of boxes waits like houses with their lights on.
+     SYSTEM GRAMMAR:
+       - Palette/material: warm cream board ground, gingham trims in meadow green, berry and sky blue, cellophane gloss over each window, one sunny yellow shelf tag for the featured set
+       - Type/composition: a rounded lowercase logotype names each set, hand-lettered contents lists run down the box sides, and shelves rank boxes in tidy rows with one end-cap hero
+       - Topology/navigation: aisles are categories and shelf rows are lists; every box front is the summary and lifting its lid is the detail view, the diorama unfolding inside
+       - Controls/state: hover tilts a box so light crosses the cellophane, choosing one hinges the lid open, and out-of-stock spots keep the shelf tag over empty board
+       - Responsive/motion: shelves collapse to one browsable row on phones, and motion is the gentle lid hinge and a paper pop-up rising
+     WEB LEVERAGE: css perspective tilts the boxes, clip-path cuts the windows, and the pop-up diorama unfolds with 3d transforms on open
+     QUALITY BAR: board https://impeccable.style/worlds/cards/pop-culture-shelf-window-box-toy-shelf.webp · hero https://impeccable.style/worlds/cards/pop-culture-shelf-window-box-toy-shelf-hero.webp
+Fuse each challenger before judging it: the challenger supplies the form
+  and its system grammar, the product supplies every fact, and clarity wins
+  conflicts. Weigh the fused result against the assigned direction on exactly
+  two axes, audience identification and product clarity. Losing to strong
+  grounded material is a valid outcome; beating a thin or tool-monoculture
+  list is the point. A fused challenger that wins both axes becomes the build.
+  Close the weighing with a verdict per challenger, decided before any
+  borrowing is considered: wins (beats the assigned direction on both axes),
+  competitive (holds one axis), or declined (loses both). A declined
+  challenger is not spent: name the one discipline of its system the assigned
+  direction lacks, and raise the assigned direction to match before
+  presenting it. A donation transfers ambition and system discipline, never
+  the challenger's clothes; one world owns the page. Write each raise as its
+  own named line on the presented direction, and carry every verdict, kept
+  line, and raise into the decision page payload.
+When you can view images, open the QUALITY BAR board and hero for any
+challenger you weigh seriously and for the world you build. They exist as a
+craft bar, the finish level and commitment the build is expected to reach,
+never as a mockup to copy; your surface serves this product, not that render.
+PRODUCT.md and explicit incumbent brand commitments constrain every direction.
+The seed never chooses exact colors, fonts, tokens, or a user preference, and
+it never permits the world and first surface to be selected independently.
+The CREATIVE SPARK is a complete visual system, not a theme or decorative
+reference. Translate every supplied system rule into the product: palette and
+material, type and composition, topology, controls and states, and adaptation.
+Keep the source's visible character, scale, rhythm, and interaction instead of
+reducing vivid grammar to generic nouns. When the source is already a credible
+interface language, commit to it across navigation, content, controls, and
+states. Otherwise keep a literal carrier only when it becomes functional.
+Ambitious motion, spatial media, or interaction is welcome when it strengthens
+the product without weakening semantics, performance, or fallback behavior.
+TELEMETRY: after the user's choice resolves, rerun this script once with
+  --kind <assigned|pick|challenger|canon> --from 855a21e5 --scope direction --mode persuade,
+  adding --chosen <challenger-id> when a dealt challenger won and keeping
+  --register <safer|bolder> when the resolved round came from a steered hand.
+  One ping per resolved attended round. The ping is anonymous, the card kind
+  plus the catalog id when one won; your grounded candidates' names never
+  leave the machine, and the ping is skipped automatically when DO_NOT_TRACK
+  or IMPECCABLE_NO_TELEMETRY is set.
+A user- or brief-pinned decision beats the roll, always.
+ASSIGNED INDEX (restated for truncated readers): 5. Build candidate
+5 of your own grounded list; seed key 855a21e5.

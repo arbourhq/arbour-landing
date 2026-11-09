@@ -4,7 +4,8 @@
  * kind of object allowed to blur), the Bottle square mark beside a Bricolage
  * title, starter questions as bordered rows, the reader's own words in a
  * sunken Panel bubble and the reply as plain column text, and the console's
- * composer at the foot. Its top edge is Arby's perch while it is open.
+ * composer at the foot. It opens from the launcher at the foot of the
+ * window (arby-launcher.tsx) or the bird in the home page's Arby block.
  */
 .arby-help {
   position: fixed;

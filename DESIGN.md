@@ -1,20 +1,25 @@
 ---
 name: Arbour marketing site
-description: The site for the wedding industry CRM, drawn in the console's own register as one ruled sheet.
+description: The site for the wedding industry's CRM, drawn in the console's own register, with one job bound as a lit 3D book whose pages the scroll turns.
 colors:
   bottle: "#0b4030"
+  bottle-deep: "#083023"
   bottle-ink: "#052117"
   bottle-wash: "#e9f1eb"
   sprout: "#9fe870"
+  sprout-press: "#86d653"
   sprout-ink: "#2a5a1d"
   sprout-wash: "#eafadd"
+  coral: "#ff4438"
+  coral-ink: "#9e1d14"
+  coral-wash: "#ffe5e2"
   cornflower: "#4e6df5"
   cornflower-ink: "#2438a8"
   cornflower-wash: "#e7ebfe"
   lilac: "#b9a7ff"
-  coral: "#ff4438"
-  coral-ink: "#9e1d14"
-  coral-wash: "#ffe5e2"
+  lilac-ink: "#4c3a99"
+  lilac-wash: "#f1edff"
+  ochre: "#dfa023"
   ochre-ink: "#7a5510"
   ochre-wash: "#fbf1d6"
   page: "#ffffff"
@@ -28,6 +33,7 @@ colors:
   ink-faint: "#6a6a62"
   on-dark: "#f4f4f0"
   border-default: "rgba(23, 33, 27, 0.1)"
+  border-soft: "rgba(23, 33, 27, 0.05)"
   border-input: "rgba(23, 33, 27, 0.12)"
   border-input-hover: "rgba(23, 33, 27, 0.28)"
   mark: "rgba(23, 33, 27, 0.5)"
@@ -51,12 +57,6 @@ typography:
     fontWeight: 800
     lineHeight: 0.85
     letterSpacing: "normal"
-  close:
-    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.5rem, 1rem + 5.4vw, 5.5rem)"
-    fontWeight: 800
-    lineHeight: 0.9
-    letterSpacing: "normal"
   headline:
     fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
     fontSize: "clamp(2rem, 1.25rem + 2.6vw, 3.5rem)"
@@ -69,11 +69,6 @@ typography:
     fontWeight: 800
     lineHeight: 0.95
     letterSpacing: "normal"
-  page-title:
-    fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "2rem"
-    fontWeight: 800
-    lineHeight: 0.95
   section:
     fontFamily: "Bricolage Grotesque, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.5rem"
@@ -94,33 +89,23 @@ typography:
     fontSize: "0.9375rem"
     fontWeight: 400
     lineHeight: 1.5
-  article-body:
-    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.0625rem"
-    fontWeight: 400
-    lineHeight: 1.75
-  article-intro:
-    fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 400
-    lineHeight: 1.65
   ui:
     fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1.4
-  caption:
+  dense:
     fontFamily: "Instrument Sans, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "0.75rem"
+    fontSize: "0.8125rem"
     fontWeight: 400
     lineHeight: 1.4
-  mono-eyebrow:
+  eyebrow:
     fontFamily: "Martian Mono, ui-monospace, monospace"
     fontSize: "0.6875rem"
     fontWeight: 400
     lineHeight: 1.4
     letterSpacing: "0.14em"
-  mono-label:
+  label:
     fontFamily: "Martian Mono, ui-monospace, monospace"
     fontSize: "0.5625rem"
     fontWeight: 400
@@ -130,40 +115,39 @@ rounded:
   tiny: "2px"
   small: "4px"
   base: "6px"
-  dot: "9999px"
 spacing:
-  gutter-phone: "20px"
-  gutter-tablet: "32px"
-  gutter-desktop: "48px"
-  row-top-phone: "64px"
-  row-top: "96px"
-  row-foot-phone: "40px"
-  row-foot: "48px"
-  cell: "40px"
-  sheet-max: "1280px"
+  leaf-inset: "20px"
+  leaf-head: "13px 0 11px"
+  leaf-foot: "10px 20px 12px"
+  plate-stock: "10px 10px 0"
+  sheet-gutter-phone: "0.75rem"
+  sheet-gutter-tablet: "1.5rem"
+  sheet-gutter-desktop: "2.5rem"
+  sheet-max: "80rem"
   nav-gap: "12px"
-  nav-height: "56px"
-  strip-height: "48px"
+  touch-min: "44px"
 components:
   button-sprout:
     backgroundColor: "{colors.sprout}"
     textColor: "{colors.bottle}"
-    typography: "{typography.body}"
     rounded: "{rounded.base}"
+    typography: "{typography.body}"
     height: "48px"
     padding: "0 22px"
   button-primary:
     backgroundColor: "{colors.bottle}"
     textColor: "{colors.on-dark}"
-    typography: "{typography.ui}"
     rounded: "{rounded.base}"
+    typography: "{typography.ui}"
     height: "40px"
     padding: "0 16px"
+  button-primary-hover:
+    backgroundColor: "{colors.bottle-deep}"
   button-secondary:
     backgroundColor: "{colors.page}"
     textColor: "{colors.ink}"
-    typography: "{typography.ui}"
     rounded: "{rounded.base}"
+    typography: "{typography.ui}"
     height: "40px"
     padding: "0 16px"
   button-secondary-hover:
@@ -172,271 +156,217 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.bottle}"
     rounded: "{rounded.base}"
-    height: "36px"
-    padding: "0 14px"
-  button-ghost-hover:
-    backgroundColor: "{colors.panel}"
-  button-on-dark:
-    backgroundColor: "rgba(244, 244, 240, 0.1)"
-    textColor: "{colors.on-dark}"
-    rounded: "{rounded.base}"
+    typography: "{typography.ui}"
     height: "40px"
     padding: "0 16px"
-  input-field:
+  leaf:
     backgroundColor: "{colors.page}"
     textColor: "{colors.ink}"
-    typography: "{typography.ui}"
     rounded: "{rounded.base}"
-    height: "44px"
+  plate:
+    backgroundColor: "{colors.page}"
+    rounded: "{rounded.base}"
+    padding: "{spacing.plate-stock}"
+  input:
+    backgroundColor: "{colors.page}"
+    textColor: "{colors.ink}"
+    rounded: "{rounded.base}"
+    typography: "{typography.ui}"
     padding: "0 14px"
   nav-bar:
     backgroundColor: "{colors.page}"
     rounded: "{rounded.base}"
-    height: "{spacing.nav-height}"
-  nav-link-current:
-    backgroundColor: "{colors.bottle}"
-    textColor: "{colors.on-dark}"
-    rounded: "{rounded.small}"
-    height: "36px"
-  stage-strip:
-    backgroundColor: "{colors.page}"
-    rounded: "{rounded.base}"
-    height: "{spacing.strip-height}"
-  stage-chip-current:
-    backgroundColor: "{colors.bottle}"
-    textColor: "{colors.on-dark}"
-    typography: "{typography.mono-eyebrow}"
-    rounded: "{rounded.small}"
-  badge-enterprise:
-    backgroundColor: "{colors.cornflower-wash}"
-    textColor: "{colors.cornflower-ink}"
-    typography: "{typography.mono-label}"
-    rounded: "{rounded.small}"
-    padding: "6px 8px"
-  claim-pointing:
-    backgroundColor: "{colors.sprout-wash}"
-    padding: "24px 32px"
-  capture-cell:
+    height: "56px"
+  badge:
     backgroundColor: "{colors.panel}"
-    rounded: "{rounded.base}"
-    padding: "32px"
-  segmented-thumb:
-    backgroundColor: "{colors.page}"
-    textColor: "{colors.ink}"
-    typography: "{typography.ui}"
+    textColor: "{colors.ink-secondary}"
     rounded: "{rounded.small}"
-    padding: "8px 14px"
+    typography: "{typography.label}"
+    padding: "6px 8px"
+  stage-chip-active:
+    backgroundColor: "{colors.bottle}"
+    textColor: "{colors.on-dark}"
+    rounded: "{rounded.small}"
+    typography: "{typography.eyebrow}"
 ---
 
 # Design System: Arbour marketing site
 
 ## Overview
 
-**Creative North Star: "The Ruled Sheet"**
+**Creative North Star: "The Book on the Table"**
 
-The site is one printed run sheet, nav to footer, set in the console's own register. Every section is a full-bleed row whose top rule crosses the window; inside it the sheet is a single column whose two side rules run unbroken from the top of the window to the foot of the page, with a small ink registration cross wherever a row rule meets a column rule. Cells butt against each other inside that column and draw their own hairlines, so a claim always sits in a cell beside the real console screen that proves it.
+The site is the console's own register (a white page, Panel cells, Bottle for structure, Sprout for the one thing to do next) with one physical object on it: the job, bound as a book in woven Bottle cloth and lit by a window to the right. The white page is the table. The book drops onto it in the hero, opens, and the reader's scroll turns its leaves from enquiry to paid, one spread per stage, each right-hand page holding a real console screen square-on. At the close the book shuts and goes on the season's pile, spines titled with jobs. Everything around the book is the ruled sheet: hairline column rules, registration marks, Bottle and Panel bands, oversized Bricolage set hard left.
 
-The register is the software's, deliberately. White page, grey-green Panel cells, near-black Ink, Bottle for structure and one lit Sprout action per view. Corners are 6px, buttons carry a letterpress bottom edge, and only floating chrome casts a shadow. A visitor should finish the page thinking "that is my console", because the tokens here are the console kit's own (arbour/packages/ui/src/styles/globals.css) and the site only adds what a long marketing page needs: fluid display steps, the ruled sheet, the stage strip and the capture frame.
+The 3D is lit like a product shot, but every flat thing stays its exact hex. The light is calibrated so a page lying face up takes exactly π (hemisphere plus the key's share at its angle), and nothing is tone mapped, so white stock renders #FFFFFF and a printed screen renders exactly as captured. That is why the screen can hand over to a sharp HTML plate whenever the camera rests, with no seam. Shading, soft Bottle-tinted shadows, cloth sheen and depth of field belong to things that are tilted, turning or not being read.
 
-The world refuses the feature-card grid and the retired marketing look (Acid, Cream floods, square corners, the Acid stage rail). Colour arrives in whole rows or cells, never as tinted cards on white.
+Density is calm and generous: one idea per row, big type with charged empty paper around it, one accent per view. The scroll is a crank: every turn and claim step is a pure function of scroll position, so scrolling back plays everything backwards exactly. Reduced motion, no hardware WebGL2, a lost context or a low-power phone get the flat page, which carries the same screens and engine-rendered stills of the same book.
 
 **Key Characteristics:**
-- One continuous ruled column, 1280px maximum, with registration marks at every crossing.
-- White by default; Panel for sunken cells; Bottle only for the close.
-- Bricolage 800 hard left at fluid sizes, with optical size doing the tightening.
-- Martian Mono as a small uppercase label voice: captions, field labels, indices, block heads.
-- Real screens as proof, with claims that point at measured regions of them.
-- 6px corners, letterpress depth on content, blur only on floating chrome.
+- One register with the console: white and Panel grounds, Bottle structure, one Sprout action.
+- The book is the site's object; the leaf is its flat DOM page.
+- Lit 3D, unlit screens: calibrated light, no tone mapping, HTML plate at rest.
+- Hairline construction: column rules, registration marks, whole-block colour.
+- Bricolage 800 as interface, hard left; Martian Mono only as small uppercase labels.
+- Slightly rounded on one scale (6 / 4 / 2px); letterpress depth on content, blur only on floating chrome.
 
 ## Colors
 
-A neutral console palette with one structural green, one lit green, and status colours that never decorate.
+A neutral console register with one house colour, one lit accent and a status family that appears only inside real or replicated console UI.
 
 ### Primary
-- **Bottle** (`{colors.bottle}`): structure. The default solid button, the current nav link, the current stage chip, stage numbers, the pressed crosshair, the Arby mark square, and the Bottle band that floods the close and the footer.
-- **Bottle Ink** (`{colors.bottle-ink}`): hover on Bottle text links.
-- **Bottle Wash** (`{colors.bottle-wash}`): the ground for Arby placements that need one.
+- **Bottle** (`bottle`): structure. The default solid button, the nav's trial button, stage numerals, the book's cloth, the active stage chip, whole Bottle bands (final call to action, footer). Hover deepens to **Bottle Deep**; **Bottle Ink** is the deboss on the cover and the deepest press.
+- **Bottle Wash** (`bottle-wash`): the ground Arby may stand on, and quiet Bottle badges.
 
 ### Secondary
-- **Sprout** (`{colors.sprout}`): the one lit thing. The trial button, the reading-progress line under the nav, passed stage dots and their joining hairlines, the playing caption leaf, and the rings round claim regions on a capture.
-- **Sprout Ink** (`{colors.sprout-ink}`): check marks in plan feature lists and text on Sprout Wash.
-- **Sprout Wash** (`{colors.sprout-wash}`): the console's selected-row wash; a claim cell while it points, a success badge, text selection.
+- **Sprout** (`sprout`): the one lit thing. The hero's and final band's Start free trial button, the book's satin ribbon (where the job is), passed-stage dots, the selection ring on a resting screen, the last bar of a pipeline. **Sprout Press** is its pressed state; **Sprout Ink** and **Sprout Wash** carry success text and the flat page's pointed-claim highlight.
 
 ### Tertiary
-- **Cornflower** (`{colors.cornflower}`), **Cornflower Ink** and **Wash**: enterprise and info. The House plan's Enterprise badge, info badges in the Needs you fragment, a category leaf.
-- **Lilac** (`{colors.lilac}`): a category leaf; tentative state in illustrative product fragments.
-- **Coral** (`{colors.coral}`), **Coral Ink**, **Coral Wash**: danger only. Form errors and overdue badges.
-- **Ochre Ink** and **Ochre Wash** (`{colors.ochre-wash}`): warning badges only.
+- **Cornflower** (`cornflower`, ink, wash): enterprise. The House plan's Enterprise badge, info states.
+- **Coral, Lilac, Ochre** (each with ink and wash): overdue, tentative and warning states inside console replicas (the Needs you block, captured screens). Never section grounds, never decoration.
 
 ### Neutral
-- **Page** (`{colors.page}`): the ground everywhere, and the raised plan cells inside the Panel band.
-- **Panel** (`{colors.panel}`): sunken cells (the capture cell, the hero pipeline cell), the pricing band, segmented tracks, hover on secondary and ghost controls. **Panel Hover** (`{colors.panel-hover}`) is hover on Panel and the segmented track.
-- **Line** (`{colors.line}`): the opaque hairline. Every rule, divider and the sheet's column rules.
-- **Track** (`{colors.track}`): idle leaves and dots.
-- **Ink** (`{colors.ink}`), **Ink Secondary** (`{colors.ink-secondary}`), **Ink Muted** (`{colors.ink-muted}`), **Ink Faint** (`{colors.ink-faint}`): text, body under a title, mono labels and meta, placeholders and unpassed stage dots.
-- **On Dark** (`{colors.on-dark}`): text on Bottle, at full strength for headlines and 60 to 75% for body and labels.
-- **Borders** (`{colors.border-default}`, `{colors.border-input}`, `{colors.border-input-hover}`): translucent Ink, never a grey hex. Default frames captures and panels; input frames fields and secondary buttons.
-- **Mark** (`{colors.mark}`): the registration crosses on white rows.
-- **Focus** (`{colors.focus}`): the focus outline. Bottle at 55%, where the kit uses 30%, because the lighter ring falls under 3:1 on white.
+- **Page** (`page`): the ground everywhere, the table under the book, white stock on every leaf and plate.
+- **Panel** (`panel`): sunken cells and Panel bands (pricing), stage frames on the flat page, the category select's box. **Panel Hover** is its hover and the third paper tone.
+- **Line** (`line`): the opaque hairline for rules and dividers. **Track** for inactive dots and quiet bars.
+- **Ink** (`ink`), **Ink Secondary**, **Ink Muted**, **Ink Faint**: text, descriptions, mono labels, placeholders. **On Dark** for text on Bottle.
+- **Translucent borders** (`border-soft`, `border-default`, `border-input`, `border-input-hover`): edges of leaves, cards and fields; never a grey hex.
+- **Mark** (`mark`): registration marks where a row's rule crosses a column rule. **Focus** (`focus`): the outline focus ring.
 
 ### Named Rules
-**The One Lit Action Rule.** Sprout marks the single thing to do next in any view: the trial button. Every other button is Bottle, secondary or ghost. Two Sprout buttons in one view means there is no headline action.
+**The One Sprout Rule.** One Sprout action per view. The hero and the final band each carry the Sprout trial button; the nav's trial button is Bottle; plan buttons are Bottle. Two Sprout buttons in a view means there is no headline action.
 
-**The Status Is Not Decoration Rule.** Coral and Ochre speak only for danger and warning. Category leaves use Bottle, Sprout, Cornflower and Lilac only.
+**The Exact Hex Rule.** Anything flat stays its hex, in CSS and in the 3D alike. The book's materials are the palette's hexes (palette.ts mirrors globals.css); the canvas is transparent over the page's own white; shadows on the page are Bottle at 0.2 opacity, never grey or black.
 
-**The Bottle Close Rule.** The Bottle band is reserved for the close: the final call to action and the footer under it. Inside a Bottle band the rules turn On Dark at 14%, the marks On Dark at 60%, and the focus ring Sprout at 70%.
+**The Whole Block Rule.** Colour arrives edge to edge (a Bottle band, a Panel band, a Panel cell). The band redefines the rule and mark inks so the sheet's construction stays continuous across it.
 
-**The One Panel Band Rule.** Pricing is the one full Panel band on the home page. Elsewhere Panel lives in cells, not rows.
-
-**The No Acid, No Cream Rule.** Acid and Cream are print and social colours. Neither appears on a screen; Acid survives only as the A on the app icon.
+**The Print-Only Rule.** Acid and Cream never appear on screen. Arby's crest lime is fixed artwork, not a UI colour.
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque (with ui-sans-serif, system-ui), loaded with its `opsz` axis.
-**Body Font:** Instrument Sans (with ui-sans-serif, system-ui).
-**Label/Mono Font:** Martian Mono (with ui-monospace).
+**Display Font:** Bricolage Grotesque, 800 only, optical size axis loaded (with ui-sans-serif, system-ui)
+**Body Font:** Instrument Sans, 400 and 600 (with ui-sans-serif, system-ui)
+**Label/Mono Font:** Martian Mono (with ui-monospace)
 
-**Character:** A heavy, slightly quirky grotesque that the optical size axis tightens at display sizes, over a plain, even sans for reading, with a wide mono doing the small print of a run sheet.
+**Character:** A heavy, slightly quirky grotesque used as interface, against a plain, even sans for reading and a small tracked mono for the book's small print. The same three faces are printed into the 3D: Bricolage numerals and spine titles, mono running heads, a debossed Bricolage category on the cover.
 
 ### Hierarchy
-- **Statement** (800, `{typography.statement}`, 0.85): one per page, sized to hold one line from a laptop up.
-- **Hero** (800, `{typography.hero}`, 0.92): the home h1 only, with the vendor category set inside it as a live select.
-- **Readout** (800, `{typography.readout}`, 0.85): the number that matters, for example the plan price. Tabular figures.
-- **Close** (800, `{typography.close}`, 0.9): the last headline on a Bottle band, on the home and about pages.
-- **Headline** (800, `{typography.headline}`, 0.95): section heads, held to 16 to 18ch.
-- **Stage** (800, `{typography.stage}`, 0.95): stage titles and the Bottle stage numbers beside them.
-- **Page title / Section / Title** (800, 32px, 24px, 20px): plan names, legal headings and footer lines, panel and card titles.
-- **Lead** (400, 17px, 1.5; 19px from 640px in the hero): the paragraph under a headline, held to 44 to 52ch.
-- **Body** (400, 15px, 1.5): all reading text and claim bodies, held to 40 to 68ch. Claim labels are body at 600.
-- **UI** (600, 14px, 1.4): buttons, nav links, chips, fields.
-- **Mono eyebrow** (11px, +0.14em, uppercase): stage names in the strip, legal section indices, the head of a console block such as "Needs you".
-- **Mono label** (9px, +0.16em, uppercase): captions under captures, field labels, meta under prices and buttons, plan limits.
-- **Article body / Intro** (400, `{typography.article-body}` / `{typography.article-intro}`): long-form reading, capped at 70ch. Body uses Ink secondary; the opening paragraphs use Ink. Paragraph gaps are 20px.
+- **Statement** (800, 56 to 128px fluid, 0.85): the single statement moment, "Nothing needs you.", at the close beside the pile. One per page.
+- **Hero** (800, 36 to 96px fluid, 0.92): the home h1, hard left, with the category select set inline in a Panel box.
+- **Readout** (800, 52 to 96px fluid, 0.85): big numbers (plan prices). Numbers are always Bricolage.
+- **Headline** (800, 32 to 56px fluid, 0.95): section heads ("Cheaper than an hour of your time.", "Reasonable questions"). The final Bottle band runs larger, to 88px.
+- **Stage** (800, 28 to 44px fluid, 0.95): stage numerals and titles on the flat page. In the book the title scales with the page (`--page-k`), clamped 20 to 44px, and the numeral is printed on the paper instead.
+- **Section / Title** (800, 24px and 20px, 1.05): card and leaf titles (plan names), nav wordmark size.
+- **Lead** (400, 17px, 1.5): the hero lead and section intros, Ink Secondary.
+- **Body** (400 / 600, 15px, 1.5): reading text, claim labels (600) and claim bodies capped near 52ch.
+- **UI / Dense** (600 / 400, 14px / 13px, 1.4): controls, nav links, field text, tables.
+- **Eyebrow** (mono, 11px, +0.14em, uppercase): stage strip names, panel labels inside console replicas.
+- **Label** (mono, 9px, +0.16em, uppercase): small print. Leaf running heads, plate captions ("FIG. 01 · ENQUIRIES · REAL SCREEN, SEED DATA"), price units, meta beside a button ("14 DAYS FREE · NO CARD"), field labels.
 
 ### Named Rules
-**The Eight Hundred Rule.** Bricolage is set at 800 and nothing else, with no added letter spacing and balanced wrapping. The `opsz` axis does the tightening.
+**The 800 Only Rule.** Bricolage is set at 800 with no added letter spacing; the opsz axis does the tightening. No lighter weights, no faux bold.
 
-**The Label Voice Rule.** Mono is always uppercase and always small. It captions, labels fields, indexes and heads the console's blocks. It never sits above a heading as a kicker and never carries a sentence of body copy.
-
-**The Numbers Are Display Rule.** Prices, counts and stage numbers are Bricolage 800, never body.
+**The Small Print Rule.** Mono is always uppercase, always 9 or 11px, and always small print: a running head, a caption, a unit, a label. It is never body copy and never a line set above a headline to introduce it.
 
 ## Layout
 
-The page is a stack of full-bleed rows. Each row's top rule runs the window's width; the sheet inside is `min(100% - 1.5rem, 80rem)` on a phone, `- 3rem` from 640px and `- 5rem` from 1024px, with its own left and right rules. The floating nav and the stage strip share the sheet's width so the column rules carry straight through them. The first row drops its top rule and its marks and starts under the nav.
+**The ruled sheet.** Every section is a full-bleed row with a 1px top rule. Inside it, the sheet is one column (`min(100% - gutter, 80rem)`, gutters 0.75rem, 1.5rem and 2.5rem a side at phone, 640px and 1024px) whose side rules run unbroken from nav to footer. Where a row's rule crosses a column rule sits a 13px registration cross in Mark ink. Cells inside a row butt and draw their own hairline so each can carry its own ground. Rows develop in on scroll (from 0.18 opacity and 14px down) where scroll timelines exist, and the top rule draws in from the left.
 
-Inside a row, a heading block sits on a 12-column grid (headline across 7, supporting copy across 5, aligned to the foot), then a cell rule, then butted cells. Cells draw their own top or left hairline so any cell can carry its own ground: stacked on a phone, two by two from 640px, three or four across from 1024px.
+**The story.** On desktop (1024px and up, 3D running) the hero, the five stages and the statement share one transparent canvas, sticky at 100svh behind the rows. Inside the story the sheet's rules and marks step aside so no hairline crosses a page or a screen. Each stage gets a turn spacer (36svh) and a hold of 22svh per claim. Every turn takes a camera breath (pulling back as the leaf goes over). The stage copy is set sticky on the left-hand page, positioned by the engine (`--copy-top`, `--copy-left`, `--copy-width`), with claims stepping open one per stretch of hold. The right-hand page holds the screen.
 
-Rhythm: gutters 20, 32 and 48px by breakpoint; a row head opens 64px from the rule on a phone and 96px from 640px, and closes 40 or 48px above the cell rule; cells pad 32 to 40px vertically. Nothing is centred by default. Headlines sit hard left, and the stage rows swap the recording and its claims from side to side (recording across 8 columns, claims across 4).
+**The phone band.** Below 1024px the book is a sticky band under the nav, `min((100vw - 16px) × 0.625 + 64px, 40svh)` tall, ruled top and bottom, showing the right-hand page across its width. At rest an HTML plate zooms to the stage's close-up, with Whole screen and Stop controls under the page at full 44px touch size. Stage copy scrolls beneath as ordinary sheet rows.
 
-On a desktop the recording sticks in view beside a claim column taller than it. On a phone the claims stack under the recording, and the capture shows its close-up.
+**Asymmetry.** Big type sits hard left; the hero's closed book sits right and bleeds off the edge; the statement's pile bleeds off the right. Section grids split 5 / 7 (copy / screen) and alternate sides on the flat page. Nothing is centred by default.
 
-Rows develop as they scroll in: content is fully visible by default, and where scroll timelines exist and motion is allowed, a row rises 14px from 18% opacity over a stretch of its cover range, with cells staggered by `--develop-at`, and the row's top rule draws in from the left. A row that sits at the fold on load keeps its rule still.
+**Floating chrome.** The nav floats 12px below the top, matched to the sheet's width. The stage strip docks at the foot of the window while the stages are on screen. Arby's launcher sits bottom right, 52px, rising above the dock.
 
-Article reading keeps the sheet and its rules, with a contents rail beside a single prose column. Below 1024px the contents become a native, initially collapsed details control above the text. The desktop rail is 15rem, increasing to 18rem from 1280px, and sticks below the floating nav. Sections open after 48px on phones and 56px from 640px. A short takeaway block precedes the intro; captioned figures follow the sections they explain, with 40px vertical margins. These are Read-mode patterns; the Articles composition is recorded in its surface brief.
+**Touch.** Every control is at least 44px below 1024px.
 
 ## Elevation & Depth
 
-Content is flat and pressed, never lifted. Depth on content comes from letterpress: an inset bottom edge on solid buttons and an inset hairline on fields and sunken controls. Only floating chrome may blur: the nav bar, the stage strip while stuck, the category menu and the Arby Help panel.
+Two systems that never mix. The DOM is flat with letterpress: content is pressed into the page, and only floating chrome casts a blurred shadow. The 3D book is lit for real: a calibrated window key from the right and slightly toward the reader (60% of the light) plus a hemisphere (40%), PCF soft shadows from a 4096px map on desktop (2048px on a phone), a faint room environment (0.2) for reflections, and no tone mapping. Its shadow lands on the page through a Bottle-tinted catcher that fades out a little beyond the book, so nothing it throws reaches the nav or the window's edges.
 
 ### Shadow Vocabulary
-- **Letterpress button** (`box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4)`): Bottle and Sprout buttons, and the selected category chip.
-- **Inset panel** (`box-shadow: inset 0 0 0 1px rgba(23, 33, 27, 0.1)`): the category select field in the hero.
-- **Thumb** (`box-shadow: 0 1px 2px rgba(23, 33, 27, 0.28)`): the chosen segment of a segmented control.
-- **Lifted** (`box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07)`): floating chrome only.
+- **Button letterpress** (`box-shadow: inset 0 -4px 0 rgba(11,64,48,.4)`): the bottom edge of every solid button (Bottle and Sprout) and the active category chip.
+- **Panel letterpress** (`box-shadow: inset 0 0 0 1px rgba(23,33,27,.1)`): sunken panels drawn by inset hairline.
+- **Lifted** (`box-shadow: 0 10px 28px rgba(23,33,27,.13), 0 2px 5px rgba(23,33,27,.07)`): floating chrome only. The nav bar, the stage strip dock, Arby's launcher and help panel, menus, the plate's Stop control.
+- **Modal** (`box-shadow: 0 30px 70px rgba(23,33,27,.3)`): dialogs over a scrim.
+- **Thumb** (`box-shadow: 0 1px 2px rgba(23,33,27,.28)`): toggle and slider thumbs.
+- **Book shadow** (three.js ShadowMaterial, Bottle at 0.2): the only shadow the 3D casts onto the DOM page.
 
 ### Named Rules
-**The Lift Is For Chrome Rule.** A blurred shadow means the object floats over the page. Content cells, captures and plan cells never cast one; they sit in the sheet.
+**The Lit Object, Unlit Screen Rule.** The book, its cloth, paper, ribbon and arbour are lit, shaded and shadowed. A real console screen is never lit, never tone mapped, never blurred: it sits square-on at real size, and at rest the HTML plate takes over exactly on top of it. No bloom, glow, vignette or glass anywhere.
 
-**The Lift On Hover Rule.** Solid buttons rise 3px on the overshoot curve, with a 6px hover bridge under them so the cursor never drops off mid-lift, and settle back on press.
+**The Calibrated Light Rule.** A page lying flat takes exactly π of light. Change the light, the materials or the camera and the flat page must still render #FFFFFF, or the plate handoff shows a seam.
+
+**The Depth of Field Rule.** Bokeh runs on desktop only, and only on shots where no screen is being read: the hero's shut book (strength 0.85, focused mid-cover) and the closing pile (0.6, focused on the job's book on top). Focus is the focus point's view-space depth, never its straight-line distance; aperture is 0.0012 × strength and maxblur 0.012 × strength. Strength is zero on every resting spread.
+
+**The Paper Lifts Rule.** In the DOM, a pointed-at leaf or button lifts 3px toward the reader on the overshoot curve. A state is a position, never a colour wash.
 
 ## Shapes
 
-One small radius scale, borrowed whole from the kit. 6px for buttons, fields, captures, the nav bar, the stage strip, menus and panels; 4px for small controls (nav links, stage chips, badges, menu items, segments, the crosshair button); 2px for leaves. Every larger Tailwind radius maps back to 6px. Circles are kept for status and stage dots only. The ruled sheet itself is square: rules and cells have no corners. The registration mark is a 13px hairline cross.
+Slightly rounded on one scale: 6px for buttons, inputs, leaves, plates, panels and floating chrome; 4px for small controls (badges, chips, menu items, claim pointers, the selection ring on a screen); 2px for leaves of a pipeline, status dots and bars. Nothing above 6px; pills only for avatars. The book carries the same language at physical scale: boards stand 0.22 units proud of a 16 by 10 page block (the shape of a 16:10 console capture), and the ribbon is a narrow satin strip falling out over the tail. Hairlines are 1px everywhere; dashed borders mark only an empty or add slot.
 
 ## Components
 
 ### Buttons
-Pressed letterpress, lifting on the overshoot.
-- **Shape:** 6px corners.
-- **Sprout (the trial):** Sprout ground, Bottle text, 48px tall at 22px padding with 15px semibold text. One per view.
-- **Primary:** Bottle ground, On Dark text. The default solid button.
-- **Secondary:** white with an input-strength border; hover darkens the border and floods Panel.
-- **Ghost:** no box, Bottle text, Panel on hover. "Log in" in the nav.
-- **On dark:** On Dark at 10% with a 40% border, for secondary actions on a Bottle band.
-- **Sizes:** 36px (dense, 14px padding), 40px (UI, 16px), 48px (body, 22px).
-- **Hover / Focus:** colours ease out over 180ms; the lift uses the overshoot at 260ms. Focus is the 3px Bottle 55% outline, offset 1px, composing with the letterpress edge. Disabled is 45% opacity.
+Tactile and confident: a solid ground with a pressed bottom edge that lifts on hover.
+- **Shape:** gently rounded (6px), Instrument Sans 600, sizes 36 / 40 / 48px tall (sm / md / lg).
+- **Sprout:** Sprout ground, Bottle text, letterpress edge. The one headline action (Start free trial, lg in the hero and final band).
+- **Primary:** Bottle ground, On Dark text, letterpress edge; hover Bottle Deep. The default solid button (nav trial, plan buttons).
+- **Hover / Focus:** lifts 3px on the overshoot curve (260ms) with a 6px hover bridge beneath so the cursor never loses it mid-lift; colours ease plainly at 180ms. Focus is an outline in Focus ink (Sprout-tinted on Bottle bands).
+- **Secondary:** white, input-strength border, hover Panel ground and darker border. **Ghost:** no box, Bottle text, Panel on hover. **On Dark:** a translucent On Dark border and wash on Bottle bands.
 
-### Chips
-- **Style:** 40px, 6px corners, UI text, a 7px leaf in front. Unselected sits on white with an input border.
-- **State:** selected turns Bottle with the letterpress edge, a Sprout leaf and a check. A dashed-border mono chip ends the list as "and more".
+### Chips and badges
+- **Badges:** mono label, 4px corner, a wash ground with its ink (Panel / Ink Secondary for "Illustrative", Cornflower wash / ink for Enterprise, Bottle wash / Bottle).
+- **Category chips:** 40px, 6px, bordered; selected is a solid Bottle chip with letterpress and a Sprout dot that blooms in.
 
-### Cards / Containers
-- **Corner Style:** square inside the sheet; 6px on captures and floating panels.
-- **Background:** Page, or Panel for a sunken cell.
-- **Shadow Strategy:** none on content (see Elevation & Depth).
-- **Border:** the cell's own Line hairline; captures use Border default.
-- **Internal Padding:** 20/32/48px gutters, 32 to 40px vertical.
+### Leaf
+The DOM page of the book, and the site's card. White stock, a translucent hairline edge, the 6px corner. A running head in mono small print (label on the outer side, an optional note by the gutter) over a Line hairline, inset 20px; the body; a foot in mono small print with a tabular folio. Pricing plans are leaves with an engine-rendered volume (one book for Solo, a stack for Studio, a taller mixed stack for House) above a hairline. A leaf may lift on hover (3px, border to input-hover); it never fills with colour.
+
+### Plate
+A screen tipped in on a page: 10px of white stock round the capture, a hairline edge, 6px corner, and a mono caption under it ("FIG. 06 · REAL SCREEN, SEED DATA · AUTOMATIONS"). Captures carry a Sprout selection ring (2px, 4px corner, 15% Sprout fill) when a claim points at part of the screen. Below 640px a plate crops to the stage's close-up, with Whole screen to undo it. Product frames never scroll.
 
 ### Inputs / Fields
-- **Style:** white, input-strength border, 6px corners, 44px tall, 14px horizontal padding, UI text. Mono label above.
-- **Focus:** the border turns Bottle with a 3px Bottle 30% halo, the kit's field treatment. Hover darkens the border.
-- **Error:** a Coral Wash block with a Coral border at 40% and Coral Ink text.
+- **Style:** white, input-strength border, 6px, 14px UI text, 14px side padding, mono label above.
+- **Focus:** border goes Bottle with a 3px Bottle ring at 0.3. Hover darkens the border to input-hover. Editable controls rise to 16px under 640px so iOS does not zoom.
 
 ### Navigation
-The console's floating bar, moved to the top of the window: fixed 12px from the top, the sheet's width, white, a Line border, 6px corners and the lifted shadow, 56px tall. The wordmark sits left; links are 14px semibold Ink secondary, Panel on hover, and the current page is a Bottle 4px chip. A 2px Sprout line along its foot fills with reading progress. Below 1024px the links fold into a Menu button that opens a ruled list inside the bar.
+A floating white bar (56px, 6px, Line hairline, lifted shadow) matching the sheet's width, 12px from the top. Wordmark left; links in UI text right; Log in as ghost; Start free trial as a Bottle button. Below 1024px: wordmark, the Bottle trial button and a bordered Menu button, all 44px.
 
-### Segmented Control
-A Panel Hover track with 3px gaps and 4px padding; the chosen segment is white with the thumb shadow. Used for the billing interval, where the price flips in place on change.
+### Stage strip
+Floating chrome docked at the foot while the five stages are on screen: mono eyebrow names joined by hairlines. Passed stages get a Sprout dot, the current one a solid Bottle chip, the rest a hollow ring. It lifts in on the overshoot and glides away. On a phone only the current name shows.
 
-### Signature Component: the Stage Strip
-The booking header's progress, lifted from the console. A 48px white bar with 6px corners that sits at the head of stage 01 and sticks under the nav through the five stages, gaining the lifted shadow only while stuck. Five mono eyebrow stage names, each behind a dot, joined by hairlines. Passed stages fill their dot Sprout (with a bloom) and their following hairline Sprout over 320ms on the glide; the current stage sits in a Bottle chip; unpassed dots are Ink faint rings. On a phone only the current name shows.
+### The Book (signature)
+One job bound in woven Bottle cloth with a sheen, the wordmark foiled at the head of the cover and the visitor's category blind-debossed at its foot (re-pressed when the category select changes). Heavy white stock, Bricolage numerals and mono running heads printed on the left-hand pages (no rule under the head, so nothing crosses the numerals). One Sprout satin ribbon lies on the right-hand page by the gutter and falls over the tail edge, hanging straight down to whatever is below (onto the table, or down the front of the pile once the book is shelved); when that page turns, the page's root lifts the ribbon and tips it up, it slips toward the fold as the page steepens, and once the page passes upright it drops back onto the new right-hand page and lands soft, with no bounce. Its head stays tucked over the head edge, its tail is always the same length (lifting the ribbon draws the end in), and its width always lies in what carries it, so it never cuts through a page. States are things a book does: shut and dropped in with a settle and a riffle (hero), opened, turned one curling leaf per stage, shut and shelved on the pile. Camera and book are pure functions of scroll; nothing keeps state. At rest the camera is square over the right-hand page and the HTML plate (poster, then the stage's recording, with a Stop control) sharpens in over the printed screen.
 
-### Signature Component: the Capture Frame
-A real console screen at 16:10 inside a 6px frame with a Border default hairline, held in a Panel cell. Under it a mono label caption ("Screen recording, seed data") with a 7px leaf that turns Sprout while the recording plays. Recordings play only on screen, in a front tab, with motion allowed; otherwise the poster holds the box. When a claim points, the frame holds the poster, rings each measured region in a 2px Sprout ring over Sprout at 15%, and glides in on them up to 2.4 times over 320ms. Below 640px the frame shows a close-up shaped to the stage's focus region, a highlight re-frames that close-up instead of zooming, and a "Whole screen" button opens it out.
+### Mini book
+The same book, small (4:3), as a secondary page's one 3D moment (About, Contact, Wedding CRM Australia), its cover pressed with a word of that page. It drops in when scrolled into view, leans toward the pointer and riffles under hover. Decorative; reduced motion or no WebGL gets the engine-rendered still.
 
-### Signature Component: the Claim Cell
-Four claims beside each recording, each a ruled cell: a 600 body label, a body paragraph, and, where the screen can show it, a 28px crosshair button. Hovering the claim or focusing the crosshair points it; pressing pins it (the crosshair turns Bottle). A pointing claim takes Sprout Wash. A claim the screen cannot show has no crosshair.
-
-### Signature Component: the Category Select
-The hero's category word is a select at headline size: the field skin (Panel inside the inset hairline, 6px corners) with a chevron at 0.34em, its width animating on the overshoot between names and each name flipping in. It opens the kit's menu surface (white, Line border, lifted shadow, 4px items, a mono label head). It cycles every 2.6 seconds while on screen and untouched.
-
-### Arby Help Panel
-Floating chrome drawn like the console's Arby sheet: white, Line border, 6px corners, lifted shadow, a 40px Bottle square mark beside a 20px Bricolage title, starter questions as bordered 44px rows, the reader's words in a Panel bubble and replies as plain text. The send button is Bottle and goes flat to Panel when there is nothing to send. No Sprout anywhere in it.
-
-### Article rows
-A story is a ruled row with one link and one keyboard stop. A 3:2 photo or actual product cover sits beside a Bricolage title and small mono reading time; collection headings supply the category. The thumbnail is 88px on phones, 160px from 640px and 208px from 1024px, with 4px corners. Description and arrow appear from 640px. Hover and keyboard focus put Panel behind the row; hover turns the title Bottle and moves the arrow. Reduced motion removes the arrow transform. The same row serves the collection and related reading.
-
-### Article reading
-The contents use ordinary section anchors, small Instrument Sans links and a mono block heading on desktop. On phones a Bottle summary opens the native details control. Sources are a ruled numbered list; inline citations are small Bottle links to the matching source. Body links stay underlined. Neither the prose nor the contents casts a shadow. The article typography and paragraph gaps above preserve the reading rhythm across every story.
-
-The takeaway block is Panel with the inset hairline, 6px corners, 20px padding on phones and 24px from 640px. Its Bricolage heading sits over a 15px list with 12px item gaps; 32px separates it from the intro. Figure headings use Bricolage, with plain-text captions below. Real product captures stay unfiltered. Photography alone uses the Bottle colour treatment and carries credit. Article media never uses AI-generated raster images.
-
-HTML/CSS figures use real text, Bottle ink, Panel grounds and ruled divisions. Processes are ordered lists; comparison tables retain row and column headings in a keyboard-focusable horizontal scroll region. Charts show text values, begin bars at zero and link measured data to sources. Captions state whether a figure is measured, forecast or an example. Keep product demonstrations visibly distinct from research results; never imitate a product screen in CSS.
-
-Screenshot figures have a 6px frame with a translucent Ink border. Shared profiles may show labelled pairs or stacks of genuine extracts, with separate layouts below and above 640px. A figure's explicit focus takes precedence over the shared profile. Every crop uses the unchanged source; its alternative text combines the figure title and the selected detail. A native details control with a Panel summary reveals the original full screen; the summary changes to Show close-up while open. A separate full-size image link and demonstration-data label sit beneath the frame. Screens without a preview retain the original view.
+### Arby launcher
+Floating chrome bottom right: 52px white tile, Line hairline, 6px, lifted shadow, Arby standing in it in master colours. Lifts 3px on hover; opens the help panel.
 
 ## Do's and Don'ts
 
 ### Do:
-- **Do** put every new section in a ruled row inside the sheet, so the column rules and registration marks stay continuous from nav to footer.
-- **Do** set a claim in a cell beside the real screen that proves it, and give it measured regions when the screen can show it.
-- **Do** keep one Sprout action per view; make every other button Bottle, secondary or ghost.
-- **Do** set headlines in Bricolage 800 hard left with no added tracking, using the fluid steps (stage, headline, readout, hero, statement).
-- **Do** use mono labels to caption, to label fields, to index and to head a console block.
-- **Do** use 6px corners, 4px for small controls, 2px for leaves.
-- **Do** use the 3px Bottle 55% focus outline on white and the Sprout 70% outline on Bottle.
-- **Do** let motion pop on the overshoot (`cubic-bezier(0.34, 1.8, 0.45, 1)`, 260ms) and slide on the glide (`cubic-bezier(0.16, 0.84, 0.36, 1)`, 180 to 320ms), and keep content visible when motion is reduced.
+- **Do** keep every flat surface its exact hex, in CSS and in three.js; the canvas stays transparent over the page's own white.
+- **Do** light the book with the calibrated rig (a flat page takes exactly π) and keep tone mapping off, so white stock is #FFFFFF and screens read as captured.
+- **Do** hand a resting screen to the HTML plate, square-on and at real size; only the moves between rests are 3D.
+- **Do** drive every camera move, page turn and claim step from scroll position alone, so it reverses exactly.
+- **Do** use the book's own verbs for state: shut, opened, turned, shelved. In the DOM, lift 3px.
+- **Do** keep one Sprout action per view; the nav's trial button stays Bottle.
+- **Do** set Bricolage 800 hard left with charged empty paper around it, and print numbers in Bricolage.
+- **Do** give the flat page the same screens, and engine-rendered stills of the same book, each raster with a provenance sidecar.
+- **Do** keep depth of field to the hero and the pile, desktop only.
+- **Do** keep touch targets at 44px below 1024px.
 
 ### Don't:
-- **Don't** build a feature-card grid or flood a mid-page section with colour; the Bottle band is the close and Pricing is the one Panel band.
-- **Don't** put Acid or Cream on a screen.
-- **Don't** use Coral or Ochre for anything but danger and warning.
-- **Don't** set a mono kicker or eyebrow above a heading.
-- **Don't** cast a blurred shadow from content; only floating chrome lifts.
-- **Don't** use a radius above 6px, a pill, a gradient or glassmorphism.
-- **Don't** use a grey hex for a border; borders are translucent Ink and rules are Line.
-- **Don't** put Sprout in the Arby Help panel.
-
-### Mobile landing page
-
-Below 640px the hero uses tighter vertical spacing, a dedicated category line sized for every vendor name at 320px, and a full-width trial action above the secondary article link. Its pipeline uses proportional label and bar columns with wrapping stage labels. Below 1024px primary controls, category options, claim crosshairs and stage links have at least 44px touch targets. The stage dock names only the active stage until desktop width; phone connectors shrink so all five links fit. The menu scrolls within short viewports. Desktop composition and product close-ups stay as specified above.
+- **Don't** light, shade, tone map, blur or reflect a console screen.
+- **Don't** add bloom, glow, vignette, glass or a CSS gradient. Light falling across the book is not a gradient; a CSS gradient is.
+- **Don't** tilt a dashboard or float UI in space; screens live on the page.
+- **Don't** let a hairline, rule or mark cross a page or a screen inside the story.
+- **Don't** wash a leaf, a book or a stage with colour to show state.
+- **Don't** put Acid or Cream on screen, or recolour Arby or the wordmark.
+- **Don't** round above 6px or cast a blurred shadow from content; blur belongs to floating chrome.
+- **Don't** set mono as body copy, or as a kicker line above a headline.
+- **Don't** show a resting screen with depth of field, or a screen that scrolls inside its frame.

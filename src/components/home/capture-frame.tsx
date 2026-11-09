@@ -7,9 +7,10 @@ import { buttonClass } from "@/components/ui/button";
 import type { Capture, Region } from "@/content/stages";
 
 /**
- * A real console screen, framed the way the console frames a card: a 6px
- * corner and a hairline at 10% ink. The caption under it says what it is
- * (a real screen, seed data), with a 7px Sprout leaf while a recording plays.
+ * A real console screen, tipped in on a page the way the book prints one:
+ * white stock round it, a hairline at 10% ink, and a figure caption under it
+ * in mono small print (a real screen, seed data), with a 7px Sprout leaf
+ * while a recording plays.
  *
  * Recordings play only while the frame is on screen, the tab is in front and
  * motion is allowed. The poster holds the same box otherwise, covers a load
@@ -97,6 +98,8 @@ export function CaptureFrame({
   crop,
   focus,
   highlight,
+  figure,
+  plate = true,
   className,
 }: {
   capture: Capture;
@@ -109,6 +112,10 @@ export function CaptureFrame({
   focus?: Region;
   /** Regions to ring, in percent of the frame. */
   highlight?: readonly Region[] | null;
+  /** The figure number printed before the caption, as in a book: "Fig. 01". */
+  figure?: string;
+  /** Print the screen tipped in on a page: white stock round it, a hairline edge. */
+  plate?: boolean;
   className?: string;
 }) {
   const frame = useRef<HTMLElement>(null);
@@ -162,11 +169,13 @@ export function CaptureFrame({
       : undefined;
 
   return (
-    <figure ref={frame} className={`m-0 ${className ?? ""}`}>
+    <figure
+      ref={frame}
+      className={`m-0 ${plate ? "plate" : ""} ${className ?? ""}`}
+    >
       <div
-        data-arby-perch="capture"
         data-crop={cropped ? "on" : "off"}
-        className="capture-crop relative overflow-hidden rounded-md border border-border-default bg-panel"
+        className="capture-crop relative overflow-hidden rounded-xs border border-border-default bg-panel"
         style={{ ...(crop ? { aspectRatio: crop } : {}), ...focusStyle }}
       >
         <div
@@ -217,7 +226,7 @@ export function CaptureFrame({
         </div>
       </div>
       {caption || capture.recording || focus ? (
-        <figcaption className="mt-3 flex min-h-9 flex-wrap items-center justify-between gap-x-4 gap-y-2">
+        <figcaption className="plate-caption flex min-h-9 flex-wrap items-center justify-between gap-x-4 gap-y-2">
           {caption ? (
             <span className="mono-label flex items-center gap-2 text-ink-muted">
               <span
@@ -226,6 +235,7 @@ export function CaptureFrame({
                   playing ? "bg-sprout" : "bg-track"
                 }`}
               />
+              {figure ? <span className="text-ink">{figure}</span> : null}
               {caption}
             </span>
           ) : null}

@@ -1,0 +1,60 @@
+/*
+ * The Arby Help launcher: floating chrome (white, the Line hairline, the 6px
+ * corner and the lifted shadow, the one kind of object allowed to blur) with
+ * Arby standing in it in master colours. 52px, so it is a full touch target
+ * on a phone. It rises above the stage dock while the dock is out, lifts 3px
+ * on hover on the overshoot, and steps aside while the chat is open.
+ */
+.arby-launcher {
+  position: fixed;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 45;
+  display: grid;
+  place-items: end center;
+  width: 52px;
+  height: 52px;
+  padding: 7px 6px 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--page);
+  box-shadow: var(--shadow-lifted);
+  transition:
+    translate var(--duration-pop) var(--curve-overshoot),
+    bottom var(--duration-pop) var(--curve-glide),
+    opacity var(--duration-base) var(--curve-glide),
+    border-color var(--duration-base) ease-out;
+}
+.arby-launcher svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.arby-launcher:hover {
+  translate: 0 -3px;
+  border-color: var(--border-input-hover);
+}
+.arby-launcher:active {
+  translate: 0 0;
+}
+.arby-launcher[data-open="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Clear of the stage dock (48px tall, 12px off the foot) while it is out. */
+:root[data-stage-dock] .arby-launcher {
+  bottom: calc(max(12px, env(safe-area-inset-bottom)) + 60px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arby-launcher:hover {
+    translate: none;
+  }
+}
+
+@media print {
+  .arby-launcher {
+    display: none;
+  }
+}

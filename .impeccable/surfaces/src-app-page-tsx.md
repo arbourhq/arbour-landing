@@ -2,42 +2,31 @@
 version: 1
 slug: "src-app-page-tsx"
 primary_target: "src/app/page.tsx"
-related_targets: ["src/components/home","src/content"]
+related_targets: ["src/components/home","src/components/book","src/content"]
 ---
 
-# Home page (product register redesign)
+# Home page (3D redesign: The Book)
 
-Scope: `/`, the launched marketing home, redesigned 26 October 2026 into the console's own register. Mode: Persuade. Visitor: a wedding vendor deciding whether to start a 14-day trial; a solo operator on a phone from the Instagram bio, or a studio owner on a laptop comparing against the CRM they pay for.
+Scope: `/`, redesigned 7 November 2026, replacing the Docket Rail (rejected by the user on concept, flat unlit rendering, small and busy composition, and pacing). Home gets the full real-time three.js treatment, fully lit (user decision, 7 Nov 2026: real light, soft shadows, rich materials, depth of field, in the brand palette). About, Pricing, Contact and Wedding CRM get the new look with one lighter 3D moment each; Bio and legal stay simple. Mode: Persuade.
 
-Job: recognise the console they would use, see the real screens doing each stage on one record, and start the trial (no card) at `app.usearbour.com/sign-up`. House routes to `/contact`.
+Visitor: a wedding vendor deciding on a 14-day trial; a solo operator on a phone from Instagram, or a studio owner on a laptop comparing CRMs. Job: recognise the console, watch one record carry a job through five stages on real screens, start the trial at `app.usearbour.com/sign-up`. House routes to `/contact`.
 
-Proof: the five stage recordings in `public/product/demos/` and the captures in `public/product/`, labelled as real screens with seed data. Code-drawn fragments (pipeline board, needs-you rail, automation rule) are illustrative and say so. No customers, testimonials or usage numbers.
+Proof: the five stage recordings and posters in `public/product/demos/` and the captures in `public/product/`, labelled real screens with seed data. Illustrative counts say so. No customers, testimonials or usage numbers.
 
-Constraints: the user kept the copy word for word and the Arby scroll companion; the category picker and the five-stage layout were released for rework. "Pick yours and the page follows" stays true, so a category choice still reskins the page. brand.md binding as rewritten for the product register.
+Constraints: brand.md binding except the retired print-flat 3D rule (exact hexes on every flat surface, no gradients in UI, one Sprout button per view, 6px ceiling, letterpress on content, blur only on floating chrome). Screens rest flat, unlit and untone-mapped, at real size, and hand off to HTML at rest; only transitions are 3D. Copy kept word for word unless a change is stated. Category picker still reskins the page. Arby stays a still launcher at the bottom right. Touch targets 44px below 1024px. Reduced motion, no hardware WebGL2 and low-power phones get a complete flat page with the same screens.
+
+Raises kept from declined challengers: the scroll is one crank that drives every turn and reverses exactly (paper automata); a spread's front is its summary and opening unfolds the detail (toy-aisle window boxes; its paper arbour at The day was cut by the user on 8 November 2026); spreads set asymmetrically on charged empty paper, one accent per view (ikebana).
 
 ## Direction contract
 
-THESIS: One ruled sheet, nav to footer, in the console's own register: every claim sits in a cell beside the screen that proves it. Refuses the feature-card grid and the old colour floods.
+THESIS: The job is a book whose pages the scroll turns from enquiry to invoice, each spread holding the real screen square-on. Refuses floating UI and tilted dashboards.
 
-OWN-WORLD: White page, Panel cells, Line rules with registration marks at crossings; Bottle structure, one Sprout action; Bricolage 800 hard left, mono indices; 6px corners, letterpress buttons, lift only on floating chrome.
+OWN-WORLD: White page as table, window light, soft shadows; woven debossed Bottle cloth; curling white stock; one Sprout ribbon; unlit real screens; printed Bricolage numerals.
 
-STORY: "That is my console." Real screens run every stage on one record. Start the trial.
+STORY: My book, my console: one record, five spreads of real screens, shelved when paid. Start the trial.
 
-FIRST VIEWPORT: Floating nav. h1 hard left at 96px, category as an inline select; lead; Sprout trial button; live pipeline fragment right; stage 01 row at the fold.
+FIRST VIEWPORT: Nav; h1 hard left with category select; lead; Sprout trial. Right: the closed book, huge, off the edge, shadowed on the page; drops, settles, riffles.
 
-FORM: The Ruled Sheet, sixth of seven. Seed d7ddbaa4. Signature: the booking header's stage strip sticks through the stages, dots filling Sprout.
+FORM: The Book, fifth of seven, seed 855a21e5. Signature: scroll-turned pages, each lifting the ribbon and laying it back down.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance.
-
-## Mobile refinement, 28 October 2026
-
-Preserve the desktop composition and all copy. Below 640px the hero has less
-vertical padding, its category occupies a dedicated line at a size that fits
-every name at 320px, and the full-width trial action precedes the secondary
-article link. Its pipeline uses proportional label and bar columns, a narrow
-count column, and wrapping labels rather than truncation.
-
-Below 1024px controls have at least 44px touch targets. The stage dock names
-only the active stage and keeps every stage directly accessible; phone
-connectors shrink to fit. The mobile menu scrolls within short viewports.
-Product close-ups and their whole-screen controls remain unchanged.

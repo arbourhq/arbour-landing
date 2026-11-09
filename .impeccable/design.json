@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-26T00:00:00.000Z",
+  "generatedAt": "2026-11-07T12:00:00Z",
   "title": "Design System: Arbour marketing site",
   "extensions": {
     "colorMeta": {
@@ -9,164 +9,74 @@
         "displayName": "Bottle",
         "canonical": "#0b4030",
         "tonalRamp": [
-          "oklch(15% 0.07 165)",
-          "oklch(25% 0.07 165)",
-          "oklch(35% 0.07 165)",
-          "oklch(45% 0.07 165)",
-          "oklch(55% 0.07 165)",
-          "oklch(65% 0.07 165)",
-          "oklch(80% 0.07 165)",
-          "oklch(95% 0.07 165)"
+          "#052117",
+          "#083023",
+          "#0b4030",
+          "#2d6150",
+          "#5a8a7a",
+          "#9dbcb0",
+          "#d2e2d8",
+          "#e9f1eb"
         ]
+      },
+      "bottle-deep": {
+        "role": "primary",
+        "displayName": "Bottle Deep",
+        "canonical": "#083023"
       },
       "bottle-ink": {
         "role": "primary",
         "displayName": "Bottle Ink",
-        "canonical": "#052117",
-        "tonalRamp": [
-          "oklch(15% 0.05 165)",
-          "oklch(25% 0.05 165)",
-          "oklch(35% 0.05 165)",
-          "oklch(45% 0.05 165)",
-          "oklch(55% 0.05 165)",
-          "oklch(65% 0.05 165)",
-          "oklch(80% 0.05 165)",
-          "oklch(95% 0.05 165)"
-        ]
+        "canonical": "#052117"
       },
       "bottle-wash": {
         "role": "primary",
         "displayName": "Bottle Wash",
-        "canonical": "#e9f1eb",
-        "tonalRamp": [
-          "oklch(15% 0.02 155)",
-          "oklch(25% 0.02 155)",
-          "oklch(35% 0.02 155)",
-          "oklch(45% 0.02 155)",
-          "oklch(55% 0.02 155)",
-          "oklch(65% 0.02 155)",
-          "oklch(80% 0.02 155)",
-          "oklch(95% 0.02 155)"
-        ]
+        "canonical": "#e9f1eb"
       },
       "sprout": {
         "role": "secondary",
         "displayName": "Sprout",
         "canonical": "#9fe870",
         "tonalRamp": [
-          "oklch(15% 0.17 135)",
-          "oklch(25% 0.17 135)",
-          "oklch(35% 0.17 135)",
-          "oklch(45% 0.17 135)",
-          "oklch(55% 0.17 135)",
-          "oklch(65% 0.17 135)",
-          "oklch(80% 0.17 135)",
-          "oklch(95% 0.17 135)"
+          "#1a3a12",
+          "#2a5a1d",
+          "#4f8f33",
+          "#86d653",
+          "#9fe870",
+          "#bff0a0",
+          "#d9f7c6",
+          "#eafadd"
         ]
+      },
+      "sprout-press": {
+        "role": "secondary",
+        "displayName": "Sprout Press",
+        "canonical": "#86d653"
       },
       "sprout-ink": {
         "role": "secondary",
         "displayName": "Sprout Ink",
-        "canonical": "#2a5a1d",
-        "tonalRamp": [
-          "oklch(15% 0.09 140)",
-          "oklch(25% 0.09 140)",
-          "oklch(35% 0.09 140)",
-          "oklch(45% 0.09 140)",
-          "oklch(55% 0.09 140)",
-          "oklch(65% 0.09 140)",
-          "oklch(80% 0.09 140)",
-          "oklch(95% 0.09 140)"
-        ]
+        "canonical": "#2a5a1d"
       },
       "sprout-wash": {
         "role": "secondary",
         "displayName": "Sprout Wash",
-        "canonical": "#eafadd",
-        "tonalRamp": [
-          "oklch(15% 0.05 135)",
-          "oklch(25% 0.05 135)",
-          "oklch(35% 0.05 135)",
-          "oklch(45% 0.05 135)",
-          "oklch(55% 0.05 135)",
-          "oklch(65% 0.05 135)",
-          "oklch(80% 0.05 135)",
-          "oklch(95% 0.05 135)"
-        ]
-      },
-      "cornflower": {
-        "role": "tertiary",
-        "displayName": "Cornflower",
-        "canonical": "#4e6df5",
-        "tonalRamp": [
-          "oklch(15% 0.19 270)",
-          "oklch(25% 0.19 270)",
-          "oklch(35% 0.19 270)",
-          "oklch(45% 0.19 270)",
-          "oklch(55% 0.19 270)",
-          "oklch(65% 0.19 270)",
-          "oklch(80% 0.19 270)",
-          "oklch(95% 0.19 270)"
-        ]
-      },
-      "cornflower-ink": {
-        "role": "tertiary",
-        "displayName": "Cornflower Ink",
-        "canonical": "#2438a8",
-        "tonalRamp": [
-          "oklch(15% 0.17 270)",
-          "oklch(25% 0.17 270)",
-          "oklch(35% 0.17 270)",
-          "oklch(45% 0.17 270)",
-          "oklch(55% 0.17 270)",
-          "oklch(65% 0.17 270)",
-          "oklch(80% 0.17 270)",
-          "oklch(95% 0.17 270)"
-        ]
-      },
-      "cornflower-wash": {
-        "role": "tertiary",
-        "displayName": "Cornflower Wash",
-        "canonical": "#e7ebfe",
-        "tonalRamp": [
-          "oklch(15% 0.03 270)",
-          "oklch(25% 0.03 270)",
-          "oklch(35% 0.03 270)",
-          "oklch(45% 0.03 270)",
-          "oklch(55% 0.03 270)",
-          "oklch(65% 0.03 270)",
-          "oklch(80% 0.03 270)",
-          "oklch(95% 0.03 270)"
-        ]
-      },
-      "lilac": {
-        "role": "tertiary",
-        "displayName": "Lilac",
-        "canonical": "#b9a7ff",
-        "tonalRamp": [
-          "oklch(15% 0.12 290)",
-          "oklch(25% 0.12 290)",
-          "oklch(35% 0.12 290)",
-          "oklch(45% 0.12 290)",
-          "oklch(55% 0.12 290)",
-          "oklch(65% 0.12 290)",
-          "oklch(80% 0.12 290)",
-          "oklch(95% 0.12 290)"
-        ]
+        "canonical": "#eafadd"
       },
       "coral": {
         "role": "tertiary",
         "displayName": "Coral",
         "canonical": "#ff4438",
         "tonalRamp": [
-          "oklch(15% 0.21 30)",
-          "oklch(25% 0.21 30)",
-          "oklch(35% 0.21 30)",
-          "oklch(45% 0.21 30)",
-          "oklch(55% 0.21 30)",
-          "oklch(65% 0.21 30)",
-          "oklch(80% 0.21 30)",
-          "oklch(95% 0.21 30)"
+          "#4f0a05",
+          "#9e1d14",
+          "#d22f24",
+          "#ff4438",
+          "#ff7a70",
+          "#ffaaa3",
+          "#ffd0cb",
+          "#ffe5e2"
         ]
       },
       "coral-ink": {
@@ -174,14 +84,14 @@
         "displayName": "Coral Ink",
         "canonical": "#9e1d14",
         "tonalRamp": [
-          "oklch(15% 0.15 30)",
-          "oklch(25% 0.15 30)",
-          "oklch(35% 0.15 30)",
-          "oklch(45% 0.15 30)",
-          "oklch(55% 0.15 30)",
-          "oklch(65% 0.15 30)",
-          "oklch(80% 0.15 30)",
-          "oklch(95% 0.15 30)"
+          "#440c09",
+          "#71150e",
+          "#9e1d14",
+          "#cc251a",
+          "#e74c41",
+          "#ee7f77",
+          "#f5b6b2",
+          "#fceae8"
         ]
       },
       "coral-wash": {
@@ -189,14 +99,119 @@
         "displayName": "Coral Wash",
         "canonical": "#ffe5e2",
         "tonalRamp": [
-          "oklch(15% 0.03 25)",
-          "oklch(25% 0.03 25)",
-          "oklch(35% 0.03 25)",
-          "oklch(45% 0.03 25)",
-          "oklch(55% 0.03 25)",
-          "oklch(65% 0.03 25)",
-          "oklch(80% 0.03 25)",
-          "oklch(95% 0.03 25)"
+          "#4c0800",
+          "#800d00",
+          "#b21200",
+          "#e61800",
+          "#ff3f29",
+          "#ff7666",
+          "#ffb1a8",
+          "#ffe8e5"
+        ]
+      },
+      "cornflower": {
+        "role": "tertiary",
+        "displayName": "Cornflower",
+        "canonical": "#4e6df5",
+        "tonalRamp": [
+          "#121c54",
+          "#2438a8",
+          "#3a57dc",
+          "#4e6df5",
+          "#7d93f8",
+          "#a9b8fa",
+          "#d0d9fd",
+          "#e7ebfe"
+        ]
+      },
+      "cornflower-ink": {
+        "role": "tertiary",
+        "displayName": "Cornflower Ink",
+        "canonical": "#2438a8",
+        "tonalRamp": [
+          "#0e153f",
+          "#172369",
+          "#203193",
+          "#283fbd",
+          "#4f64d9",
+          "#8190e4",
+          "#b8c0f0",
+          "#eaecfa"
+        ]
+      },
+      "cornflower-wash": {
+        "role": "tertiary",
+        "displayName": "Cornflower Wash",
+        "canonical": "#e7ebfe",
+        "tonalRamp": [
+          "#030f49",
+          "#05197a",
+          "#0724ab",
+          "#092edc",
+          "#3154f6",
+          "#6c85f9",
+          "#acbafc",
+          "#e7ebfe"
+        ]
+      },
+      "lilac": {
+        "role": "tertiary",
+        "displayName": "Lilac",
+        "canonical": "#b9a7ff",
+        "tonalRamp": [
+          "#10004c",
+          "#1a0080",
+          "#2500b2",
+          "#2f00e6",
+          "#5529ff",
+          "#8566ff",
+          "#baa8ff",
+          "#ebe5ff"
+        ]
+      },
+      "lilac-ink": {
+        "role": "tertiary",
+        "displayName": "Lilac Ink",
+        "canonical": "#4c3a99",
+        "tonalRamp": [
+          "#1c1537",
+          "#2e235c",
+          "#403181",
+          "#533fa6",
+          "#7664c4",
+          "#9d90d5",
+          "#c8c0e7",
+          "#efedf8"
+        ]
+      },
+      "lilac-wash": {
+        "role": "tertiary",
+        "displayName": "Lilac Wash",
+        "canonical": "#f1edff",
+        "tonalRamp": [
+          "#11004c",
+          "#1c0080",
+          "#2800b2",
+          "#3300e6",
+          "#5829ff",
+          "#8866ff",
+          "#bca8ff",
+          "#ebe5ff"
+        ]
+      },
+      "ochre": {
+        "role": "tertiary",
+        "displayName": "Ochre",
+        "canonical": "#dfa023",
+        "tonalRamp": [
+          "#43300a",
+          "#6f4f10",
+          "#9c6f17",
+          "#c88f1d",
+          "#e4ae44",
+          "#ecc579",
+          "#f4deb3",
+          "#fcf5e9"
         ]
       },
       "ochre-ink": {
@@ -204,14 +219,14 @@
         "displayName": "Ochre Ink",
         "canonical": "#7a5510",
         "tonalRamp": [
-          "oklch(15% 0.1 75)",
-          "oklch(25% 0.1 75)",
-          "oklch(35% 0.1 75)",
-          "oklch(45% 0.1 75)",
-          "oklch(55% 0.1 75)",
-          "oklch(65% 0.1 75)",
-          "oklch(80% 0.1 75)",
-          "oklch(95% 0.1 75)"
+          "#442f09",
+          "#714f0f",
+          "#9e6e15",
+          "#cb8d1b",
+          "#e6ad42",
+          "#edc478",
+          "#f5deb2",
+          "#fcf5e8"
         ]
       },
       "ochre-wash": {
@@ -219,364 +234,213 @@
         "displayName": "Ochre Wash",
         "canonical": "#fbf1d6",
         "tonalRamp": [
-          "oklch(15% 0.04 90)",
-          "oklch(25% 0.04 90)",
-          "oklch(35% 0.04 90)",
-          "oklch(45% 0.04 90)",
-          "oklch(55% 0.04 90)",
-          "oklch(65% 0.04 90)",
-          "oklch(80% 0.04 90)",
-          "oklch(95% 0.04 90)"
+          "#463507",
+          "#74580b",
+          "#a37b10",
+          "#d19e14",
+          "#ecbc3c",
+          "#f1cf74",
+          "#f7e4b0",
+          "#fdf7e8"
         ]
       },
       "page": {
         "role": "neutral",
         "displayName": "Page",
-        "canonical": "#ffffff",
-        "tonalRamp": [
-          "oklch(15% 0.0 0)",
-          "oklch(25% 0.0 0)",
-          "oklch(35% 0.0 0)",
-          "oklch(45% 0.0 0)",
-          "oklch(55% 0.0 0)",
-          "oklch(65% 0.0 0)",
-          "oklch(80% 0.0 0)",
-          "oklch(95% 0.0 0)"
-        ]
+        "canonical": "#ffffff"
       },
       "panel": {
         "role": "neutral",
         "displayName": "Panel",
         "canonical": "#f5f6f2",
         "tonalRamp": [
-          "oklch(15% 0.008 125)",
-          "oklch(25% 0.008 125)",
-          "oklch(35% 0.008 125)",
-          "oklch(45% 0.008 125)",
-          "oklch(55% 0.008 125)",
-          "oklch(65% 0.008 125)",
-          "oklch(80% 0.008 125)",
-          "oklch(95% 0.008 125)"
+          "#17211b",
+          "#57574f",
+          "#61615a",
+          "#6a6a62",
+          "#ddded8",
+          "#edeee9",
+          "#f5f6f2",
+          "#ffffff"
         ]
       },
       "panel-hover": {
         "role": "neutral",
         "displayName": "Panel Hover",
-        "canonical": "#edeee9",
-        "tonalRamp": [
-          "oklch(15% 0.008 125)",
-          "oklch(25% 0.008 125)",
-          "oklch(35% 0.008 125)",
-          "oklch(45% 0.008 125)",
-          "oklch(55% 0.008 125)",
-          "oklch(65% 0.008 125)",
-          "oklch(80% 0.008 125)",
-          "oklch(95% 0.008 125)"
-        ]
+        "canonical": "#edeee9"
       },
       "line": {
         "role": "neutral",
         "displayName": "Line",
-        "canonical": "#efefec",
-        "tonalRamp": [
-          "oklch(15% 0.004 110)",
-          "oklch(25% 0.004 110)",
-          "oklch(35% 0.004 110)",
-          "oklch(45% 0.004 110)",
-          "oklch(55% 0.004 110)",
-          "oklch(65% 0.004 110)",
-          "oklch(80% 0.004 110)",
-          "oklch(95% 0.004 110)"
-        ]
+        "canonical": "#efefec"
       },
       "track": {
         "role": "neutral",
         "displayName": "Track",
-        "canonical": "#ddded8",
-        "tonalRamp": [
-          "oklch(15% 0.008 120)",
-          "oklch(25% 0.008 120)",
-          "oklch(35% 0.008 120)",
-          "oklch(45% 0.008 120)",
-          "oklch(55% 0.008 120)",
-          "oklch(65% 0.008 120)",
-          "oklch(80% 0.008 120)",
-          "oklch(95% 0.008 120)"
-        ]
+        "canonical": "#ddded8"
       },
       "ink": {
         "role": "neutral",
         "displayName": "Ink",
-        "canonical": "#17211b",
-        "tonalRamp": [
-          "oklch(15% 0.015 155)",
-          "oklch(25% 0.015 155)",
-          "oklch(35% 0.015 155)",
-          "oklch(45% 0.015 155)",
-          "oklch(55% 0.015 155)",
-          "oklch(65% 0.015 155)",
-          "oklch(80% 0.015 155)",
-          "oklch(95% 0.015 155)"
-        ]
+        "canonical": "#17211b"
       },
       "ink-secondary": {
         "role": "neutral",
         "displayName": "Ink Secondary",
-        "canonical": "#57574f",
-        "tonalRamp": [
-          "oklch(15% 0.01 110)",
-          "oklch(25% 0.01 110)",
-          "oklch(35% 0.01 110)",
-          "oklch(45% 0.01 110)",
-          "oklch(55% 0.01 110)",
-          "oklch(65% 0.01 110)",
-          "oklch(80% 0.01 110)",
-          "oklch(95% 0.01 110)"
-        ]
+        "canonical": "#57574f"
       },
       "ink-muted": {
         "role": "neutral",
         "displayName": "Ink Muted",
-        "canonical": "#61615a",
-        "tonalRamp": [
-          "oklch(15% 0.01 110)",
-          "oklch(25% 0.01 110)",
-          "oklch(35% 0.01 110)",
-          "oklch(45% 0.01 110)",
-          "oklch(55% 0.01 110)",
-          "oklch(65% 0.01 110)",
-          "oklch(80% 0.01 110)",
-          "oklch(95% 0.01 110)"
-        ]
+        "canonical": "#61615a"
       },
       "ink-faint": {
         "role": "neutral",
         "displayName": "Ink Faint",
-        "canonical": "#6a6a62",
-        "tonalRamp": [
-          "oklch(15% 0.01 110)",
-          "oklch(25% 0.01 110)",
-          "oklch(35% 0.01 110)",
-          "oklch(45% 0.01 110)",
-          "oklch(55% 0.01 110)",
-          "oklch(65% 0.01 110)",
-          "oklch(80% 0.01 110)",
-          "oklch(95% 0.01 110)"
-        ]
+        "canonical": "#6a6a62"
       },
       "on-dark": {
         "role": "neutral",
         "displayName": "On Dark",
-        "canonical": "#f4f4f0",
-        "tonalRamp": [
-          "oklch(15% 0.006 110)",
-          "oklch(25% 0.006 110)",
-          "oklch(35% 0.006 110)",
-          "oklch(45% 0.006 110)",
-          "oklch(55% 0.006 110)",
-          "oklch(65% 0.006 110)",
-          "oklch(80% 0.006 110)",
-          "oklch(95% 0.006 110)"
-        ]
+        "canonical": "#f4f4f0"
       },
       "border-default": {
         "role": "neutral",
-        "displayName": "Border Default",
-        "canonical": "rgba(23, 33, 27, 0.1)",
-        "tonalRamp": [
-          "oklch(15% 0.015 155)",
-          "oklch(25% 0.015 155)",
-          "oklch(35% 0.015 155)",
-          "oklch(45% 0.015 155)",
-          "oklch(55% 0.015 155)",
-          "oklch(65% 0.015 155)",
-          "oklch(80% 0.015 155)",
-          "oklch(95% 0.015 155)"
-        ]
+        "displayName": "Panel Border",
+        "canonical": "rgba(23, 33, 27, 0.1)"
+      },
+      "border-soft": {
+        "role": "neutral",
+        "displayName": "Soft Border",
+        "canonical": "rgba(23, 33, 27, 0.05)"
       },
       "border-input": {
         "role": "neutral",
-        "displayName": "Border Input",
-        "canonical": "rgba(23, 33, 27, 0.12)",
-        "tonalRamp": [
-          "oklch(15% 0.015 155)",
-          "oklch(25% 0.015 155)",
-          "oklch(35% 0.015 155)",
-          "oklch(45% 0.015 155)",
-          "oklch(55% 0.015 155)",
-          "oklch(65% 0.015 155)",
-          "oklch(80% 0.015 155)",
-          "oklch(95% 0.015 155)"
-        ]
+        "displayName": "Input Border",
+        "canonical": "rgba(23, 33, 27, 0.12)"
       },
       "border-input-hover": {
         "role": "neutral",
-        "displayName": "Border Input Hover",
-        "canonical": "rgba(23, 33, 27, 0.28)",
-        "tonalRamp": [
-          "oklch(15% 0.015 155)",
-          "oklch(25% 0.015 155)",
-          "oklch(35% 0.015 155)",
-          "oklch(45% 0.015 155)",
-          "oklch(55% 0.015 155)",
-          "oklch(65% 0.015 155)",
-          "oklch(80% 0.015 155)",
-          "oklch(95% 0.015 155)"
-        ]
+        "displayName": "Input Border Hover",
+        "canonical": "rgba(23, 33, 27, 0.28)"
       },
       "mark": {
         "role": "neutral",
         "displayName": "Registration Mark",
-        "canonical": "rgba(23, 33, 27, 0.5)",
-        "tonalRamp": [
-          "oklch(15% 0.015 155)",
-          "oklch(25% 0.015 155)",
-          "oklch(35% 0.015 155)",
-          "oklch(45% 0.015 155)",
-          "oklch(55% 0.015 155)",
-          "oklch(65% 0.015 155)",
-          "oklch(80% 0.015 155)",
-          "oklch(95% 0.015 155)"
-        ]
+        "canonical": "rgba(23, 33, 27, 0.5)"
       },
       "focus": {
-        "role": "primary",
+        "role": "neutral",
         "displayName": "Focus Ring",
-        "canonical": "rgba(11, 64, 48, 0.55)",
-        "tonalRamp": [
-          "oklch(15% 0.07 165)",
-          "oklch(25% 0.07 165)",
-          "oklch(35% 0.07 165)",
-          "oklch(45% 0.07 165)",
-          "oklch(55% 0.07 165)",
-          "oklch(65% 0.07 165)",
-          "oklch(80% 0.07 165)",
-          "oklch(95% 0.07 165)"
-        ]
+        "canonical": "rgba(11, 64, 48, 0.55)"
       }
     },
     "typographyMeta": {
       "statement": {
         "displayName": "Statement",
-        "purpose": "One per page, held to one line from a laptop up."
+        "purpose": "The single statement moment per page: \"Nothing needs you.\" beside the closing pile."
       },
       "hero": {
         "displayName": "Hero",
-        "purpose": "The home h1 only, with the category select inside it."
+        "purpose": "The home h1, hard left, with the category select inline."
       },
       "readout": {
         "displayName": "Readout",
-        "purpose": "The number that matters, such as a plan price. Tabular figures."
-      },
-      "close": {
-        "displayName": "Close",
-        "purpose": "The last headline on a Bottle band, home and about."
+        "purpose": "Big numbers: plan prices."
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Section heads, held to 16 to 18ch."
+        "purpose": "Section heads."
       },
       "stage": {
         "displayName": "Stage",
-        "purpose": "Stage titles and the Bottle stage numbers beside them."
-      },
-      "page-title": {
-        "displayName": "Page title",
-        "purpose": "Plan names."
+        "purpose": "Stage numerals and titles on the flat page; in the book the title scales with the page."
       },
       "section": {
         "displayName": "Section",
-        "purpose": "Legal headings, footer lines, vendor column heads."
+        "purpose": "24px heads, the wordmark at sm and up."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Panel and card titles, the wordmark in the nav on a phone."
+        "purpose": "Leaf and card titles (plan names)."
       },
       "lead": {
         "displayName": "Lead",
-        "purpose": "The paragraph under a headline, 44 to 52ch."
+        "purpose": "Hero lead and section intros."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "All reading text and claim bodies."
+        "purpose": "Reading text; claim labels at 600."
       },
       "ui": {
         "displayName": "UI",
-        "purpose": "Buttons, nav links, chips, fields."
+        "purpose": "Controls, nav links, fields."
       },
-      "caption": {
-        "displayName": "Caption",
-        "purpose": "Hints and small secondary text in panels."
+      "dense": {
+        "displayName": "Dense",
+        "purpose": "Tables and dense console replicas."
       },
-      "mono-eyebrow": {
-        "displayName": "Mono eyebrow",
-        "purpose": "Stage names in the strip, legal indices, console block heads."
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "Stage strip names, panel labels inside console replicas. Never a kicker over a headline."
       },
-      "mono-label": {
-        "displayName": "Mono label",
-        "purpose": "Captions, field labels, meta under prices and buttons."
-      },
-      "article-body": {
-        "displayName": "Article body",
-        "purpose": "Long-form Instrument Sans prose, held to 70ch with 20px paragraph gaps."
-      },
-      "article-intro": {
-        "displayName": "Article intro",
-        "purpose": "Opening article paragraphs in Ink, larger than the reading body."
+      "label": {
+        "displayName": "Label",
+        "purpose": "Small print: running heads, plate captions, units, field labels."
       }
     },
     "shadows": [
       {
         "name": "depth-button",
         "value": "inset 0 -4px 0 rgba(11, 64, 48, 0.4)",
-        "purpose": "Letterpress edge under Bottle and Sprout buttons and the selected chip."
+        "purpose": "Letterpress bottom edge on every solid button and the selected category chip."
       },
       {
         "name": "depth-panel",
         "value": "inset 0 0 0 1px rgba(23, 33, 27, 0.1)",
-        "purpose": "Inset hairline on the category select field."
-      },
-      {
-        "name": "thumb",
-        "value": "0 1px 2px rgba(23, 33, 27, 0.28)",
-        "purpose": "The chosen segment of a segmented control."
+        "purpose": "Sunken panels drawn by inset hairline."
       },
       {
         "name": "lifted",
         "value": "0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07)",
-        "purpose": "Floating chrome only: nav bar, stuck stage strip, menus, Arby Help panel."
+        "purpose": "Floating chrome only: nav, stage strip dock, Arby launcher and help panel, menus, the plate's Stop control."
       },
       {
-        "name": "focus-outline",
-        "value": "outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px",
-        "purpose": "Focus on white. Bottle 55% rather than the kit's 30% for 3:1 contrast. Sprout 70% on Bottle bands."
+        "name": "modal",
+        "value": "0 30px 70px rgba(23, 33, 27, 0.3)",
+        "purpose": "Dialogs."
       },
       {
-        "name": "field-focus",
-        "value": "border-color: #0b4030; box-shadow: 0 0 0 3px rgba(11, 64, 48, 0.3)",
-        "purpose": "The kit's field focus on text inputs and the open category select."
+        "name": "thumb",
+        "value": "0 1px 2px rgba(23, 33, 27, 0.28)",
+        "purpose": "Toggle and slider thumbs."
+      },
+      {
+        "name": "book-shadow",
+        "value": "three.js ShadowMaterial, Bottle #0b4030 at 0.2, faded out past the book",
+        "purpose": "The only shadow the 3D casts onto the DOM page."
       }
     ],
     "motion": [
       {
         "name": "curve-overshoot",
         "value": "cubic-bezier(0.34, 1.8, 0.45, 1)",
-        "purpose": "Pops, lifts, the category width, chevrons."
+        "purpose": "Lifts (3px), pops, blooms, the stage dock arriving (260ms; 380ms for the dock)."
       },
       {
         "name": "curve-glide",
         "value": "cubic-bezier(0.16, 0.84, 0.36, 1)",
-        "purpose": "Slides, fades, the capture zoom, stage hairlines, row develop."
+        "purpose": "Slides, fades, develop, the plate sharpening in (160ms), the canvas fading in (420ms), claims opening (320ms)."
       },
       {
         "name": "duration-fast",
         "value": "120ms",
-        "purpose": "Micro feedback."
+        "purpose": "Small state changes; stage copy fading between spreads."
       },
       {
         "name": "duration-base",
         "value": "180ms",
-        "purpose": "Colour and border changes."
+        "purpose": "Colour and opacity transitions."
       },
       {
         "name": "duration-pop",
@@ -584,204 +448,226 @@
         "purpose": "Lifts and pops."
       },
       {
-        "name": "duration-zoom",
-        "value": "320ms",
-        "purpose": "Capture zoom and stage hairline fill."
+        "name": "scroll-crank",
+        "value": "pure function of scroll: s 0 (shut, hero) to 1-5 (spreads, fractions mid-turn) to 6 (shut on the pile), plus hold within a stage",
+        "purpose": "Camera, page turns, claim steps and the ribbon lifted by a turning leaf. No state; scrolling back reverses exactly. Every turn takes a camera breath."
       },
       {
-        "name": "lift",
-        "value": "translateY(-3px)",
-        "purpose": "Hover on solid buttons, with a 6px bridge beneath."
+        "name": "book-intro",
+        "value": "drop, settle, riffle (time-based, once)",
+        "purpose": "The hero's shut book arriving; the mini book on scroll into view, leaning to the pointer and riffling on hover."
       },
       {
-        "name": "develop",
-        "value": "opacity 0.18 to 1, translateY(14px) to 0 on a view() timeline",
-        "purpose": "Rows arriving on scroll; never under reduced motion, content visible by default."
-      },
-      {
-        "name": "flip",
-        "value": "translateY(-0.12em) scaleY(0.64) to none, 0.34s overshoot",
-        "purpose": "A value changed in place: the category word, the price on the interval switch."
+        "name": "reduced-motion",
+        "value": "animations 0.01ms, transitions 80ms linear",
+        "purpose": "Keyframes park on their last frame; the book never starts and the flat page shows."
       }
     ],
     "breakpoints": [
       {
         "name": "sm",
-        "value": "640px"
+        "value": "640px",
+        "purpose": "Plate close-up crop below; two-column claims above."
       },
       {
         "name": "lg",
-        "value": "1024px"
-      },
-      {
-        "name": "xl",
-        "value": "1280px"
+        "value": "1024px",
+        "purpose": "Sticky full-window story canvas with copy on the left-hand page above; sticky phone band (max 40svh), 44px touch targets below."
       }
-    ]
+    ],
+    "rendering": {
+      "engine": "three.js WebGL2, failIfMajorPerformanceCaveat, frames drawn on demand",
+      "toneMapping": "none; sRGB output; palette hexes in, palette hexes out",
+      "light": "Hemisphere (#ffffff sky, #e9ece6 ground) at π × 0.4 plus a directional key from (0.62, 0.76, 0.14) at π × 0.6 / key.y, so a flat page takes exactly π and renders #FFFFFF",
+      "shadows": "PCF, map 4096 desktop / 2048 phone, radius 7 / 4, frustum follows the book",
+      "environment": "RoomEnvironment PMREM at intensity 0.2",
+      "depthOfField": "BokehPass, desktop only; hero shut book 0.85 (focus mid-cover), closing pile 0.6 (focus the job's book on top); focus is the focus point's view-space depth; aperture 0.0012 × strength, maxblur 0.012 × strength; zero on every resting spread",
+      "materials": {
+        "cloth": "MeshPhysical, Bottle, woven height field, roughness 0.86, sheen 0.5 #4f7f68",
+        "deboss": "MeshPhysical, Bottle ink, alpha and bump from the category pressing, sheen 0.4 #5f8f78",
+        "ribbon": "MeshPhysical, Sprout satin, roughness 0.3, sheen 1 #e9ffd6; lies on the right-hand page by the gutter; a turning leaf's root lifts and tips it, slipping it toward the fold; once the leaf passes upright it drops back onto the new page over the next 0.9 rad of turn (smoothstep, no bounce); head tucked over the head edge; tail a fixed 2.4 units past the bend over the tail edge, hanging straight down to the table (or down the front of the pile) and lying on it if it reaches; width always in the carrying surface",
+        "paper": "Lambert, Page white"
+      },
+      "geometry": "page 16 × 10 (16:10, a console capture), boards 0.16 thick standing 0.22 proud, screen margin 3%",
+      "pixelRatio": {
+        "desktop": 1.75,
+        "phone": 2,
+        "miniBook": 2
+      },
+      "screens": "posters 2048 webp per stage; recordings MP4 1920 desktop / 1280 phone, muted, looped, one at a time, only at rest",
+      "handoff": "at rest the HTML plate is laid exactly over the printed screen and fades in over 160ms",
+      "stills": "public/book/stills (hero, pile, three plan volumes) rendered from the engine, each with a provenance .json sidecar",
+      "fallback": "flat page on reduced motion, no hardware WebGL2, failed start, lost context or a struggling phone; set before first paint via html[data-book]",
+      "leftPage": "Bricolage 800 numeral and mono running head and caption by the gutter; no rule under the running head"
+    }
   },
   "components": [
     {
       "name": "Sprout Button",
       "kind": "button",
       "refersTo": "button-sprout",
-      "description": "The one lit action in a view: the trial.",
-      "html": "<button class=\"ds-btn-sprout\">Start your 14-day trial</button>",
-      "css": ".ds-btn-sprout { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; border-radius: 6px; font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out, transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4); height: 48px; padding: 0 22px; font-size: 15px; background: #9fe870; color: #0b4030; } .ds-btn-sprout:hover { transform: translateY(-3px); } .ds-btn-sprout:active { transform: translateY(0); } .ds-btn-sprout:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
+      "description": "The one headline action on a view: the trial.",
+      "html": "<button class=\"ds-btn-sprout\">Start free trial</button>",
+      "css": ".ds-btn-sprout { position: relative; display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 1px solid transparent; border-radius: var(--radius, 6px); background: var(--sprout, #9fe870); color: var(--bottle, #0b4030); font-family: var(--face-sans, 'Instrument Sans', sans-serif); font-weight: 600; font-size: 0.9375rem; box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4); cursor: pointer; transition: background-color 180ms ease-out, transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); } .ds-btn-sprout:hover { transform: translateY(-3px); } .ds-btn-sprout:active { transform: none; } .ds-btn-sprout:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     },
     {
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Bottle, the default solid button.",
-      "html": "<button class=\"ds-btn-primary\">Send message</button>",
-      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; border-radius: 6px; font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out, transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4); height: 40px; padding: 0 16px; font-size: 14px; background: #0b4030; color: #f4f4f0; } .ds-btn-primary:hover { transform: translateY(-3px); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
+      "description": "The default solid button, Bottle. The nav's trial button is this one.",
+      "html": "<button class=\"ds-btn-primary\">Talk to us</button>",
+      "css": ".ds-btn-primary { position: relative; display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border: 1px solid transparent; border-radius: var(--radius, 6px); background: var(--bottle, #0b4030); color: var(--on-dark, #f4f4f0); font-family: var(--face-sans, 'Instrument Sans', sans-serif); font-weight: 600; font-size: 0.875rem; box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4); cursor: pointer; transition: background-color 180ms ease-out, transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); } .ds-btn-primary:hover { transform: translateY(-3px); background: var(--bottle-deep, #083023); } .ds-btn-primary:active { transform: none; } .ds-btn-primary:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     },
     {
       "name": "Secondary Button",
       "kind": "button",
       "refersTo": "button-secondary",
-      "description": "White with an input-strength border; Talk to us, Menu, Whole screen.",
-      "html": "<button class=\"ds-btn-secondary\">Talk to us</button>",
-      "css": ".ds-btn-secondary { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; border-radius: 6px; font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out, transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); height: 40px; padding: 0 16px; font-size: 14px; background: #ffffff; color: #17211b; border-color: rgba(23, 33, 27, 0.12); } .ds-btn-secondary:hover { background: #f5f6f2; border-color: rgba(23, 33, 27, 0.28); } .ds-btn-secondary:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
+      "description": "White with the input border, Panel on hover; the House plan's Talk to us, the Menu button, the phone band's plate controls.",
+      "html": "<button class=\"ds-btn-secondary\">Choose Solo</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border: 1px solid rgba(23, 33, 27, 0.12); border-radius: var(--radius, 6px); background: var(--page, #ffffff); color: var(--ink, #17211b); font-family: var(--face-sans, 'Instrument Sans', sans-serif); font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: background-color 180ms ease-out, border-color 180ms ease-out; } .ds-btn-secondary:hover { border-color: rgba(23, 33, 27, 0.28); background: var(--panel, #f5f6f2); } .ds-btn-secondary:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     },
     {
       "name": "Ghost Button",
       "kind": "button",
       "refersTo": "button-ghost",
-      "description": "No box, Bottle text; Log in in the nav.",
+      "description": "No box, Bottle text, Panel on hover.",
       "html": "<button class=\"ds-btn-ghost\">Log in</button>",
-      "css": ".ds-btn-ghost { position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; border-radius: 6px; font-family: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; font-weight: 600; white-space: nowrap; cursor: pointer; transition: background-color 180ms ease-out, color 180ms ease-out, border-color 180ms ease-out, transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); height: 36px; padding: 0 14px; font-size: 13px; background: transparent; color: #0b4030; } .ds-btn-ghost:hover { background: #f5f6f2; } .ds-btn-ghost:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; height: 40px; padding: 0 16px; border: 1px solid transparent; border-radius: var(--radius, 6px); background: transparent; color: var(--bottle, #0b4030); font-family: var(--face-sans, 'Instrument Sans', sans-serif); font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: background-color 180ms ease-out; } .ds-btn-ghost:hover { background: var(--panel, #f5f6f2); } .ds-btn-ghost:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     },
     {
-      "name": "Text Field",
+      "name": "Leaf",
+      "kind": "card",
+      "refersTo": "leaf",
+      "description": "The book's page in the DOM and the site's card: white stock, hairline edge, mono running head over a hairline, foot with a folio. Lifts 3px; never washes with colour.",
+      "html": "<article class=\"ds-leaf\"><div class=\"ds-leaf-head\"><span class=\"ds-leaf-label\">Solo</span><span class=\"ds-leaf-note\">Monthly</span></div><div class=\"ds-leaf-body\"><p>One organisation, one person. You, and nobody to invite.</p><p class=\"ds-leaf-price\">$89</p></div><div class=\"ds-leaf-foot\"><span>AUD a month</span><span class=\"ds-leaf-folio\">01</span></div></article>",
+      "css": ".ds-leaf { display: flex; flex-direction: column; max-width: 340px; border: 1px solid rgba(23, 33, 27, 0.1); border-radius: 6px; background: #ffffff; color: #17211b; transition: translate 260ms cubic-bezier(0.34, 1.8, 0.45, 1), border-color 180ms cubic-bezier(0.16, 0.84, 0.36, 1); } .ds-leaf:hover, .ds-leaf:focus-within { translate: 0 -3px; border-color: rgba(23, 33, 27, 0.28); } .ds-leaf-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 20px; padding: 13px 0 11px; border-bottom: 1px solid #efefec; } .ds-leaf-label, .ds-leaf-note, .ds-leaf-foot { font-family: var(--face-mono, 'Martian Mono', monospace); font-size: 0.5625rem; letter-spacing: 0.16em; text-transform: uppercase; } .ds-leaf-note, .ds-leaf-foot { color: #61615a; } .ds-leaf-body { padding: 16px 20px; font-family: var(--face-sans, 'Instrument Sans', sans-serif); font-size: 0.9375rem; line-height: 1.5; color: #57574f; } .ds-leaf-price { margin: 16px 0 0; font-family: var(--face-display, 'Bricolage Grotesque', sans-serif); font-weight: 800; font-size: 4rem; line-height: 0.85; color: #17211b; } .ds-leaf-foot { display: flex; justify-content: space-between; padding: 10px 20px 12px; } .ds-leaf-folio { color: #17211b; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Text Input",
       "kind": "input",
-      "refersTo": "input-field",
-      "description": "The contact form field with its mono label.",
-      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Your name</span><input class=\"ds-input\" placeholder=\"Sam Lee\"></label>",
-      "css": ".ds-field { display: block; } .ds-field-label { display: block; margin-bottom: 8px; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 9px; line-height: 1.4; letter-spacing: 0.16em; text-transform: uppercase; color: #61615a; } .ds-input { width: 100%; height: 44px; padding: 0 14px; border: 1px solid rgba(23, 33, 27, 0.12); border-radius: 6px; background: #ffffff; color: #17211b; font: 14px/1.4 'Instrument Sans', ui-sans-serif, system-ui, sans-serif; transition: border-color 180ms, box-shadow 180ms; } .ds-input::placeholder { color: #6a6a62; } .ds-input:hover { border-color: rgba(23, 33, 27, 0.28); } .ds-input:focus-visible { outline: none; border-color: #0b4030; box-shadow: 0 0 0 3px rgba(11, 64, 48, 0.3); }"
+      "refersTo": "input",
+      "description": "White field, translucent input border, 6px corners; the global Bottle focus ring.",
+      "html": "<input class=\"ds-input\" placeholder=\"Your business name\" />",
+      "css": ".ds-input { height: 40px; padding: 0 12px; border: 1px solid rgba(23, 33, 27, 0.12); border-radius: 6px; background: #ffffff; color: #17211b; font-family: 'Instrument Sans', sans-serif; font-size: 0.875rem; transition: border-color 180ms ease-out; } .ds-input::placeholder { color: #6a6a62; } .ds-input:hover { border-color: rgba(23, 33, 27, 0.28); } .ds-input:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     },
     {
       "name": "Floating Nav",
       "kind": "nav",
       "refersTo": "nav-bar",
-      "description": "The console's floating bar at the top of the window, with a Sprout reading-progress line.",
-      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">ARBOUR</span><a class=\"ds-nav-link\" href=\"#\">Features</a><a class=\"ds-nav-link\" aria-current=\"page\" href=\"#\">About</a><a class=\"ds-nav-link\" href=\"#\">Pricing</a><span class=\"ds-nav-progress\"></span></nav>",
-      "css": ".ds-nav { position: relative; display: flex; align-items: center; gap: 4px; height: 56px; padding: 0 8px 0 20px; background: #ffffff; border: 1px solid #efefec; border-radius: 6px; box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07); overflow: hidden; } .ds-nav-mark { margin-right: auto; font: 800 24px/1 'Bricolage Grotesque', ui-sans-serif, sans-serif; letter-spacing: 0.04em; color: #0b4030; } .ds-nav-link { display: inline-flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 4px; font: 600 14px/1.4 'Instrument Sans', ui-sans-serif, sans-serif; color: #57574f; text-decoration: none; transition: background-color 180ms, color 180ms; } .ds-nav-link:hover { background: #f5f6f2; color: #17211b; } .ds-nav-link[aria-current=page] { background: #0b4030; color: #f4f4f0; } .ds-nav-link:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; } .ds-nav-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: #9fe870; transform-origin: left; transform: scaleX(0.4); }"
+      "description": "Floating chrome at the sheet's width: white, Line border, 6px, lifted shadow; one Bottle trial button.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\">ARBOUR</span><a class=\"ds-nav-link\" href=\"#\">Product</a><a class=\"ds-nav-link\" href=\"#\">Pricing</a><a class=\"ds-nav-link\" href=\"#\">FAQ</a><a class=\"ds-nav-cta\" href=\"#\">Start free trial</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 4px; height: 56px; padding: 0 8px 0 20px; border: 1px solid #efefec; border-radius: 6px; background: #ffffff; box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07); font-family: 'Instrument Sans', sans-serif; } .ds-nav-mark { margin-right: auto; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; letter-spacing: 0.04em; color: #0b4030; font-size: 1.25rem; } .ds-nav-link { padding: 8px 12px; border-radius: 4px; color: #57574f; font-size: 0.875rem; text-decoration: none; transition: background-color 180ms ease-out, color 180ms ease-out; } .ds-nav-link:hover { background: #f5f6f2; color: #17211b; } .ds-nav-cta { margin-left: 8px; padding: 10px 14px; border-radius: 6px; background: #0b4030; color: #f4f4f0; font-weight: 600; font-size: 0.8125rem; text-decoration: none; box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4); transition: transform 260ms cubic-bezier(0.34, 1.8, 0.45, 1); } .ds-nav-cta:hover { transform: translateY(-3px); } .ds-nav-link:focus-visible, .ds-nav-cta:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     },
     {
-      "name": "Category Chip",
-      "kind": "chip",
-      "refersTo": "button-secondary",
-      "description": "Vendor category chips with leaves; selected turns Bottle with the letterpress edge.",
-      "html": "<div class=\"ds-chips\"><button class=\"ds-chip\" aria-pressed=\"true\"><span class=\"ds-leaf\" style=\"background:#9fe870\"></span>Photographers</button><button class=\"ds-chip\"><span class=\"ds-leaf\" style=\"background:#4e6df5\"></span>Florists</button><button class=\"ds-chip\"><span class=\"ds-leaf\" style=\"background:#b9a7ff\"></span>Celebrants</button></div>",
-      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 8px; } .ds-chip { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; border: 1px solid rgba(23, 33, 27, 0.12); border-radius: 6px; background: #ffffff; color: #17211b; font: 600 14px/1.4 'Instrument Sans', ui-sans-serif, sans-serif; cursor: pointer; transition: background-color 180ms, border-color 180ms; } .ds-chip:hover { border-color: rgba(23, 33, 27, 0.28); background: #f5f6f2; } .ds-chip[aria-pressed=true] { background: #0b4030; color: #f4f4f0; border-color: transparent; box-shadow: inset 0 -4px 0 rgba(11, 64, 48, 0.4); } .ds-chip:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; } .ds-leaf { width: 7px; height: 7px; border-radius: 2px; flex-shrink: 0; }"
+      "name": "Plate",
+      "kind": "custom",
+      "refersTo": "plate",
+      "description": "A real console screen tipped in on white stock with a mono figure caption. Never lit, never scrolls.",
+      "html": "<figure class=\"ds-plate\"><div class=\"ds-plate-screen\"><span class=\"ds-plate-ring\"></span></div><figcaption class=\"ds-plate-cap\"><b>Fig. 06 ·</b> Real screen, seed data · Automations</figcaption></figure>",
+      "css": ".ds-plate { margin: 0; max-width: 420px; padding: 10px 10px 0; border: 1px solid rgba(23, 33, 27, 0.1); border-radius: 6px; background: #ffffff; } .ds-plate-screen { position: relative; aspect-ratio: 16 / 10; background: #f5f6f2; border: 1px solid #efefec; } .ds-plate-ring { position: absolute; left: 12%; top: 30%; width: 40%; height: 22%; border-radius: 4px; background: rgb(159 232 112 / 0.15); box-shadow: 0 0 0 2px #9fe870; } .ds-plate-cap { padding: 9px 2px 10px; font-family: var(--face-mono, 'Martian Mono', monospace); font-size: 0.5625rem; letter-spacing: 0.16em; text-transform: uppercase; color: #61615a; } .ds-plate-cap b { font-weight: 400; color: #17211b; }"
     },
     {
       "name": "Stage Strip",
-      "kind": "custom",
-      "refersTo": "stage-strip",
-      "description": "The booking header's progress: passed dots and hairlines fill Sprout, the current stage sits in a Bottle chip.",
-      "html": "<ol class=\"ds-strip\"><li><span class=\"ds-step ds-passed\"><i></i>Enquiry in</span><b class=\"ds-join ds-on\"></b></li><li><span class=\"ds-step ds-current\"><i></i>Quote out</span><b class=\"ds-join\"></b></li><li><span class=\"ds-step\"><i></i>Booked</span><b class=\"ds-join\"></b></li><li><span class=\"ds-step\"><i></i>The day</span></li></ol>",
-      "css": ".ds-strip { display: flex; align-items: center; height: 48px; margin: 0; padding: 0 12px; list-style: none; background: #ffffff; border: 1px solid #efefec; border-radius: 6px; box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07); } .ds-strip li { display: flex; align-items: center; flex: 1; } .ds-strip li:last-child { flex: 0; } .ds-step { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 4px; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; color: #61615a; } .ds-step i { width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid #6a6a62; box-sizing: border-box; } .ds-passed { color: #17211b; } .ds-passed i, .ds-current i { background: #9fe870; border: 0; } .ds-current { background: #0b4030; color: #f4f4f0; } .ds-join { flex: 1; height: 1px; margin: 0 12px; background: #efefec; } .ds-join.ds-on { background: #9fe870; }"
+      "kind": "nav",
+      "refersTo": "stage-chip-active",
+      "description": "Floating dock of the five stages: Sprout dot when passed, solid Bottle chip for the current stage, hollow ring ahead.",
+      "html": "<ol class=\"ds-strip\"><li class=\"ds-done\"><i></i>Enquiry in</li><li class=\"ds-now\"><i></i>Quote out</li><li><i></i>Booked</li></ol>",
+      "css": ".ds-strip { display: flex; gap: 24px; align-items: center; margin: 0; padding: 8px 12px; list-style: none; border: 1px solid #efefec; border-radius: 6px; background: #ffffff; box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07); font-family: var(--face-mono, 'Martian Mono', monospace); font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #61615a; } .ds-strip li { display: inline-flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 4px; } .ds-strip i { width: 7px; height: 7px; border-radius: 50%; border: 1px solid #61615a; } .ds-strip .ds-done { color: #17211b; } .ds-strip .ds-done i { background: #9fe870; border-color: #9fe870; } .ds-strip .ds-now { background: #0b4030; color: #f4f4f0; } .ds-strip .ds-now i { background: #9fe870; border-color: #9fe870; }"
     },
     {
-      "name": "Capture Frame with Claim",
+      "name": "Arby Launcher",
       "kind": "custom",
-      "refersTo": "capture-cell",
-      "description": "A real screen in a Panel cell beside a claim; a pointing claim takes Sprout Wash and rings its region in Sprout.",
-      "html": "<div class=\"ds-stage\"><div class=\"ds-capture-cell\"><div class=\"ds-capture\"><span class=\"ds-ring\"></span></div><p class=\"ds-caption\"><span></span>Screen recording, seed data</p></div><div class=\"ds-claim\"><h3>Holds expire on their own</h3><p>A pencilled date lets go when the hold runs out, and the next enquiry hears about it.</p></div></div>",
-      "css": ".ds-stage { display: grid; grid-template-columns: 2fr 1fr; border-top: 1px solid #efefec; } .ds-capture-cell { background: #f5f6f2; padding: 24px; } .ds-capture { position: relative; aspect-ratio: 16 / 10; background: #ffffff; border: 1px solid rgba(23, 33, 27, 0.1); border-radius: 6px; overflow: hidden; } .ds-ring { position: absolute; left: 12%; top: 20%; width: 40%; height: 18%; border-radius: 4px; background: rgba(159, 232, 112, 0.15); box-shadow: 0 0 0 2px #9fe870; } .ds-caption { display: flex; align-items: center; gap: 8px; margin: 12px 0 0; font-family: 'Martian Mono', ui-monospace, monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #61615a; } .ds-caption span { width: 7px; height: 7px; border-radius: 2px; background: #9fe870; } .ds-claim { padding: 24px 32px; border-left: 1px solid #efefec; background: #eafadd; } .ds-claim h3 { margin: 0; font: 600 15px/1.5 'Instrument Sans', ui-sans-serif, sans-serif; color: #17211b; } .ds-claim p { margin: 8px 0 0; font: 400 15px/1.5 'Instrument Sans', ui-sans-serif, sans-serif; color: #57574f; }"
-    },
-    {
-      "name": "Article reading",
-      "kind": "custom",
-      "description": "Read-mode pattern with native contents, three takeaways, 70ch prose and captioned HTML/CSS figures. Article media uses credited real photos and unfiltered captures. Labelled genuine screenshot extracts accept figure-specific focus, with detail-specific alternative text and native whole-screen access. No AI-generated rasters.",
-      "html": "<div class=\"ds-article-reading\"><aside class=\"ds-article-aside\"><details class=\"ds-article-mobile-contents\"><summary>In this article<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></summary><nav aria-label=\"Article contents\"><ul><li><a href=\"#ds-article-section\">What the official count measures</a></li><li><a href=\"#ds-article-sources\">Sources</a></li></ul></nav></details><nav class=\"ds-article-desktop-contents\" aria-label=\"Article contents\"><h2>In this article</h2><ul><li><a href=\"#ds-article-section\">What the official count measures</a></li><li><a href=\"#ds-article-sources\">Sources</a></li></ul></nav></aside><div class=\"ds-article-copy\"><div class=\"ds-article-prose\"><aside class=\"ds-article-takeaways\"><h2>In brief</h2><ul><li>Marriage registrations do not measure wedding vendor revenue.</li><li>Survey averages describe respondents, not every Australian wedding.</li><li>Check external research against your own bookings and delivery costs.</li></ul></aside><div class=\"ds-article-intro\"><p>Australia recorded 118,804 registered marriages in 2025, according to the Australian Bureau of Statistics release published on 28 July 2026. That was 1.7% fewer than in 2024. It is the latest complete national annual release available at the time of writing, not a count of weddings held so far in 2026. <sup><a href=\"#ds-article-source-1\" aria-label=\"Source 1\">[1]</a></sup></p></div><section id=\"ds-article-section\"><h2>What the official count measures</h2><div class=\"ds-article-paragraphs\"><p>The ABS collects administrative marriage records from state and territory registries. Its scope includes overseas visitors who marry here and excludes Australian residents who marry overseas. Registration and reporting delays also mean the reference year can differ from the year a ceremony happened. <sup><a href=\"#ds-article-source-2\" aria-label=\"Source 2\">[2]</a></sup></p></div><figure class=\"ds-article-figure\" aria-label=\"Registered marriages in Australia\"><h3>Registered marriages in Australia</h3><div class=\"ds-article-bars\"><ul><li><div class=\"ds-article-bar-label\"><span>2022</span><strong>127,161</strong></div><div class=\"ds-article-bar-track\" aria-hidden=\"true\"><div style=\"width:100.0%\"></div></div></li><li><div class=\"ds-article-bar-label\"><span>2023</span><strong>118,439</strong></div><div class=\"ds-article-bar-track\" aria-hidden=\"true\"><div style=\"width:93.14097875921077%\"></div></div></li><li><div class=\"ds-article-bar-label\"><span>2024</span><strong>120,844</strong></div><div class=\"ds-article-bar-track\" aria-hidden=\"true\"><div style=\"width:95.03228191033415%\"></div></div></li><li><div class=\"ds-article-bar-label\"><span>2025</span><strong>118,804</strong></div><div class=\"ds-article-bar-track\" aria-hidden=\"true\"><div style=\"width:93.428016451585%\"></div></div></li></ul><div class=\"ds-article-bar-source\"><span>0</span><a href=\"#ds-article-source-1\">Source 1</a></div></div><figcaption>ABS registered marriages, 2022 to 2025. The bars start at zero. These are legal registrations, not vendor revenue or a count of paid wedding jobs. <a href=\"#ds-article-source-1\">[1]</a><a href=\"#ds-article-source-2\">[2]</a></figcaption></figure></section><section id=\"ds-article-sources\" class=\"ds-article-sources\"><h2>Sources</h2><ol><li id=\"ds-article-source-1\"><span>1</span><div><a href=\"https://www.abs.gov.au/statistics/people/people-and-communities/marriages-and-divorces-australia/2025\">Marriages and Divorces, Australia, 2025</a><p>Australian Bureau of Statistics</p></div></li><li id=\"ds-article-source-2\"><span>2</span><div><a href=\"https://www.abs.gov.au/methodologies/marriages-and-divorces-australia-methodology/2025\">Marriages and Divorces, Australia methodology, 2025</a><p>Australian Bureau of Statistics</p></div></li></ol></section></div></div></div>",
-      "css": ".ds-article-reading { display: grid; color: var(--ink-secondary); font-family: var(--face-sans); border-top: 1px solid var(--line); } .ds-article-aside { border-bottom: 1px solid var(--line); } .ds-article-mobile-contents { padding: 0 20px; } .ds-article-mobile-contents summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; list-style: none; cursor: pointer; border-radius: var(--radius-small); color: var(--bottle); font-size: 14px; font-weight: 600; line-height: 1.4; } .ds-article-mobile-contents summary::-webkit-details-marker { display: none; } .ds-article-mobile-contents summary svg { transition: transform var(--duration-base); } .ds-article-mobile-contents[open] summary svg { transform: rotate(180deg); } .ds-article-mobile-contents nav { padding-bottom: 20px; } .ds-article-aside ul { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; } .ds-article-aside a { display: inline-block; padding: 8px 0; border-radius: var(--radius-small); color: var(--ink-secondary); font-size: 14px; line-height: 1.5; text-decoration: none; text-underline-offset: 4px; } .ds-article-aside a:hover { color: var(--bottle); text-decoration: underline; } .ds-article-desktop-contents { display: none; } .ds-article-copy { min-width: 0; padding: 40px 20px; } .ds-article-prose { max-width: 70ch; margin: 0 auto; font-size: 1.0625rem; line-height: 1.75; } .ds-article-prose p { margin: 0; } .ds-article-intro, .ds-article-paragraphs { display: grid; gap: 20px; } .ds-article-intro { color: var(--ink); font-size: 1.25rem; line-height: 1.65; } .ds-article-prose section { margin-top: 48px; } .ds-article-prose h2 { margin: 0 0 20px; color: var(--ink); font: 800 1.75rem/1.1 var(--face-display); letter-spacing: normal; text-wrap: balance; } .ds-article-prose a { color: var(--bottle); border-radius: var(--radius-tiny); text-decoration: underline; text-decoration-color: rgba(11, 64, 48, 0.35); text-underline-offset: 4px; } .ds-article-prose a:hover { text-decoration-color: var(--bottle); } .ds-article-prose sup { margin-left: 2px; font-size: 0.7em; } .ds-article-prose sup a { text-underline-offset: 2px; } .ds-article-sources { border-top: 1px solid var(--line); padding-top: 40px; } .ds-article-sources ol { margin: 0; padding: 0; list-style: none; } .ds-article-sources li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 12px; padding: 16px 0; font-size: 15px; line-height: 1.5; } .ds-article-sources li + li { border-top: 1px solid var(--line); } .ds-article-sources li > span { padding-top: 4px; color: var(--ink-muted); font: 400 9px/1.4 var(--face-mono); letter-spacing: 0.16em; } .ds-article-sources li a { font-weight: 600; } .ds-article-sources li p { margin-top: 4px; color: var(--ink-muted); font-size: 12px; line-height: 1.4; } .ds-article-reading a:focus-visible, .ds-article-reading summary:focus-visible { outline: 3px solid var(--focus); outline-offset: 1px; } @media (min-width: 640px) { .ds-article-mobile-contents { padding: 0 32px; } .ds-article-copy { padding: 48px 32px; } .ds-article-prose section { margin-top: 56px; } .ds-article-prose h2 { font-size: 2rem; } } @media (min-width: 1024px) { .ds-article-reading { grid-template-columns: 15rem minmax(0, 1fr); } .ds-article-aside { border-right: 1px solid var(--line); border-bottom: 0; } .ds-article-mobile-contents { display: none; } .ds-article-desktop-contents { display: block; position: sticky; top: calc(var(--nav-h) + var(--nav-gap) + 24px); padding: 48px 32px; } .ds-article-desktop-contents h2 { margin: 0 0 16px; color: var(--ink-muted); font: 400 11px/1.4 var(--face-mono); letter-spacing: 0.14em; text-transform: uppercase; } .ds-article-copy { padding: 56px 48px; } } @media (min-width: 1280px) { .ds-article-reading { grid-template-columns: 18rem minmax(0, 1fr); } } @media (prefers-reduced-motion: reduce) { .ds-article-mobile-contents summary svg { transition: none; } } .ds-article-takeaways { margin-bottom: 32px; padding: 20px; border-radius: var(--radius); background: var(--panel); box-shadow: var(--depth-panel); } .ds-article-takeaways h2 { margin: 0 0 16px; font-size: 1.5rem; line-height: 1.05; } .ds-article-takeaways ul { margin: 0; padding-left: 20px; font-size: 15px; line-height: 1.6; } .ds-article-takeaways li { padding-left: 4px; } .ds-article-takeaways li + li { margin-top: 12px; } .ds-article-takeaways li::marker { color: var(--bottle); } .ds-article-figure { min-width: 0; margin: 40px 0; } .ds-article-figure h3 { margin: 0 0 16px; color: var(--ink); font: 800 1.25rem/1.2 var(--face-display); } .ds-article-figure figcaption { margin-top: 16px; color: var(--ink-secondary); font-size: 14px; line-height: 1.6; } .ds-article-bars { padding: 20px; border-radius: var(--radius); background: var(--panel); box-shadow: var(--depth-panel); } .ds-article-bars ul { display: grid; gap: 24px; margin: 0; padding: 0; list-style: none; } .ds-article-bar-label { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; margin-bottom: 8px; color: var(--ink); font-size: 15px; } .ds-article-bar-label strong { color: var(--bottle); font: 800 1.5rem/1.05 var(--face-display); font-variant-numeric: tabular-nums; } .ds-article-bar-track { height: 12px; border-radius: var(--radius-tiny); background: var(--panel-hover); } .ds-article-bar-track > div { height: 100%; border-radius: var(--radius-tiny); background: var(--bottle); } .ds-article-bar-source { display: flex; justify-content: space-between; gap: 16px; margin-top: 12px; color: var(--ink-muted); font-size: 12px; line-height: 1.4; } @media (min-width: 640px) { .ds-article-takeaways, .ds-article-bars { padding: 24px; } .ds-article-figure h3 { font-size: 1.5rem; } }"
+      "refersTo": "arby-launcher",
+      "description": "A 52px square of floating chrome, bottom right, holding Arby's standing pose in master colours (fixed artwork from components/arby/poses/standing, not redrawn here); still, lifts 3px on hover, opens Arby Help.",
+      "html": "<button class=\"ds-arby\" aria-label=\"Open Arby Help\"><span class=\"ds-arby-art\">ARBY</span></button>",
+      "css": ".ds-arby { display: grid; place-items: end center; width: 52px; height: 52px; padding: 7px 6px 3px; border: 1px solid #efefec; border-radius: 6px; background: #ffffff; box-shadow: 0 10px 28px rgba(23, 33, 27, 0.13), 0 2px 5px rgba(23, 33, 27, 0.07); cursor: pointer; transition: translate 260ms cubic-bezier(0.34, 1.8, 0.45, 1), border-color 180ms ease-out; } .ds-arby-art { font-family: 'Martian Mono', monospace; font-size: 0.5625rem; letter-spacing: 0.16em; color: #61615a; } .ds-arby:hover { translate: 0 -3px; border-color: rgba(23, 33, 27, 0.28); } .ds-arby:active { translate: 0 0; } .ds-arby:focus-visible { outline: 3px solid rgba(11, 64, 48, 0.55); outline-offset: 1px; }"
     }
   ],
   "narrative": {
-    "northStar": "The Ruled Sheet",
-    "overview": "**Creative North Star: \"The Ruled Sheet\"**\n\nThe site is one printed run sheet, nav to footer, set in the console's own register. Every section is a full-bleed row whose top rule crosses the window; inside it the sheet is a single column whose two side rules run unbroken from the top of the window to the foot of the page, with a small ink registration cross wherever a row rule meets a column rule. Cells butt against each other inside that column and draw their own hairlines, so a claim always sits in a cell beside the real console screen that proves it.\n\nThe register is the software's, deliberately. White page, grey-green Panel cells, near-black Ink, Bottle for structure and one lit Sprout action per view. Corners are 6px, buttons carry a letterpress bottom edge, and only floating chrome casts a shadow. A visitor should finish the page thinking \"that is my console\", because the tokens here are the console kit's own (arbour/packages/ui/src/styles/globals.css) and the site only adds what a long marketing page needs: fluid display steps, the ruled sheet, the stage strip and the capture frame.\n\nThe world refuses the feature-card grid and the retired marketing look (Acid, Cream floods, square corners, the Acid stage rail). Colour arrives in whole rows or cells, never as tinted cards on white.",
+    "northStar": "The Book on the Table",
+    "overview": "The site is the console's own register (a white page, Panel cells, Bottle for structure, Sprout for the one thing to do next) with one physical object on it: the job, bound as a book in woven Bottle cloth and lit by a window to the right. The white page is the table. The book drops onto it in the hero, opens, and the reader's scroll turns its leaves from enquiry to paid, one spread per stage, each right-hand page holding a real console screen square-on. At the close the book shuts and goes on the season's pile, spines titled with jobs. Everything around the book is the ruled sheet: hairline column rules, registration marks, Bottle and Panel bands, oversized Bricolage set hard left.\n\nThe 3D is lit like a product shot, but every flat thing stays its exact hex. The light is calibrated so a page lying face up takes exactly π (hemisphere plus the key's share at its angle), and nothing is tone mapped, so white stock renders #FFFFFF and a printed screen renders exactly as captured. That is why the screen can hand over to a sharp HTML plate whenever the camera rests, with no seam. Shading, soft Bottle-tinted shadows, cloth sheen and depth of field belong to things that are tilted, turning or not being read.\n\nDensity is calm and generous: one idea per row, big type with charged empty paper around it, one accent per view. The scroll is a crank: every turn and claim step is a pure function of scroll position, so scrolling back plays everything backwards exactly. Reduced motion, no hardware WebGL2, a lost context or a low-power phone get the flat page, which carries the same screens and engine-rendered stills of the same book.",
     "keyCharacteristics": [
-      "One continuous ruled column, 1280px maximum, with registration marks at every crossing.",
-      "White by default; Panel for sunken cells; Bottle only for the close.",
-      "Bricolage 800 hard left at fluid sizes, with optical size doing the tightening.",
-      "Martian Mono as a small uppercase label voice: captions, field labels, indices, block heads.",
-      "Real screens as proof, with claims that point at measured regions of them.",
-      "6px corners, letterpress depth on content, blur only on floating chrome."
+      "One register with the console: white and Panel grounds, Bottle structure, one Sprout action.",
+      "The book is the site's object; the leaf is its flat DOM page.",
+      "Lit 3D, unlit screens: calibrated light, no tone mapping, HTML plate at rest.",
+      "Hairline construction: column rules, registration marks, whole-block colour.",
+      "Bricolage 800 as interface, hard left; Martian Mono only as small uppercase labels.",
+      "Slightly rounded on one scale (6 / 4 / 2px); letterpress depth on content, blur only on floating chrome."
     ],
     "rules": [
       {
-        "name": "The One Lit Action Rule",
-        "body": "Sprout marks the single thing to do next in any view: the trial button. Every other button is Bottle, secondary or ghost. Two Sprout buttons in one view means there is no headline action.",
+        "name": "The One Sprout Rule",
+        "body": "One Sprout action per view. The hero and the final band each carry the Sprout trial button; the nav's trial button is Bottle; plan buttons are Bottle. Two Sprout buttons in a view means there is no headline action.",
         "section": "colors"
       },
       {
-        "name": "The Status Is Not Decoration Rule",
-        "body": "Coral and Ochre speak only for danger and warning. Category leaves use Bottle, Sprout, Cornflower and Lilac only.",
+        "name": "The Exact Hex Rule",
+        "body": "Anything flat stays its hex, in CSS and in the 3D alike. The book's materials are the palette's hexes (palette.ts mirrors globals.css); the canvas is transparent over the page's own white; shadows on the page are Bottle at 0.2 opacity, never grey or black.",
         "section": "colors"
       },
       {
-        "name": "The Bottle Close Rule",
-        "body": "The Bottle band is reserved for the close: the final call to action and the footer under it. Inside a Bottle band the rules turn On Dark at 14%, the marks On Dark at 60%, and the focus ring Sprout at 70%.",
+        "name": "The Whole Block Rule",
+        "body": "Colour arrives edge to edge (a Bottle band, a Panel band, a Panel cell). The band redefines the rule and mark inks so the sheet's construction stays continuous across it.",
         "section": "colors"
       },
       {
-        "name": "The One Panel Band Rule",
-        "body": "Pricing is the one full Panel band on the home page. Elsewhere Panel lives in cells, not rows.",
+        "name": "The Print-Only Rule",
+        "body": "Acid and Cream never appear on screen. Arby's crest lime is fixed artwork, not a UI colour.",
         "section": "colors"
       },
       {
-        "name": "The No Acid, No Cream Rule",
-        "body": "Acid and Cream are print and social colours. Neither appears on a screen; Acid survives only as the A on the app icon.",
-        "section": "colors"
-      },
-      {
-        "name": "The Eight Hundred Rule",
-        "body": "Bricolage is set at 800 and nothing else, with no added letter spacing and balanced wrapping. The `opsz` axis does the tightening.",
+        "name": "The 800 Only Rule",
+        "body": "Bricolage is set at 800 with no added letter spacing; the opsz axis does the tightening. No lighter weights, no faux bold.",
         "section": "typography"
       },
       {
-        "name": "The Label Voice Rule",
-        "body": "Mono is always uppercase and always small. It captions, labels fields, indexes and heads the console's blocks. It never sits above a heading as a kicker and never carries a sentence of body copy.",
+        "name": "The Small Print Rule",
+        "body": "Mono is always uppercase, always 9 or 11px, and always small print: a running head, a caption, a unit, a label. It is never body copy and never a line set above a headline to introduce it.",
         "section": "typography"
       },
       {
-        "name": "The Numbers Are Display Rule",
-        "body": "Prices, counts and stage numbers are Bricolage 800, never body.",
-        "section": "typography"
-      },
-      {
-        "name": "The Lift Is For Chrome Rule",
-        "body": "A blurred shadow means the object floats over the page. Content cells, captures and plan cells never cast one; they sit in the sheet.",
+        "name": "The Lit Object, Unlit Screen Rule",
+        "body": "The book, its cloth, paper, ribbon and arbour are lit, shaded and shadowed. A real console screen is never lit, never tone mapped, never blurred: it sits square-on at real size, and at rest the HTML plate takes over exactly on top of it. No bloom, glow, vignette or glass anywhere.",
         "section": "elevation"
       },
       {
-        "name": "The Lift On Hover Rule",
-        "body": "Solid buttons rise 3px on the overshoot curve, with a 6px hover bridge under them so the cursor never drops off mid-lift, and settle back on press.",
+        "name": "The Calibrated Light Rule",
+        "body": "A page lying flat takes exactly π of light. Change the light, the materials or the camera and the flat page must still render #FFFFFF, or the plate handoff shows a seam.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Depth of Field Rule",
+        "body": "Bokeh runs on desktop only, and only on shots where no screen is being read: the hero's shut book (strength 0.85, focused mid-cover) and the closing pile (0.6, focused on the job's book on top). Focus is the focus point's view-space depth, never its straight-line distance; aperture is 0.0012 × strength and maxblur 0.012 × strength. Strength is zero on every resting spread.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Paper Lifts Rule",
+        "body": "In the DOM, a pointed-at leaf or button lifts 3px toward the reader on the overshoot curve. A state is a position, never a colour wash.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do put every new section in a ruled row inside the sheet, so the column rules and registration marks stay continuous from nav to footer.",
-      "Do set a claim in a cell beside the real screen that proves it, and give it measured regions when the screen can show it.",
-      "Do keep one Sprout action per view; make every other button Bottle, secondary or ghost.",
-      "Do set headlines in Bricolage 800 hard left with no added tracking, using the fluid steps (stage, headline, readout, hero, statement).",
-      "Do use mono labels to caption, to label fields, to index and to head a console block.",
-      "Do use 6px corners, 4px for small controls, 2px for leaves.",
-      "Do use the 3px Bottle 55% focus outline on white and the Sprout 70% outline on Bottle.",
-      "Do let motion pop on the overshoot (`cubic-bezier(0.34, 1.8, 0.45, 1)`, 260ms) and slide on the glide (`cubic-bezier(0.16, 0.84, 0.36, 1)`, 180 to 320ms), and keep content visible when motion is reduced."
+      "Do keep every flat surface its exact hex, in CSS and in three.js; the canvas stays transparent over the page's own white.",
+      "Do light the book with the calibrated rig (a flat page takes exactly π) and keep tone mapping off, so white stock is #FFFFFF and screens read as captured.",
+      "Do hand a resting screen to the HTML plate, square-on and at real size; only the moves between rests are 3D.",
+      "Do drive every camera move, page turn and claim step from scroll position alone, so it reverses exactly.",
+      "Do use the book's own verbs for state: shut, opened, turned, shelved. In the DOM, lift 3px.",
+      "Do keep one Sprout action per view; the nav's trial button stays Bottle.",
+      "Do set Bricolage 800 hard left with charged empty paper around it, and print numbers in Bricolage.",
+      "Do give the flat page the same screens, and engine-rendered stills of the same book, each raster with a provenance sidecar.",
+      "Do keep depth of field to the hero and the pile, desktop only.",
+      "Do keep touch targets at 44px below 1024px."
     ],
     "donts": [
-      "Don't build a feature-card grid or flood a mid-page section with colour; the Bottle band is the close and Pricing is the one Panel band.",
-      "Don't put Acid or Cream on a screen.",
-      "Don't use Coral or Ochre for anything but danger and warning.",
-      "Don't set a mono kicker or eyebrow above a heading.",
-      "Don't cast a blurred shadow from content; only floating chrome lifts.",
-      "Don't use a radius above 6px, a pill, a gradient or glassmorphism.",
-      "Don't use a grey hex for a border; borders are translucent Ink and rules are Line.",
-      "Don't put Sprout in the Arby Help panel."
+      "Don't light, shade, tone map, blur or reflect a console screen.",
+      "Don't add bloom, glow, vignette, glass or a CSS gradient. Light falling across the book is not a gradient; a CSS gradient is.",
+      "Don't tilt a dashboard or float UI in space; screens live on the page.",
+      "Don't let a hairline, rule or mark cross a page or a screen inside the story.",
+      "Don't wash a leaf, a book or a stage with colour to show state.",
+      "Don't put Acid or Cream on screen, or recolour Arby or the wordmark.",
+      "Don't round above 6px or cast a blurred shadow from content; blur belongs to floating chrome.",
+      "Don't set mono as body copy, or as a kicker line above a headline.",
+      "Don't show a resting screen with depth of field, or a screen that scrolls inside its frame."
     ]
   }
 }

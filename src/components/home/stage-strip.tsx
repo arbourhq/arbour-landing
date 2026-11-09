@@ -62,15 +62,21 @@ export function StageStrip() {
         setActive(next);
       }
 
-      // In while the board fills the window: from stage 01's heading coming
+      // In while the stages fill the window: from stage 01's heading coming
       // up past the dock to the last stage's foot clearing the middle.
-      const board = box.current?.parentElement?.getBoundingClientRect();
-      const isShown = board
-        ? board.top < vh * 0.7 && board.bottom > vh * 0.45
-        : false;
+      const first = document
+        .getElementById(`stage-${STAGES[0].id}`)
+        ?.getBoundingClientRect();
+      const last = document
+        .getElementById(`stage-${STAGES[STAGES.length - 1].id}`)
+        ?.getBoundingClientRect();
+      const isShown =
+        first && last ? first.top < vh * 0.7 && last.bottom > vh * 0.45 : false;
       if (isShown !== wasShown) {
         wasShown = isShown;
         setShown(isShown);
+        // Floating chrome at the foot (the Arby launcher) steps up over it.
+        document.documentElement.toggleAttribute("data-stage-dock", isShown);
       }
     };
     const onScroll = () => {
@@ -83,13 +89,13 @@ export function StageStrip() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(frame);
+      document.documentElement.removeAttribute("data-stage-dock");
     };
   }, []);
 
   return (
     <div
       ref={box}
-      data-arby-avoid
       data-shown={shown}
       inert={!shown}
       className="stage-dock pointer-events-none fixed inset-x-0 z-40"
