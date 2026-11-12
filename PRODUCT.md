@@ -120,8 +120,10 @@ are self-hosted through `next/font`. No CMS, no cookie banner. Analytics is
 Vercel Analytics plus the Meta Pixel (`src/components/meta-pixel.tsx`, off
 unless `NEXT_PUBLIC_META_PIXEL_ID` is set), its twin the Reddit Pixel
 (`src/components/reddit-pixel.tsx`, off unless `NEXT_PUBLIC_REDDIT_PIXEL_ID`
-is set) and a first-touch `arbour_attribution` cookie the console reads at
-sign-up. Both pixel ids are production env vars on the Vercel project. Env in
+is set), a first-touch `arbour_attribution` cookie the console reads at
+sign-up, and an `arbour_ref` cookie (newest wins) that carries a vendor's
+`?ref=<code>` referral link from any page to the console's onboarding
+(`src/lib/referral.ts`). Both pixel ids are production env vars on the Vercel project. Env in
 `.env.example`.
 
 Confirmed site facts:
