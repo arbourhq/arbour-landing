@@ -130,7 +130,7 @@ Confirmed site facts:
 
 - **Pricing mirrors the plan catalogue** in the main repo
   (`packages/core/src/plans.ts`): Solo $89, Studio $129 AUD a month, GST
-  inclusive, yearly at ten months for twelve, extra Studio seats $19, House by
+  inclusive, yearly at twelve months for the price of ten, extra Studio seats $19, House by
   arrangement. Trial is 14 days, no card, one per person. Solo and Studio
   route to sign-up; House routes to `/contact`.
 - **The site wears the product register.** Decided 26 October 2026: the

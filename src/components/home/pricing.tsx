@@ -189,8 +189,8 @@ export function Pricing() {
 
       <p className="cell-rule-t m-0 px-5 py-6 text-body text-ink-secondary sm:px-8 lg:px-12">
         Studio grows past eight people at ${EXTRA_SEAT.monthly} a month per
-        seat, or ${EXTRA_SEAT.yearly} a year. Yearly is ten months for the price
-        of twelve. One trial per person, ever; the plan you pick at sign-up
+        seat, or ${EXTRA_SEAT.yearly} a year. Yearly is twelve months for the
+        price of ten. One trial per person, ever; the plan you pick at sign-up
         applies from day one, and billing starts when the trial ends.
       </p>
     </Row>

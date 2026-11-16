@@ -1,7 +1,7 @@
 /**
  * The plan catalogue, mirrored from packages/core/src/plans.ts in the main
  * repo. Prices are AUD cents there and AUD dollars here, GST inclusive.
- * Yearly is ten months for the price of twelve. Change the catalogue first,
+ * Yearly is twelve months for the price of ten. Change the catalogue first,
  * then transcribe.
  */
 

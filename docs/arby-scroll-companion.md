@@ -100,5 +100,6 @@ The bird is the only way into Arby Help, so it says so. `.arby-say` lives inside
 - on each landing, a line chosen from `LINES` by context: the perch's own `data-arby-perch` name, or on the edge branch, the perch-marked block nearest the middle of the window;
 - at most `MAX_SAYS` (4) a page, never the same context twice running, hidden after `SAY_MS` or on the next scroll, and never again once the chat has been opened;
 - placed above the head unless the nav is in the way (then beside it), always on the side toward the page.
+- never over copy, a control or the window edge: the bubble is measured against the same text lines and controls the perch check uses, above first and then beside, and a landing with room for neither stays quiet and does not use up a line. On a phone the hero usually has no clear patch that wide, so the hello waits for a later landing (fixed 16 November 2026, audit A115).
 
 Hovering or focusing the bird shows the last line at any time.
