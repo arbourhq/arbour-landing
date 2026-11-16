@@ -73,6 +73,7 @@ export function ScrollCompanion() {
   const branch = useRef<HTMLDivElement>(null);
   const helpTrigger = useRef<HTMLButtonElement | null>(null);
   const helpPanel = useRef<HTMLDialogElement>(null);
+  const say = useRef<HTMLSpanElement>(null);
   const sayLead = useRef<HTMLSpanElement>(null);
   const sayCue = useRef<HTMLSpanElement>(null);
   const setHelpPerch = useRef<((open: boolean) => void) | null>(null);
@@ -315,6 +316,52 @@ export function ScrollCompanion() {
         position.y - size * 0.95 - 76 < viewport.top ? "beside" : "above";
     }
 
+    /**
+     * The bubble's settled box in viewport px. While hidden it is scaled down
+     * from its tail, so read the layout box against the hit area it sits in.
+     */
+    function bubbleBounds(): Rect | null {
+      const bubble = say.current;
+      const anchor = bubble?.offsetParent;
+      if (!bubble || !(anchor instanceof HTMLElement)) return null;
+      const origin = anchor.getBoundingClientRect();
+      const left = origin.left + bubble.offsetLeft;
+      const top = origin.top + bubble.offsetTop;
+      return {
+        left,
+        top,
+        right: left + bubble.offsetWidth,
+        bottom: top + bubble.offsetHeight,
+      };
+    }
+
+    /**
+     * The bubble obeys the bird's rule: it never covers copy or a control.
+     * Above the head first (beside it when the nav is in the way), then the
+     * other placement. On a phone there is often no clear patch 15rem wide
+     * next to the bird, so it says nothing there and waits for a landing
+     * with room. False leaves the default placement for the hover bubble.
+     */
+    function bubbleFits() {
+      const occupied = obstacles();
+      const first = bird.dataset.place;
+      for (const place of [first, first === "above" ? "beside" : "above"]) {
+        bird.dataset.place = place;
+        const box = bubbleBounds();
+        if (
+          box &&
+          box.left >= viewport.left &&
+          box.right <= viewport.right &&
+          box.top >= viewport.top &&
+          box.bottom <= innerHeight &&
+          !occupied.some((rect) => overlap(box, rect) > 0)
+        )
+          return true;
+      }
+      bird.dataset.place = first;
+      return false;
+    }
+
     function hush() {
       clearTimeout(sayTimer);
       bird.dataset.say = "false";
@@ -333,9 +380,10 @@ export function ScrollCompanion() {
       const [lead, cue] = LINES[perch] ?? LINES.branch;
       if (sayLead.current) sayLead.current.textContent = lead;
       if (sayCue.current) sayCue.current.textContent = `${verb} ${cue}`;
+      placeSay();
+      if (!bubbleFits()) return;
       says += 1;
       lastSaid = perch;
-      placeSay();
       clearTimeout(sayTimer);
       bird.dataset.say = "true";
       sayTimer = window.setTimeout(hush, SAY_MS);
@@ -765,7 +813,7 @@ export function ScrollCompanion() {
           {/* The speech bubble lives inside the hit area, so hovering it
               keeps it up and clicking it opens the chat. The button's label
               already says what it does, so the bubble is not read out. */}
-          <span className="arby-say" aria-hidden="true">
+          <span ref={say} className="arby-say" aria-hidden="true">
             <span ref={sayLead} className="arby-say-lead">
               {LINES.hello[0]}
             </span>
